@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Барбершоп Київ — Frisor Barbershop</title>
+  <meta name="description" content="Frisor barbershop — ліга досвідчених чоловічих перукарів. Київ, Україна. Онлайн запис.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: oklch(13% 0.015 28); color: oklch(94% 0.008 68); font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+    a { transition: color 0.15s, border-color 0.15s, background 0.15s; }
+    ::selection { background: oklch(70% 0.13 68); color: oklch(13% 0.015 28); }
+
+    /* NAV */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; background: oklch(13% 0.015 28); border-bottom: 1px solid oklch(22% 0.012 28); transition: border-color 0.3s; }
+    .nav-logo { text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: oklch(94% 0.008 68); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(65% 0.01 68); text-decoration: none; }
+    .nav-links a:hover { color: oklch(94% 0.008 68); }
+    .nav-cta { display: flex; gap: 16px; align-items: center; }
+    .nav-cta .lang { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(50% 0.01 68); text-decoration: none; }
+    .nav-cta .lang:hover { color: oklch(72% 0.01 68); }
+    .btn-primary { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: oklch(13% 0.015 28); background: oklch(70% 0.13 68); text-decoration: none; padding: 10px 22px; display: inline-block; }
+    .btn-primary:hover { background: oklch(76% 0.14 68); }
+    .btn-outline { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: oklch(78% 0.008 68); border: 1px solid oklch(35% 0.012 28); text-decoration: none; padding: 10px 22px; display: inline-block; }
+    .btn-outline:hover { border-color: oklch(60% 0.012 28); color: oklch(94% 0.008 68); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; align-items: flex-end; }
+    .hamburger span { display: block; height: 2px; background: oklch(94% 0.008 68); }
+
+    /* MOBILE MENU */
+    #mobile-menu { position: fixed; inset: 0; z-index: 300; background: oklch(11% 0.012 28); display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.25s ease-out; overflow-y: auto; }
+    #mobile-menu.open { transform: translateX(0); }
+    .mobile-header { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; height: 64px; border-bottom: 1px solid oklch(22% 0.012 28); flex-shrink: 0; }
+    .mobile-close { background: none; border: none; cursor: pointer; color: oklch(65% 0.01 68); font-size: 26px; line-height: 1; padding: 4px; transition: color 0.15s; }
+    .mobile-close:hover { color: oklch(94% 0.008 68); }
+    .mobile-nav { flex: 1; display: flex; flex-direction: column; }
+    .mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: oklch(94% 0.008 68); text-decoration: none; padding: 18px 24px; border-bottom: 1px solid oklch(20% 0.012 28); transition: color 0.15s; }
+    .mobile-nav a:hover { color: oklch(70% 0.13 68); }
+    .mobile-cta { padding: 24px; }
+
+    /* CONTAINER */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .section-label { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: oklch(70% 0.13 68); margin-bottom: 12px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4.5vw, 54px); font-weight: 700; color: oklch(94% 0.008 68); margin: 0; line-height: 1.05; }
+
+    /* HERO */
+    #hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; background: oklch(13% 0.015 28); overflow: hidden; }
+    .hero-watermark { position: absolute; right: -3%; top: 50%; transform: translateY(-50%); font-family: 'Cormorant Garamond', serif; font-size: min(23vw, 240px); font-weight: 700; letter-spacing: -0.04em; color: oklch(17% 0.012 28); line-height: 0.9; pointer-events: none; user-select: none; white-space: nowrap; }
+    .hero-line { position: absolute; left: 32px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent 0%, oklch(28% 0.012 28) 25%, oklch(28% 0.012 28) 75%, transparent 100%); }
+    .hero-content { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 1200px; margin: 0 auto; padding: clamp(100px, 12vw, 140px) 32px clamp(80px, 8vw, 100px); width: 100%; position: relative; z-index: 1; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(28px, 4vw, 44px); }
+    .hero-eyebrow-text { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: oklch(70% 0.13 68); font-weight: 500; }
+    .hero-eyebrow-line { flex-shrink: 0; width: 60px; height: 1px; background: oklch(70% 0.13 68); opacity: 0.6; }
+    .hero-eyebrow-sub { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: oklch(48% 0.01 68); }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 10vw, 112px); font-weight: 700; line-height: 0.92; letter-spacing: -0.02em; color: oklch(94% 0.008 68); margin: 0 0 clamp(28px, 4vw, 44px); text-transform: uppercase; max-width: 820px; }
+    .hero-title .accent { color: oklch(70% 0.13 68); }
+    .hero-tagline { font-size: clamp(14px, 1.6vw, 17px); color: oklch(60% 0.01 68); max-width: 420px; margin: 0 0 clamp(36px, 4vw, 52px); line-height: 1.7; font-weight: 300; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .hero-stats { border-top: 1px solid oklch(20% 0.012 28); background: oklch(11% 0.012 28); }
+    .hero-stats-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .stat-item { padding: 20px 36px 20px 0; display: flex; gap: 14px; align-items: center; border-right: 1px solid oklch(22% 0.012 28); margin-right: 36px; flex-shrink: 0; }
+    .stat-item:last-child { border-right: none; margin-right: 0; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: oklch(70% 0.13 68); line-height: 1; }
+    .stat-label { font-size: 11px; color: oklch(52% 0.01 68); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
+
+    /* NEWS */
+    #news { background: oklch(18% 0.012 28); border-bottom: 1px solid oklch(26% 0.012 28); }
+    .news-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: stretch; min-height: 60px; }
+    .news-tag { padding: 16px 24px 16px 0; display: flex; align-items: center; border-right: 1px solid oklch(28% 0.012 28); margin-right: 24px; flex-shrink: 0; font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: oklch(70% 0.13 68); font-weight: 600; white-space: nowrap; }
+    .news-item { flex: 1 1 200px; padding: 16px 20px 16px 0; display: flex; align-items: center; gap: 10px; text-decoration: none; color: oklch(76% 0.008 68); border-right: 1px solid oklch(26% 0.012 28); margin-right: 20px; min-width: 0; }
+    .news-item:last-child { border-right: none; margin-right: 0; }
+    .news-item:hover { color: oklch(94% 0.008 68); }
+    .news-dot { width: 5px; height: 5px; border-radius: 50%; background: oklch(70% 0.13 68); flex-shrink: 0; }
+    .news-text { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* PRICES */
+    #price { padding: clamp(56px, 8vw, 100px) 0; }
+    .price-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 40px; }
+    .price-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid oklch(26% 0.012 28); }
+    .price-table { width: 100%; min-width: 700px; border-collapse: collapse; }
+    .price-table thead tr { background: oklch(18% 0.012 28); }
+    .price-table th { padding: 15px 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 2px solid oklch(70% 0.13 68); white-space: nowrap; }
+    .price-table th:first-child { text-align: left; padding: 15px 20px; font-weight: 500; color: oklch(50% 0.01 68); }
+    .price-table th:not(:first-child) { text-align: center; color: oklch(78% 0.008 68); border-left: 1px solid oklch(26% 0.012 28); }
+    .price-table th.royal { color: oklch(70% 0.13 68); }
+    .price-table tbody tr:hover { background: oklch(17% 0.012 28); }
+    .price-table tbody tr.alt { background: oklch(15% 0.012 28); }
+    .price-table tbody tr.alt:hover { background: oklch(17% 0.012 28); }
+    .price-table td { padding: 15px 10px; font-size: 14px; border-bottom: 1px solid oklch(20% 0.012 28); }
+    .price-table td:first-child { padding: 15px 20px; color: oklch(86% 0.008 68); }
+    .price-table td:not(:first-child) { text-align: center; color: oklch(62% 0.01 68); border-left: 1px solid oklch(20% 0.012 28); }
+    .price-table td.royal { font-weight: 600; color: oklch(70% 0.13 68); }
+    .price-table td.na { color: oklch(36% 0.01 68); }
+    .price-note { margin-top: 16px; font-size: 12px; color: oklch(45% 0.01 68); }
+
+    /* LOCATIONS */
+    #contacts { padding: clamp(56px, 8vw, 100px) 0; background: oklch(15% 0.013 28); }
+    .loc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 1px; background: oklch(26% 0.012 28); border: 1px solid oklch(26% 0.012 28); }
+    .loc-card { display: block; padding: 24px; background: oklch(15% 0.013 28); text-decoration: none; color: inherit; transition: background 0.15s; }
+    .loc-card:hover { background: oklch(20% 0.014 28); }
+    .loc-num { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: oklch(70% 0.13 68); margin-bottom: 10px; font-weight: 600; }
+    .loc-address { font-size: 15px; font-weight: 500; color: oklch(90% 0.008 68); margin-bottom: 4px; line-height: 1.35; }
+    .loc-metro { font-size: 12px; color: oklch(52% 0.01 68); margin-bottom: 14px; }
+    .loc-phone { font-size: 13px; color: oklch(75% 0.008 68); letter-spacing: 0.03em; }
+    .show-more-btn { display: block; background: none; border: 1px solid oklch(34% 0.012 28); color: oklch(78% 0.008 68); cursor: pointer; padding: 13px 32px; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; margin: 28px auto 0; transition: border-color 0.15s, color 0.15s; }
+    .show-more-btn:hover { border-color: oklch(70% 0.13 68); color: oklch(94% 0.008 68); }
+    .cities-section { margin-top: 60px; padding-top: 40px; border-top: 1px solid oklch(24% 0.012 28); }
+    .cities-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: oklch(48% 0.01 68); margin-bottom: 18px; }
+    .city-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .city-tag { font-size: 13px; color: oklch(65% 0.01 68); text-decoration: none; padding: 7px 14px; border: 1px solid oklch(26% 0.012 28); transition: color 0.15s, border-color 0.15s; }
+    .city-tag:hover { color: oklch(94% 0.008 68); border-color: oklch(48% 0.012 28); }
+
+    /* ABOUT */
+    #about { padding: clamp(56px, 8vw, 100px) 0; }
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start; margin-bottom: 56px; }
+    .about-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 5vw, 58px); font-weight: 700; color: oklch(94% 0.008 68); line-height: 1.04; margin: 0 0 24px; }
+    .about-rule { width: 44px; height: 2px; background: oklch(70% 0.13 68); }
+    .about-text { font-size: 15px; line-height: 1.8; color: oklch(62% 0.01 68); margin: 0 0 18px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: oklch(26% 0.012 28); border: 1px solid oklch(26% 0.012 28); }
+    .stat-card { padding: 30px 28px; background: oklch(13% 0.015 28); }
+    .stat-big { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 700; color: oklch(70% 0.13 68); line-height: 1; margin-bottom: 8px; }
+    .stat-desc { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(52% 0.01 68); }
+
+    /* CERTIFICATES */
+    #certificates { padding: clamp(56px, 8vw, 100px) 0; background: oklch(18% 0.012 28); }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(40px, 6vw, 80px); align-items: center; }
+    .cert-label { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: oklch(70% 0.13 68); margin-bottom: 20px; }
+    .cert-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 48px); font-weight: 700; color: oklch(94% 0.008 68); margin: 0 0 20px; line-height: 1.08; }
+    .cert-text { font-size: 15px; line-height: 1.75; color: oklch(60% 0.01 68); margin: 0 0 32px; max-width: 400px; }
+    .cert-card { background: oklch(22% 0.014 28); padding: 40px 36px; border: 1px solid oklch(32% 0.012 28); }
+    .cert-inner { border: 1px solid oklch(70% 0.13 68); padding: 36px 32px; text-align: center; }
+    .cert-brand { font-size: 10px; letter-spacing: 0.5em; text-transform: uppercase; color: oklch(70% 0.13 68); margin-bottom: 20px; }
+    .cert-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: oklch(94% 0.008 68); letter-spacing: 0.04em; line-height: 1.25; margin-bottom: 24px; }
+    .cert-divider { width: 64px; height: 1px; background: oklch(70% 0.13 68); margin: 0 auto 20px; }
+    .cert-services { font-size: 11px; color: oklch(55% 0.01 68); letter-spacing: 0.18em; text-transform: uppercase; }
+
+    /* ARTICLES */
+    #articles { padding: clamp(56px, 8vw, 100px) 0; }
+    .articles-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 40px; }
+    .all-link { font-size: 12px; color: oklch(70% 0.13 68); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    .all-link:hover { color: oklch(86% 0.008 68); }
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+    .article-card { display: block; text-decoration: none; background: oklch(18% 0.012 28); border: 1px solid oklch(24% 0.012 28); overflow: hidden; transition: border-color 0.15s; }
+    .article-card:hover { border-color: oklch(42% 0.012 28); }
+    .article-img { height: 196px; background: oklch(20% 0.014 28); position: relative; overflow: hidden; border-bottom: 1px solid oklch(24% 0.012 28); }
+    .article-img-lines { position: absolute; inset: 0; }
+    .article-img-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: oklch(36% 0.012 28); }
+    .article-body { padding: 22px; }
+    .article-cat { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(70% 0.13 68); margin-bottom: 10px; }
+    .article-title { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; color: oklch(94% 0.008 68); line-height: 1.3; margin: 0; }
+
+    /* PARTNERS */
+    #partners { padding: 48px 0; background: oklch(16% 0.013 28); border-top: 1px solid oklch(22% 0.012 28); border-bottom: 1px solid oklch(22% 0.012 28); }
+    .partners-label { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: oklch(44% 0.01 68); margin-bottom: 28px; text-align: center; }
+    .partners-row { display: flex; flex-wrap: wrap; justify-content: center; border: 1px solid oklch(24% 0.012 28); }
+    .partner-item { flex: 1 1 180px; padding: 26px 32px; display: flex; align-items: center; justify-content: center; border-right: 1px solid oklch(24% 0.012 28); transition: background 0.15s; }
+    .partner-item:last-child { border-right: none; }
+    .partner-item:hover { background: oklch(20% 0.012 28); }
+    .partner-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.15em; color: oklch(42% 0.01 68); }
+
+    /* FAQ */
+    #faq { padding: clamp(56px, 8vw, 100px) 0; }
+    .faq-list { max-width: 780px; }
+    .faq-item { border-bottom: 1px solid oklch(22% 0.012 28); }
+    .faq-btn { width: 100%; text-align: left; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; gap: 16px; transition: opacity 0.15s; }
+    .faq-btn:hover { opacity: 0.8; }
+    .faq-question { font-size: 17px; font-weight: 500; color: oklch(92% 0.008 68); line-height: 1.35; font-family: 'DM Sans', sans-serif; }
+    .faq-icon { font-size: 22px; color: oklch(70% 0.13 68); line-height: 1; flex-shrink: 0; width: 22px; text-align: center; font-weight: 300; transition: transform 0.2s; }
+    .faq-answer { font-size: 15px; line-height: 1.8; color: oklch(62% 0.01 68); padding: 0 32px 22px 0; display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-icon { content: '−'; }
+
+    /* FOOTER */
+    footer { background: oklch(10% 0.012 28); border-top: 1px solid oklch(20% 0.012 28); padding: clamp(48px, 6vw, 72px) 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 40px; margin-bottom: 48px; }
+    .footer-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: oklch(94% 0.008 68); margin-bottom: 14px; }
+    .footer-tagline { font-size: 13px; color: oklch(50% 0.01 68); line-height: 1.65; margin: 0 0 22px; max-width: 200px; }
+    .social-row { display: flex; gap: 8px; }
+    .social-btn { width: 34px; height: 34px; border: 1px solid oklch(26% 0.012 28); display: flex; align-items: center; justify-content: center; text-decoration: none; color: oklch(55% 0.01 68); font-size: 11px; font-weight: 600; transition: border-color 0.15s, color 0.15s; }
+    .social-btn:hover { border-color: oklch(70% 0.13 68); color: oklch(94% 0.008 68); }
+    .footer-col-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: oklch(48% 0.01 68); margin-bottom: 18px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: oklch(60% 0.01 68); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: oklch(94% 0.008 68); }
+    .app-btns { display: flex; flex-direction: column; gap: 10px; }
+    .app-btn { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid oklch(24% 0.012 28); text-decoration: none; transition: border-color 0.15s; }
+    .app-btn:hover { border-color: oklch(70% 0.13 68); }
+    .app-sub { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(48% 0.01 68); margin-bottom: 2px; }
+    .app-name { font-size: 14px; font-weight: 600; color: oklch(86% 0.008 68); }
+    .footer-bottom { border-top: 1px solid oklch(18% 0.012 28); padding-top: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; }
+    .footer-copy { font-size: 12px; color: oklch(38% 0.01 68); }
+    .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-legal a { font-size: 12px; color: oklch(38% 0.01 68); text-decoration: none; transition: color 0.15s; }
+    .footer-legal a:hover { color: oklch(62% 0.01 68); }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      #main-nav { padding: 0 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .container { padding: 0 20px; }
+      .hero-content { padding-left: 20px; padding-right: 20px; }
+      .hero-line { left: 20px; }
+      .hero-eyebrow-sub { display: none; }
+      .hero-stats-inner { padding: 0 20px; }
+      #news .news-inner { padding: 0 20px; }
+      .price-header, .articles-header { padding: 0; }
+    }
+    @media (max-width: 600px) {
+      .stat-item { padding-right: 20px; margin-right: 20px; }
+      .news-item:nth-child(2) { display: none; }
+      .cert-inner { padding: 24px 20px; }
+      .cert-name { font-size: 22px; }
+    }
+
+    @keyframes menuIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+  </style>
+</head>
+<body>
+
+<!-- ░░ NAV ░░ -->
+<nav id="main-nav">
+  <a href="/" class="nav-logo">FRISOR</a>
+  <div class="nav-links">
+    <a href="#price">Послуги</a>
+    <a href="#contacts">Адреси</a>
+    <a href="#about">Про нас</a>
+    <a href="https://frisor.ua/barber-school/">Школа</a>
+    <a href="https://frisor.ua/franshiza-barbershop/">Франшиза</a>
+  </div>
+  <div class="nav-cta">
+    <a href="https://frisor.ua/en/" class="lang">EN</a>
+    <a href="#" class="btn-primary">Онлайн запис</a>
+  </div>
+  <button class="hamburger" id="menu-btn" aria-label="Меню">
+    <span style="width:24px"></span>
+    <span style="width:24px"></span>
+    <span style="width:16px"></span>
+  </button>
+</nav>
+
+<!-- ░░ MOBILE MENU ░░ -->
+<div id="mobile-menu">
+  <div class="mobile-header">
+    <span class="nav-logo">FRISOR</span>
+    <button class="mobile-close" id="menu-close">✕</button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="#price" class="mobile-link">Послуги та ціни</a>
+    <a href="#contacts" class="mobile-link">Наші адреси</a>
+    <a href="#about" class="mobile-link">Про нас</a>
+    <a href="https://frisor.ua/barber-school/">Школа Барберів</a>
+    <a href="https://frisor.ua/franshiza-barbershop/">Франшиза</a>
+  </nav>
+  <div class="mobile-cta">
+    <a href="#" class="btn-primary" style="display:block;text-align:center;padding:18px;font-size:13px;">ОНЛАЙН ЗАПИС</a>
+  </div>
+</div>
+
+<!-- ░░ HERO ░░ -->
+<section id="hero">
+  <div class="hero-watermark" aria-hidden="true">FRISOR</div>
+  <div class="hero-line" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-text">BARBERSHOP</span>
+      <span class="hero-eyebrow-line"></span>
+      <span class="hero-eyebrow-sub">КИЇВ · УКРАЇНА · ЄВРОПА</span>
+    </div>
+    <h1 class="hero-title">
+      ЛІГА<br>
+      ДОСВІДЧЕНИХ<br>
+      <span class="accent">ЧОЛОВІЧИХ</span><br>
+      ПЕРУКАРІВ
+    </h1>
+    <p class="hero-tagline">Перший барбершоп в Україні, відкритий самими майстрами. Класичні техніки, ідеальна геометрія, кінематографічне освітлення.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary" style="padding:15px 38px;font-size:12px;">ОНЛАЙН ЗАПИС</a>
+      <a href="#price" class="btn-outline" style="padding:15px 38px;font-size:12px;">ЦІНИ →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stats-inner">
+      <div class="stat-item"><span class="stat-num">25+</span><span class="stat-label">Локацій<br>у Києві</span></div>
+      <div class="stat-item"><span class="stat-num">600+</span><span class="stat-label">Клієнтів<br>щодня</span></div>
+      <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Країни<br>присутності</span></div>
+      <div class="stat-item"><span class="stat-num">2014</span><span class="stat-label">Рік<br>заснування</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ NEWS ░░ -->
+<section id="news">
+  <div class="news-inner">
+    <div class="news-tag">Новини</div>
+    <a href="https://frisor.ua/podii/frisor-london-vidkryttya/" target="_blank" class="news-item">
+      <span class="news-dot"></span>
+      <span class="news-text">Frisor London! Зустрічайте нас в Англії!</span>
+    </a>
+    <a href="https://frisor.ua/podii/nova-posluga-biozavivka-volossya/" target="_blank" class="news-item">
+      <span class="news-dot"></span>
+      <span class="news-text">Нова послуга: Біозавивка волосся</span>
+    </a>
+  </div>
+</section>
+
+<!-- ░░ PRICES ░░ -->
+<section id="price">
+  <div class="container">
+    <div class="price-header">
+      <div>
+        <div class="section-label">02 — ПОСЛУГИ</div>
+        <h2 class="section-title">Ціни на стрижку</h2>
+      </div>
+      <a href="#" class="btn-primary" style="padding:12px 24px;align-self:flex-end;">Онлайн запис</a>
+    </div>
+    <div class="price-table-wrap">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>Послуга</th>
+            <th>Barber</th>
+            <th>Top-Barber</th>
+            <th>Grand</th>
+            <th>Senior</th>
+            <th>Magister</th>
+            <th class="royal">Royal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Чоловіча стрижка</td>
+            <td>500</td><td>600</td><td>700</td><td>800</td><td>900</td><td class="royal">1100</td>
+          </tr>
+          <tr class="alt">
+            <td>Стрижка бороди</td>
+            <td>350</td><td>350</td><td>450</td><td>500</td><td>600</td><td class="royal">700</td>
+          </tr>
+          <tr>
+            <td>Стрижка + борода (комплекс)</td>
+            <td>850</td><td>950</td><td>1150</td><td>1300</td><td>1500</td><td class="royal">1800</td>
+          </tr>
+          <tr class="alt">
+            <td>Стрижка під насадку машинкою</td>
+            <td>350</td><td>400</td><td>500</td><td>600</td><td>650</td><td class="royal">750</td>
+          </tr>
+          <tr>
+            <td>Гоління небезпечною бритвою</td>
+            <td>400</td><td>500</td><td>550</td><td>600</td><td>700</td><td class="royal">800</td>
+          </tr>
+          <tr class="alt">
+            <td>Камуфлювання сивини</td>
+            <td>550</td><td>650</td><td>750</td><td>850</td><td>950</td><td class="royal">1100</td>
+          </tr>
+          <tr>
+            <td>Дитяча стрижка</td>
+            <td>500</td><td>600</td><td>700</td><td>800</td><td>900</td><td class="royal">1100</td>
+          </tr>
+          <tr class="alt">
+            <td>Стрижка вусів</td>
+            <td>150</td><td>150</td><td>150</td><td>200</td><td>250</td><td class="royal">350</td>
+          </tr>
+          <tr>
+            <td>Біозавивка волосся</td>
+            <td class="na">—</td><td class="na">—</td><td>3 500</td><td>3 500</td><td>3 500</td><td class="royal">4 000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-note">Ціни вказані у гривнях (₴). Ранг барбера відображає рівень досвіду та майстерності.</p>
+  </div>
+</section>
+
+<!-- ░░ LOCATIONS ░░ -->
+<section id="contacts">
+  <div class="container">
+    <div style="margin-bottom:40px;">
+      <div class="section-label">03 — АДРЕСИ</div>
+      <h2 class="section-title">Київ</h2>
+    </div>
+
+    <div class="loc-grid" id="loc-grid">
+      <!-- first 12 locations -->
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR I</div><div class="loc-address">Євгена Чикаленка, 9Б</div><div class="loc-metro">м. Театральна</div><div class="loc-phone">096 688 06 97</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR II</div><div class="loc-address">Саксаганського, 27</div><div class="loc-metro">м. Олімпійська</div><div class="loc-phone">098 120 80 32</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR III</div><div class="loc-address">Павла Скоропадського, 23/1</div><div class="loc-metro">Ботанічний сад</div><div class="loc-phone">067 355 75 01</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR IV</div><div class="loc-address">Басейна, 9</div><div class="loc-metro">м. Палац Спорту</div><div class="loc-phone">099 799 36 52</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR V</div><div class="loc-address">Дніпровська наб., 19</div><div class="loc-metro">м. Осокорки</div><div class="loc-phone">097 067 75 95</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR VII</div><div class="loc-address">Дмитра Луценка, 10А</div><div class="loc-metro">Британський квартал</div><div class="loc-phone">095 285 56 66</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR VIII</div><div class="loc-address">Партизанська, 30</div><div class="loc-metro">Козин</div><div class="loc-phone">073 7 888 000</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR IX</div><div class="loc-address">Оноре де Бальзака, 12</div><div class="loc-metro">Троєщина</div><div class="loc-phone">068 482 29 97</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR X</div><div class="loc-address">Левка Лук'яненка, 29</div><div class="loc-metro">м. Мінська</div><div class="loc-phone">098 295 59 90</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR XI</div><div class="loc-address">просп. Павла Тичини, 9</div><div class="loc-metro">Березняки</div><div class="loc-phone">063 516 46 76</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR XII</div><div class="loc-address">Берестейський пр-т, 16</div><div class="loc-metro">м. Політехнічний Інститут</div><div class="loc-phone">067 531 24 37</div></a>
+      <a href="#" class="loc-card"><div class="loc-num">FRISOR XIII</div><div class="loc-address">Харківське шосе, 7/13</div><div class="loc-metro">м. Дарниця</div><div class="loc-phone">063 381 00 13</div></a>
+      <!-- hidden extra locations -->
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XIV</div><div class="loc-address">вул. Шота Руставелі, 33А</div><div class="loc-metro">м. Палац Спорту</div><div class="loc-phone">067 888 33 14</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XV</div><div class="loc-address">вул. Деревлянська, 21</div><div class="loc-metro">м. Лук'янівська</div><div class="loc-phone">063 545 15 15</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XVI</div><div class="loc-address">Берестейський пр-т, 65Д</div><div class="loc-metro">ЖК «Нивки парк»</div><div class="loc-phone">096 083 29 11</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XVII</div><div class="loc-address">вул. Родини Крістерів, 18/6</div><div class="loc-metro">ТЦ Retroville</div><div class="loc-phone">096 785 59 61</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XVIII</div><div class="loc-address">Джона Маккейна, 38</div><div class="loc-metro">м. Дружби Народів</div><div class="loc-phone">068 788 98 71</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XIX</div><div class="loc-address">вул. Сагайдачного, 4</div><div class="loc-metro">Софіївська Борщагівка</div><div class="loc-phone">067 977 20 33</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XX</div><div class="loc-address">вул. Антоновича, 41</div><div class="loc-metro">р-н СК «Олімпійський»</div><div class="loc-phone">067 933 78 03</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XXI</div><div class="loc-address">вул. Сікорського, 1</div><div class="loc-metro">м. Берестейська</div><div class="loc-phone">093 503 21 21</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XXII</div><div class="loc-address">вул. Голосіївська, 13</div><div class="loc-metro">Деміївка</div><div class="loc-phone">093 920 13 13</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XXIII</div><div class="loc-address">вул. Кудряшова, 18А</div><div class="loc-metro">ЖК Пори Року</div><div class="loc-phone">093 454 23 23</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XXIV</div><div class="loc-address">вул. Львівська, 17</div><div class="loc-metro">Петропавлівська Борщагівка</div><div class="loc-phone">096 107 40 26</div></a>
+      <a href="#" class="loc-card loc-hidden" style="display:none"><div class="loc-num">FRISOR XXV</div><div class="loc-address">Максимовича, 32Б</div><div class="loc-metro">ЖК Лікоград Perfect Town</div><div class="loc-phone">093 394 72 84</div></a>
+    </div>
+
+    <button class="show-more-btn" id="loc-btn">Показати всі 25 локацій</button>
+
+    <div class="cities-section">
+      <div class="cities-label">Інші міста України</div>
+      <div class="city-tags">
+        <a href="https://frisor.ua/brovary/" class="city-tag">Бровари</a>
+        <a href="https://frisor.ua/bucha/" class="city-tag">Буча</a>
+        <a href="https://frisor.ua/vyshhorod/" class="city-tag">Вишгород</a>
+        <a href="https://frisor.ua/vinnitsya/" class="city-tag">Вінниця</a>
+        <a href="https://frisor.ua/dnipro/" class="city-tag">Дніпро</a>
+        <a href="https://frisor.ua/ivano-frankivsk/" class="city-tag">Івано-Франківськ</a>
+        <a href="https://frisor.ua/irpin/" class="city-tag">Ірпінь</a>
+        <a href="https://frisor.ua/lviv/" class="city-tag">Львів</a>
+        <a href="https://frisor.ua/mykolaiv/" class="city-tag">Миколаїв</a>
+        <a href="https://frisor.ua/odesa/" class="city-tag">Одеса</a>
+        <a href="https://frisor.ua/rivne/" class="city-tag">Рівне</a>
+        <a href="https://frisor.ua/ternopil/" class="city-tag">Тернопіль</a>
+        <a href="https://frisor.ua/kharkiv/" class="city-tag">Харків</a>
+        <a href="https://frisor.ua/kherson/" class="city-tag">Херсон</a>
+        <a href="https://frisor.ua/khmelnytskyi/" class="city-tag">Хмельницький</a>
+      </div>
+      <div class="cities-label">За кордоном</div>
+      <div class="city-tags">
+        <a href="https://frisor.pl" class="city-tag">Польща</a>
+        <a href="https://frisorbarbershop.com/" class="city-tag">Австрія</a>
+        <a href="https://frisorbarbershop.co.uk/" class="city-tag">Англія</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ ABOUT ░░ -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">04 — ПРО НАС</div>
+    <div class="about-grid">
+      <div>
+        <h2 class="about-title">Перший барбершоп в Україні, відкритий майстрами</h2>
+        <div class="about-rule"></div>
+      </div>
+      <div>
+        <p class="about-text">Frisor barbershop поєднав у собі старовинні традиції з технологіями, кінематографічне освітлення для якісної геометрії в стрижках і класичні техніки з мистецтвом скульптури чоловічої стрижки — тільки так можна розкрити і створити індивідуальний, впевнений образ.</p>
+        <p class="about-text" style="margin-bottom:0">Київ — серце країни і місце, де бере свій початок історія імперії перукарень Frisor. Особлива культура незалежних барберів розширює свої межі з кожним днем — від перших підвальних майстерень до мережі в трьох країнах Європи.</p>
+      </div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-big">2014</div><div class="stat-desc">Рік заснування</div></div>
+      <div class="stat-card"><div class="stat-big">600+</div><div class="stat-desc">Клієнтів щодня</div></div>
+      <div class="stat-card"><div class="stat-big">40+</div><div class="stat-desc">Локацій по Україні та Європі</div></div>
+      <div class="stat-card"><div class="stat-big">#1</div><div class="stat-desc">Перша Школа Барберів в Україні</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ CERTIFICATES ░░ -->
+<section id="certificates">
+  <div class="container">
+    <div class="cert-grid">
+      <div>
+        <div class="cert-label">05 — СЕРТИФІКАТИ</div>
+        <h2 class="cert-title">Подарункові сертифікати</h2>
+        <p class="cert-text">Даруйте сертифікати своїм близьким. Естетичний симбіоз класики, грумінгу та майстерності барберів Frisor — подарунок, що запам'ятається.</p>
+        <a href="https://frisor.ua/certificates" class="btn-primary" style="padding:15px 36px;font-size:12px;">ПРИДБАТИ СЕРТИФІКАТ</a>
+      </div>
+      <div class="cert-card">
+        <div class="cert-inner">
+          <div class="cert-brand">FRISOR BARBERSHOP</div>
+          <div class="cert-name">ПОДАРУНКОВИЙ<br>СЕРТИФІКАТ</div>
+          <div class="cert-divider"></div>
+          <div class="cert-services">Стрижка · Борода · Гоління</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ ARTICLES ░░ -->
+<section id="articles">
+  <div class="container">
+    <div class="articles-header">
+      <div>
+        <div class="section-label">06 — БЛОГ</div>
+        <h2 class="section-title">Статті</h2>
+      </div>
+      <a href="https://frisor.ua/gid-po-cholovichomu-stilyu/" class="all-link">Всі статті →</a>
+    </div>
+    <div class="articles-grid">
+      <a href="https://frisor.ua/gid-po-cholovichomu-stilyu/golena-golova-brutalna-zachiska-suchasnih-cholovikiv/" class="article-card">
+        <div class="article-img">
+          <div class="article-img-lines" style="background: repeating-linear-gradient(45deg, transparent 0px, transparent 22px, oklch(24% 0.012 28) 22px, oklch(24% 0.012 28) 23px);"></div>
+          <div class="article-img-label">фото статті</div>
+        </div>
+        <div class="article-body">
+          <div class="article-cat">Гід по стилю</div>
+          <h3 class="article-title">Голена голова: брутальна зачіска сучасних чоловіків</h3>
+        </div>
+      </a>
+      <a href="https://frisor.ua/gid-po-cholovichomu-stilyu/tsikavi-fakty-pro-barbershop/" class="article-card">
+        <div class="article-img">
+          <div class="article-img-lines" style="background: repeating-linear-gradient(135deg, transparent 0px, transparent 22px, oklch(24% 0.012 28) 22px, oklch(24% 0.012 28) 23px);"></div>
+          <div class="article-img-label">фото статті</div>
+        </div>
+        <div class="article-body">
+          <div class="article-cat">Гід по стилю</div>
+          <h3 class="article-title">Цікаві факти про барбершоп</h3>
+        </div>
+      </a>
+      <a href="https://frisor.ua/gid-po-cholovichomu-stilyu/najkrashhi-cholovichi-zachiski-u-2023-rotsi/" class="article-card">
+        <div class="article-img">
+          <div class="article-img-lines" style="background: repeating-linear-gradient(90deg, transparent 0px, transparent 22px, oklch(24% 0.012 28) 22px, oklch(24% 0.012 28) 23px);"></div>
+          <div class="article-img-label">фото статті</div>
+        </div>
+        <div class="article-body">
+          <div class="article-cat">Гід по стилю</div>
+          <h3 class="article-title">Найкращі чоловічі зачіски</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ PARTNERS ░░ -->
+<section id="partners">
+  <div class="container">
+    <div class="partners-label">Партнери</div>
+    <div class="partners-row">
+      <div class="partner-item"><span class="partner-name">CARLSBERG</span></div>
+      <div class="partner-item"><span class="partner-name">NEMIROFF</span></div>
+      <div class="partner-item"><span class="partner-name">МОРШИН</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FAQ ░░ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label">07 — FAQ</div>
+    <h2 class="section-title" style="margin-bottom:48px;">Поширені запитання</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">Як обрати барбера?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Обрати барбера легко — звертайте увагу на ранг і рейтинг у системі онлайн-запису. Ранг визначає не лише ціну, а й досвід та скілли майстра. Чим вищий ранг — тим більший професіоналізм барбера. А рейтинг допоможе побачити, як його оцінюють клієнти після візиту.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">Чи допомагаєте ви обрати стрижку?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Так, барбер у салоні Frisor завжди допоможе підібрати стрижку, що підкреслить ваш стиль, форму обличчя та особливості волосся. Майстер порадить оптимальний варіант і врахує всі побажання, щоб результат вас повністю влаштував.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">Чому вартість різна?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Ціна залежить від рангу барбера, який враховує його досвід, рівень скілів та майстерність. Чим вищий ранг — тим більше знань і практики має майстер. Ви можете обрати барбера, орієнтуючись на свій бюджет і бажаний рівень обслуговування.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question">Як записатися до вас?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Записатися можна зручно для вас: через сайт, у нашому фірмовому додатку Frisor для Android та iOS або зателефонувавши адміністратору. Обирайте спосіб, що підходить саме вам, і забронюйте зручний час у кілька кліків або по телефону.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">FRISOR</div>
+        <p class="footer-tagline">Барбершоп Київ. Ліга досвідчених чоловічих перукарів.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/FrisorBarbershop" target="_blank" class="social-btn">f</a>
+          <a href="https://www.instagram.com/frisorworkshop/" target="_blank" class="social-btn">ig</a>
+          <a href="https://www.youtube.com/channel/UCP6e8nuq3QOFgeoWZfvCfJw/" target="_blank" class="social-btn">yt</a>
+          <a href="https://www.tiktok.com/@frisorworkshop" target="_blank" class="social-btn">tk</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Навігація</div>
+        <div class="footer-links">
+          <a href="/">Головна</a>
+          <a href="https://frisor.ua/haircuts/">Чоловічі стрижки</a>
+          <a href="https://frisor.ua/barber-school/">Школа Барберів</a>
+          <a href="https://frisor.ua/radio-frisor/">Radio Frisor</a>
+          <a href="https://frisor.ua/franshiza-barbershop/">Франшиза</a>
+          <a href="https://frisor.ua/feedback/">Зворотній зв'язок</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Додаток</div>
+        <div class="app-btns">
+          <a href="https://apps.apple.com/ua/app/barbershop-frisor/id6759349557" target="_blank" class="app-btn">
+            <div><div class="app-sub">Download on the</div><div class="app-name">App Store</div></div>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.mobile.frisorbarbershop" target="_blank" class="app-btn">
+            <div><div class="app-sub">Get it on</div><div class="app-name">Google Play</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© Frisor Barbershop 2014–2026</div>
+      <div class="footer-legal">
+        <a href="https://frisor.ua/user-agreement/">Угода користувача</a>
+        <a href="https://frisor.ua/privacy/">Захист даних</a>
+        <a href="https://frisor.ua/rabota_v_frisor">Працювати в Frisor</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuClose = document.getElementById('menu-close');
+
+  menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  document.querySelectorAll('.mobile-link').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const icon = btn.querySelector('.faq-icon');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-icon').textContent = '+';
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        icon.textContent = '−';
+      }
+    });
+  });
+
+  // Show all locations
+  let locsShown = false;
+  const locBtn = document.getElementById('loc-btn');
+  locBtn.addEventListener('click', () => {
+    locsShown = !locsShown;
+    document.querySelectorAll('.loc-hidden').forEach(el => {
+      el.style.display = locsShown ? 'block' : 'none';
+    });
+    locBtn.textContent = locsShown ? 'Показати менше' : 'Показати всі 25 локацій';
+  });
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').style.borderBottomColor =
+      window.scrollY > 20 ? 'oklch(28% 0.012 28)' : 'oklch(22% 0.012 28)';
+  });
+</script>
+</body>
+</html>
