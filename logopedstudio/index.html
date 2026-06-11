@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Логопедична студія ГОРОБЧИК — Київ</title>
+<meta name="description" content="Логопедична студія ГОРОБЧИК — простір для гармонійного та всебічного розвитку вашої дитини. Логопед, нейропсихолог, психолог, розвивальні заняття. Київ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:#f9f6f0;color:#1a1a26;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+button,input,textarea,select{font-family:inherit}
+::selection{background:#d8ede6}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.fade-up{animation:fadeUp .85s ease both}
+.fade-in{animation:fadeIn 1s .2s ease both}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:transparent;border-bottom:1px solid transparent;transition:background .35s,border-color .35s,backdrop-filter .35s}
+#nav.scrolled{background:rgba(249,246,240,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:#e2ddd6}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:36px;height:36px;background:#2d6a4f;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-text{font-size:17px;font-weight:800;letter-spacing:-.4px;color:#1a1a26}
+.nav-links{list-style:none;display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:14px;font-weight:600;color:#555;transition:color .2s}
+.nav-links a:hover{color:#2d6a4f}
+.nav-cta{padding:10px 22px;background:#2d6a4f;color:#fff;border-radius:100px;font-size:13px;font-weight:700;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{background:#1e5038;transform:translateY(-1px)}
+.burger{background:none;border:none;cursor:pointer;padding:6px;display:none;align-items:center;justify-content:center;color:#1a1a26}
+.mobile-menu{display:none;background:#fff;border-top:1px solid #ebebeb;padding:20px 24px 28px}
+.mobile-menu.open{display:block;animation:fadeIn .18s ease}
+.mobile-menu ul{list-style:none;margin-bottom:20px}
+.mobile-menu li a{display:block;padding:13px 0;font-size:16px;font-weight:600;color:#1a1a26;border-bottom:1px solid #f0f0f0}
+.mobile-menu li:last-child a{border-bottom:none}
+.mobile-menu .mob-cta{display:block;text-align:center;padding:14px;background:#2d6a4f;color:#fff;border-radius:100px;font-weight:700;font-size:15px;margin-top:4px}
+
+/* ── BUTTONS ── */
+.btn{display:inline-block;border:none;cursor:pointer;font-weight:700;transition:background .2s,transform .15s}
+.btn-primary{padding:15px 30px;background:#2d6a4f;color:#fff;border-radius:100px;font-size:15px}
+.btn-primary:hover{background:#1e5038;transform:translateY(-2px)}
+.btn-outline{padding:15px 28px;background:transparent;color:#2d6a4f;border:2px solid #2d6a4f;border-radius:100px;font-size:15px;font-weight:600}
+.btn-outline:hover{background:#d8ede6}
+
+/* ── HERO ── */
+#hero{padding-top:70px;min-height:100vh;background:#f9f6f0;display:flex;align-items:center;overflow:hidden;position:relative}
+.hero-blob-1{position:absolute;top:-100px;right:-100px;width:560px;height:560px;background:#d8ede6;border-radius:50%;z-index:0}
+.hero-blob-2{position:absolute;bottom:-80px;left:-60px;width:260px;height:260px;background:#f3ece0;border-radius:50%;z-index:0}
+.hero-inner{max-width:1240px;margin:0 auto;padding:60px 24px 80px;width:100%;position:relative;z-index:1;display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#d8ede6;color:#1e5038;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:28px}
+.hero-h1{font-size:clamp(36px,5.5vw,66px);font-weight:800;line-height:1.08;letter-spacing:-2px;color:#0f1a14;margin-bottom:24px;text-wrap:balance}
+.hero-h1 span{color:#2d6a4f}
+.hero-p{font-size:clamp(15px,1.8vw,18px);line-height:1.75;color:#666;max-width:500px;margin-bottom:40px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:48px;margin-top:56px;padding-top:40px;border-top:1px solid #e2ddd6}
+.stat-val{font-size:36px;font-weight:800;letter-spacing:-1px;color:#2d6a4f;line-height:1}
+.stat-lbl{font-size:13px;color:#888;margin-top:5px}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
+.hero-circle{position:absolute;width:460px;height:460px;background:#d8ede6;border-radius:50%;right:0}
+.hero-circle-2{position:absolute;width:200px;height:200px;background:#e8c98a;opacity:.2;border-radius:50%;top:40px;left:20px}
+.hero-img{position:relative;z-index:2;max-width:320px;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,.12))}
+.hero-badge-card{position:absolute;bottom:80px;left:0;background:#fff;border-radius:16px;padding:14px 20px;box-shadow:0 12px 32px rgba(0,0,0,.1);z-index:3;animation:fadeUp .8s .5s both}
+.hero-badge-card-label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#888;margin-bottom:6px}
+.hero-badge-card-val{font-size:14px;font-weight:700;color:#1a1a26}
+
+/* ── SECTIONS ── */
+.section{padding:100px 24px}
+.section-inner{max-width:1240px;margin:0 auto}
+.section-center{text-align:center}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#2d6a4f;margin-bottom:12px}
+.section-h2{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-1px;color:#0f1a14}
+.section-header{margin-bottom:60px}
+
+/* ── MISSION ── */
+#mission{background:#d8ede6;padding:96px 24px}
+.mission-quote{font-size:clamp(22px,3.5vw,38px);font-weight:700;line-height:1.45;color:#0f1a14;letter-spacing:-.5px;text-wrap:balance}
+.mission-p{margin-top:28px;font-size:16px;line-height:1.75;color:#3a5a4a}
+.tags{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tag{padding:10px 22px;border-radius:100px;font-size:13px;font-weight:600}
+.tag-dark{background:#2d6a4f;color:#fff}
+.tag-light{background:#fff;color:#2d6a4f}
+
+/* ── SERVICES ── */
+#services{background:#fff}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{background:#f9f6f0;border-radius:24px;padding:34px 30px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;cursor:default}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 24px 48px rgba(0,0,0,.07)}
+.svc-num{position:absolute;top:20px;right:24px;font-size:56px;font-weight:800;color:#d4eae0;line-height:1;user-select:none}
+.svc-icon{width:56px;height:56px;background:#2d6a4f;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:#fff;font-size:22px;font-weight:800}
+.svc-title{font-size:18px;font-weight:800;color:#0f1a14;margin-bottom:6px}
+.svc-sub{font-size:12px;font-weight:700;color:#c8883a;text-transform:uppercase;letter-spacing:.6px;margin-bottom:18px}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.svc-list li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.55;color:#4a5a50}
+.svc-dot{width:5px;height:5px;min-width:5px;background:#c8883a;border-radius:50%;margin-top:7px;flex-shrink:0}
+
+/* ── FAQ ── */
+#faq{background:#f9f6f0}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{background:#fff;border-radius:16px;overflow:hidden;transition:box-shadow .2s}
+.faq-item:hover{box-shadow:0 8px 28px rgba(0,0,0,.06)}
+.faq-btn{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q{font-size:15px;font-weight:700;color:#0f1a14;line-height:1.4}
+.faq-arrow{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#d8ede6;display:flex;align-items:center;justify-content:center;color:#2d6a4f;transition:transform .35s}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.faq-item.open .faq-body{max-height:600px}
+.faq-text{padding:0 26px 26px;font-size:14.5px;line-height:1.8;color:#4a5a50}
+
+/* ── GALLERY ── */
+#gallery{background:#fff}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal-item{border-radius:18px;overflow:hidden;aspect-ratio:1/1;background:#d8ede6;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 16px 14px;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}
+.gal-caption span{font-size:12px;font-weight:600;color:#fff}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:#d8ede6}
+.testi-row{display:flex;gap:20px;flex-wrap:wrap}
+.testi-card{flex:1 1 260px;background:#fff;border-radius:22px;padding:30px;display:flex;flex-direction:column;gap:18px;min-width:240px}
+.testi-stars{color:#c8883a;font-size:16px;letter-spacing:2px}
+.testi-text{font-size:14.5px;line-height:1.75;color:#3a4a42;flex:1}
+.testi-footer{display:flex;align-items:center;gap:13px;padding-top:18px;border-top:1px solid #f0f0f0}
+.testi-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;background:#d8ede6;flex-shrink:0}
+.testi-name{font-size:13.5px;font-weight:700;color:#0f1a14}
+.testi-child{font-size:12px;color:#888;margin-top:2px}
+
+/* ── CONTACT ── */
+#contact{background:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-items{display:flex;flex-direction:column;gap:22px;margin-bottom:40px}
+.contact-item{display:flex;align-items:center;gap:16px}
+.contact-icon{width:48px;height:48px;background:#d8ede6;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#2d6a4f;flex-shrink:0}
+.contact-label{font-size:11px;color:#888;margin-bottom:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.contact-val{font-size:15px;font-weight:600;color:#1a1a26;transition:color .2s}
+.contact-val:hover{color:#2d6a4f}
+.socials{display:flex;gap:10px}
+.soc{width:44px;height:44px;background:#2d6a4f;color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s}
+.soc:hover{background:#1e5038;transform:translateY(-2px)}
+.form-box{background:#f9f6f0;border-radius:28px;padding:44px}
+.form-title{font-size:20px;font-weight:800;color:#0f1a14;margin-bottom:28px}
+.form-fields{display:flex;flex-direction:column;gap:14px}
+.form-input{width:100%;padding:13px 17px;background:#fff;border:1.5px solid #e0e0e0;border-radius:12px;font-size:14.5px;outline:none;transition:border-color .2s}
+.form-input:focus{border-color:#2d6a4f}
+.form-textarea{resize:vertical;min-height:110px}
+.form-submit{width:100%;padding:15px;background:#2d6a4f;color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s,transform .15s}
+.form-submit:hover{background:#1e5038;transform:translateY(-1px)}
+.form-thanks{display:none;text-align:center;padding:40px 0}
+.thanks-icon{width:72px;height:72px;background:#d8ede6;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:#2d6a4f}
+.thanks-h{font-size:22px;font-weight:800;color:#0f1a14;margin-bottom:10px}
+.thanks-p{font-size:15px;color:#666}
+
+/* ── FOOTER ── */
+#footer{background:#0f2318;padding:60px 24px 36px}
+.footer-row{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:52px}
+.footer-brand{max-width:300px}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.footer-logo-mark{width:32px;height:32px;background:#2d6a4f;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.footer-logo-text{font-size:16px;font-weight:800;color:#fff}
+.footer-tagline{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.5)}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
+.footer-links{display:flex;flex-direction:column;gap:11px}
+.footer-links a,.footer-links span{font-size:13.5px;color:rgba(255,255,255,.5);transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{padding-top:28px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer-copy{font-size:12.5px;color:rgba(255,255,255,.3)}
+.footer-socials{display:flex;gap:16px}
+.footer-socials a{font-size:12.5px;color:rgba(255,255,255,.3);transition:color .2s}
+.footer-socials a:hover{color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .nav-links,.nav-cta{display:none!important}
+  .burger{display:flex!important}
+  .hero-inner{grid-template-columns:1fr!important}
+  .hero-visual{display:none!important}
+  .svc-grid{grid-template-columns:1fr!important}
+  .contact-grid{grid-template-columns:1fr!important}
+  .gal-grid{grid-template-columns:repeat(2,1fr)!important}
+  .footer-row{flex-direction:column!important;gap:32px!important}
+  .hero-stats{gap:28px!important}
+}
+@media(max-width:560px){
+  .gal-grid{grid-template-columns:1fr!important}
+  .testi-row{flex-direction:column}
+}
+@media(min-width:861px) and (max-width:1100px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)!important}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <div class="logo-mark">
+        <svg width="20" height="16" viewBox="0 0 40 32" fill="white">
+          <ellipse cx="27" cy="21" rx="13" ry="8"/>
+          <circle cx="13" cy="16" r="7"/>
+          <path d="M6 15 L1 16.5 L6 18Z"/>
+          <circle cx="10" cy="14.5" r="1.8" fill="#2d6a4f"/>
+          <path d="M22 18 Q28 14 37 17" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="logo-text">ГОРОБЧИК</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#mission">Про нас</a></li>
+      <li><a href="#services">Послуги</a></li>
+      <li><a href="#gallery">Галерея</a></li>
+      <li><a href="#faq">Блог</a></li>
+      <li><a href="#contact">Контакти</a></li>
+    </ul>
+
+    <a href="#contact" class="nav-cta">Записатись</a>
+
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+      <svg id="burger-lines" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+      <svg id="burger-x" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#mission"  class="mob-link">Про нас</a></li>
+      <li><a href="#services" class="mob-link">Послуги</a></li>
+      <li><a href="#gallery"  class="mob-link">Галерея</a></li>
+      <li><a href="#faq"      class="mob-link">Блог</a></li>
+      <li><a href="#contact"  class="mob-link">Контакти</a></li>
+    </ul>
+    <a href="#contact" class="mob-cta mob-link">Записатись на консультацію</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="hero">
+  <div class="hero-blob-1"></div>
+  <div class="hero-blob-2"></div>
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-badge">Логопедична студія · Київ</div>
+      <h1 class="hero-h1">Простір для<br><span>гармонійного<br>розвитку</span><br>вашої дитини</h1>
+      <p class="hero-p">Кваліфіковані, прогресивні та творчі педагоги. Кожне заняття — крок до нових знань і впевненості у власних силах.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">Записатись на консультацію</a>
+        <a href="#services" class="btn btn-outline">Наші послуги</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">5+</div><div class="stat-lbl">спеціалістів</div></div>
+        <div><div class="stat-val">500+</div><div class="stat-lbl">дітей</div></div>
+        <div><div class="stat-val">4+</div><div class="stat-lbl">роки роботи</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-circle"></div>
+      <div class="hero-circle-2"></div>
+      <svg class="hero-img fade-in" viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg" style="max-width:320px;width:100%">
+        <!-- Body -->
+        <ellipse cx="175" cy="210" rx="95" ry="75" fill="#2d6a4f"/>
+        <!-- Head -->
+        <circle cx="108" cy="148" r="52" fill="#2d6a4f"/>
+        <!-- Beak -->
+        <path d="M68 148 L44 155 L68 162Z" fill="#c8883a"/>
+        <!-- Eye -->
+        <circle cx="95" cy="138" r="14" fill="white"/>
+        <circle cx="98" cy="138" r="8" fill="#0f2318"/>
+        <circle cx="101" cy="135" r="3" fill="white"/>
+        <!-- Wing detail -->
+        <path d="M140 200 Q190 165 255 185" stroke="rgba(255,255,255,.25)" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <path d="M140 220 Q195 190 258 210" stroke="rgba(255,255,255,.18)" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <!-- Tail -->
+        <path d="M255 230 Q285 210 295 240 Q275 238 265 255 Q255 245 255 230Z" fill="#1e5038"/>
+        <path d="M258 245 Q290 228 298 258" stroke="#2d6a4f" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <!-- Branch -->
+        <rect x="60" y="278" width="220" height="14" rx="7" fill="#c8883a" opacity=".7"/>
+        <rect x="40" y="282" width="260" height="6" rx="3" fill="#a06828" opacity=".4"/>
+        <!-- Feet -->
+        <line x1="145" y1="278" x2="130" y2="295" stroke="#c8883a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="130" y1="295" x2="115" y2="300" stroke="#c8883a" stroke-width="3" stroke-linecap="round"/>
+        <line x1="130" y1="295" x2="125" y2="305" stroke="#c8883a" stroke-width="3" stroke-linecap="round"/>
+        <line x1="130" y1="295" x2="138" y2="305" stroke="#c8883a" stroke-width="3" stroke-linecap="round"/>
+        <line x1="170" y1="278" x2="185" y2="295" stroke="#c8883a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="185" y1="295" x2="198" y2="300" stroke="#c8883a" stroke-width="3" stroke-linecap="round"/>
+        <line x1="185" y1="295" x2="187" y2="306" stroke="#c8883a" stroke-width="3" stroke-linecap="round"/>
+        <line x1="185" y1="295" x2="175" y2="306" stroke="#c8883a" stroke-width="3" stroke-linecap="round"/>
+        <!-- Small leaf decorations -->
+        <ellipse cx="80" cy="278" rx="12" ry="7" fill="#3a8a60" transform="rotate(-20 80 278)"/>
+        <ellipse cx="255" cy="278" rx="10" ry="6" fill="#3a8a60" transform="rotate(15 255 278)"/>
+        <ellipse cx="300" cy="276" rx="9" ry="5" fill="#2d6a4f" transform="rotate(-10 300 276)"/>
+      </svg>
+      <div class="hero-badge-card">
+        <div class="hero-badge-card-label">Записатись</div>
+        <div class="hero-badge-card-val">Безкоштовна консультація</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- МІСІЯ -->
+<section id="mission">
+  <div style="max-width:820px;margin:0 auto;text-align:center;">
+    <p class="section-label">Наша місія</p>
+    <p class="mission-quote">«Любити і розуміти, допомагати розкрити потенціал малюка, навчити новому та надати віри у свої сили — адже у нього обов'язково все вийде!»</p>
+    <p class="mission-p">Логопедична студія Горобчик — це кваліфіковані, прогресивні та творчі педагоги. Кожне заняття дає дитині знання, що перейдуть в уміння, сформують характер і допоможуть знайти своє місце у житті.</p>
+    <div class="tags">
+      <span class="tag tag-dark">Розвиток пам'яті та уваги</span>
+      <span class="tag tag-light">Корекція мовлення</span>
+      <span class="tag tag-light">Підготовка до школи</span>
+      <span class="tag tag-light">Всебічний розвиток</span>
+    </div>
+  </div>
+</section>
+
+<!-- ПОСЛУГИ -->
+<section id="services" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-label">Що ми пропонуємо</p>
+      <h2 class="section-h2">Наші послуги</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <span class="svc-num">01</span>
+        <div class="svc-icon">Л</div>
+        <h3 class="svc-title">Логопед</h3>
+        <p class="svc-sub">Від 2 років</p>
+        <ul class="svc-list">
+          <li><span class="svc-dot"></span>Корекційна робота з немовленнєвими дітьми з 2 років</li>
+          <li><span class="svc-dot"></span>Діагностика та корекція звуковимови у дошкільнят</li>
+          <li><span class="svc-dot"></span>Профілактика дисграфії та дислексії у школярів</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <span class="svc-num">02</span>
+        <div class="svc-icon">Н</div>
+        <h3 class="svc-title">Нейропсихолог</h3>
+        <p class="svc-sub">Розвиток мозку</p>
+        <ul class="svc-list">
+          <li><span class="svc-dot"></span>Покращення уваги, пам'яті та мислення</li>
+          <li><span class="svc-dot"></span>Розвиток самоконтролю та координації рухів</li>
+          <li><span class="svc-dot"></span>Подолання труднощів у навчанні</li>
+          <li><span class="svc-dot"></span>Гармонізація емоційного стану</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <span class="svc-num">03</span>
+        <div class="svc-icon">П</div>
+        <h3 class="svc-title">Психолог</h3>
+        <p class="svc-sub">Емоційний розвиток</p>
+        <ul class="svc-list">
+          <li><span class="svc-dot"></span>Подолання страхів та тривожності</li>
+          <li><span class="svc-dot"></span>Розвиток впевненості та самооцінки</li>
+          <li><span class="svc-dot"></span>Допомога при вікових кризах</li>
+          <li><span class="svc-dot"></span>Підготовка до садка та школи</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <span class="svc-num">04</span>
+        <div class="svc-icon">Р</div>
+        <h3 class="svc-title">Розвивальні заняття</h3>
+        <p class="svc-sub">Ігрова форма</p>
+        <ul class="svc-list">
+          <li><span class="svc-dot"></span>Розвиток мовлення та дрібної моторики</li>
+          <li><span class="svc-dot"></span>Математика, малювання, ліпка</li>
+          <li><span class="svc-dot"></span>Орієнтування у просторі та сенсорика</li>
+          <li><span class="svc-dot"></span>Танці, спів, рухова активність</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <span class="svc-num">05</span>
+        <div class="svc-icon">Ш</div>
+        <h3 class="svc-title">Підготовка до школи</h3>
+        <p class="svc-sub">Вік 5–7 років</p>
+        <ul class="svc-list">
+          <li><span class="svc-dot"></span>Основи грамоти та підготовка руки до письма</li>
+          <li><span class="svc-dot"></span>Початкові навички математики та читання</li>
+          <li><span class="svc-dot"></span>Формування психологічної готовності</li>
+          <li><span class="svc-dot"></span>Розвиток комунікації в колективі</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div style="max-width:780px;margin:0 auto;">
+    <div class="section-header section-center">
+      <p class="section-label">Часті запитання</p>
+      <h2 class="section-h2">Відповіді на ваші питання</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn"><span class="faq-q">Коли потрібно звернутися до логопеда?</span><span class="faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-body"><div class="faq-text">Зверніть увагу на такі ознаки:<br><br>• До 1 року — дитина не гулить і не лепече<br>• У 1,5–2,5 роки — майже не використовує зрозумілі слова<br>• У 4–5 років — пом'якшує більшість звуків («кіся», «сяпка»)<br>• Дитина гаркавить, шепелявить або говорить «в ніс»<br>• Після школи є труднощі з читанням або письмом<br><br>Якщо є сумніви — краще не чекати. Логопед оцінить рівень розвитку та підбере програму корекції.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn"><span class="faq-q">Хто такий нейропсихолог і коли до нього звертатися?</span><span class="faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-body"><div class="faq-text">Нейропсихолог вивчає зв'язок між роботою мозку та поведінкою дитини.<br><br>Консультація корисна, якщо:<br>• Дитина важко концентрується та відволікається<br>• Є проблеми з пам'яттю та засвоєнням інформації<br>• Спостерігається гіперактивність або надмірна повільність<br>• Є труднощі з поведінкою та самоконтролем<br>• Порушення координації або затримка розвитку</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn"><span class="faq-q">В яких випадках потрібен дитячий психолог?</span><span class="faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-body"><div class="faq-text">Варто звернутися при:<br>• Вікових кризах (1 рік, 3 роки, 7 років, підлітковий вік)<br>• Адаптації до садка або школи<br>• Сімейних проблемах (розлучення, конфлікти)<br>• Різких змінах у поведінці, агресії або депресії<br>• Нав'язливих страхах і тривожності<br><br>Профілактичні консультації позитивно впливають на взаємодію батьків і дитини.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn"><span class="faq-q">Як проходить діагностика та консультація?</span><span class="faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-body"><div class="faq-text">Заняття проходять у формі гри з використанням дидактичних матеріалів та спеціальних вправ.<br><br>Програма складається з урахуванням сильних сторін дитини. Спеціаліст регулярно оцінює прогрес та вносить корективи в програму занять.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn"><span class="faq-q">Чи потрібно готувати дитину до школи?</span><span class="faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-body"><div class="faq-text">Так, але без перевантаження. Не потрібно випереджати шкільну програму — це завдання вчителя.<br><br>Головне — навчити дитину базовим навичкам для успішного навчання та спілкування з однолітками.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn"><span class="faq-q">Як виховати лідерські якості у дитини?</span><span class="faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="faq-body"><div class="faq-text">Кілька порад:<br>• Завжди підтримуйте дитину і пояснюйте, що невдачі — частина шляху<br>• Будьте другом — нехай дитина вам довіряє<br>• Виховуйте чесність і відповідальність власним прикладом<br>• Розвивайте рішучість через право самостійно приймати рішення<br>• Практикуйте делегування через групові ігри<br><br>І головне — починайте із себе!</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ГАЛЕРЕЯ -->
+<section id="gallery" class="section" style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header section-center">
+      <p class="section-label">Наш простір</p>
+      <h2 class="section-h2">Студія зсередини</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item"><img src="https://www.logopedstudio.com.ua/wp-content/uploads/elementor/thumbs/IMG_3215-scaled-rlydc82x6daymqh70ja9j2dqpz860lfsbcsn7jn628.jpeg" alt="Ранній розвиток" loading="lazy"><div class="gal-caption"><span>Ранній розвиток</span></div></div>
+      <div class="gal-item"><img src="https://www.logopedstudio.com.ua/wp-content/uploads/elementor/thumbs/IMG_3559-scaled-rlydccs44jhe8sad93bedj71owl032yg0022lxg774.jpeg" alt="Логопедичні заняття" loading="lazy"><div class="gal-caption"><span>Логопедичні заняття</span></div></div>
+      <div class="gal-item"><img src="https://www.logopedstudio.com.ua/wp-content/uploads/elementor/thumbs/IMG_3065-scaled-rlydcxgkaw9pc7gbwc96wdz6rdr2sf8jeuer60lje8.jpeg" alt="Наш простір" loading="lazy"><div class="gal-caption"><span>Наш простір</span></div></div>
+      <div class="gal-item"><img src="https://www.logopedstudio.com.ua/wp-content/uploads/elementor/thumbs/IMG_3761-scaled-rlydcif59jp46g26c5r5shrt97t7d9ku0ryzhl7u5s.jpeg" alt="Живопис" loading="lazy"><div class="gal-caption"><span>Живопис</span></div></div>
+      <div class="gal-item"><img src="https://www.logopedstudio.com.ua/wp-content/uploads/elementor/thumbs/IMG_3293-scaled-rlydcn4c7pvjshvckpsamyl48561fr3hpf8evz0vao.jpeg" alt="Сенсорний розвиток" loading="lazy"><div class="gal-caption"><span>Сенсорний розвиток</span></div></div>
+      <div class="gal-item"><img src="https://www.logopedstudio.com.ua/wp-content/uploads/elementor/thumbs/IMG_3036-scaled-rlydd25r92g4y99i4wabqushqb3wuwr73ho6keekj4.jpeg" alt="Пластилінографія" loading="lazy"><div class="gal-caption"><span>Пластилінографія</span></div></div>
+      <div class="gal-item"><img src="https://www.logopedstudio.com.ua/wp-content/uploads/elementor/thumbs/IMG_3087-scaled-rlydcsrdcq39q5n5ns821x5vsge8pxpvq75brmsi9c.jpeg" alt="Творчі заняття" loading="lazy"><div class="gal-caption"><span>Творчі заняття</span></div></div>
+      <div class="gal-item"><img src="https://www.logopedstudio.com.ua/wp-content/uploads/elementor/thumbs/photo_2022-10-02_14-53-28-pvmc0vcruv2ib2vs2qqr7pmtgcjsoerb4msrewkhgw.jpg" alt="Логопедичний кабінет" loading="lazy"><div class="gal-caption"><span>Логопедичний кабінет</span></div></div>
+      <div class="gal-item"><img src="https://www.logopedstudio.com.ua/wp-content/uploads/elementor/thumbs/photo_2023-02-08_23-19-06-3-1-q2ab51u8ittleu5cqqmrmvpwsote9tobg7bahhn1ps.jpg" alt="Веселі аплікації" loading="lazy"><div class="gal-caption"><span>Веселі аплікації</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ВІДГУКИ -->
+<section id="testimonials" class="section">
+  <div class="section-inner">
+    <div class="section-header section-center">
+      <p class="section-label">Відгуки</p>
+      <h2 class="section-h2">Що кажуть батьки</h2>
+    </div>
+    <div class="testi-row">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Донька ходить з задоволенням. Заняття проходять весело і цікаво, все в ігровій формі. Донечка робить великі успіхи у вимові звуків!</p>
+        <div class="testi-footer">
+          <img class="testi-avatar" src="https://www.logopedstudio.com.ua/wp-content/uploads/2023/01/1.png" alt="Євгенія">
+          <div><div class="testi-name">Євгенія</div><div class="testi-child">Мама Полінки, 5 років</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Дякуємо за заняття. Все в ігровій формі, спеціаліст Анна дуже відчуває дитину. Супер логопед!</p>
+        <div class="testi-footer">
+          <img class="testi-avatar" src="https://www.logopedstudio.com.ua/wp-content/uploads/2023/01/2.png" alt="Надія">
+          <div><div class="testi-name">Надія</div><div class="testi-child">Мама Анни, 4 роки</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Дуже вдячна студії, що допомогли поставити правильно звуки. Дякую Ані за цікаві заняття і неймовірне терпіння!</p>
+        <div class="testi-footer">
+          <img class="testi-avatar" src="https://www.logopedstudio.com.ua/wp-content/uploads/2023/01/3.png" alt="Інна">
+          <div><div class="testi-name">Інна</div><div class="testi-child">Мама Марка, 4.5 роки</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Звернулись коли дитині було 3 роки і мови не було. Анна дуже швидко запустила мову, а тепер допомагає розвивати дитину далі.</p>
+        <div class="testi-footer">
+          <img class="testi-avatar" src="https://www.logopedstudio.com.ua/wp-content/uploads/2023/01/%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%B1%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B8.png" alt="Яна">
+          <div><div class="testi-name">Яна</div><div class="testi-child">Мама Лева, 4 роки</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТИ -->
+<section id="contact" class="section" style="background:#fff">
+  <div class="section-inner contact-grid">
+    <div>
+      <p class="section-label">Зв'яжіться з нами</p>
+      <h2 class="section-h2" style="margin-bottom:18px;line-height:1.15;">Запишіться<br>на консультацію</h2>
+      <p style="font-size:16px;line-height:1.75;color:#666;margin-bottom:44px;">Ми раді відповісти на будь-які запитання і підібрати індивідуальну програму для вашої дитини.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.657 16.657L13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/><path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg></div>
+          <div><div class="contact-label">Адреса</div><div class="contact-val">м. Київ, Левка Лук'яненка 18</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.11h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><div class="contact-label">Телефон</div><a href="tel:+380936521502" class="contact-val">+38 093 652 15 02</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="contact-label">Email</div><a href="mailto:gorobchiklogo@gmail.com" class="contact-val">gorobchiklogo@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="socials">
+        <a href="https://t.me/horobchiklogo" target="_blank" class="soc" title="Telegram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/gorobchyk_logostudio" target="_blank" class="soc" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/LogoGorobchik" target="_blank" class="soc" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <div class="form-thanks" id="form-thanks">
+        <div class="thanks-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3 class="thanks-h">Дякуємо!</h3>
+        <p class="thanks-p">Ми зв'яжемося з вами найближчим часом.</p>
+      </div>
+      <div id="form-wrap">
+        <h3 class="form-title">Залишити заявку</h3>
+        <form id="contact-form" class="form-fields">
+          <input class="form-input" type="text" name="name" placeholder="Ім'я та Прізвище" required>
+          <input class="form-input" type="tel" name="phone" placeholder="Номер телефону" required>
+          <input class="form-input" type="email" name="email" placeholder="Email (необов'язково)">
+          <textarea class="form-input form-textarea" name="message" placeholder="Повідомлення або запитання" rows="4"></textarea>
+          <button type="submit" class="form-submit">Надіслати заявку</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div style="max-width:1240px;margin:0 auto;">
+    <div class="footer-row">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-mark">
+            <svg width="18" height="14" viewBox="0 0 40 32" fill="rgba(255,255,255,.8)">
+              <ellipse cx="27" cy="21" rx="13" ry="8"/>
+              <circle cx="13" cy="16" r="7"/>
+              <path d="M6 15 L1 16.5 L6 18Z"/>
+            </svg>
+          </div>
+          <span class="footer-logo-text">ГОРОБЧИК</span>
+        </div>
+        <p class="footer-tagline">Логопедична студія. Простір для гармонійного та всебічного розвитку вашої дитини.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Навігація</div>
+        <div class="footer-links">
+          <a href="#mission">Про нас</a>
+          <a href="#services">Послуги</a>
+          <a href="#gallery">Галерея</a>
+          <a href="#contact">Контакти</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Контакти</div>
+        <div class="footer-links">
+          <a href="tel:+380936521502">+38 093 652 15 02</a>
+          <a href="mailto:gorobchiklogo@gmail.com">gorobchiklogo@gmail.com</a>
+          <span>м. Київ, Лук'яненка 18</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Логопедична студія ГОРОБЧИК. Всі права захищені.</span>
+      <div class="footer-socials">
+        <a href="https://t.me/horobchiklogo">Telegram</a>
+        <a href="https://www.instagram.com/gorobchyk_logostudio">Instagram</a>
+        <a href="https://www.facebook.com/LogoGorobchik">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ── Nav scroll effect ──
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, {passive:true});
+
+  // ── Mobile menu ──
+  var burger = document.getElementById('burger');
+  var menu   = document.getElementById('mobile-menu');
+  var lines  = document.getElementById('burger-lines');
+  var xIcon  = document.getElementById('burger-x');
+
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    lines.style.display = open ? 'none' : 'block';
+    xIcon.style.display = open ? 'block' : 'none';
+    burger.setAttribute('aria-expanded', open);
+  });
+
+  document.querySelectorAll('.mob-link').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      lines.style.display = 'block';
+      xIcon.style.display = 'none';
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ── FAQ accordion ──
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-btn').addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── Contact form ──
+  var form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('form-thanks').style.display = 'block';
+    });
+  }
+})();
+</script>
+
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <rect width="200" height="140" fill="#d8ede6"/>
+  <rect x="20" y="18" width="160" height="8" rx="4" fill="#2d6a4f" opacity=".9"/>
+  <rect x="20" y="34" width="120" height="6" rx="3" fill="#2d6a4f" opacity=".5"/>
+  <rect x="20" y="46" width="90" height="6" rx="3" fill="#2d6a4f" opacity=".35"/>
+  <rect x="20" y="64" width="50" height="28" rx="6" fill="#2d6a4f"/>
+  <rect x="78" y="64" width="50" height="28" rx="6" fill="none" stroke="#2d6a4f" stroke-width="2"/>
+  <circle cx="155" cy="40" r="28" fill="#2d6a4f" opacity=".15"/>
+  <ellipse cx="155" cy="42" rx="18" ry="12" fill="#2d6a4f" opacity=".3"/>
+  <circle cx="145" cy="38" r="9" fill="#2d6a4f" opacity=".4"/>
+</svg>
+</template>
+</body>
+</html>
