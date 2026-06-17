@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ціни від 3000 грн за 2-х осіб. Високий рівень сервісу. СПА зона входить в вартість проживання.">
+  <title>Номери та ціни — Хижина SPA · Трускавець</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #f5f0e8;
+      color: #1c1814;
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* Gallery */
+    .gallery-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-track img {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: #1c1814;
+      height: 66px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px;
+      border-bottom: 1px solid #2e2820;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem; color: #f0e8d8;
+      letter-spacing: 0.07em; white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-logo em { color: #c09a50; font-style: italic; }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a { color: #6a6050; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; transition: color .2s; }
+    .nav-links a:hover { color: #c09a50; }
+    .nav-links a.active { color: #f0e8d8; border-bottom: 1px solid #c09a50; padding-bottom: 2px; }
+    .nav-cta {
+      background: #c09a50; color: #1c1814 !important;
+      padding: 9px 20px; font-size: 0.72rem !important; letter-spacing: 0.1em !important;
+      font-weight: 600; transition: background .2s !important;
+    }
+    .nav-cta:hover { background: #d4ae6a !important; }
+    .nav-mobile { display: none; align-items: center; }
+    .nav-mobile a { color: #c09a50; font-size: 0.88rem; font-weight: 500; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: #1c1814;
+      padding: 88px 48px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(135deg,#c09a50 0,#c09a50 1px,transparent 0,transparent 28px);
+      background-size: 40px 40px;
+      opacity: 0.04; pointer-events: none;
+    }
+    .hero-inner { max-width: 1280px; margin: 0 auto; position: relative; animation: fadeUp .7s ease both; }
+    .hero-eyebrow { color: #c09a50; font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 20px; }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: #f0e8d8; font-weight: 300;
+      line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 28px;
+    }
+    .hero h1 em { color: #c09a50; font-style: italic; }
+    .hero-desc { color: #5a5040; max-width: 480px; line-height: 1.8; font-size: 0.88rem; font-weight: 300; margin-bottom: 44px; }
+    .hero-chips-label { color: #3e3628; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .hero-chips span { border: 1px solid #2e2820; color: #6a6050; padding: 5px 14px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* ─── ROOMS ─── */
+    .rooms-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    .room-article { padding: 80px 0; border-bottom: 1px solid #e4dace; position: relative; }
+    .room-num {
+      position: absolute; top: 60px; right: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(5rem, 12vw, 9rem);
+      font-weight: 600; color: #f0ebe0; line-height: 1;
+      user-select: none; pointer-events: none; z-index: 0;
+    }
+    .room-layout { display: flex; gap: 56px; align-items: flex-start; position: relative; z-index: 1; }
+    .room-gallery-wrap { flex: 0 0 54%; position: relative; overflow: hidden; }
+    .room-gallery-track { height: 420px; }
+    .gallery-count {
+      position: absolute; bottom: 14px; right: 14px;
+      background: rgba(28,24,20,.72); color: #e0d8c8;
+      font-size: 0.65rem; letter-spacing: 0.12em;
+      padding: 4px 11px; backdrop-filter: blur(4px);
+    }
+    .room-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: #1c1814; color: #c09a50;
+      font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 12px;
+    }
+    .room-details { flex: 1; min-width: 0; padding-top: 4px; }
+    .room-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 22px; }
+    .room-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; line-height: 1.1; max-width: 320px; }
+    .room-price-box { text-align: right; flex-shrink: 0; }
+    .room-price-label { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: #a09070; margin-bottom: 2px; }
+    .room-price-val { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 600; color: #1c1814; line-height: 1; }
+    .room-price-val span { font-size: 1rem; font-weight: 300; font-family: 'Jost'; color: #6a6050; }
+    .room-specs { display: flex; flex-wrap: wrap; gap: 28px; margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #e4dace; }
+    .spec-label { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: #a09070; margin-bottom: 5px; }
+    .spec-val { font-size: 1rem; font-weight: 500; }
+    .prices-label { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: #a09070; margin-bottom: 12px; }
+    .price-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid #eee7da; gap: 12px; }
+    .price-period { font-size: 0.82rem; color: #6a6050; flex-shrink: 0; }
+    .price-amounts { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .price-base { font-size: 1rem; font-weight: 500; white-space: nowrap; }
+    .price-extra { font-size: 0.72rem; color: #a09070; white-space: nowrap; }
+    .room-amenities { font-size: 0.8rem; color: #7a7060; line-height: 1.75; margin-bottom: 30px; text-wrap: pretty; }
+    .room-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .btn-book { background: #1c1814; color: #f0e8d8; padding: 14px 34px; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; transition: background .2s, color .2s; display: inline-block; }
+    .btn-book:hover { background: #c09a50; color: #1c1814; }
+    .room-tel { color: #c09a50; font-size: 0.82rem; transition: opacity .2s; }
+    .room-tel:hover { opacity: .7; }
+
+    /* ─── POLICY ─── */
+    .policy { background: #1c1814; margin-top: 40px; padding: 80px 48px; }
+    .policy-inner { max-width: 1280px; margin: 0 auto; }
+    .policy-eyebrow { color: #c09a50; font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 16px; }
+    .policy h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; color: #f0e8d8; margin-bottom: 44px; }
+    .policy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; }
+    .policy-block { border-top: 1px solid #2e2820; padding-top: 20px; }
+    .policy-block-label { color: #c09a50; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; }
+    .policy-block p { color: #7a7060; font-size: 0.82rem; line-height: 1.75; }
+    .policy-block a { color: #c09a50; border-bottom: 1px solid #3e3020; }
+
+    /* ─── FOOTER ─── */
+    footer { background: #141210; padding: 56px 48px 32px; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 48px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #f0e8d8; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .footer-logo em { color: #c09a50; font-style: italic; }
+    .footer-tagline { color: #5a5040; font-size: 0.78rem; line-height: 1.7; }
+    .footer-col-label { color: #c09a50; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { color: #9a9080; font-size: 0.82rem; transition: color .2s; }
+    .footer-links a:hover { color: #c09a50; }
+    .footer-address { color: #9a9080; font-size: 0.82rem; line-height: 1.7; }
+    .footer-bottom { border-top: 1px solid #2a2420; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+    .footer-copy { color: #3e3628; font-size: 0.7rem; }
+    .footer-socials { display: flex; gap: 24px; }
+    .footer-socials a { color: #3e3628; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color .2s; }
+    .footer-socials a:hover { color: #c09a50; }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(28,24,20,.82); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; animation: overlayIn .25s ease; }
+    .modal-box { position: relative; background: #f5f0e8; max-width: 480px; width: 100%; padding: 44px 40px; animation: modalIn .3s ease; }
+    .modal-close { position: absolute; top: 16px; right: 18px; font-size: 1.6rem; color: #a09070; line-height: 1; transition: color .2s; }
+    .modal-close:hover { color: #1c1814; }
+    .modal-eyebrow { color: #c09a50; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 10px; }
+    .modal-room { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 400; color: #1c1814; margin-bottom: 28px; line-height: 1.2; }
+    .modal-divider { border-top: 1px solid #e4dace; padding-top: 24px; margin-bottom: 28px; }
+    .modal-desc { font-size: 0.78rem; color: #7a7060; line-height: 1.7; margin-bottom: 20px; }
+    .modal-phones { display: flex; flex-direction: column; gap: 12px; }
+    .modal-ph1 { display: flex; align-items: center; padding: 14px 18px; background: #1c1814; color: #f0e8d8; font-size: 0.88rem; transition: background .2s; }
+    .modal-ph1:hover { background: #2e2820; }
+    .modal-ph2 { display: flex; align-items: center; padding: 14px 18px; background: #c09a50; color: #1c1814; font-size: 0.88rem; font-weight: 600; transition: background .2s; }
+    .modal-ph2:hover { background: #d4ae6a; }
+    .modal-form-section { border-top: 1px solid #e4dace; padding-top: 20px; }
+    .modal-form-label { color: #a09070; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .modal-fields { display: flex; flex-direction: column; gap: 10px; }
+    .modal-fields input { border: 1px solid #e4dace; background: #fff; padding: 11px 14px; font-size: 0.82rem; font-family: 'Jost'; color: #1c1814; outline: none; width: 100%; transition: border-color .2s; }
+    .modal-fields input:focus { border-color: #c09a50; }
+    .modal-dates { display: flex; gap: 10px; }
+    .modal-dates input { flex: 1; }
+    .btn-submit { background: #1c1814; color: #f0e8d8; padding: 14px; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; margin-top: 4px; transition: background .2s; width: 100%; }
+    .btn-submit:hover { background: #c09a50; color: #1c1814; }
+
+    /* Thanks */
+    .thanks-box { position: relative; background: #f5f0e8; max-width: 400px; width: 100%; padding: 52px 40px; text-align: center; animation: modalIn .3s ease; }
+    .thanks-check { color: #c09a50; font-size: 2.5rem; margin-bottom: 20px; }
+    .thanks-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: #1c1814; margin-bottom: 14px; }
+    .thanks-desc { font-size: 0.82rem; color: #7a7060; line-height: 1.7; margin-bottom: 28px; }
+
+    @keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-mobile { display: flex; }
+      .hero { padding: 64px 24px; }
+      .rooms-wrap { padding: 0 24px; }
+      .room-layout { flex-direction: column; gap: 32px; }
+      .room-gallery-wrap { flex: none; width: 100%; }
+      .room-gallery-track { height: 300px; }
+      .room-num { top: 44px; }
+      .policy { padding: 56px 24px; }
+      footer { padding: 48px 24px 28px; }
+      .modal-box { padding: 36px 28px; }
+    }
+    @media (max-width: 520px) {
+      .hero { padding: 48px 16px; }
+      .rooms-wrap { padding: 0 16px; }
+      .room-gallery-track { height: 240px; }
+      .room-article { padding: 56px 0; }
+      .policy { padding: 48px 16px; }
+      footer { padding: 40px 16px 24px; }
+      .modal-box { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a href="https://higinaspa.com.ua" class="nav-logo">Хижина <em>SPA</em></a>
+  <div class="nav-links">
+    <a href="https://higinaspa.com.ua">Головна</a>
+    <a href="#" class="active">Номери</a>
+    <a href="https://higinaspa.com.ua/spa-center-ua/">СПА центр</a>
+    <a href="https://higinaspa.com.ua/procedures-ua/">Процедури</a>
+    <a href="https://higinaspa.com.ua/restaurant-ukr/">Харчування</a>
+    <a href="https://higinaspa.com.ua/gallery-ua/">Галерея</a>
+    <a href="tel:+380673704853" class="nav-cta">+38 (067) 370-48-53</a>
+  </div>
+  <div class="nav-mobile">
+    <a href="tel:+380673704853">+38 (067) 370-48-53</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Хижина SPA · Трускавець</p>
+    <h1>Номери<br><em>та ціни</em></h1>
+    <p class="hero-desc">45 комфортабельних номерів з унікальним дизайном — від затишного стандарту до розкішного мансардного люксу. СПА-зона включена у вартість проживання.</p>
+    <p class="hero-chips-label">Включено у проживання · 10:00–21:00</p>
+    <div class="hero-chips">
+      <span>Басейн</span><span>Джакузі</span><span>Сауна</span>
+      <span>Римська парна</span><span>Соляна печера</span><span>Ароматерапія</span><span>Кінозал</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ROOMS ─── -->
+<div class="rooms-wrap" id="rooms-wrap"></div>
+
+<!-- ─── POLICY ─── -->
+<section class="policy">
+  <div class="policy-inner">
+    <p class="policy-eyebrow">Правила</p>
+    <h2>Умови проживання</h2>
+    <div class="policy-grid">
+      <div class="policy-block">
+        <p class="policy-block-label">Ціни та розміщення</p>
+        <p>Ціна вказана за проживання двох осіб. Діти до 6 років — безкоштовно без додаткового місця. При заїзді обов'язково мати паспорт. Туристичний збір: 17,3 ₴ з особи за добу.</p>
+      </div>
+      <div class="policy-block">
+        <p class="policy-block-label">СПА-зона та кінозал</p>
+        <p>Басейн, джакузі, сауна, римська парна, соляна печера, кімната ароматерапії — щодня з 10:00 до 21:00. Перегляд фільмів у кінозалі — включено у вартість проживання.</p>
+      </div>
+      <div class="policy-block">
+        <p class="policy-block-label">Скасування броні</p>
+        <p>За 20+ днів — повне повернення передоплати. За 10 днів — 50% повернення. Менше 5 днів або у випадку незаїзду — передоплата не повертається. Ранній виїзд без попередження — штраф одна доба.</p>
+      </div>
+      <div class="policy-block">
+        <p class="policy-block-label">Харчування</p>
+        <p>Не входить у вартість проживання. Ресторан і лаунж-бар на території вілли пропонують кілька варіантів харчування. <a href="https://higinaspa.com.ua/restaurant-ukr/">Детальніше →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">Хижина <em>SPA</em></p>
+        <p class="footer-tagline">Сучасний оздоровчий комплекс у Трускавці. Відпочинок, лікування, широкий вибір SPA-процедур.</p>
+      </div>
+      <div>
+        <p class="footer-col-label">Контакти</p>
+        <div class="footer-links">
+          <a href="tel:+380324768964">(032) 476-89-64</a>
+          <a href="tel:+380673704853">(067) 370-48-53</a>
+          <a href="/cdn-cgi/l/email-protection#9be8ebfab5f3f2fcf2f5fadbfcf6faf2f7b5f8f4f6"><span class="__cf_email__" data-cfemail="fd8e8d9cd395949a94939cbd9a909c9491d39e9290">[email&#160;protected]</span></a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-label">Адреса</p>
+        <p class="footer-address">Україна, Львівська обл.,<br>м. Трускавець,<br>вул. Бориславська, 29а</p>
+      </div>
+      <div>
+        <p class="footer-col-label">Розділи</p>
+        <div class="footer-links">
+          <a href="https://higinaspa.com.ua/spa-center-ua/">СПА центр</a>
+          <a href="https://higinaspa.com.ua/procedures-ua/">Процедури</a>
+          <a href="https://higinaspa.com.ua/restaurant-ukr/">Харчування</a>
+          <a href="https://higinaspa.com.ua/gallery-ua/">Галерея</a>
+          <a href="https://higinaspa.com.ua/dosug-ua/">Дозвілля</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Хижина SPA · Трускавець</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/higinaspa/">Facebook</a>
+        <a href="https://www.instagram.com/villa_higinaspa/">Instagram</a>
+        <a href="https://higinaspa.com.ua/wp-content/themes/higinaspa_2020/oferta/publichna_oferta_gotelni_poslugy_hizhina_spa_FOP.pdf">Публічна оферта</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── BOOKING MODAL ─── -->
+<div class="modal-overlay" id="booking-modal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(null,true)">×</button>
+    <p class="modal-eyebrow">Бронювання</p>
+    <h3 class="modal-room" id="modal-room-name">Номер</h3>
+    <div class="modal-divider">
+      <p class="modal-desc">Зв'яжіться з менеджером або залиште заявку — ми передзвонимо для підтвердження деталей.</p>
+      <div class="modal-phones">
+        <a href="tel:+380324768964" class="modal-ph1">(032) 476-89-64</a>
+        <a href="tel:+380673704853" class="modal-ph2">(067) 370-48-53</a>
+      </div>
+    </div>
+    <div class="modal-form-section">
+      <p class="modal-form-label">Або залиште заявку онлайн</p>
+      <div class="modal-fields">
+        <input type="text" placeholder="Ваше ім'я">
+        <input type="tel" placeholder="Телефон">
+        <div class="modal-dates">
+          <input type="date">
+          <input type="date">
+        </div>
+        <button class="btn-submit" onclick="submitBooking()">Надіслати заявку</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── THANKS MODAL ─── -->
+<div class="modal-overlay" id="thanks-modal" onclick="closeThanks()">
+  <div class="thanks-box" onclick="event.stopPropagation()">
+    <p class="thanks-check">✓</p>
+    <h3 class="thanks-title">Заявку отримано</h3>
+    <p class="thanks-desc">Наш менеджер зв'яжеться з вами найближчим часом для підтвердження бронювання.</p>
+    <button class="btn-book" onclick="closeThanks()">Закрити</button>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const ROOMS = [
+  {
+    id: 'lux', num: '01', badge: 'Преміум',
+    name: 'Люкс',
+    area: 45, guests: 4, priceFrom: 3900,
+    prices: [
+      { period: '01.04 — 31.05.2026', base: '3\u00a0900', extra: '1\u00a0000' },
+      { period: '01.06 — 31.08.2026', base: '4\u00a0000', extra: '1\u00a0100' },
+    ],
+    amenities: 'Двоспальне ліжко, двоспальний диван, великий санвузол з ванною, шафа для одягу, Wi-Fi, телевізор, фен, банні халати, рушники, тапочки, набір міні-парфумерії. Сейф за бажанням.',
+    photos: [
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-116-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-121-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2021/12/photo-73-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-126-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2023/05/IMG_3798-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2021/12/photo-58-365x300.jpg',
+    ]
+  },
+  {
+    id: 'lux-balcony', num: '02', badge: 'Преміум · Балкон',
+    name: 'Люкс з Балконом',
+    area: 45, guests: 4, priceFrom: 4100,
+    prices: [
+      { period: '01.04 — 31.05.2026', base: '4\u00a0100', extra: '1\u00a0000' },
+      { period: '01.06 — 31.08.2026', base: '4\u00a0200', extra: '1\u00a0100' },
+    ],
+    amenities: 'Двоспальне ліжко, двоспальний диван, великий санвузол з ванною, балкон з краєвидом, шафа, Wi-Fi, телевізор, фен, халати, рушники, тапочки, міні-парфумерія. Сейф за бажанням.',
+    photos: [
+      'https://higinaspa.com.ua/wp-content/uploads/2023/11/IMG_3626-2-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2023/11/IMG_3627-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2023/11/IMG_3632-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2023/11/IMG_3634-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-38-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-18-365x300.jpg',
+    ]
+  },
+  {
+    id: 'mansard-lux', num: '03', badge: 'Преміум · Мансарда',
+    name: 'Мансардний Люкс',
+    area: 45, guests: 4, priceFrom: 4100,
+    prices: [
+      { period: '01.04 — 31.05.2026', base: '4\u00a0100', extra: '1\u00a0000' },
+      { period: '01.06 — 31.08.2026', base: '4\u00a0200', extra: '1\u00a0100' },
+    ],
+    amenities: 'Двоспальне ліжко, двоспальний диван, великий санвузол з ванною, шафа, Wi-Fi, телевізор, фен, халати, рушники, тапочки, міні-парфумерія. Сейф за бажанням.',
+    photos: [
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-13-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-4-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-5-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-8-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-46-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-47-365x300.jpg',
+    ]
+  },
+  {
+    id: 'duplex', num: '04', badge: 'Двокімнатний',
+    name: 'Покращений Двомісний',
+    area: 35, guests: 4, priceFrom: 3700,
+    prices: [
+      { period: '01.04 — 31.05.2026', base: '3\u00a0700', extra: '1\u00a0000' },
+      { period: '01.06 — 31.08.2026', base: '3\u00a0800', extra: '1\u00a0100' },
+    ],
+    amenities: 'Двоспальне ліжко, двоспальний диван, санвузол з душем, шафа, Wi-Fi, телевізор, фен, халати, рушники, тапочки, міні-парфумерія. Сейф за бажанням.',
+    photos: [
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-131-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-133-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-139-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-151-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-157-365x300.jpg',
+    ]
+  },
+  {
+    id: 'improved', num: '05', badge: 'Покращений',
+    name: 'Однокімнатний Покращений',
+    area: 19, guests: 3, priceFrom: 3500,
+    prices: [
+      { period: '01.04 — 31.05.2026', base: '3\u00a0500', extra: '1\u00a0000' },
+      { period: '01.06 — 31.08.2026', base: '3\u00a0600', extra: '1\u00a0100' },
+    ],
+    amenities: 'Двоспальне ліжко, санвузол з душем, шафа, Wi-Fi, телевізор, фен, халати, рушники, тапочки, міні-парфумерія. Сейф за бажанням.',
+    photos: [
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-85-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-88-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-89-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-93-365x300.jpg',
+    ]
+  },
+  {
+    id: 'studio', num: '06', badge: 'Студіо',
+    name: 'Студіо',
+    area: 45, guests: 4, priceFrom: 3400,
+    prices: [
+      { period: '01.04 — 31.05.2026', base: '3\u00a0400', extra: '1\u00a0000' },
+      { period: '01.06 — 31.08.2026', base: '3\u00a0500', extra: '1\u00a0100' },
+    ],
+    amenities: 'Двоспальне ліжко, двоспальний диван, великий санвузол з ванною, шафа, Wi-Fi, телевізор, фен, халати, рушники, тапочки, міні-парфумерія. Номер без вікон на вулицю. Сейф за бажанням.',
+    photos: [
+      'https://higinaspa.com.ua/wp-content/uploads/2025/05/IMG_1562-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/05/IMG_1565-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/05/IMG_1563-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/05/IMG_1568-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/05/IMG_1569-365x300.jpg',
+    ]
+  },
+  {
+    id: 'standard', num: '07', badge: 'Стандарт',
+    name: 'Стандарт Двомісний',
+    area: 18, guests: 2, priceFrom: 3400,
+    prices: [
+      { period: '01.04 — 31.05.2026', base: '3\u00a0400', extra: null },
+      { period: '01.06 — 31.08.2026', base: '3\u00a0500', extra: null },
+    ],
+    amenities: 'Двоспальне ліжко, санвузол з душем, шафа, Wi-Fi, телевізор, фен, халати, рушники, тапочки, міні-парфумерія. Сейф за бажанням.',
+    photos: [
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-69a-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-67-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-76-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2025/10/photo-77-365x300.jpg',
+    ]
+  },
+  {
+    id: 'mansard-std', num: '08', badge: 'Мансарда',
+    name: 'Однокімнатний Мансардний',
+    area: 18, guests: 2, priceFrom: 3000,
+    prices: [
+      { period: '09.03 — 31.05.2026', base: '3\u00a0000', extra: null },
+      { period: '01.06 — 31.08.2026', base: '3\u00a0200', extra: null },
+    ],
+    amenities: 'Двоспальне ліжко, санвузол з душем, шафа, Wi-Fi, телевізор, фен, халати, рушники, тапочки, міні-парфумерія. Сейф за бажанням.',
+    photos: [
+      'https://higinaspa.com.ua/wp-content/uploads/2023/05/IMG_3714-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2023/05/IMG_3716-365x300.jpg',
+      'https://higinaspa.com.ua/wp-content/uploads/2023/05/IMG_3717-365x300.jpg',
+    ]
+  }
+];
+
+function render() {
+  document.getElementById('rooms-wrap').innerHTML = ROOMS.map(r => {
+    const imgs = r.photos.map(p => `<img src="${p}" alt="${r.name}" loading="lazy">`).join('');
+    const prices = r.prices.map(p => `
+      <div class="price-row">
+        <span class="price-period">${p.period}</span>
+        <div class="price-amounts">
+          <span class="price-base">${p.base} ₴</span>
+          ${p.extra ? `<span class="price-extra">+ ${p.extra} ₴/дод. особу</span>` : ''}
+        </div>
+      </div>`).join('');
+    return `
+    <article class="room-article" id="${r.id}">
+      <div class="room-num">${r.num}</div>
+      <div class="room-layout">
+        <div class="room-gallery-wrap">
+          <div class="gallery-track room-gallery-track">${imgs}</div>
+          <div class="gallery-count">${r.photos.length} фото</div>
+          <div class="room-badge">${r.badge}</div>
+        </div>
+        <div class="room-details">
+          <div class="room-header">
+            <h2 class="room-name">${r.name}</h2>
+            <div class="room-price-box">
+              <p class="room-price-label">від</p>
+              <p class="room-price-val">${r.priceFrom.toLocaleString('uk-UA')}<span> ₴</span></p>
+            </div>
+          </div>
+          <div class="room-specs">
+            <div><p class="spec-label">Площа</p><p class="spec-val">${r.area} м²</p></div>
+            <div><p class="spec-label">Гостей</p><p class="spec-val">до ${r.guests}</p></div>
+            <div><p class="spec-label">Заїзд / виїзд</p><p class="spec-val">14:00 / 12:00</p></div>
+          </div>
+          <div class="prices-section">
+            <p class="prices-label">Сезонні ціни</p>
+            ${prices}
+          </div>
+          <p class="room-amenities">${r.amenities}</p>
+          <div class="room-cta">
+            <button class="btn-book" onclick="openBooking('${r.name}')">Забронювати</button>
+            <a href="tel:+380673704853" class="room-tel">+38 (067) 370-48-53</a>
+          </div>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function openBooking(name) {
+  document.getElementById('modal-room-name').textContent = name;
+  document.getElementById('booking-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e, force) {
+  if (force || (e && e.target === e.currentTarget)) {
+    document.getElementById('booking-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+function submitBooking() {
+  document.getElementById('booking-modal').classList.remove('open');
+  document.getElementById('thanks-modal').classList.add('open');
+}
+function closeThanks() {
+  document.getElementById('thanks-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+render();
+</script>
+</body>
+</html>

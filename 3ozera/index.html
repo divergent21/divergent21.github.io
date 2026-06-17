@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3ozera — Між трьох озер · Готельний комплекс на Світязі</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 80 56" xmlns="http://www.w3.org/2000/svg">
+    <rect width="80" height="56" fill="#0F1D14"/>
+    <text x="40" y="33" text-anchor="middle" fill="#4E7864" font-family="Georgia,serif" font-size="13" font-style="italic" font-weight="300">3ozera</text>
+    <rect x="16" y="40" width="48" height="1" fill="#4E7864" opacity="0.4"/>
+  </svg>
+</template>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#F5F1E8;color:#1A2820;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+input,select,textarea{font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#4E7864!important}
+
+/* ─── NAV ─── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s;background:transparent;border-bottom:1px solid transparent}
+#nav.solid{background:rgba(12,22,15,.97);border-bottom-color:rgba(255,255,255,.07)}
+.nav-inner{max-width:1300px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:70px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.nav-logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:28px;align-items:center;flex:1;justify-content:center}
+.nav-links a{color:rgba(255,255,255,.75);font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;font-weight:400}
+.nav-links a:hover{color:#fff}
+.nav-cta a{background:#4E7864;color:#fff;padding:10px 22px;font-size:13px;font-weight:500;transition:background .2s;display:inline-block}
+.nav-cta a:hover{background:#3d6451}
+.nav-burger-wrap{display:none;gap:14px;align-items:center}
+.burger-btn{display:flex;flex-direction:column;gap:5px;padding:6px}
+.burger-btn span{display:block;background:white;height:1.5px;transition:width .2s}
+.burger-btn span:nth-child(1){width:22px}
+.burger-btn span:nth-child(2){width:22px}
+.burger-btn span:nth-child(3){width:14px}
+@media(max-width:860px){.nav-links,.nav-cta{display:none}.nav-burger-wrap{display:flex}}
+
+/* ─── MOBILE MENU ─── */
+#mobile-menu{display:none;position:fixed;inset:0;z-index:200;background:#0F1D14;flex-direction:column;padding:0 clamp(24px,6vw,48px)}
+#mobile-menu.open{display:flex;animation:fadeIn .2s ease}
+.mm-header{height:70px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07)}
+.mm-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.mm-links a{font-family:'Cormorant',Georgia,serif;font-size:clamp(38px,10vw,62px);font-weight:300;font-style:italic;color:white;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);display:block;transition:color .2s;line-height:1.15}
+.mm-links a:last-child{border-bottom:none}
+.mm-links a:hover{color:#9dbfb0}
+.mm-footer{padding:32px 0;border-top:1px solid rgba(255,255,255,.07)}
+.close-btn{color:rgba(255,255,255,.5);font-size:22px;padding:8px;line-height:1;transition:color .2s}
+.close-btn:hover{color:#fff}
+
+/* ─── HERO ─── */
+.hero{position:relative;height:100svh;min-height:580px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,18,11,.9) 0%,rgba(8,18,11,.3) 55%,rgba(8,18,11,.1) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:1300px;margin:0 auto;width:100%;padding:clamp(32px,5vw,64px);padding-bottom:clamp(56px,8vw,96px)}
+.hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.hero-eyebrow-line{display:block;width:36px;height:1px;background:rgba(255,255,255,.45)}
+.hero-eyebrow span{color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.hero-title{font-family:'Cormorant',Georgia,serif;font-size:clamp(62px,11vw,148px);font-weight:300;font-style:italic;line-height:.88;color:white;margin-bottom:36px;text-wrap:pretty}
+.hero-sub{color:rgba(255,255,255,.7);font-size:clamp(15px,1.7vw,19px);font-weight:300;max-width:380px;line-height:1.65;margin-bottom:48px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-green{display:inline-flex;align-items:center;gap:10px;background:#4E7864;color:white;padding:15px 32px;font-size:14px;font-weight:500;letter-spacing:.03em;transition:background .25s;white-space:nowrap}
+.btn-green:hover{background:#3d6451}
+.btn-wire-white{display:inline-flex;align-items:center;padding:15px 32px;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);font-size:14px;font-weight:300;transition:border-color .25s;white-space:nowrap}
+.btn-wire-white:hover{border-color:rgba(255,255,255,.7)}
+.hero-scroll{position:absolute;bottom:36px;right:clamp(24px,5vw,64px);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero-scroll span{color:rgba(255,255,255,.4);font-size:10px;letter-spacing:.14em;text-transform:uppercase;writing-mode:vertical-rl}
+.hero-scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,255,255,.35),transparent)}
+
+/* ─── STATS ─── */
+.stats-strip{background:#12201A}
+.stats-grid{max-width:1300px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.stat{padding:clamp(20px,3vw,32px) clamp(16px,2.5vw,28px);border-right:1px solid rgba(255,255,255,.07)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Cormorant',serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:white;line-height:1}
+.stat-n .u{font-size:.45em;vertical-align:middle;margin-left:3px;font-weight:300;color:rgba(255,255,255,.55)}
+.stat-l{color:rgba(255,255,255,.4);font-size:12px;margin-top:4px;font-weight:300}
+
+/* ─── SECTION COMMONS ─── */
+.sec{padding:clamp(64px,9vw,110px) clamp(20px,5vw,64px)}
+.sec-cream{background:#F5F1E8}
+.sec-sand{background:#EDE9E0}
+.sec-dark{background:#0F1D14}
+.wrap{max-width:1300px;margin:0 auto}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#4E7864;margin-bottom:14px;font-weight:500}
+.eyebrow-dim{color:rgba(255,255,255,.3)}
+.sec-title{font-family:'Cormorant',Georgia,serif;font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.05;color:#1A2820}
+.sec-title-w{color:white}
+
+/* ─── ABOUT ─── */
+.about-layout{display:flex;gap:clamp(40px,6vw,96px);align-items:flex-start;flex-wrap:wrap}
+.about-head{flex:0 0 auto;max-width:300px;min-width:220px}
+.about-head-title{font-family:'Cormorant',Georgia,serif;font-size:clamp(34px,4.5vw,58px);font-weight:300;line-height:1.1;color:#1A2820}
+.about-head-sub{margin-top:24px;font-size:15px;color:rgba(26,40,32,.55);line-height:1.7;font-weight:300}
+.features{flex:1;min-width:260px}
+.feat{border-top:1px solid rgba(26,40,32,.1);padding:28px 0;display:flex;gap:20px;align-items:flex-start}
+.feat:last-child{border-bottom:1px solid rgba(26,40,32,.1)}
+.feat-n{font-family:'Cormorant',serif;font-size:40px;font-weight:300;color:rgba(26,40,32,.1);line-height:1;flex-shrink:0;width:48px}
+.feat-title{font-size:16px;font-weight:500;color:#1A2820;margin-bottom:8px}
+.feat-desc{font-size:14px;color:rgba(26,40,32,.6);line-height:1.7;font-weight:300}
+
+/* ─── ROOMS ─── */
+.rooms-hd{margin-bottom:clamp(40px,5vw,64px)}
+.corpus{display:flex;gap:clamp(24px,4vw,60px);margin-bottom:clamp(56px,8vw,96px);align-items:center}
+.corpus-rev{flex-direction:row-reverse}
+.corpus-imgs{flex:1.3;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.corpus-imgs img{width:100%;object-fit:cover;aspect-ratio:4/3}
+.corpus-imgs img:first-child{grid-column:1/3;aspect-ratio:16/9}
+.corpus-txt{flex:1;min-width:min(100%,280px)}
+.corpus-ltr{font-family:'Cormorant',serif;font-size:96px;font-weight:300;color:rgba(26,40,32,.07);line-height:1}
+.corpus-hdr{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+.corpus-name{font-family:'Cormorant',serif;font-size:clamp(28px,3.5vw,44px);font-weight:400;color:#1A2820}
+.corpus-flrs{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#4E7864;margin-bottom:28px;font-weight:500}
+.floor-list{display:flex;flex-direction:column;gap:2px;margin-bottom:36px}
+.floor{background:white;padding:18px 20px;display:flex;gap:16px;align-items:flex-start}
+.floor-badge{background:#4E7864;color:white;font-size:10px;font-weight:600;letter-spacing:.08em;padding:3px 8px;flex-shrink:0;margin-top:2px}
+.floor-t{font-weight:500;color:#1A2820;margin-bottom:3px;font-size:15px}
+.floor-d{color:rgba(26,40,32,.55);font-size:13px;font-weight:300}
+.btn-dark{display:inline-flex;align-items:center;gap:10px;background:#1A2820;color:white;padding:14px 28px;font-size:13px;font-weight:500;letter-spacing:.04em;transition:background .2s;text-transform:uppercase}
+.btn-dark:hover{background:#2a3d32}
+.notice-c{border:1px solid rgba(26,40,32,.12);padding:20px 28px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.notice-badge{background:#C8A97A;color:white;font-size:10px;font-weight:700;letter-spacing:.1em;padding:4px 10px;text-transform:uppercase;flex-shrink:0}
+.notice-txt{font-size:14px;color:rgba(26,40,32,.65);font-weight:300;line-height:1.5}
+@media(max-width:860px){.corpus,.corpus-rev{flex-direction:column}}
+
+/* ─── PRICES ─── */
+.prices-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;gap:32px;flex-wrap:wrap}
+.prices-note{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:18px 24px;max-width:340px;font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;font-weight:300}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px}
+.pc{background:#172B1E;padding:clamp(28px,3.5vw,44px) clamp(24px,3vw,40px);display:flex;flex-direction:column}
+.pc-feat{background:#4E7864}
+.pc-tag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:6px;font-weight:500}
+.pc-meta{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;font-weight:300}
+.pc-feat .pc-meta{color:rgba(255,255,255,.55)}
+.pc-title{font-family:'Cormorant',serif;font-size:36px;font-weight:300;color:white;margin-bottom:36px;line-height:1.05}
+.ps{padding:20px 0;border-top:1px solid rgba(255,255,255,.08)}
+.pc-feat .ps{border-top-color:rgba(255,255,255,.2)}
+.ps-lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px}
+.pc-feat .ps-lbl{color:rgba(255,255,255,.5)}
+.ps-dates{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:14px;font-weight:300}
+.pc-feat .ps-dates{color:rgba(255,255,255,.5)}
+.ps-price{font-family:'Cormorant',serif;font-size:44px;font-weight:400;color:white;line-height:1}
+.ps-price.amber{color:#C8A97A}
+.ps-cur{font-size:17px;font-weight:300;color:rgba(255,255,255,.5);margin-left:2px}
+.pc-feat .ps-cur{color:rgba(255,255,255,.65)}
+.ps-cur.amber-c{color:rgba(200,169,122,.65)}
+.pc-cta{margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.pc-cta:hover{color:white}
+.pc-cta-feat{margin-top:auto;background:white;color:#1A2820;padding:14px 24px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;display:inline-flex;align-items:center;gap:8px}
+.pc-cta-feat:hover{background:rgba(255,255,255,.9)}
+
+/* ─── DINING ─── */
+.dining-layout{display:flex;gap:clamp(40px,6vw,80px);align-items:center;flex-wrap:wrap}
+.dining-txt{flex:1;min-width:min(100%,260px)}
+.dining-title{font-family:'Cormorant',Georgia,serif;font-size:clamp(30px,4vw,48px);font-weight:300;color:#1A2820;margin-bottom:24px;line-height:1.1}
+.body-text{font-size:15px;color:rgba(26,40,32,.6);line-height:1.75;font-weight:300;max-width:380px}
+.dining-photos{flex:1.2;min-width:min(100%,280px);display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.dining-photos img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* ─── GALLERY ─── */
+.gallery-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;gap:24px;flex-wrap:wrap}
+.gtabs{display:flex;border:1px solid rgba(26,40,32,.15)}
+.tab-btn{padding:12px 20px;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;background:transparent;color:rgba(26,40,32,.5);font-family:'DM Sans',sans-serif;transition:background .2s,color .2s;border-right:1px solid rgba(26,40,32,.12)}
+.tab-btn:last-child{border-right:none}
+.tab-btn.active{background:#1A2820;color:white}
+.gcontent{display:none}
+.gcontent.active{display:block}
+.ggrid{columns:3;column-gap:10px}
+.gi{break-inside:avoid;margin-bottom:10px;overflow:hidden;cursor:pointer}
+.gi img{width:100%;display:block;transition:transform .5s ease}
+.gi:hover img{transform:scale(1.04)}
+@media(max-width:900px){.ggrid{columns:2}}
+@media(max-width:560px){.ggrid{columns:1}}
+
+/* ─── LIGHTBOX ─── */
+#lb{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.93);align-items:center;justify-content:center;padding:clamp(20px,4vw,48px)}
+#lb.open{display:flex;animation:fadeIn .2s ease}
+.lb-close{position:absolute;top:20px;right:24px;color:rgba(255,255,255,.55);font-size:24px;padding:10px;transition:color .2s;line-height:1}
+.lb-close:hover{color:white}
+#lb-img{max-width:100%;max-height:90vh;object-fit:contain;pointer-events:none}
+
+/* ─── BOOKING ─── */
+.booking-layout{display:flex;gap:clamp(48px,7vw,96px);align-items:flex-start;flex-wrap:wrap}
+.booking-info{flex:0 0 auto;max-width:320px;min-width:220px}
+.booking-title{font-family:'Cormorant',Georgia,serif;font-size:clamp(34px,4.5vw,52px);font-weight:300;color:#1A2820;margin-bottom:24px;line-height:1.1}
+.booking-sub{font-size:15px;color:rgba(26,40,32,.55);line-height:1.75;font-weight:300;margin-bottom:40px}
+.bcontacts{display:flex;flex-direction:column;gap:16px}
+.bclink{display:flex;align-items:center;gap:14px;transition:color .2s;color:#1A2820}
+.bclink:hover{color:#4E7864}
+.bclink-icon{width:42px;height:42px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.bclink-dark{background:#1A2820;color:#F5F1E8}
+.bclink-muted{background:rgba(26,40,32,.08);color:#1A2820}
+.bclink-ph{font-size:18px;font-weight:500}
+.bclink-em{font-size:14px;font-weight:300;color:rgba(26,40,32,.55)}
+.booking-form-wrap{flex:1;min-width:min(100%,300px)}
+.bform{display:flex;flex-direction:column;gap:2px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.fi{width:100%;padding:16px 18px;background:#EDE9E0;border:1px solid transparent;font-size:14px;font-weight:300;color:#1A2820;transition:border-color .2s}
+select.fi{-webkit-appearance:none;appearance:none;cursor:pointer}
+.form-note{font-size:12px;color:rgba(26,40,32,.45);padding:12px 0;font-weight:300}
+.form-btn{width:100%;background:#1A2820;color:white;padding:18px 32px;font-size:14px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:background .2s;font-family:'DM Sans',sans-serif;cursor:pointer}
+.form-btn:hover{background:#2a3d32}
+#form-thanks{display:none;background:#EDE9E0;padding:clamp(40px,5vw,64px);text-align:center}
+.thanks-icon{font-family:'Cormorant',serif;font-size:72px;font-weight:300;color:#4E7864;margin-bottom:20px;line-height:1}
+.thanks-title{font-family:'Cormorant',serif;font-size:32px;font-weight:400;color:#1A2820;margin-bottom:12px}
+.thanks-text{font-size:15px;color:rgba(26,40,32,.6);line-height:1.7;font-weight:300}
+
+/* ─── CONTACT ─── */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;margin-bottom:56px}
+.cc{background:#172B1E;padding:clamp(28px,3.5vw,44px) clamp(24px,3vw,36px)}
+.cc-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;font-weight:400}
+.cc a{color:white;font-size:16px;line-height:1.65;font-weight:300;display:block;transition:color .2s}
+.cc a:hover{color:#9dbfb0}
+.cc-big{font-family:'Cormorant',serif;font-size:32px;font-weight:300}
+.btn-wire-dark{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.65);padding:15px 28px;font-size:13px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;transition:border-color .2s,color .2s}
+.btn-wire-dark:hover{border-color:rgba(255,255,255,.4);color:white}
+
+/* ─── FOOTER ─── */
+footer{background:#091410;padding:clamp(20px,3vw,32px) clamp(20px,5vw,64px);border-top:1px solid rgba(255,255,255,.05)}
+.fi-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.fi-logo{height:30px;opacity:.5}
+.fi-copy{color:rgba(255,255,255,.25);font-size:12px;font-weight:300}
+.fi-top{color:rgba(255,255,255,.25);font-size:12px;font-weight:300;transition:color .2s}
+.fi-top:hover{color:rgba(255,255,255,.6)}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2238%22%3E%3Ctext%20y%3D%2229%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2223%22%20font-style%3D%22italic%22%20font-weight%3D%22300%22%20fill%3D%22rgba(255%2C255%2C255%2C0.85)%22%3E3ozera%3C%2Ftext%3E%3C%2Fsvg%3E" alt="3ozera"></a>
+    <div class="nav-links">
+      <a href="#about">Про нас</a>
+      <a href="#rooms">Номери</a>
+      <a href="#prices">Ціни</a>
+      <a href="#gallery">Фото</a>
+      <a href="#contact">Контакти</a>
+    </div>
+    <div class="nav-cta"><a href="tel:+380996274646">(099) 627-46-46</a></div>
+    <div class="nav-burger-wrap">
+      <a href="tel:+380996274646" style="color:rgba(255,255,255,.85);font-size:13px;font-weight:500">(099)&nbsp;627-46-46</a>
+      <button class="burger-btn" id="burger-btn" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ MOBILE MENU ═══════════ -->
+<div id="mobile-menu">
+  <div class="mm-header">
+    <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2238%22%3E%3Ctext%20y%3D%2229%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2223%22%20font-style%3D%22italic%22%20font-weight%3D%22300%22%20fill%3D%22rgba(255%2C255%2C255%2C0.85)%22%3E3ozera%3C%2Ftext%3E%3C%2Fsvg%3E" alt="3ozera" style="height:36px">
+    <button class="close-btn" id="close-menu">&#10005;</button>
+  </div>
+  <nav class="mm-links">
+    <a href="#about" class="mm-link">Про нас</a>
+    <a href="#rooms" class="mm-link">Номери</a>
+    <a href="#prices" class="mm-link">Ціни</a>
+    <a href="#gallery" class="mm-link">Фото</a>
+    <a href="#booking" class="mm-link">Бронювання</a>
+    <a href="#contact" class="mm-link">Контакти</a>
+  </nav>
+  <div class="mm-footer">
+    <a href="tel:+380996274646" style="display:inline-block;border:1px solid rgba(255,255,255,.25);color:white;padding:14px 28px;font-size:15px">(099) 627-46-46</a>
+  </div>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <img class="hero-bg" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D1%80%D0%B0%D1%94%D0%B2%D0%B8%D0%B4%20%E2%80%94%20%D0%BE%D0%B7%D0%B5%D1%80%D0%BE%20%D0%A1%D0%B2%D1%96%D1%82%D1%8F%D0%B7%D1%8C%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Готельний комплекс Між трьох озер">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      <span>Готельний комплекс · Світязь · Волинь</span>
+    </div>
+    <h1 class="hero-title">Між<br>трьох<br>озер</h1>
+    <p class="hero-sub">Еко-готель у 200 метрах від берега<br>найчистішого озера України</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-green">Забронювати номер &#8594;</a>
+      <a href="tel:+380996274646" class="btn-wire-white">(099) 627-46-46</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Гортати</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS ═══════════ -->
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-n">200<span class="u">м</span></div><div class="stat-l">до берега озера</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">хвилини пішки</div></div>
+    <div class="stat"><div class="stat-n">2</div><div class="stat-l">корпуси працюють</div></div>
+    <div class="stat"><div class="stat-n">2–5</div><div class="stat-l">осіб у номері</div></div>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="sec sec-cream" id="about">
+  <div class="wrap">
+    <div class="about-layout">
+      <div class="about-head">
+        <p class="eyebrow">Чому обирають нас</p>
+        <h2 class="about-head-title">Все для<br><em>вашого</em><br>комфорту</h2>
+        <p class="about-head-sub">Шукаєте затишне місце для сімейного відпочинку в гармонії з природою?</p>
+      </div>
+      <div class="features">
+        <div class="feat"><span class="feat-n">01</span><div><p class="feat-title">Затишок та простір</p><p class="feat-desc">Три сучасні корпуси з номерами для будь-якої компанії — від 2 до 5 осіб.</p></div></div>
+        <div class="feat"><span class="feat-n">02</span><div><p class="feat-title">Повний комфорт</p><p class="feat-desc">Кондиціонер, холодильник, ТБ, електрочайник, душ, туалет та свіжі рушники в кожному номері.</p></div></div>
+        <div class="feat"><span class="feat-n">03</span><div><p class="feat-title">Приватність</p><p class="feat-desc">Кожен номер має окремий вхід — ніяких спільних коридорів, максимум особистого простору.</p></div></div>
+        <div class="feat"><span class="feat-n">04</span><div><p class="feat-title">Дозвілля на природі</p><p class="feat-desc">Альтанки, мангал та сучасний дитячий майданчик прямо на території готелю.</p></div></div>
+        <div class="feat"><span class="feat-n">05</span><div><p class="feat-title">Безпека та сервіс</p><p class="feat-desc">Безкоштовний Wi-Fi, цілодобовий відеонагляд та власна охоронювана автостоянка.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ROOMS ═══════════ -->
+<section class="sec sec-sand" id="rooms">
+  <div class="wrap">
+    <div class="rooms-hd">
+      <p class="eyebrow">Варіанти розміщення</p>
+      <h2 class="sec-title">Наші корпуси</h2>
+    </div>
+
+    <!-- Corpus A -->
+    <div class="corpus">
+      <div class="corpus-imgs">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D0%B7%D0%BE%D0%B2%D0%BD%D1%96%D1%88%D0%BD%D1%96%D0%B9%20%D0%B2%D0%B8%D0%B3%D0%BB%D1%8F%D0%B4%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Корпус А">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Номер">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D0%B4%D0%B5%D1%82%D0%B0%D0%BB%D1%8C%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%B0%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Номер">
+      </div>
+      <div class="corpus-txt">
+        <div class="corpus-hdr"><span class="corpus-ltr">А</span><h3 class="corpus-name">Корпус А</h3></div>
+        <p class="corpus-flrs">2 поверхи</p>
+        <div class="floor-list">
+          <div class="floor"><span class="floor-badge">1 ПОВ.</span><div><p class="floor-t">4-місні номери · 25 кв.м</p><p class="floor-d">Просторі номери з усіма зручностями</p></div></div>
+          <div class="floor"><span class="floor-badge">2 ПОВ.</span><div><p class="floor-t">5-місні номери · 35 кв.м</p><p class="floor-d">Великі номери з власними терасами для вечірніх посиденьок</p></div></div>
+        </div>
+        <a href="#booking" class="btn-dark">Забронювати &#8594;</a>
+      </div>
+    </div>
+
+    <!-- Corpus B -->
+    <div class="corpus corpus-rev">
+      <div class="corpus-imgs">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Корпус Б">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D1%96%D0%BD%D1%82%D0%B5%D1%80'%D1%94%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Номер">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D1%82%D0%B5%D1%80%D0%B0%D1%81%D0%B0%20%E2%80%94%20%D0%B2%D1%96%D0%B4%D0%BF%D0%BE%D1%87%D0%B8%D0%BD%D0%BE%D0%BA%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Тераса">
+      </div>
+      <div class="corpus-txt">
+        <div class="corpus-hdr"><span class="corpus-ltr">Б</span><h3 class="corpus-name">Корпус Б</h3></div>
+        <p class="corpus-flrs">3 поверхи</p>
+        <div class="floor-list">
+          <div class="floor"><span class="floor-badge">1 ПОВ.</span><div><p class="floor-t">4-місні з терасами · 25 кв.м</p><p class="floor-d">Персональна тераса біля кожного номера</p></div></div>
+          <div class="floor"><span class="floor-badge">2 ПОВ.</span><div><p class="floor-t">4-місні зі спільним балконом · 25 кв.м</p><p class="floor-d">Окремий столик біля кожного номера на балконі</p></div></div>
+          <div class="floor"><span class="floor-badge">3 ПОВ.</span><div><p class="floor-t">2-місні + тераса-релакс · 15 кв.м</p><p class="floor-d">Велика спільна тераса з м'яким куточком</p></div></div>
+        </div>
+        <a href="#booking" class="btn-dark">Забронювати &#8594;</a>
+      </div>
+    </div>
+
+    <div class="notice-c">
+      <span class="notice-badge">Скоро</span>
+      <p class="notice-txt"><strong style="font-weight:500;color:#1A2820">Корпус С</strong> — зараз на етапі добудови, незабаром прийме нових гостей.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICES ═══════════ -->
+<section class="sec sec-dark" id="prices">
+  <div class="wrap">
+    <div class="prices-hd">
+      <div>
+        <p class="eyebrow eyebrow-dim">Прайс-лист</p>
+        <h2 class="sec-title sec-title-w">Ціни на сезон<br><em>2026</em></h2>
+      </div>
+      <div class="prices-note">Мінімальний термін — <strong>2 ночі</strong>. Ціни вказані за добу.</div>
+    </div>
+    <div class="price-grid">
+      <!-- 2-person -->
+      <div class="pc">
+        <p class="pc-meta">До 2 осіб · 15 кв.м · Корпус Б</p>
+        <h3 class="pc-title">2-місний<br><em>номер</em></h3>
+        <div class="ps"><p class="ps-lbl">Оксамитовий сезон</p><p class="ps-dates">01.05–14.06 / 01.09–15.09</p><p class="ps-price">2 500<span class="ps-cur">грн</span></p></div>
+        <div class="ps"><p class="ps-lbl">Високий сезон</p><p class="ps-dates">15.06–31.08</p><p class="ps-price amber">3 200<span class="ps-cur amber-c">грн</span></p></div>
+        <a href="#booking" class="pc-cta">Забронювати &#8594;</a>
+      </div>
+      <!-- 4-person (featured) -->
+      <div class="pc pc-feat">
+        <p class="pc-tag">Найпопулярніший</p>
+        <p class="pc-meta">До 4 осіб · 25 кв.м · Корпуси А та Б</p>
+        <h3 class="pc-title">4-місний<br><em>номер</em></h3>
+        <div class="ps"><p class="ps-lbl">Оксамитовий сезон</p><p class="ps-dates">01.05–14.06 / 01.09–15.09</p><p class="ps-price">4 000<span class="ps-cur">грн</span></p></div>
+        <div class="ps"><p class="ps-lbl">Високий сезон</p><p class="ps-dates">15.06–31.08</p><p class="ps-price">5 700<span class="ps-cur">грн</span></p></div>
+        <a href="#booking" class="pc-cta-feat">Забронювати &#8594;</a>
+      </div>
+      <!-- 5-person -->
+      <div class="pc">
+        <p class="pc-meta">До 5 осіб · 35 кв.м · Корпус А</p>
+        <h3 class="pc-title">5-місний<br><em>номер</em></h3>
+        <div class="ps"><p class="ps-lbl">Оксамитовий сезон</p><p class="ps-dates">01.05–14.06 / 01.09–15.09</p><p class="ps-price">5 000<span class="ps-cur">грн</span></p></div>
+        <div class="ps"><p class="ps-lbl">Високий сезон</p><p class="ps-dates">15.06–31.08</p><p class="ps-price amber">6 300<span class="ps-cur amber-c">грн</span></p></div>
+        <a href="#booking" class="pc-cta">Забронювати &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DINING ═══════════ -->
+<section class="sec sec-cream">
+  <div class="wrap">
+    <div class="dining-layout">
+      <div class="dining-txt">
+        <p class="eyebrow">Харчування</p>
+        <h2 class="dining-title">Домашня кухня<br><em>або своя готовка</em></h2>
+        <p class="body-text">Замовляйте смачне домашнє харчування безпосередньо у нас — або готуйте самостійно на відкритій кухні, яка повністю укомплектована всім необхідним посудом.</p>
+      </div>
+      <div class="dining-photos">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%B2%D1%96%D0%B4%D0%BF%D0%BE%D1%87%D0%B8%D0%BD%D0%BE%D0%BA%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D1%96%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Відпочинок">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B0%20%D0%92%D0%BE%D0%BB%D0%B8%D0%BD%D1%96%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Природа">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ GALLERY ═══════════ -->
+<section class="sec sec-sand" id="gallery">
+  <div class="wrap">
+    <div class="gallery-hd">
+      <div>
+        <p class="eyebrow">Фотогалерея</p>
+        <h2 class="sec-title">Побачити своїми очима</h2>
+      </div>
+      <div class="gtabs">
+        <button class="tab-btn active" data-tab="a">Корпус А</button>
+        <button class="tab-btn" data-tab="b">Корпус Б</button>
+        <button class="tab-btn" data-tab="t">Територія</button>
+      </div>
+    </div>
+
+    <div class="gcontent active" data-tab="a">
+      <div class="ggrid">
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D0%B7%D0%BE%D0%B2%D0%BD%D1%96%D1%88%D0%BD%D1%96%D0%B9%20%D0%B2%D0%B8%D0%B3%D0%BB%D1%8F%D0%B4%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D1%96%D0%BD%D1%82%D0%B5%D1%80'%D1%94%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D1%82%D0%B5%D1%80%D0%B0%D1%81%D0%B0%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D0%B4%D0%B5%D1%82%D0%B0%D0%BB%D1%8C%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%B0%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%90%20%E2%80%94%20%D0%B2%D0%B8%D0%B4%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+      </div>
+    </div>
+
+    <div class="gcontent" data-tab="b">
+      <div class="ggrid">
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D1%96%D0%BD%D1%82%D0%B5%D1%80'%D1%94%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D0%B4%D0%B5%D1%82%D0%B0%D0%BB%D1%8C%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D0%BA%D1%96%D0%BC%D0%BD%D0%B0%D1%82%D0%B0%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%91%20%E2%80%94%20%D1%81%D0%B0%D0%BD%D0%B2%D1%83%D0%B7%D0%BE%D0%BB%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D1%82%D0%B5%D1%80%D0%B0%D1%81%D0%B0%20%E2%80%94%20%D0%B2%D1%96%D0%B4%D0%BF%D0%BE%D1%87%D0%B8%D0%BD%D0%BE%D0%BA%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D1%82%D0%B5%D1%80%D0%B0%D1%81%D0%B0%20%E2%80%94%20%D0%B2%D0%B8%D0%B4%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D1%82%D0%B5%D1%80%D0%B0%D1%81%D0%B0%20%E2%80%94%20%D0%B4%D0%B5%D1%82%D0%B0%D0%BB%D1%8C%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+      </div>
+    </div>
+
+    <div class="gcontent" data-tab="t">
+      <div class="ggrid">
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BA%D1%80%D0%B0%D1%94%D0%B2%D0%B8%D0%B4%20%E2%80%94%20%D0%BE%D0%B7%D0%B5%D1%80%D0%BE%20%D0%A1%D0%B2%D1%96%D1%82%D1%8F%D0%B7%D1%8C%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%B2%D1%96%D0%B4%D0%BF%D0%BE%D1%87%D0%B8%D0%BD%D0%BE%D0%BA%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D1%96%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BE%D0%B7%D0%B5%D1%80%D0%BE%20%D1%82%D0%B0%20%D0%B1%D0%B5%D1%80%D0%B5%D0%B3%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B0%20%D0%92%D0%BE%D0%BB%D0%B8%D0%BD%D1%96%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%B2%D1%96%D0%B4%D0%BF%D0%BE%D1%87%D0%B8%D0%BD%D0%BE%D0%BA%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D1%96%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%B2%D1%96%D0%B4%D0%BF%D0%BE%D1%87%D0%B8%D0%BD%D0%BE%D0%BA%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+        <div class="gi"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22534%22%3E%3Crect%20width%3D%22800%22%20height%3D%22534%22%20fill%3D%22%23D5CFC6%22%2F%3E%3Cg%20stroke%3D%22%23BDB5AB%22%20stroke-width%3D%2226%22%20opacity%3D%220.7%22%3E%3Cline%20x1%3D%22-100%22%20y1%3D%22534%22%20x2%3D%22434%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22100%22%20y1%3D%22534%22%20x2%3D%22634%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22300%22%20y1%3D%22534%22%20x2%3D%22834%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22500%22%20y1%3D%22534%22%20x2%3D%221034%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-300%22%20y1%3D%22534%22%20x2%3D%22234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22-500%22%20y1%3D%22534%22%20x2%3D%2234%22%20y2%3D%220%22%2F%3E%3Cline%20x1%3D%22700%22%20y1%3D%22534%22%20x2%3D%221234%22%20y2%3D%220%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22270%22%20y%3D%22245%22%20width%3D%22260%22%20height%3D%2228%22%20rx%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.42)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22264%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20fill%3D%22rgba(26%2C40%2C32%2C0.5)%22%20text-anchor%3D%22middle%22%3E%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B0%20%E2%80%94%20%D0%A1%D0%B2%D1%96%D1%82%D1%8F%D0%B7%D1%8C%3C%2Ftext%3E%3C%2Fsvg%3E" alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LIGHTBOX ═══════════ -->
+<div id="lb">
+  <button class="lb-close" id="lb-close">&#10005;</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- ═══════════ BOOKING ═══════════ -->
+<section class="sec sec-cream" id="booking">
+  <div class="wrap">
+    <div class="booking-layout">
+      <div class="booking-info">
+        <p class="eyebrow">Бронювання</p>
+        <h2 class="booking-title">Залиште<br>заявку</h2>
+        <p class="booking-sub">Хочете уточнити деталі або забронювати? Залиште заявку — ми зв'яжемося з вами найближчим часом.</p>
+        <div class="bcontacts">
+          <a href="tel:+380996274646" class="bclink">
+            <span class="bclink-icon bclink-dark">&#8599;</span>
+            <span class="bclink-ph">(099) 627-46-46</span>
+          </a>
+          <a href="mailto:info@3ozera.com" class="bclink">
+            <span class="bclink-icon bclink-muted" style="font-size:14px">@</span>
+            <span class="bclink-em">info@3ozera.com</span>
+          </a>
+        </div>
+      </div>
+      <div class="booking-form-wrap">
+        <div id="form-thanks">
+          <div class="thanks-icon">&#10003;</div>
+          <h3 class="thanks-title">Дякуємо!</h3>
+          <p class="thanks-text">Вашу заявку отримано. Ми зв'яжемося з вами найближчим часом та допоможемо обрати номер.</p>
+        </div>
+        <form class="bform" id="booking-form">
+          <select class="fi" name="room" required>
+            <option value="">Оберіть тип номера</option>
+            <option value="2">2-місний номер (2 500 / 3 200 грн)</option>
+            <option value="4">4-місний номер (4 000 / 5 700 грн)</option>
+            <option value="5">5-місний номер (5 000 / 6 300 грн)</option>
+          </select>
+          <div class="form-row">
+            <input class="fi" type="date" name="checkin" placeholder="Дата заїзду" required>
+            <input class="fi" type="date" name="checkout" placeholder="Дата виїзду" required>
+          </div>
+          <input class="fi" type="number" name="guests" placeholder="Кількість гостей" min="1" max="5" required>
+          <input class="fi" type="text" name="name" placeholder="Ваше ім'я" required>
+          <input class="fi" type="tel" name="phone" placeholder="Номер телефону" required>
+          <textarea class="fi" name="message" placeholder="Коментар (необов'язково)" rows="3" style="resize:vertical"></textarea>
+          <p class="form-note">Мінімальний термін проживання — 2 ночі</p>
+          <button type="submit" class="form-btn">Надіслати заявку &#8594;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="sec sec-dark" id="contact">
+  <div class="wrap">
+    <p class="eyebrow eyebrow-dim">Контактна інформація</p>
+    <h2 class="sec-title sec-title-w" style="margin-bottom:56px">Знайдіть нас</h2>
+    <div class="cgrid">
+      <div class="cc">
+        <p class="cc-lbl">Адреса</p>
+        <a href="https://maps.app.goo.gl/nXp1BRVvodFuKbT6A" target="_blank">вул. Набережна, 20<br>Світязь, Волинська обл.</a>
+      </div>
+      <div class="cc">
+        <p class="cc-lbl">Телефон</p>
+        <a href="tel:+380996274646" class="cc-big">(099) 627-46-46</a>
+      </div>
+      <div class="cc">
+        <p class="cc-lbl">Email</p>
+        <a href="mailto:info@3ozera.com">info@3ozera.com</a>
+      </div>
+    </div>
+    <a href="https://maps.app.goo.gl/nXp1BRVvodFuKbT6A" target="_blank" class="btn-wire-dark">Відкрити на Google Maps &#8599;</a>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="fi-inner">
+    <img class="fi-logo" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2238%22%3E%3Ctext%20y%3D%2229%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2223%22%20font-style%3D%22italic%22%20font-weight%3D%22300%22%20fill%3D%22rgba(255%2C255%2C255%2C0.85)%22%3E3ozera%3C%2Ftext%3E%3C%2Fsvg%3E" alt="3ozera">
+    <p class="fi-copy">© 2026 Між трьох озер. Усі права захищено.</p>
+    <a href="#" class="fi-top">Вгору &#8593;</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Nav scroll
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('solid', window.scrollY > 80);
+  }, {passive:true});
+
+  // Mobile menu
+  var mm = document.getElementById('mobile-menu');
+  document.getElementById('burger-btn').addEventListener('click', function(){
+    mm.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('close-menu').addEventListener('click', function(){
+    mm.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  document.querySelectorAll('.mm-link').forEach(function(a){
+    a.addEventListener('click', function(){
+      mm.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Gallery tabs
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var tab = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.gcontent').forEach(function(gc){
+        gc.classList.toggle('active', gc.dataset.tab === tab);
+      });
+    });
+  });
+
+  // Lightbox
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lb-img');
+  document.querySelectorAll('.gi').forEach(function(item){
+    item.addEventListener('click', function(){
+      lbImg.src = item.querySelector('img').src;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeLb(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function(){ lbImg.src = ''; }, 300);
+  }
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
+
+  // Booking form
+  var form = document.getElementById('booking-form');
+  var thanks = document.getElementById('form-thanks');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      form.style.display = 'none';
+      thanks.style.display = 'block';
+    });
+  }
+})();
+</script>
+</body>
+</html>
