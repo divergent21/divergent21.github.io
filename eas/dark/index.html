@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="СТО Євро Авто Сервіс – професійні майстри, доступні ціни на ремонт авто, якість, гарантія. Запчастини для будь-яких авто, діагностика та ТО в Києві">
+<title>СТО та магазин запчастин у Києві — Євро Авто Сервіс (EAS)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Onest',-apple-system,sans-serif;background:#0a0a0a;color:#f5f4f0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.desktop-only{display:flex}
+.mobile-only{display:none!important}
+.eas-mobile-menu{display:none!important;flex-direction:column;gap:20px;background:#0a0a0a;border-top:1px solid #222;padding:24px 32px}
+.eas-mobile-menu.open{display:flex!important}
+@media(max-width:900px){.desktop-only{display:none!important}.mobile-only{display:block!important}}
+.header-scrolled{background:rgba(10,10,10,0.95)!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #1a1a1a!important}
+.hover-link{transition:color .2s}
+.hover-link:hover{color:#f5f4f0!important}
+.hover-card{transition:background .2s}
+.hover-card:hover{background:#161616!important}
+.hover-gold:hover{background:#daa04d!important}
+.hover-opacity:hover{opacity:.8}
+.hover-border:hover{background:rgba(200,145,58,0.08);border-color:rgba(200,145,58,0.5)!important}
+.footer-link{transition:color .2s}
+.footer-link:hover{color:#999!important}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="mainHeader" style="position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s;border-bottom:1px solid transparent">
+  <div style="max-width:1400px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:44px;height:44px;background:#C8913A;display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-weight:900;font-size:16px;color:#0a0a0a;letter-spacing:-0.5px">EAS</div>
+      <div>
+        <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.5px;color:#f5f4f0">ЄВРО АВТО</div>
+        <div style="font-size:10px;letter-spacing:3px;color:#888;text-transform:uppercase;font-weight:500">СЕРВІС</div>
+      </div>
+    </div>
+    <nav style="gap:32px;align-items:center" class="desktop-only">
+      <a href="#services" class="hover-link" style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#999;font-weight:500">Послуги</a>
+      <a href="#diagnostics" class="hover-link" style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#999;font-weight:500">Діагностика</a>
+      <a href="#parts" class="hover-link" style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#999;font-weight:500">Запчастини</a>
+      <a href="#brands" class="hover-link" style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#999;font-weight:500">Марки авто</a>
+      <a href="#contacts" class="hover-link" style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#999;font-weight:500">Контакти</a>
+    </nav>
+    <a href="tel:+380445877000" class="desktop-only hover-gold" style="align-items:center;gap:8px;background:#C8913A;color:#0a0a0a;padding:10px 20px;font-weight:600;font-size:14px;letter-spacing:0.5px;transition:background .2s">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (044) 587-7000
+    </a>
+    <button onclick="document.querySelector('.eas-mobile-menu').classList.toggle('open')" style="background:none;border:none;color:#f5f4f0;cursor:pointer;padding:8px" class="mobile-only">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="eas-mobile-menu">
+    <a href="#services" onclick="document.querySelector('.eas-mobile-menu').classList.remove('open')" style="font-size:16px;color:#ccc;font-weight:500">Послуги СТО</a>
+    <a href="#diagnostics" onclick="document.querySelector('.eas-mobile-menu').classList.remove('open')" style="font-size:16px;color:#ccc;font-weight:500">Діагностика</a>
+    <a href="#parts" onclick="document.querySelector('.eas-mobile-menu').classList.remove('open')" style="font-size:16px;color:#ccc;font-weight:500">Запчастини</a>
+    <a href="#brands" onclick="document.querySelector('.eas-mobile-menu').classList.remove('open')" style="font-size:16px;color:#ccc;font-weight:500">Марки авто</a>
+    <a href="#contacts" onclick="document.querySelector('.eas-mobile-menu').classList.remove('open')" style="font-size:16px;color:#ccc;font-weight:500">Контакти</a>
+    <div style="border-top:1px solid #222;padding-top:20px;display:flex;flex-direction:column;gap:12px">
+      <a href="tel:+380445877000" style="color:#C8913A;font-weight:600;font-size:18px">(044) 587-7000</a>
+      <a href="tel:+380954277774" style="color:#999;font-size:14px">Vodafone (095) 427-7774</a>
+      <a href="tel:+380960477774" style="color:#999;font-size:14px">Київстар (096) 047-7774</a>
+      <a href="tel:+380634277774" style="color:#999;font-size:14px">Lifecell (063) 427-7774</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 32px 80px;max-width:1400px;margin:0 auto;position:relative">
+  <div style="position:absolute;top:140px;right:32px;font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(120px,20vw,280px);color:rgba(200,145,58,0.04);line-height:1;pointer-events:none;user-select:none">EAS</div>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px">
+    <div style="width:48px;height:2px;background:#C8913A"></div>
+    <span style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#C8913A;font-weight:600">Київ · Оболонь · Дарниця</span>
+  </div>
+  <h1 style="font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(32px,5.5vw,72px);line-height:1.1;color:#f5f4f0;max-width:900px;margin-bottom:28px">Сервіс<br>європейської<br><span style="color:#C8913A">якості</span></h1>
+  <p style="font-size:clamp(16px,2vw,20px);color:#888;max-width:560px;line-height:1.7;margin-bottom:48px;font-weight:400">Мультибрендове СТО та магазин запчастин. Професійний ремонт іномарок від 2000 р.в. з гарантією 20 000 км або півроку.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:56px">
+    <div style="display:flex;align-items:center;gap:10px;background:rgba(200,145,58,0.1);border:1px solid rgba(200,145,58,0.2);padding:12px 20px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span style="font-size:13px;color:#ccc;font-weight:500">Гарантія 20 000 км</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;background:rgba(200,145,58,0.1);border:1px solid rgba(200,145,58,0.2);padding:12px 20px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <span style="font-size:13px;color:#ccc;font-weight:500">Електрика є завжди</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;background:rgba(200,145,58,0.1);border:1px solid rgba(200,145,58,0.2);padding:12px 20px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span style="font-size:13px;color:#ccc;font-weight:500">Пн–Нд 9:00–19:00</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;background:rgba(200,145,58,0.1);border:1px solid rgba(200,145,58,0.2);padding:12px 20px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span style="font-size:13px;color:#ccc;font-weight:500">45+ марок авто</span>
+    </div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+    <a href="tel:+380445877000" class="hover-gold" style="display:inline-flex;align-items:center;gap:10px;background:#C8913A;color:#0a0a0a;padding:16px 32px;font-weight:700;font-size:16px;letter-spacing:0.5px;transition:background .2s">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Зателефонувати
+    </a>
+    <a href="#diagnostics" class="hover-border" style="display:inline-flex;align-items:center;gap:8px;color:#C8913A;padding:16px 24px;font-weight:600;font-size:15px;border:1px solid rgba(200,145,58,0.3);transition:all .2s">
+      Безкоштовна діагностика
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div style="margin-top:56px;padding-top:32px;border-top:1px solid #1a1a1a;display:flex;flex-wrap:wrap;gap:24px">
+    <a href="tel:+380445877000" class="hover-link" style="font-size:14px;color:#666"><span style="color:#555;font-size:11px;letter-spacing:1px;display:block;margin-bottom:2px">КИЇВ</span>(044) 587-7000</a>
+    <a href="tel:+380954277774" class="hover-link" style="font-size:14px;color:#666"><span style="color:#555;font-size:11px;letter-spacing:1px;display:block;margin-bottom:2px">VODAFONE</span>(095) 427-7774</a>
+    <a href="tel:+380960477774" class="hover-link" style="font-size:14px;color:#666"><span style="color:#555;font-size:11px;letter-spacing:1px;display:block;margin-bottom:2px">КИЇВСТАР</span>(096) 047-7774</a>
+    <a href="tel:+380634277774" class="hover-link" style="font-size:14px;color:#666"><span style="color:#555;font-size:11px;letter-spacing:1px;display:block;margin-bottom:2px">LIFECELL</span>(063) 427-7774</a>
+  </div>
+</section>
+
+<!-- DIAGNOSTICS -->
+<section id="diagnostics" style="padding:80px 0;border-top:1px solid #1a1a1a">
+  <div style="max-width:1400px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:2px;background:#C8913A"></div>
+      <span style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#C8913A;font-weight:600">Діагностика</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:48px">
+      <h2 style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(24px,3.5vw,40px);line-height:1.2;color:#f5f4f0">Послуги діагностики</h2>
+      <p style="font-size:14px;color:#666;max-width:400px">Сучасне обладнання та досвідчені фахівці. Повна діагностика вашого автомобіля.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px">
+      <a href="https://eas.kiev.ua/sto-kompleksna-diagnostyka-avto-bezkoshtovno-czina" class="hover-card" style="background:#111;padding:32px 28px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:16px;right:16px;background:#C8913A;color:#0a0a0a;font-weight:700;font-size:12px;padding:4px 10px;letter-spacing:0.5px">БЕЗКОШТОВНО</div>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;color:#f5f4f0">Комплексна діагностика</div>
+        <div style="font-size:13px;color:#666;line-height:1.6">Повна перевірка всіх систем автомобіля. Акційна пропозиція — безкоштовно!</div>
+      </a>
+      <a href="https://eas.kiev.ua/sto-kompyuterna-diagnostyka-avto-remont-czina" class="hover-card" style="background:#111;padding:32px 28px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span style="color:#C8913A;font-weight:700;font-size:14px">від 280 ₴</span>
+        </div>
+        <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;color:#f5f4f0">Комп'ютерна діагностика</div>
+        <div style="font-size:13px;color:#666;line-height:1.6">Зчитування кодів помилок, перевірка електронних систем та датчиків авто.</div>
+      </a>
+      <a href="https://eas.kiev.ua/sto-diagnostyka-avto-pered-pokupkoju-ekspertyza-remont-czina" class="hover-card" style="background:#111;padding:32px 28px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          <span style="color:#C8913A;font-weight:700;font-size:14px">від 500 ₴</span>
+        </div>
+        <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;color:#f5f4f0">Діагностика перед покупкою</div>
+        <div style="font-size:13px;color:#666;line-height:1.6">Повна експертиза автомобіля перед придбанням. Захистіть себе від проблем.</div>
+      </a>
+      <a href="https://eas.kiev.ua/sto-predprodazhna-pidgotovka-avto-diagnostyka-remont-czina" class="hover-card" style="background:#111;padding:32px 28px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span style="color:#C8913A;font-weight:700;font-size:14px">від 250 ₴</span>
+        </div>
+        <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;color:#f5f4f0">Передпродажна підготовка</div>
+        <div style="font-size:13px;color:#666;line-height:1.6">Підготовка авто до продажу: діагностика, усунення дефектів, огляд.</div>
+      </a>
+      <a href="https://eas.kiev.ua/sto-diagnostyka-khodovoji-avto-czina" class="hover-card" style="background:#111;padding:32px 28px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+          <span style="color:#C8913A;font-weight:700;font-size:14px">від 150 ₴</span>
+        </div>
+        <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;color:#f5f4f0">Діагностика ходової</div>
+        <div style="font-size:13px;color:#666;line-height:1.6">Перевірка підвіски, амортизаторів, рульових тяг та ходової частини.</div>
+      </a>
+      <a href="https://eas.kiev.ua/sto-kompleksna-diagnostyka-avto-czina" class="hover-card" style="background:#111;padding:32px 28px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <span style="color:#C8913A;font-weight:700;font-size:14px">від 250 ₴</span>
+        </div>
+        <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;color:#f5f4f0">Комплексна діагностика</div>
+        <div style="font-size:13px;color:#666;line-height:1.6">Повна діагностика з детальним звітом та рекомендаціями по ремонту.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="padding:80px 0;border-top:1px solid #1a1a1a">
+  <div style="max-width:1400px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:2px;background:#C8913A"></div>
+      <span style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#C8913A;font-weight:600">Послуги СТО</span>
+    </div>
+    <h2 style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(24px,3.5vw,40px);line-height:1.2;color:#f5f4f0;margin-bottom:48px">Ремонт та обслуговування</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2px">
+      <div style="background:#111;padding:40px 32px">
+        <h3 style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:18px;color:#f5f4f0;margin-bottom:28px">Ремонт</h3>
+        <div style="display:flex;flex-direction:column">
+          <a href="https://eas.kiev.ua/sto-remont-khodovoji-diagnostyka-avto-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Ходова частина <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-diagnostyka-remont-kermovoji-avto-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Рульове управління <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-remont-galmivnoji-diagnostyka-avto-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Гальмівна система <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-diagnostyka-remont-palyvnoji-avto-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Паливна система <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-diagnostyka-remont-transmissiji-avto-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Трансмісія <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-diagnostyka-zamina-remont-prodazh-dvyguna-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Двигун <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-kuzovnyj-remont-avto-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Кузовний ремонт <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-remont-grm-diagnostyka-avto-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Ремонт ГРМ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-to-avto-tekhobslugovuvannja-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">ТО (техобслуговування) <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-zamina-obslugovuvannja-pryvidnykh-remeniv-rolikiv-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Привідні ремені, ролики <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-zamina-filtriv-avto-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #1a1a1a;color:#999;font-size:15px">Заміна фільтрів <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://eas.kiev.ua/sto-zamina-mastyla-avto-ridyny-okholodjennja-czina" class="hover-link" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;color:#999;font-size:15px">Заміна мастил, рідин <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <div style="background:#111;padding:40px 32px;flex:1">
+          <h3 style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:18px;color:#f5f4f0;margin-bottom:20px">Про нас</h3>
+          <p style="font-size:15px;color:#777;line-height:1.8;margin-bottom:20px">Наше мультибрендове СТО завжди готове надати якісний ремонт авто іноземного виробництва, починаючи з 2000 р. випуску. Пріоритет автосервісу — доступна ціна та обов'язкова гарантія на запчастини та виконані роботи.</p>
+          <p style="font-size:15px;color:#777;line-height:1.8">Жодних несподіванок та прихованих додаткових витрат. Ми робимо в автомобілі тільки те, що потрібно. Всі послуги надаються після повного узгодження з вами всіх цін та видів робіт.</p>
+        </div>
+        <a href="https://eas.kiev.ua/sto-avto-masla-czina" class="hover-card" style="background:#111;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+          <div style="display:flex;align-items:center;gap:16px">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="1.5"><path d="M6 3v18M18 3v18M6 12h12M6 6h12M6 18h12"/></svg>
+            <div>
+              <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:15px;color:#f5f4f0">Автомастила</div>
+              <div style="font-size:13px;color:#666;margin-top:4px">Моторні · Трансмісійні · Оригінальні</div>
+            </div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a id="parts" href="https://eas.kiev.ua/sto-avto-zapchastyny-pidbir-zapchastyn-sklad-magazyn-czina" class="hover-gold" style="background:#C8913A;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .2s">
+          <div style="display:flex;align-items:center;gap:16px">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            <div>
+              <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:15px;color:#0a0a0a">Запчастини</div>
+              <div style="font-size:13px;color:rgba(0,0,0,0.6);margin-top:4px">Підбір, продаж, гарантія якості</div>
+            </div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section style="padding:64px 0;border-top:1px solid #1a1a1a;background:#0d0d0d">
+  <div style="max-width:1400px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;text-align:center">
+    <div><div style="font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:#C8913A">45+</div><div style="font-size:13px;color:#666;margin-top:8px;letter-spacing:1px;text-transform:uppercase">Марок авто</div></div>
+    <div><div style="font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:#C8913A">20k</div><div style="font-size:13px;color:#666;margin-top:8px;letter-spacing:1px;text-transform:uppercase">Км гарантія</div></div>
+    <div><div style="font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:#C8913A">2</div><div style="font-size:13px;color:#666;margin-top:8px;letter-spacing:1px;text-transform:uppercase">Локації в Києві</div></div>
+    <div><div style="font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:#C8913A">7/7</div><div style="font-size:13px;color:#666;margin-top:8px;letter-spacing:1px;text-transform:uppercase">Днів на тиждень</div></div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands" style="padding:80px 0;border-top:1px solid #1a1a1a">
+  <div style="max-width:1400px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:2px;background:#C8913A"></div>
+      <span style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#C8913A;font-weight:600">Марки</span>
+    </div>
+    <h2 style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(24px,3.5vw,40px);line-height:1.2;color:#f5f4f0;margin-bottom:16px">Запчастини та ремонт</h2>
+    <p style="font-size:15px;color:#666;max-width:560px;margin-bottom:48px;line-height:1.6">Обслуговуємо понад 45 марок авто різних виробників. Навіть якщо ви не робите ремонт у нас — ми підберемо запчастини з гарантією.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px" id="brandsGrid"></div>
+    <p style="font-size:14px;color:#555;margin-top:32px;line-height:1.6">Безкоштовні консультації професійних майстрів, швидкий пошук запчастин та оптимальний підбір з урахуванням співвідношення ціна — якість.</p>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts" style="padding:80px 0;border-top:1px solid #1a1a1a">
+  <div style="max-width:1400px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:2px;background:#C8913A"></div>
+      <span style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#C8913A;font-weight:600">Контакти</span>
+    </div>
+    <h2 style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(24px,3.5vw,40px);line-height:1.2;color:#f5f4f0;margin-bottom:48px">Наші локації</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px">
+      <div style="background:#111;padding:40px 32px;display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:40px;height:40px;background:rgba(200,145,58,0.15);display:flex;align-items:center;justify-content:center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;color:#f5f4f0">Оболонь</div>
+            <div style="font-size:13px;color:#666;margin-top:2px">Озерна 1</div>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/sTMx5nHx6F3arNLh6" target="_blank" class="hover-opacity" style="display:inline-flex;align-items:center;gap:8px;color:#C8913A;font-size:14px;font-weight:500;transition:opacity .2s">Відкрити на карті <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a>
+      </div>
+      <div style="background:#111;padding:40px 32px;display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:40px;height:40px;background:rgba(200,145,58,0.15);display:flex;align-items:center;justify-content:center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8913A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px;color:#f5f4f0">Дарниця</div>
+            <div style="font-size:13px;color:#666;margin-top:2px">Бориспільська 7А</div>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/5EpHmMsiohPdoZMKA" target="_blank" class="hover-opacity" style="display:inline-flex;align-items:center;gap:8px;color:#C8913A;font-size:14px;font-weight:500;transition:opacity .2s">Відкрити на карті <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a>
+      </div>
+      <div style="background:#C8913A;padding:40px 32px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:18px;color:#0a0a0a">Телефонуйте!</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a href="tel:+380445877000" style="font-size:20px;font-weight:700;color:#0a0a0a">(044) 587-7000</a>
+          <a href="tel:+380954277774" style="font-size:15px;color:rgba(0,0,0,0.6)">Vodafone (095) 427-7774</a>
+          <a href="tel:+380960477774" style="font-size:15px;color:rgba(0,0,0,0.6)">Київстар (096) 047-7774</a>
+          <a href="tel:+380634277774" style="font-size:15px;color:rgba(0,0,0,0.6)">Lifecell (063) 427-7774</a>
+        </div>
+        <div style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(0,0,0,0.15)">
+          <div style="font-size:14px;color:rgba(0,0,0,0.6)">Працюємо пн–нд 9:00–19:00</div>
+          <div style="font-size:14px;color:rgba(0,0,0,0.6);margin-top:4px">Дзвінки без вихідних до 22:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid #1a1a1a;padding:48px 0 32px;background:#060606">
+  <div style="max-width:1400px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:32px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:36px;height:36px;background:#C8913A;display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-weight:900;font-size:13px;color:#0a0a0a">EAS</div>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:13px;color:#555">Євро Авто Сервіс</span>
+      </div>
+      <div style="font-size:13px;color:#333">© 2026 Євро Авто Сервіс — запчастини та СТО в Києві</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:48px;padding-top:24px;border-top:1px solid #151515">
+      <div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#444;font-weight:600;margin-bottom:16px">Ремонт</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://eas.kiev.ua/sto-remont-khodovoji-diagnostyka-avto-czina" class="footer-link" style="font-size:13px;color:#555">Ходова</a>
+          <a href="https://eas.kiev.ua/sto-diagnostyka-remont-kermovoji-avto-czina" class="footer-link" style="font-size:13px;color:#555">Кермова</a>
+          <a href="https://eas.kiev.ua/sto-remont-galmivnoji-diagnostyka-avto-czina" class="footer-link" style="font-size:13px;color:#555">Гальмівна</a>
+          <a href="https://eas.kiev.ua/sto-diagnostyka-remont-palyvnoji-avto-czina" class="footer-link" style="font-size:13px;color:#555">Паливна</a>
+          <a href="https://eas.kiev.ua/sto-to-avto-tekhobslugovuvannja-czina" class="footer-link" style="font-size:13px;color:#555">ТО</a>
+          <a href="https://eas.kiev.ua/sto-kuzovnyj-remont-avto-czina" class="footer-link" style="font-size:13px;color:#555">Кузовний</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#444;font-weight:600;margin-bottom:16px">Діагностика</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://eas.kiev.ua/sto-kompleksna-diagnostyka-avto-bezkoshtovno-czina" class="footer-link" style="font-size:13px;color:#555">Безкоштовна</a>
+          <a href="https://eas.kiev.ua/sto-kompyuterna-diagnostyka-avto-remont-czina" class="footer-link" style="font-size:13px;color:#555">Комп'ютерна</a>
+          <a href="https://eas.kiev.ua/sto-diagnostyka-avto-pered-pokupkoju-ekspertyza-remont-czina" class="footer-link" style="font-size:13px;color:#555">Перед покупкою</a>
+          <a href="https://eas.kiev.ua/sto-diagnostyka-khodovoji-avto-czina" class="footer-link" style="font-size:13px;color:#555">Ходової</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#444;font-weight:600;margin-bottom:16px">Мастила</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://eas.kiev.ua/sto-motorne-mastylo-avto-czina" class="footer-link" style="font-size:13px;color:#555">Моторні</a>
+          <a href="https://eas.kiev.ua/sto-transmisijne-mastylo-avto-czina" class="footer-link" style="font-size:13px;color:#555">Трансмісійні</a>
+          <a href="https://eas.kiev.ua/sto-originalne-mastylo-avto-czina" class="footer-link" style="font-size:13px;color:#555">Оригінальні</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#444;font-weight:600;margin-bottom:16px">Контакти</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="tel:+380445877000" class="footer-link" style="font-size:13px;color:#555">(044) 587-7000</a>
+          <a href="tel:+380954277774" class="footer-link" style="font-size:13px;color:#555">(095) 427-7774</a>
+          <a href="tel:+380960477774" class="footer-link" style="font-size:13px;color:#555">(096) 047-7774</a>
+          <a href="tel:+380634277774" class="footer-link" style="font-size:13px;color:#555">(063) 427-7774</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scroll effect
+window.addEventListener('scroll',function(){
+  var h=document.getElementById('mainHeader');
+  if(window.scrollY>60){h.classList.add('header-scrolled')}else{h.classList.remove('header-scrolled')}
+});
+// Brands
+var brands=[
+  ['Acura','acura'],['Alfa Romeo','alfa-romeo'],['Audi','audi'],['BMW','bmw'],
+  ['Cadillac','cadillac'],['Chevrolet','chevrolet'],['Chrysler','chrysler'],['Citroen','citroen'],
+  ['Dodge','dodge'],['Fiat','fiat'],['Ford','ford'],['Honda','honda'],
+  ['Hyundai','hyundai'],['Infiniti','infiniti'],['Jaguar','jaguar'],['Jeep','jeep'],
+  ['Kia','kia'],['Land Rover','land-rover'],['Lexus','lexus'],['Mazda','mazda'],
+  ['Mercedes','mercedes'],['Mini','mini'],['Mitsubishi','mitsubishi'],['Nissan','nissan'],
+  ['Opel','opel'],['Peugeot','peugeot'],['Porsche','porsche'],['Renault','renault'],
+  ['SEAT','seat'],['Skoda','skoda'],['SsangYong','ssangyong'],['Subaru','subaru'],
+  ['Suzuki','suzuki'],['Toyota','toyota'],['Volkswagen','volkswagen'],['Volvo','volvo']
+];
+var g=document.getElementById('brandsGrid');
+brands.forEach(function(b){
+  var a=document.createElement('a');
+  a.href='https://eas.kiev.ua/sto-zapchastyny-'+b[1]+'-remont-avto-servis-czina';
+  if(b[1]==='suzuki')a.href='https://eas.kiev.ua/sto-zapchastyny-suzuki-remont-avto-czina';
+  a.textContent=b[0];
+  a.style.cssText='background:#111;padding:12px 20px;font-size:13px;color:#888;font-weight:500;transition:all .2s;letter-spacing:0.3px;white-space:nowrap;text-decoration:none';
+  a.onmouseenter=function(){this.style.background='#1a1a1a';this.style.color='#f5f4f0'};
+  a.onmouseleave=function(){this.style.background='#111';this.style.color='#888'};
+  g.appendChild(a);
+});
+</script>
+</body>
+</html>
