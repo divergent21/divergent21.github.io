@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДомСтрой — Строительная компания в Киеве</title>
+<meta name="description" content="Строительная компания DomStroy в Киеве: проектирование, строительство и ремонт домов под ключ с гарантией качества.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#F5F1EB;color:#1A1918;font-family:'Manrope',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+input,textarea,select,button{font-family:'Manrope',sans-serif}
+button{cursor:pointer;border:none;background:none}
+img{display:block;max-width:100%}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes modalIn{from{opacity:0;transform:translateY(36px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* HEADER */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;display:flex;align-items:center;transition:background .35s,box-shadow .35s}
+.hdr.sc{background:rgba(245,241,235,.97);box-shadow:0 1px 0 rgba(26,25,24,.09)}
+.hdr-in{max-width:1400px;margin:0 auto;width:100%;padding:0 clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:36px;height:36px;background:#B35830;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark span{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:#fff;letter-spacing:-.5px}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;letter-spacing:.03em;transition:color .35s;color:#fff}
+.logo-sub{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;transition:color .35s;color:rgba(245,241,235,.45)}
+.hdr.sc .logo-name{color:#1A1918}
+.hdr.sc .logo-sub{color:#9A928B}
+.dnav{display:flex;align-items:center;gap:28px}
+.dnav a{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:opacity .2s,color .35s;opacity:.8;color:#fff}
+.dnav a:hover{opacity:1}
+.hdr.sc .dnav a{color:#1A1918}
+.hdr-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.hdr-phone{font-size:14px;font-weight:600;transition:color .2s;color:#fff}
+.hdr-phone:hover{color:#B35830}
+.hdr.sc .hdr-phone{color:#1A1918}
+.btn-p{padding:10px 22px;background:#B35830;color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none;display:inline-block}
+.btn-p:hover{background:#963020}
+.ham{display:none;flex-direction:column;justify-content:center;gap:5px;padding:8px;background:none;border:none;cursor:pointer}
+.ham span{display:block;width:24px;height:2px;transition:background .35s;background:#fff}
+.ham span:last-child{width:16px}
+.hdr.sc .ham span{background:#1A1918}
+@media(max-width:960px){.dnav,.hdr-right{display:none}.ham{display:flex}}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;flex-direction:column;background:#1A1918}
+.hero-bg{position:absolute;inset:0;background-image:url('https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/03_pn.jpg');background-size:cover;background-position:center;opacity:.22}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,25,24,.98) 0%,rgba(26,25,24,.45) 55%,rgba(26,25,24,.65) 100%)}
+.hero-cnt{position:relative;z-index:1;flex:1;display:flex;align-items:flex-end;max-width:1400px;margin:0 auto;width:100%;padding:120px clamp(20px,4vw,48px) clamp(56px,8vh,96px);animation:fadeUp .9s ease both}
+.hero-in{max-width:760px}
+.hero-tag{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#B35830;margin-bottom:24px}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,9vw,114px);font-weight:600;line-height:.9;color:#F5F1EB;letter-spacing:-.02em;margin-bottom:clamp(24px,4vh,40px)}
+.hero-h1 em{font-style:italic;font-weight:300;color:#C4A898}
+.hero-desc{font-size:clamp(14px,1.7vw,17px);line-height:1.7;color:rgba(245,241,235,.62);font-weight:300;max-width:480px;margin-bottom:clamp(28px,4vh,40px)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn-h1{padding:clamp(13px,2vh,17px) clamp(24px,3vw,36px);background:#B35830;color:#fff;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none}
+.btn-h1:hover{background:#963020}
+.btn-h2{padding:clamp(13px,2vh,17px) clamp(24px,3vw,36px);background:transparent;border:1px solid rgba(245,241,235,.3);color:#F5F1EB;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:all .2s;display:inline-block}
+.btn-h2:hover{background:rgba(245,241,235,.08);border-color:rgba(245,241,235,.6)}
+.hero-bar{position:relative;z-index:1;border-top:1px solid rgba(245,241,235,.1);background:rgba(26,25,24,.6);backdrop-filter:blur(10px)}
+.hero-bar-in{max-width:1400px;margin:0 auto;width:100%;padding:0 clamp(20px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;gap:20px;min-height:50px}
+.hero-bar span,.hero-bar a{font-size:12px;color:rgba(245,241,235,.45)}
+.hero-bar a{transition:color .2s}
+.hero-bar a:hover{color:#F5F1EB}
+.hero-sep{width:1px;height:14px;background:rgba(245,241,235,.15);flex-shrink:0}
+.hero-tg{margin-left:auto;color:#B35830 !important;font-weight:600;font-size:12px;letter-spacing:.04em}
+.hero-tg:hover{opacity:.7;color:#B35830 !important}
+
+/* STATS */
+.stats{background:#22201E}
+.stats-in{max-width:1400px;margin:0 auto;width:100%;padding:0 clamp(20px,4vw,48px);display:flex;flex-wrap:wrap;align-items:stretch}
+.stat{flex:1;min-width:130px;padding:clamp(28px,4vh,48px) clamp(16px,2vw,28px);border-right:1px solid rgba(245,241,235,.07)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,58px);font-weight:600;color:#F5F1EB;line-height:1}
+.stat-n.ac{color:#B35830}
+.stat-l{margin-top:6px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7A736D}
+
+/* SECTION BASE */
+.sec{padding:clamp(56px,8vh,96px) 0}
+.sec-in{max-width:1400px;margin:0 auto;width:100%;padding:0 clamp(20px,4vw,48px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:clamp(32px,5vh,52px)}
+.sec-tag{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#B35830;margin-bottom:12px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,50px);font-weight:600;line-height:1.05}
+.sec-lnk{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B35830;padding-bottom:6px;transition:opacity .2s}
+.sec-lnk:hover{opacity:.65}
+
+/* SERVICES */
+.svc-bg{background:#F5F1EB}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));border-left:1px solid #DDD7CE;border-top:1px solid #DDD7CE}
+.svc-item{display:flex;align-items:center;gap:14px;padding:22px 18px;border-right:1px solid #DDD7CE;border-bottom:1px solid #DDD7CE;color:#1A1918;transition:background .18s,color .18s}
+.svc-item:hover{background:#1A1918;color:#F5F1EB}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:400;color:#B35830;min-width:22px;flex-shrink:0}
+.svc-name{font-size:13px;font-weight:500;flex:1;line-height:1.35}
+.svc-arr{font-size:14px;opacity:.35;flex-shrink:0}
+.svc-foot{margin-top:36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:28px;border-top:1px solid #DDD7CE}
+.svc-desc{font-size:14px;color:#6E6660;max-width:420px;line-height:1.65}
+.btn-ol{padding:13px 26px;background:transparent;border:1px solid #1A1918;color:#1A1918;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .18s;cursor:pointer}
+.btn-ol:hover{background:#1A1918;color:#F5F1EB}
+
+/* PROJECTS */
+.proj-bg{background:#fff}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:2px;background:#E0DAD0}
+.proj-card{background:#fff;overflow:hidden;cursor:pointer;transition:transform .28s,box-shadow .28s}
+.proj-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(26,25,24,.12)}
+.proj-img{height:210px;background-size:cover;background-position:center;background-color:#EDE8DF}
+.proj-info{padding:20px 20px 24px}
+.proj-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#1A1918;margin-bottom:8px;line-height:1.2}
+.proj-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.proj-area{font-size:13px;color:#9A928B}
+.proj-price{font-size:14px;font-weight:700;color:#1A1918}
+.proj-bot{padding-top:14px;border-top:1px solid #F0EBE3}
+.proj-lnk{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B35830;transition:opacity .2s}
+.proj-lnk:hover{opacity:.7}
+
+/* PORTFOLIO */
+.port-bg{background:#1A1918}
+.port-bg .sec-title{color:#F5F1EB}
+.port-lnk{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7A736D;padding-bottom:6px;transition:color .2s}
+.port-lnk:hover{color:#F5F1EB}
+.port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:3px}
+.port-item{aspect-ratio:4/3;background-size:cover;background-position:center;background-color:#2A2725;cursor:pointer;transition:opacity .2s}
+.port-item:hover{opacity:.78}
+
+/* ABOUT */
+.abt-bg{background:#F5F1EB}
+.abt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(40px,6vw,80px);align-items:center}
+.abt-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,50px);font-weight:600;line-height:1.1;color:#1A1918;margin-bottom:24px}
+.abt-p{font-size:15px;line-height:1.78;color:#5A5450;margin-bottom:18px}
+.abt-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn-dk{padding:14px 28px;background:#1A1918;color:#F5F1EB;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:background .2s;display:inline-block}
+.btn-dk:hover{background:#2E2B29}
+.btn-br{padding:14px 28px;background:transparent;border:1px solid #DDD7CE;color:#1A1918;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:border-color .2s;display:inline-block}
+.btn-br:hover{border-color:#1A1918}
+.abt-imgs{display:grid;grid-template-rows:1fr 1fr;gap:3px;height:clamp(280px,40vw,480px)}
+.abt-img-main{overflow:hidden;background:#E8E3DB}
+.abt-img-main img,.abt-img-sm img{width:100%;height:100%;object-fit:cover}
+.abt-img-row{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.abt-img-sm{overflow:hidden;background:#DDD7CE}
+.abt-stat{background:#1A1918;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
+.abt-stat-n{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:600;color:#F5F1EB;line-height:1}
+.abt-stat-l{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7A736D;margin-top:6px}
+
+/* REVIEWS */
+.rev-bg{background:#FFFEFA;border-top:1px solid #EAE5DD}
+.rev-in{max-width:720px;margin:0 auto;width:100%;padding:0 clamp(20px,4vw,48px);text-align:center}
+.rev-tag{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#B35830;margin-bottom:clamp(28px,4vh,44px)}
+.rev-qm{font-family:'Cormorant Garamond',serif;font-size:100px;line-height:.7;color:#E8E3DB;margin-bottom:16px;user-select:none}
+.rev-txt{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.5vw,23px);line-height:1.75;color:#3A3530;font-style:italic;min-height:100px}
+.rev-auth{margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.rev-av{width:50px;height:50px;border-radius:50%;background-size:cover;background-position:center;background-color:#DDD7CE}
+.rev-name{font-size:14px;font-weight:700;color:#1A1918}
+.rev-role{font-size:12px;color:#9A928B;margin-top:2px}
+.rev-nav{margin-top:36px;display:flex;align-items:center;justify-content:center;gap:8px}
+.rev-btn{width:44px;height:44px;background:transparent;border:1px solid #DDD7CE;color:#1A1918;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .18s;cursor:pointer}
+.rev-btn:hover{background:#1A1918;color:#F5F1EB;border-color:#1A1918}
+.rev-ctr{font-size:12px;font-weight:600;color:#9A928B;padding:0 14px;letter-spacing:.06em}
+
+/* CTA */
+.cta-bg{background:#1A1918}
+.cta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(40px,5vw,64px);align-items:center}
+.cta-tag{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#B35830;margin-bottom:20px}
+.cta-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,52px);font-weight:600;line-height:1.05;color:#F5F1EB;margin-bottom:20px}
+.cta-desc{font-size:14px;line-height:1.7;color:rgba(245,241,235,.45);margin-bottom:28px;max-width:380px}
+.cta-ph{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,44px);font-weight:600;color:#F5F1EB;display:block;transition:color .2s;line-height:1.1}
+.cta-ph:hover{color:#B35830}
+.cta-adr{margin-top:8px;font-size:11px;color:rgba(245,241,235,.3);letter-spacing:.06em}
+.cta-acts{display:flex;flex-direction:column;gap:10px}
+.btn-ac{padding:18px 32px;background:#B35830;color:#fff;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;transition:background .2s;cursor:pointer;border:none;display:block;width:100%}
+.btn-ac:hover{background:#963020}
+.btn-gh{padding:18px 32px;background:transparent;border:1px solid rgba(245,241,235,.2);color:#F5F1EB;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-align:center;transition:all .2s;cursor:pointer;display:block;width:100%}
+.btn-gh:hover{background:rgba(245,241,235,.05);border-color:rgba(245,241,235,.45)}
+.btn-ghd{padding:18px 32px;background:transparent;border:1px solid rgba(245,241,235,.1);color:rgba(245,241,235,.45);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-align:center;transition:all .2s;display:block;width:100%}
+.btn-ghd:hover{color:#F5F1EB;border-color:rgba(245,241,235,.35)}
+
+/* FOOTER */
+.ftr{background:#111110;padding:clamp(44px,6vh,68px) 0 0}
+.ftr-in{max-width:1400px;margin:0 auto;width:100%;padding:0 clamp(20px,4vw,48px)}
+.ftr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(245,241,235,.07)}
+.ftr-brand{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.ftr-mark{width:32px;height:32px;background:#B35830;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ftr-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#F5F1EB;letter-spacing:.03em}
+.ftr-desc{font-size:13px;line-height:1.65;color:rgba(245,241,235,.35);max-width:200px}
+.ftr-ct{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,241,235,.25);margin-bottom:16px}
+.ftr-links{display:flex;flex-direction:column;gap:9px}
+.ftr-links a{font-size:13px;color:rgba(245,241,235,.55);transition:color .2s}
+.ftr-links a:hover{color:#F5F1EB}
+.ftr-ph{font-size:16px;font-weight:700;color:#F5F1EB;transition:color .2s;display:block;margin-bottom:8px}
+.ftr-ph:hover{color:#B35830}
+.ftr-em{font-size:12px;color:rgba(245,241,235,.45);transition:color .2s;display:block;margin-bottom:10px}
+.ftr-em:hover{color:#F5F1EB}
+.ftr-adr{font-size:12px;color:rgba(245,241,235,.35);line-height:1.55;margin-bottom:6px}
+.ftr-hrs{font-size:12px;color:rgba(245,241,235,.35);margin-bottom:12px}
+.ftr-soc{display:flex;gap:14px}
+.ftr-soc a{font-size:12px;font-weight:600;color:#B35830;transition:opacity .2s}
+.ftr-soc a:hover{opacity:.7}
+.ftr-soc a.dim{color:rgba(245,241,235,.4)}
+.ftr-soc a.dim:hover{color:#F5F1EB;opacity:1}
+.ftr-bot{padding:22px 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.ftr-copy{font-size:11px;color:rgba(245,241,235,.2)}
+.ftr-map{font-size:11px;color:rgba(245,241,235,.2);transition:color .2s}
+.ftr-map:hover{color:rgba(245,241,235,.5)}
+
+/* MODAL */
+.modal-bd{position:fixed;inset:0;z-index:400;background:rgba(17,17,16,.78);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;padding:20px}
+.modal-bx{background:#F5F1EB;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;animation:modalIn .3s ease both}
+.modal-hd{padding:28px 28px 22px;display:flex;align-items:flex-start;justify-content:space-between;border-bottom:1px solid #E0DAD0}
+.modal-tg{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#B35830;margin-bottom:6px}
+.modal-ttl{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#1A1918}
+.modal-x{background:none;border:none;font-size:20px;color:#9A928B;cursor:pointer;padding:4px;line-height:1;transition:color .2s}
+.modal-x:hover{color:#1A1918}
+.modal-frm{padding:24px 28px 28px;display:flex;flex-direction:column;gap:14px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9A928B}
+.fi{padding:11px 14px;border:1px solid #DDD7CE;background:#fff;font-size:14px;color:#1A1918;width:100%;transition:border-color .2s}
+.fi:focus{outline:none;border-color:#1A1918}
+.fsub{margin-top:6px;padding:15px;background:#B35830;color:#fff;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;width:100%;transition:background .2s;cursor:pointer;border:none}
+.fsub:hover{background:#963020}
+.fnote{font-size:11px;color:#B0A89F;text-align:center;line-height:1.5}
+.modal-ok{padding:52px 28px;text-align:center}
+.modal-ok-ic{width:56px;height:56px;background:#B35830;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#fff;font-size:24px}
+.modal-ok-t{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#1A1918;margin-bottom:10px}
+.modal-ok-d{font-size:14px;color:#6E6660;line-height:1.6}
+
+/* MOBILE MENU */
+.mob-mn{position:fixed;inset:0;z-index:300;background:#1A1918;display:flex;flex-direction:column;padding:0 clamp(24px,5vw,48px) 48px;animation:fadeUp .22s ease both}
+.mob-top{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,241,235,.08)}
+.mob-logo{display:flex;align-items:center;gap:10px}
+.mob-lname{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#F5F1EB}
+.mob-x{background:none;border:none;color:#F5F1EB;font-size:24px;cursor:pointer;padding:4px;line-height:1;transition:opacity .2s}
+.mob-x:hover{opacity:.6}
+.mob-nav{display:flex;flex-direction:column;flex:1;padding-top:8px}
+.mob-nav a{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,40px);font-weight:600;color:#F5F1EB;padding:14px 0;border-bottom:1px solid rgba(245,241,235,.08);transition:color .2s}
+.mob-nav a:last-child{border-bottom:none}
+.mob-nav a:hover{color:#B35830}
+.mob-ftr{display:flex;flex-direction:column;gap:10px}
+.mob-ph{font-size:clamp(18px,4vw,22px);font-weight:700;color:#F5F1EB;margin-bottom:4px;display:block}
+
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a href="#" class="logo">
+      <div class="logo-mark"><span>DS</span></div>
+      <div>
+        <div class="logo-name">ДомСтрой</div>
+        <div class="logo-sub">Київ · Будівництво</div>
+      </div>
+    </a>
+    <nav class="dnav">
+      <a href="https://dom-stroy.kiev.ua/o-kompanii/" target="_blank">О компании</a>
+      <a href="https://dom-stroy.kiev.ua/uslugi/" target="_blank">Прайс</a>
+      <a href="https://dom-stroy.kiev.ua/stroitelstvo-domov-pod-klyuch/" target="_blank">Строительство</a>
+      <a href="https://dom-stroy.kiev.ua/projecty-domov/" target="_blank">Проекты</a>
+      <a href="https://dom-stroy.kiev.ua/category/portfolio/" target="_blank">Портфолио</a>
+      <a href="https://dom-stroy.kiev.ua/kontakty/" target="_blank">Контакты</a>
+    </nav>
+    <div class="hdr-right">
+      <a href="tel:+380671965090" class="hdr-phone">(067) 196 50 90</a>
+      <button class="btn-p" onclick="openModal('calc')">Рассчитать</button>
+    </div>
+    <button class="ham" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-cnt">
+    <div class="hero-in">
+      <p class="hero-tag">Київ · Будівництво · Ремонт</p>
+      <h1 class="hero-h1">Строительная<br><em>компания</em><br>ДомСтрой</h1>
+      <p class="hero-desc">Проектирование, строительство и ремонт домов под ключ в Киеве с гарантией качества</p>
+      <div class="hero-ctas">
+        <button class="btn-h1" onclick="openModal('calc')">Рассчитать стоимость</button>
+        <a href="https://dom-stroy.kiev.ua/projecty-domov/" target="_blank" class="btn-h2">Каталог проектов</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bar">
+    <div class="hero-bar-in">
+      <span>Украина, г. Киев, Кловский спуск 7А</span>
+      <span class="hero-sep"></span>
+      <span>пн–пт 9:00–18:00</span>
+      <span class="hero-sep"></span>
+      <a href="tel:+380671965090">(067) 196 50 90</a>
+      <a href="https://t.me/DomstroyChat_bot" target="_blank" class="hero-tg">Telegram →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-in">
+    <div class="stat"><div class="stat-n">10</div><div class="stat-l">лет опыта</div></div>
+    <div class="stat"><div class="stat-n">37</div><div class="stat-l">домов под ключ</div></div>
+    <div class="stat"><div class="stat-n">297</div><div class="stat-l">ремонтных работ</div></div>
+    <div class="stat"><div class="stat-n">72</div><div class="stat-l">специалиста</div></div>
+    <div class="stat"><div class="stat-n ac">1</div><div class="stat-l">год гарантии</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec svc-bg">
+  <div class="sec-in">
+    <div class="sec-head">
+      <div><p class="sec-tag">Услуги</p><h2 class="sec-title">Что мы строим</h2></div>
+      <span style="font-size:13px;color:#9A928B;padding-bottom:6px">11 направлений</span>
+    </div>
+    <div class="svc-grid">
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/fasadnye-raboty/" target="_blank"><span class="svc-num">01</span><span class="svc-name">Фасадные работы</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/fundamentnye-raboty/" target="_blank"><span class="svc-num">02</span><span class="svc-name">Фундаментные работы</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/krovelnye-raboty/" target="_blank"><span class="svc-num">03</span><span class="svc-name">Кровельные работы</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/vnutrennie-raboty/" target="_blank"><span class="svc-num">04</span><span class="svc-name">Внутренние работы</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/vneshnyaya-otdelka-doma/" target="_blank"><span class="svc-num">05</span><span class="svc-name">Внешняя отделка дома</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/proektirovanie-montazh-i-restavraciya-lestnic/" target="_blank"><span class="svc-num">06</span><span class="svc-name">Лестницы</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/proektirovanie-doma/" target="_blank"><span class="svc-num">07</span><span class="svc-name">Проектирование дома</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/steny/" target="_blank"><span class="svc-num">08</span><span class="svc-name">Стены</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/monolitnoe-stroitelstvo/" target="_blank"><span class="svc-num">09</span><span class="svc-name">Монолитное строительство</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/rekonstrukciya-domov/" target="_blank"><span class="svc-num">10</span><span class="svc-name">Реконструкция домов</span><span class="svc-arr">→</span></a>
+      <a class="svc-item" href="https://dom-stroy.kiev.ua/projecty-domov/" target="_blank"><span class="svc-num">11</span><span class="svc-name">Проекты домов</span><span class="svc-arr">→</span></a>
+    </div>
+    <div class="svc-foot">
+      <p class="svc-desc">Полный спектр строительных и ремонтных работ по Киеву и области</p>
+      <button class="btn-ol" onclick="openModal('calc')">Получить прайс-лист</button>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec proj-bg">
+  <div class="sec-in">
+    <div class="sec-head">
+      <div><p class="sec-tag">Каталог</p><h2 class="sec-title">Проекты домов</h2></div>
+      <a href="https://dom-stroy.kiev.ua/projecty-domov/" target="_blank" class="sec-lnk">Все проекты →</a>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-img" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/uploads/2021/12/c2-350x200.jpeg')"></div>
+        <div class="proj-info"><h3 class="proj-name">Гостиница</h3><div class="proj-meta"><span class="proj-area">805 м²</span><span class="proj-price">$425 000</span></div><div class="proj-bot"><a class="proj-lnk" href="https://dom-stroy.kiev.ua/project/gotovye-proekty-gostinic-i-mini-gostinic/" target="_blank">Подробнее →</a></div></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/uploads/2018/11/alicja_wd1-2-350x200.jpg')"></div>
+        <div class="proj-info"><h3 class="proj-name">Алиция</h3><div class="proj-meta"><span class="proj-area">96.6 м²</span><span class="proj-price">$87 382</span></div><div class="proj-bot"><a class="proj-lnk" href="https://dom-stroy.kiev.ua/project/proekt-doma-aliciya/" target="_blank">Подробнее →</a></div></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/uploads/2018/11/projekt-domu-albatros-2-wizualizacja-frontu-1523261029-2-350x200.jpg')"></div>
+        <div class="proj-info"><h3 class="proj-name">Альбатрос 2</h3><div class="proj-meta"><span class="proj-area">127.7 м²</span><span class="proj-price">$116 772</span></div><div class="proj-bot"><a class="proj-lnk" href="https://dom-stroy.kiev.ua/project/proekt-doma-albatros-2/" target="_blank">Подробнее →</a></div></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/uploads/2018/11/albatros-front-2-350x200.jpg')"></div>
+        <div class="proj-info"><h3 class="proj-name">Альбатрос</h3><div class="proj-meta"><span class="proj-area">128.6 м²</span><span class="proj-price">$92 854</span></div><div class="proj-bot"><a class="proj-lnk" href="https://dom-stroy.kiev.ua/project/proekt-doma-albatros/" target="_blank">Подробнее →</a></div></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/uploads/2018/11/zgrabny5_images_wd1-2-350x200.jpg')"></div>
+        <div class="proj-info"><h3 class="proj-name">Аккуратный 5</h3><div class="proj-meta"><span class="proj-area">142.2 м²</span><span class="proj-price">$123 360</span></div><div class="proj-bot"><a class="proj-lnk" href="https://dom-stroy.kiev.ua/project/proekt-doma-akkuratnyj-5/" target="_blank">Подробнее →</a></div></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/uploads/2018/11/zgrabny4_images_wd1-2-350x200.jpg')"></div>
+        <div class="proj-info"><h3 class="proj-name">Аккуратный 4</h3><div class="proj-meta"><span class="proj-area">170.2 м²</span><span class="proj-price">$112 366</span></div><div class="proj-bot"><a class="proj-lnk" href="https://dom-stroy.kiev.ua/project/proekt-doma-akkuratnyj-4/" target="_blank">Подробнее →</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="sec port-bg">
+  <div class="sec-in">
+    <div class="sec-head">
+      <div><p class="sec-tag">Портфолио</p><h2 class="sec-title">Наши работы</h2></div>
+      <a href="https://dom-stroy.kiev.ua/category/portfolio/" target="_blank" class="port-lnk">Все работы →</a>
+    </div>
+    <div class="port-grid">
+      <div class="port-item" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/01_pn.jpg')"></div>
+      <div class="port-item" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/02_pn.jpg')"></div>
+      <div class="port-item" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/03_pn.jpg')"></div>
+      <div class="port-item" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/04_pn.jpg')"></div>
+      <div class="port-item" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/05_pn.jpg')"></div>
+      <div class="port-item" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/06_pn.jpg')"></div>
+      <div class="port-item" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/07_pn.jpg')"></div>
+      <div class="port-item" style="background-image:url('https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/08_pn.jpg')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec abt-bg">
+  <div class="sec-in">
+    <div class="abt-grid">
+      <div>
+        <p class="sec-tag">О компании</p>
+        <h2 class="abt-h2">Строим дома<br>в Киеве с 2014</h2>
+        <p class="abt-p">Строительная фирма ДомСтрой предлагает услуги по строительству домов в Киеве и Украине. Мы ценим каждого клиента и максимально точно воплощаем в реальность его пожелания.</p>
+        <p class="abt-p">Работаем на всех этапах — от проектирования до финальной отделки. Собственная бригада 72 специалистов, контроль качества на каждом шаге.</p>
+        <div class="abt-ctas">
+          <a href="https://dom-stroy.kiev.ua/o-kompanii/" target="_blank" class="btn-dk">О компании</a>
+          <a href="tel:+380671965090" class="btn-br">(067) 196 50 90</a>
+        </div>
+      </div>
+      <div class="abt-imgs">
+        <div class="abt-img-main"><img src="https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/05_pn.jpg" alt="Строительство"></div>
+        <div class="abt-img-row">
+          <div class="abt-img-sm"><img src="https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/06_pn.jpg" alt="Строительство"></div>
+          <div class="abt-stat"><span class="abt-stat-n">72</span><span class="abt-stat-l">специалиста</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rev-bg">
+  <div class="rev-in">
+    <p class="rev-tag">Отзывы клиентов</p>
+    <div class="rev-qm">"</div>
+    <p class="rev-txt" id="revTxt"></p>
+    <div class="rev-auth">
+      <div class="rev-av" id="revAv"></div>
+      <div><div class="rev-name" id="revName"></div><div class="rev-role" id="revRole"></div></div>
+    </div>
+    <div class="rev-nav">
+      <button class="rev-btn" onclick="prevRev()">←</button>
+      <span class="rev-ctr" id="revCtr">1 / 3</span>
+      <button class="rev-btn" onclick="nextRev()">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta-bg">
+  <div class="sec-in">
+    <div class="cta-grid">
+      <div>
+        <p class="cta-tag">Связаться с нами</p>
+        <h2 class="cta-h2">Начните строительство сегодня</h2>
+        <p class="cta-desc">Наш специалист перезвонит в течение 2 часов и рассчитает стоимость вашего проекта</p>
+        <a href="tel:+380671965090" class="cta-ph">(067) 196 50 90</a>
+        <p class="cta-adr">Украина, г. Киев · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6a191e1805132a0e050747191e1805134401030f1c441f0b">[email&#160;protected]</a></p>
+      </div>
+      <div class="cta-acts">
+        <button class="btn-ac" onclick="openModal('calc')">Рассчитать стоимость проекта</button>
+        <button class="btn-gh" onclick="openModal('callback')">Заказать звонок</button>
+        <a href="https://t.me/DomstroyChat_bot" target="_blank" class="btn-ghd">Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-brand">
+          <div class="ftr-mark"><span style="font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:#fff;">DS</span></div>
+          <span class="ftr-name">ДомСтрой</span>
+        </div>
+        <p class="ftr-desc">Строительство и ремонт домов под ключ в Киеве с 2014 года.</p>
+      </div>
+      <div>
+        <p class="ftr-ct">Навигация</p>
+        <div class="ftr-links">
+          <a href="https://dom-stroy.kiev.ua/o-kompanii/" target="_blank">О компании</a>
+          <a href="https://dom-stroy.kiev.ua/uslugi/" target="_blank">Расценки / Прайс</a>
+          <a href="https://dom-stroy.kiev.ua/projecty-domov/" target="_blank">Проекты домов</a>
+          <a href="https://dom-stroy.kiev.ua/category/portfolio/" target="_blank">Портфолио</a>
+          <a href="https://dom-stroy.kiev.ua/kontakty/" target="_blank">Контакты</a>
+        </div>
+      </div>
+      <div>
+        <p class="ftr-ct">Услуги</p>
+        <div class="ftr-links">
+          <a href="https://dom-stroy.kiev.ua/stroitelstvo-domov-pod-klyuch/" target="_blank">Строительство под ключ</a>
+          <a href="https://dom-stroy.kiev.ua/fasadnye-raboty/" target="_blank">Фасадные работы</a>
+          <a href="https://dom-stroy.kiev.ua/krovelnye-raboty/" target="_blank">Кровельные работы</a>
+          <a href="https://dom-stroy.kiev.ua/proektirovanie-doma/" target="_blank">Проектирование</a>
+          <a href="https://dom-stroy.kiev.ua/rekonstrukciya-domov/" target="_blank">Реконструкция</a>
+        </div>
+      </div>
+      <div>
+        <p class="ftr-ct">Контакты</p>
+        <a href="tel:+380671965090" class="ftr-ph">(067) 196 50 90</a>
+        <a href="/cdn-cgi/l/email-protection#ddaea9afb2a49db9b2b0f0aea9afb2a4f3b6b4b8abf3a8bc" class="ftr-em"><span class="__cf_email__" data-cfemail="abd8dfd9c4d2ebcfc4c686d8dfd9c4d285c0c2cedd85deca">[email&#160;protected]</span></a>
+        <p class="ftr-adr">Украина, г. Киев,<br>Кловский спуск 7А</p>
+        <p class="ftr-hrs">пн–пт 9:00–18:00</p>
+        <div class="ftr-soc">
+          <a href="https://t.me/DomstroyChat_bot" target="_blank">Telegram</a>
+          <a href="https://wa.me/380671965090" target="_blank" class="dim">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <span class="ftr-copy">© 2026 dom-stroy.kiev.ua · Все права защищены</span>
+      <a href="https://dom-stroy.kiev.ua/kontakty/" target="_blank" class="ftr-map">Схема проезда</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-bd hidden" id="modalBd" onclick="closeModalBd(event)">
+  <div class="modal-bx">
+    <div class="modal-hd">
+      <div><p class="modal-tg">ДомСтрой</p><h3 class="modal-ttl" id="mTitle">Рассчитать стоимость</h3></div>
+      <button class="modal-x" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-ok hidden" id="mOk">
+      <div class="modal-ok-ic">✓</div>
+      <h4 class="modal-ok-t">Спасибо!</h4>
+      <p class="modal-ok-d">Наш специалист свяжется с вами<br>в течение 2 часов</p>
+    </div>
+    <form class="modal-frm" id="mForm" onsubmit="submitForm(event)">
+      <div class="fg"><label class="fl">Ваше имя</label><input type="text" class="fi" placeholder="Иван Иванович" required></div>
+      <div class="fg"><label class="fl">Номер телефона</label><input type="tel" class="fi" placeholder="+380 XX XXX XX XX" required></div>
+      <div id="mExtra">
+        <div class="fg" style="margin-bottom:14px"><label class="fl">Тип работ</label>
+          <select class="fi"><option value="">Выберите тип</option><option>Коттедж / элитный дом</option><option>Загородный / дачный дом</option><option>Дом из кирпича</option><option>Дом из газоблока</option><option>Каркасный дом</option><option>Ремонт дома</option><option>Фасадные работы</option><option>Другое</option></select>
+        </div>
+        <div class="fg"><label class="fl">Описание проекта</label><textarea class="fi" rows="3" placeholder="Опишите ваш проект..." style="resize:vertical"></textarea></div>
+      </div>
+      <button type="submit" class="fsub" id="mBtn">Отправить заявку</button>
+      <p class="fnote">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+    </form>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mob-mn hidden" id="mobMn">
+  <div class="mob-top">
+    <div class="mob-logo">
+      <div class="ftr-mark" style="width:32px;height:32px"><span style="font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:#fff">DS</span></div>
+      <span class="mob-lname">ДомСтрой</span>
+    </div>
+    <button class="mob-x" onclick="closeMob()">✕</button>
+  </div>
+  <nav class="mob-nav">
+    <a href="https://dom-stroy.kiev.ua/o-kompanii/" target="_blank" onclick="closeMob()">О компании</a>
+    <a href="https://dom-stroy.kiev.ua/uslugi/" target="_blank" onclick="closeMob()">Прайс</a>
+    <a href="https://dom-stroy.kiev.ua/projecty-domov/" target="_blank" onclick="closeMob()">Проекты</a>
+    <a href="https://dom-stroy.kiev.ua/category/portfolio/" target="_blank" onclick="closeMob()">Портфолио</a>
+    <a href="https://dom-stroy.kiev.ua/kontakty/" target="_blank" onclick="closeMob()">Контакты</a>
+  </nav>
+  <div class="mob-ftr">
+    <a href="tel:+380671965090" class="mob-ph">(067) 196 50 90</a>
+    <button class="btn-ac" onclick="closeMob();openModal('calc')">Рассчитать стоимость</button>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('hdr').classList.toggle('sc',scrollY>50);
+},{passive:true});
+
+// REVIEWS
+const revs=[
+  {t:'Хотелось бы сказать спасибо компании «Дом СТРОЙ» за прекрасно построенный дом. Бригада настоящих профессионалов. Сделали всё быстро и красиво. Надеемся, что дом будет стоять долго.',a:'Петр Андреевич',r:'Директор ООО',av:'https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/rev-img1.jpg'},
+  {t:'Выражаем благодарность строительной бригаде, которая за две недели собрала нам дом. Высокий профессионализм, чёткое соблюдение сроков. Спасибо ДомСтрой за отличных мастеров.',a:'Храпова Светлана',r:'Киевская обл.',av:'https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/rev-img2.jpg'},
+  {t:'Бригада ДомСтрой выполнила работу по установке дома на отлично — всё строго в срок. Бригада опытная и профессиональная. Качеством строительства очень доволен.',a:'Вадим Рэмович',r:'Киевская обл.',av:'https://dom-stroy.kiev.ua/wp-content/themes/z93-domstroy/images/rev-img3.jpg'}
+];
+let ri=0;
+function drawRev(){
+  const r=revs[ri];
+  document.getElementById('revTxt').textContent=r.t;
+  document.getElementById('revAv').style.backgroundImage=`url('${r.av}')`;
+  document.getElementById('revName').textContent=r.a;
+  document.getElementById('revRole').textContent=r.r;
+  document.getElementById('revCtr').textContent=`${ri+1} / 3`;
+}
+function prevRev(){ri=(ri+2)%3;drawRev();}
+function nextRev(){ri=(ri+1)%3;drawRev();}
+drawRev();
+
+// MODAL
+function openModal(t){
+  document.getElementById('modalBd').classList.remove('hidden');
+  document.getElementById('mOk').classList.add('hidden');
+  document.getElementById('mForm').classList.remove('hidden');
+  if(t==='calc'){
+    document.getElementById('mTitle').textContent='Рассчитать стоимость';
+    document.getElementById('mBtn').textContent='Отправить заявку';
+    document.getElementById('mExtra').style.display='contents';
+  } else {
+    document.getElementById('mTitle').textContent='Заказать звонок';
+    document.getElementById('mBtn').textContent='Заказать звонок';
+    document.getElementById('mExtra').style.display='none';
+  }
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('modalBd').classList.add('hidden');document.body.style.overflow='';}
+function closeModalBd(e){if(e.target===document.getElementById('modalBd'))closeModal();}
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('mForm').classList.add('hidden');
+  document.getElementById('mOk').classList.remove('hidden');
+  setTimeout(closeModal,3200);
+}
+
+// MOBILE MENU
+function openMob(){document.getElementById('mobMn').classList.remove('hidden');document.body.style.overflow='hidden';}
+function closeMob(){document.getElementById('mobMn').classList.add('hidden');document.body.style.overflow='';}
+</script>
+
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 84">
+  <rect width="120" height="84" fill="#1A1918"/>
+  <path d="M28 38 L60 16 L92 38" fill="none" stroke="#F5F1EB" stroke-width="2"/>
+  <rect x="36" y="38" width="48" height="28" fill="none" stroke="#B35830" stroke-width="2"/>
+  <rect x="50" y="46" width="14" height="20" fill="#B35830" opacity="0.5"/>
+  <text x="60" y="76" font-family="serif" font-size="7" fill="rgba(245,241,235,0.5)" text-anchor="middle">ДОМСТРОЙ</text>
+</svg>
+</template>
+</body>
+</html>
