@@ -346,15 +346,16 @@
     }
     @media (max-width: 600px) {
       .cats-grid  { grid-template-columns: 1fr; }
-      .prods-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .prods-grid { grid-template-columns: 1fr; gap: 0; }
       .footer-grid { grid-template-columns: 1fr; }
       .site-nav   { display: none; }
       .header-phone { display: none; }
       .hamburger-btn { display: flex; }
       .cart-label { display: none; }
-    }
-    @media (max-width: 420px) {
-      .prods-grid { grid-template-columns: 1fr; }
+      .prod-cat { font-size: 14px; }
+      .prod-name {font-size: 18px; }
+      .prod-card { padding: 12px 0; }
+      .prod-card:not(:last-of-type) { border-bottom: 1px solid #ccc; }
     }
   </style>
 </head>
