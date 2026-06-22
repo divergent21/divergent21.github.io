@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КПВ-СТРОЙ — Будівництво будинків під ключ у Києві</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: #f4f1eb; color: #0f0e0c; overflow-x: hidden; }
+
+    a { transition: color 0.18s, background 0.18s, border-color 0.18s; }
+
+    /* NAV */
+    .nav-link { color: #0f0e0c; text-decoration: none; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500; font-family: 'Barlow Condensed', sans-serif; }
+    .nav-link:hover { color: #c8773a; }
+    .btn-amber { background: #c8773a; color: #fff !important; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 20px; border: none; cursor: pointer; display: inline-block; }
+    .btn-amber:hover { background: #a8622e; }
+    .btn-outline-light { color: #f4f1eb; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 32px; border: 1.5px solid rgba(244,241,235,0.3); display: inline-block; }
+    .btn-outline-light:hover { border-color: #f4f1eb; background: rgba(244,241,235,0.07); }
+    .btn-outline-dark { color: #0f0e0c; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 28px; border: 1.5px solid #0f0e0c; display: inline-block; }
+    .btn-outline-dark:hover { background: #0f0e0c; color: #f4f1eb !important; }
+
+    /* HAMBURGER */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #0f0e0c; }
+
+    /* MOBILE NAV */
+    .mobile-nav { display: none; position: fixed; inset: 0; background: #0f0e0c; z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: #f4f1eb; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; }
+    .mobile-nav a:hover { color: #c8773a; }
+    .mobile-nav-close { position: absolute; top: 20px; right: 24px; font-size: 28px; color: rgba(244,241,235,0.5); cursor: pointer; background: none; border: none; font-family: 'Barlow', sans-serif; line-height: 1; }
+    .mobile-nav-close:hover { color: #f4f1eb; }
+
+    /* SERVICE CARDS */
+    .service-card { background: #0f0e0c; padding: 36px 28px; transition: background 0.22s; }
+    .service-card:hover { background: #c8773a; }
+    .service-card:hover .sc-num { color: rgba(255,255,255,0.2); }
+    .service-card:hover .sc-title { color: #fff; }
+    .service-card:hover .sc-text { color: rgba(255,255,255,0.75); }
+    .sc-num { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: rgba(244,241,235,0.15); text-transform: uppercase; margin-bottom: 36px; transition: color 0.22s; }
+    .sc-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: #f4f1eb; text-transform: uppercase; margin-bottom: 12px; line-height: 1.05; letter-spacing: 0.02em; transition: color 0.22s; }
+    .sc-text { font-family: 'Barlow', sans-serif; font-size: 13px; line-height: 1.65; color: rgba(244,241,235,0.5); transition: color 0.22s; }
+
+    /* ADVANTAGES */
+    .adv-row { padding: 24px 0; border-bottom: 1px solid rgba(0,0,0,0.07); display: flex; gap: 20px; align-items: flex-start; }
+    .adv-row:last-child { border-bottom: none; }
+
+    /* PROCESS */
+    .proc-step { display: flex; gap: 28px; align-items: flex-start; padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .proc-step:last-child { border-bottom: none; }
+
+    /* FORM */
+    .form-input { border: 1.5px solid #ddd8ce; padding: 12px 14px; font-family: 'Barlow', sans-serif; font-size: 14px; color: #0f0e0c; outline: none; background: #faf9f5; width: 100%; transition: border-color 0.15s; }
+    .form-input:focus { border-color: #c8773a; }
+    .form-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #999; margin-bottom: 5px; display: block; }
+    .form-submit { width: 100%; padding: 15px; background: #c8773a; color: #fff; border: none; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.18s; margin-top: 6px; }
+    .form-submit:hover { background: #a8622e; }
+
+    /* FOOTER */
+    .footer-link { font-family: 'Barlow', sans-serif; font-size: 14px; color: rgba(244,241,235,0.45); text-decoration: none; }
+    .footer-link:hover { color: rgba(244,241,235,0.9); }
+
+    /* SECTION HELPERS */
+    .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .section-label-line { width: 28px; height: 1px; background: #c8773a; }
+    .section-label-text { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #c8773a; font-weight: 600; }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(34px, 6vw, 76px); text-transform: uppercase; line-height: 0.92; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links { display: none !important; }
+      .nav-phone { display: none !important; }
+      .hamburger { display: flex !important; }
+    }
+    @media (max-width: 768px) {
+      .hero-prices { flex-direction: column !important; gap: 16px !important; align-items: unset !important; }
+      .hero-div { display: none !important; }
+      .hero-btns { flex-direction: column !important; }
+      .prices-grid { grid-template-columns: 1fr !important; }
+      .services-grid { grid-template-columns: 1fr 1fr !important; }
+      .why-grid { grid-template-columns: 1fr !important; }
+      .why-sticky { display: none !important; }
+      .process-grid { grid-template-columns: 1fr !important; }
+      .process-intro { border-right: none !important; padding-right: 0 !important; }
+      .cta-grid { grid-template-columns: 1fr !important; }
+      .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+      .port-grid { grid-template-columns: 1fr 1fr !important; }
+      section, footer { padding-left: 24px !important; padding-right: 24px !important; }
+      nav > div { padding-left: 20px !important; padding-right: 20px !important; }
+    }
+    @media (max-width: 520px) {
+      .services-grid { grid-template-columns: 1fr !important; }
+      .footer-grid { grid-template-columns: 1fr !important; }
+      .port-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 80 56" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="56" fill="#0f0e0c"/>
+      <rect x="12" y="10" width="56" height="36" fill="#1a1917"/>
+      <rect x="12" y="10" width="56" height="8" fill="#c8773a"/>
+      <text x="40" y="16" text-anchor="middle" fill="#fff" font-size="5" font-family="sans-serif" font-weight="bold">КПВ·СТРОЙ</text>
+      <rect x="16" y="22" width="22" height="3" fill="#f4f1eb" opacity="0.6"/>
+      <rect x="16" y="27" width="16" height="2" fill="#f4f1eb" opacity="0.3"/>
+      <rect x="44" y="22" width="20" height="3" fill="#c8773a" opacity="0.8"/>
+      <rect x="44" y="27" width="14" height="2" fill="#f4f1eb" opacity="0.3"/>
+      <rect x="16" y="34" width="46" height="8" fill="#c8773a" opacity="0.15"/>
+    </svg>
+  </template>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+  <a href="#services">Послуги</a>
+  <a href="#prices">Ціни</a>
+  <a href="#about">Про нас</a>
+  <a href="#process">Процес</a>
+  <a href="#contacts">Контакти</a>
+  <a href="tel:+380931234567" style="color:#c8773a !important; font-size:20px;">+38 (093) 123-45-67</a>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav" style="position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(244,241,235,0.96); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.07);">
+  <div style="max-width:1400px; margin:0 auto; padding:0 40px; height:64px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="#" style="display:flex; align-items:baseline; gap:5px; text-decoration:none;">
+      <span style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:20px; letter-spacing:0.1em; text-transform:uppercase; color:#0f0e0c;">КПВ</span>
+      <span style="width:5px; height:5px; background:#c8773a; display:inline-block; border-radius:50%; position:relative; top:-2px; flex-shrink:0;"></span>
+      <span style="font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:16px; letter-spacing:0.06em; text-transform:uppercase; color:#888;">СТРОЙ</span>
+    </a>
+    <div class="nav-links" style="display:flex; align-items:center; gap:28px;">
+      <a href="#services" class="nav-link">Послуги</a>
+      <a href="#prices" class="nav-link">Ціни</a>
+      <a href="#about" class="nav-link">Про нас</a>
+      <a href="#process" class="nav-link">Процес</a>
+      <a href="#contacts" class="nav-link">Контакти</a>
+    </div>
+    <div class="nav-phone" style="display:flex; align-items:center; gap:16px;">
+      <a href="tel:+380931234567" style="font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:600; color:#0f0e0c; text-decoration:none; letter-spacing:0.02em;">+38 (093) 123-45-67</a>
+      <a href="#contacts" class="btn-amber">Консультація</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="background:#0f0e0c; min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:140px 40px 80px; position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; pointer-events:none; opacity:0.035;">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="gridpat" width="80" height="80" patternUnits="userSpaceOnUse">
+          <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#fff" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#gridpat)"/>
+    </svg>
+  </div>
+  <div style="position:absolute; top:0; right:80px; width:1px; height:45%; background:linear-gradient(to bottom, transparent, rgba(200,119,58,0.3), transparent); pointer-events:none;"></div>
+
+  <div style="max-width:1400px; margin:0 auto; width:100%; position:relative; z-index:1;">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">Київ та Київська область · 2026</span>
+    </div>
+    <h1 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(52px,9.5vw,130px); line-height:0.9; letter-spacing:-0.01em; text-transform:uppercase; color:#f4f1eb; margin-bottom:52px; max-width:840px;">
+      Будуємо<br>
+      <span style="color:#c8773a;">надійні</span><br>
+      будинки<br>
+      під ключ
+    </h1>
+    <div class="hero-prices" style="display:flex; align-items:center; gap:36px; margin-bottom:52px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(244,241,235,0.35); margin-bottom:3px;">Газобетон</div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:26px; font-weight:700; color:#f4f1eb; line-height:1;">від <span style="color:#c8773a;">15 200</span> <span style="font-size:14px; font-weight:400; color:rgba(244,241,235,0.45);">грн/м²</span></div>
+      </div>
+      <div class="hero-div" style="width:1px; height:36px; background:rgba(255,255,255,0.1); flex-shrink:0;"></div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(244,241,235,0.35); margin-bottom:3px;">Керамоблок</div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:26px; font-weight:700; color:#f4f1eb; line-height:1;">від <span style="color:#c8773a;">16 970</span> <span style="font-size:14px; font-weight:400; color:rgba(244,241,235,0.45);">грн/м²</span></div>
+      </div>
+      <div class="hero-div" style="width:1px; height:36px; background:rgba(255,255,255,0.1); flex-shrink:0;"></div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(244,241,235,0.35); margin-bottom:3px;">Цегла</div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:26px; font-weight:700; color:#f4f1eb; line-height:1;">від <span style="color:#c8773a;">17 650</span> <span style="font-size:14px; font-weight:400; color:rgba(244,241,235,0.45);">грн/м²</span></div>
+      </div>
+    </div>
+    <div class="hero-btns" style="display:flex; gap:14px; flex-wrap:wrap;">
+      <a href="#prices" class="btn-amber" style="font-size:14px; padding:15px 36px;">Розрахувати вартість</a>
+      <a href="#services" class="btn-outline-light">Наші послуги</a>
+    </div>
+  </div>
+  <div style="position:absolute; bottom:36px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:6px; opacity:0.25; pointer-events:none;">
+    <div style="width:1px; height:36px; background:#f4f1eb;"></div>
+    <span style="font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#f4f1eb;">Гортати</span>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section id="prices" style="background:#f4f1eb; padding:100px 40px;">
+  <div style="max-width:1400px; margin:0 auto;">
+    <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Ціни на 2026 рік</span></div>
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:20px; flex-wrap:wrap;">
+      <h2 class="section-title" style="color:#0f0e0c;">Вартість<br>будівництва</h2>
+      <p style="font-family:'Barlow',sans-serif; font-size:14px; line-height:1.7; color:#888; max-width:320px;">Кошторис фіксується один раз і не змінюється. Знижка 2% при 100% оплаті.</p>
+    </div>
+    <div class="prices-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px;">
+
+      <div style="background:#0f0e0c; padding:44px 36px;">
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(244,241,235,0.3); margin-bottom:10px;">Матеріал стін</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:700; color:#f4f1eb; text-transform:uppercase; margin-bottom:28px; letter-spacing:0.02em;">Газобетон</h3>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:60px; font-weight:800; color:#c8773a; line-height:1; margin-bottom:2px;">15 200</div>
+        <div style="font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.4); margin-bottom:32px;">грн за м² площі будинку</div>
+        <div style="height:1px; background:rgba(255,255,255,0.07); margin-bottom:28px;"></div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:11px; margin-bottom:36px;">
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.65);"><span style="width:3px; height:3px; background:#c8773a; flex-shrink:0; display:block;"></span>Відмінна теплоізоляція</li>
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.65);"><span style="width:3px; height:3px; background:#c8773a; flex-shrink:0; display:block;"></span>Швидкість зведення</li>
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.65);"><span style="width:3px; height:3px; background:#c8773a; flex-shrink:0; display:block;"></span>Оптимальна ціна</li>
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.65);"><span style="width:3px; height:3px; background:#c8773a; flex-shrink:0; display:block;"></span>Малий тиск на фундамент</li>
+        </ul>
+        <a href="#contacts" class="btn-outline-light" style="width:100%; text-align:center; font-size:12px; padding:13px 0; display:block;">Замовити консультацію</a>
+      </div>
+
+      <div style="background:#c8773a; padding:44px 36px; position:relative;">
+        <div style="position:absolute; top:20px; right:20px; background:#fff; color:#c8773a; font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px;">Популярний</div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:10px;">Матеріал стін</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:700; color:#fff; text-transform:uppercase; margin-bottom:28px; letter-spacing:0.02em;">Керамоблок</h3>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:60px; font-weight:800; color:#fff; line-height:1; margin-bottom:2px;">16 970</div>
+        <div style="font-family:'Barlow',sans-serif; font-size:13px; color:rgba(255,255,255,0.55); margin-bottom:32px;">грн за м² площі будинку</div>
+        <div style="height:1px; background:rgba(255,255,255,0.2); margin-bottom:28px;"></div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:11px; margin-bottom:36px;">
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(255,255,255,0.9);"><span style="width:3px; height:3px; background:#fff; flex-shrink:0; display:block;"></span>Висока міцність</li>
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(255,255,255,0.9);"><span style="width:3px; height:3px; background:#fff; flex-shrink:0; display:block;"></span>Чудова звукоізоляція</li>
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(255,255,255,0.9);"><span style="width:3px; height:3px; background:#fff; flex-shrink:0; display:block;"></span>Довговічність 100+ років</li>
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(255,255,255,0.9);"><span style="width:3px; height:3px; background:#fff; flex-shrink:0; display:block;"></span>Природна паропроникність</li>
+        </ul>
+        <a href="#contacts" style="width:100%; text-align:center; font-size:12px; padding:13px 0; display:block; background:#fff; color:#c8773a; text-decoration:none; font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Замовити консультацію</a>
+      </div>
+
+      <div style="background:#1a1917; padding:44px 36px;">
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(244,241,235,0.3); margin-bottom:10px;">Матеріал стін</div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:700; color:#f4f1eb; text-transform:uppercase; margin-bottom:28px; letter-spacing:0.02em;">Цегла</h3>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:60px; font-weight:800; color:#c8773a; line-height:1; margin-bottom:2px;">17 650</div>
+        <div style="font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.4); margin-bottom:32px;">грн за м² площі будинку</div>
+        <div style="height:1px; background:rgba(255,255,255,0.07); margin-bottom:28px;"></div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:11px; margin-bottom:36px;">
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.65);"><span style="width:3px; height:3px; background:#c8773a; flex-shrink:0; display:block;"></span>Класика та престиж</li>
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.65);"><span style="width:3px; height:3px; background:#c8773a; flex-shrink:0; display:block;"></span>Естетичний фасад</li>
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.65);"><span style="width:3px; height:3px; background:#c8773a; flex-shrink:0; display:block;"></span>Максимальна надійність</li>
+          <li style="display:flex; align-items:center; gap:10px; font-family:'Barlow',sans-serif; font-size:13px; color:rgba(244,241,235,0.65);"><span style="width:3px; height:3px; background:#c8773a; flex-shrink:0; display:block;"></span>Висока пожежостійкість</li>
+        </ul>
+        <a href="#contacts" class="btn-outline-light" style="width:100%; text-align:center; font-size:12px; padding:13px 0; display:block;">Замовити консультацію</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background:#f4f1eb; padding:100px 40px; border-top:1px solid rgba(0,0,0,0.05);">
+  <div style="max-width:1400px; margin:0 auto;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:24px; flex-wrap:wrap;">
+      <div>
+        <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Що ми робимо</span></div>
+        <h2 class="section-title" style="color:#0f0e0c;">Наші послуги</h2>
+      </div>
+      <a href="#contacts" class="btn-outline-dark">Всі послуги →</a>
+    </div>
+    <div class="services-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px;">
+      <div class="service-card"><div class="sc-num">01</div><h3 class="sc-title">Будівництво під ключ</h3><p class="sc-text">Будинки та котеджі з нуля до фінального оздоблення. Повний супровід проекту.</p></div>
+      <div class="service-card"><div class="sc-num">02</div><h3 class="sc-title">Фундаментні роботи</h3><p class="sc-text">Стрічковий, монолітний, пальовий фундамент. Геологічне дослідження ґрунту.</p></div>
+      <div class="service-card"><div class="sc-num">03</div><h3 class="sc-title">Покрівельні роботи</h3><p class="sc-text">Монтаж дахів будь-якої конфігурації. Металочерепиця, гнучка черепиця, фальцева покрівля.</p></div>
+      <div class="service-card"><div class="sc-num">04</div><h3 class="sc-title">Оздоблювальні роботи</h3><p class="sc-text">Внутрішнє та зовнішнє оздоблення. Штукатурка, утеплення, облицювання фасаду.</p></div>
+      <div class="service-card"><div class="sc-num">05</div><h3 class="sc-title">Інженерні системи</h3><p class="sc-text">Електрика, водопостачання, каналізація, опалення, вентиляція — під ключ.</p></div>
+      <div class="service-card"><div class="sc-num">06</div><h3 class="sc-title">Ландшафтні роботи</h3><p class="sc-text">Благоустрій та озеленення ділянки, мощення, огорожі та доріжки.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="about" style="background:#f4f1eb; padding:100px 40px; border-top:1px solid rgba(0,0,0,0.05);">
+  <div style="max-width:1400px; margin:0 auto;">
+    <div class="why-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
+      <div>
+        <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Наші переваги</span></div>
+        <h2 class="section-title" style="color:#0f0e0c; margin-bottom:44px;">Чому<br>обирають нас?</h2>
+        <div class="adv-row">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:800; color:#c8773a; line-height:1; flex-shrink:0; width:44px;">01</div>
+          <div><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:17px; font-weight:700; text-transform:uppercase; color:#0f0e0c; margin-bottom:5px; letter-spacing:0.03em;">Виконроб постійно на об'єкті</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:#777; text-wrap:pretty;">Контроль якості та дотримання всіх норм ДБН. Ведеться фото та відеозвіт про хід робіт.</p></div>
+        </div>
+        <div class="adv-row">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:800; color:#c8773a; line-height:1; flex-shrink:0; width:44px;">02</div>
+          <div><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:17px; font-weight:700; text-transform:uppercase; color:#0f0e0c; margin-bottom:5px; letter-spacing:0.03em;">Фіксований кошторис</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:#777; text-wrap:pretty;">Вартість фіксується один раз і не змінюється протягом усього будівництва.</p></div>
+        </div>
+        <div class="adv-row">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:800; color:#c8773a; line-height:1; flex-shrink:0; width:44px;">03</div>
+          <div><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:17px; font-weight:700; text-transform:uppercase; color:#0f0e0c; margin-bottom:5px; letter-spacing:0.03em;">Знижка 2% при повній оплаті</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:#777; text-wrap:pretty;">Даємо знижку 2% від загальної вартості при 100% оплаті. Прозоро та вигідно.</p></div>
+        </div>
+        <div class="adv-row">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:800; color:#c8773a; line-height:1; flex-shrink:0; width:44px;">04</div>
+          <div><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:17px; font-weight:700; text-transform:uppercase; color:#0f0e0c; margin-bottom:5px; letter-spacing:0.03em;">Будівництво цілий рік</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:#777; text-wrap:pretty;">Завдяки сучасним технологіям роботи ведуться незалежно від пори року.</p></div>
+        </div>
+        <div class="adv-row">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:800; color:#c8773a; line-height:1; flex-shrink:0; width:44px;">05</div>
+          <div><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:17px; font-weight:700; text-transform:uppercase; color:#0f0e0c; margin-bottom:5px; letter-spacing:0.03em;">Готовий будинок — заїжджай</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:#777; text-wrap:pretty;">Ви отримуєте повністю готовий будинок без додаткових робіт. Лишається тільки привезти меблі.</p></div>
+        </div>
+      </div>
+
+      <div class="why-sticky" style="position:sticky; top:84px;">
+        <div style="background:#0f0e0c; padding:52px 44px;">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(244,241,235,0.2); margin-bottom:44px;">КПВ-СТРОЙ · Репутація</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:36px 28px; margin-bottom:44px;">
+            <div><div style="font-family:'Barlow Condensed',sans-serif; font-size:56px; font-weight:800; color:#c8773a; line-height:1;">10+</div><div style="font-family:'Barlow',sans-serif; font-size:12px; color:rgba(244,241,235,0.4); margin-top:4px; line-height:1.5;">років на<br>будівельному ринку</div></div>
+            <div><div style="font-family:'Barlow Condensed',sans-serif; font-size:56px; font-weight:800; color:#c8773a; line-height:1;">200+</div><div style="font-family:'Barlow',sans-serif; font-size:12px; color:rgba(244,241,235,0.4); margin-top:4px; line-height:1.5;">зданих об'єктів<br>по всій Київщині</div></div>
+            <div><div style="font-family:'Barlow Condensed',sans-serif; font-size:56px; font-weight:800; color:#c8773a; line-height:1;">100%</div><div style="font-family:'Barlow',sans-serif; font-size:12px; color:rgba(244,241,235,0.4); margin-top:4px; line-height:1.5;">виконаних<br>договорів</div></div>
+            <div><div style="font-family:'Barlow Condensed',sans-serif; font-size:56px; font-weight:800; color:#c8773a; line-height:1;">500+</div><div style="font-family:'Barlow',sans-serif; font-size:12px; color:rgba(244,241,235,0.4); margin-top:4px; line-height:1.5;">задоволених<br>клієнтів</div></div>
+          </div>
+          <div style="border-top:1px solid rgba(244,241,235,0.08); padding-top:28px;">
+            <p style="font-family:'Barlow',sans-serif; font-size:14px; font-style:italic; line-height:1.75; color:rgba(244,241,235,0.5);">«КПВ-СТРОЙ піклується про своїх клієнтів і дорожить репутацією. Наша ціль — не просто побудувати, а побудувати добре.»</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="background:#0f0e0c; padding:100px 40px;">
+  <div style="max-width:1400px; margin:0 auto;">
+    <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Як ми працюємо</span></div>
+    <h2 class="section-title" style="color:#f4f1eb; margin-bottom:60px;">Процес<br>будівництва</h2>
+    <div class="process-grid" style="display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start;">
+      <div class="process-intro" style="border-right:1px solid rgba(255,255,255,0.06); padding-right:60px;">
+        <p style="font-family:'Barlow',sans-serif; font-size:15px; line-height:1.75; color:rgba(244,241,235,0.5); margin-bottom:32px; text-wrap:pretty;">Від першого дзвінка до вручення ключів — беремо на себе повну відповідальність за кожен етап. Ви завжди в курсі того, що відбувається на майданчику.</p>
+        <a href="#contacts" class="btn-amber">Почати проект</a>
+      </div>
+      <div>
+        <div class="proc-step">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:44px; font-weight:800; color:rgba(200,119,58,0.25); line-height:1; flex-shrink:0; width:54px;">1</div>
+          <div style="padding-top:6px;"><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:19px; font-weight:700; text-transform:uppercase; color:#f4f1eb; margin-bottom:7px; letter-spacing:0.02em;">Консультація та виїзд на ділянку</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:rgba(244,241,235,0.45);">Безкоштовний виїзд, оцінка ґрунту, обговорення побажань та бюджету.</p></div>
+        </div>
+        <div class="proc-step">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:44px; font-weight:800; color:rgba(200,119,58,0.25); line-height:1; flex-shrink:0; width:54px;">2</div>
+          <div style="padding-top:6px;"><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:19px; font-weight:700; text-transform:uppercase; color:#f4f1eb; margin-bottom:7px; letter-spacing:0.02em;">Розробка проекту та кошторису</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:rgba(244,241,235,0.45);">Детальна проектна документація та точний кошторис з фіксованою ціною.</p></div>
+        </div>
+        <div class="proc-step">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:44px; font-weight:800; color:rgba(200,119,58,0.25); line-height:1; flex-shrink:0; width:54px;">3</div>
+          <div style="padding-top:6px;"><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:19px; font-weight:700; text-transform:uppercase; color:#f4f1eb; margin-bottom:7px; letter-spacing:0.02em;">Підписання договору</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:rgba(244,241,235,0.45);">Юридично грамотний договір з фіксованою ціною, термінами та гарантіями якості.</p></div>
+        </div>
+        <div class="proc-step">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:44px; font-weight:800; color:rgba(200,119,58,0.25); line-height:1; flex-shrink:0; width:54px;">4</div>
+          <div style="padding-top:6px;"><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:19px; font-weight:700; text-transform:uppercase; color:#f4f1eb; margin-bottom:7px; letter-spacing:0.02em;">Будівництво з фото/відеозвітом</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:rgba(244,241,235,0.45);">Активне будівництво під наглядом виконроба. Регулярні звіти про прогрес робіт.</p></div>
+        </div>
+        <div class="proc-step">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:44px; font-weight:800; color:rgba(200,119,58,0.25); line-height:1; flex-shrink:0; width:54px;">5</div>
+          <div style="padding-top:6px;"><h4 style="font-family:'Barlow Condensed',sans-serif; font-size:19px; font-weight:700; text-transform:uppercase; color:#f4f1eb; margin-bottom:7px; letter-spacing:0.02em;">Здача об'єкту та передача ключів</h4><p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.65; color:rgba(244,241,235,0.45);">Приймання, усунення зауважень, передача всієї документації та ключів.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section style="background:#141311; padding:100px 40px;">
+  <div style="max-width:1400px; margin:0 auto;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:48px; gap:24px; flex-wrap:wrap;">
+      <div>
+        <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Виконані об'єкти</span></div>
+        <h2 class="section-title" style="color:#f4f1eb;">Наші проекти</h2>
+      </div>
+      <a href="#contacts" class="btn-outline-light">Всі проекти →</a>
+    </div>
+    <div class="port-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px;">
+      <div style="background:#222120; position:relative; overflow:hidden; aspect-ratio:4/3;">
+        <svg width="100%" height="100%" style="position:absolute;inset:0;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><pattern id="ph1" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="14" stroke="#c8773a" stroke-width="0.5" opacity="0.18"/></pattern></defs><rect width="100%" height="100%" fill="url(#ph1)"/><text x="50%" y="44%" text-anchor="middle" fill="rgba(244,241,235,0.12)" font-family="Barlow Condensed, sans-serif" font-size="11" letter-spacing="2">ФОТО БУДИНКУ</text><text x="50%" y="58%" text-anchor="middle" fill="rgba(244,241,235,0.07)" font-family="Barlow, sans-serif" font-size="10">Київська обл. — об'єкт 1</text></svg>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(transparent,rgba(10,9,8,0.85));"><div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;color:#f4f1eb;letter-spacing:0.02em;">Котедж 180 м²</div><div style="font-family:'Barlow',sans-serif;font-size:12px;color:rgba(244,241,235,0.45);margin-top:2px;">Газобетон · Боярка, 2025</div></div>
+      </div>
+      <div style="background:#222120; position:relative; overflow:hidden; aspect-ratio:4/3;">
+        <svg width="100%" height="100%" style="position:absolute;inset:0;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><pattern id="ph2" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="14" stroke="#c8773a" stroke-width="0.5" opacity="0.18"/></pattern></defs><rect width="100%" height="100%" fill="url(#ph2)"/><text x="50%" y="44%" text-anchor="middle" fill="rgba(244,241,235,0.12)" font-family="Barlow Condensed, sans-serif" font-size="11" letter-spacing="2">ФОТО БУДИНКУ</text><text x="50%" y="58%" text-anchor="middle" fill="rgba(244,241,235,0.07)" font-family="Barlow, sans-serif" font-size="10">Київська обл. — об'єкт 2</text></svg>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(transparent,rgba(10,9,8,0.85));"><div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;color:#f4f1eb;letter-spacing:0.02em;">Будинок 240 м²</div><div style="font-family:'Barlow',sans-serif;font-size:12px;color:rgba(244,241,235,0.45);margin-top:2px;">Керамоблок · Бровари, 2025</div></div>
+      </div>
+      <div style="background:#222120; position:relative; overflow:hidden; aspect-ratio:4/3;">
+        <svg width="100%" height="100%" style="position:absolute;inset:0;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><pattern id="ph3" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(20)"><line x1="0" y1="0" x2="0" y2="14" stroke="#c8773a" stroke-width="0.5" opacity="0.18"/></pattern></defs><rect width="100%" height="100%" fill="url(#ph3)"/><text x="50%" y="44%" text-anchor="middle" fill="rgba(244,241,235,0.12)" font-family="Barlow Condensed, sans-serif" font-size="11" letter-spacing="2">ФОТО БУДИНКУ</text><text x="50%" y="58%" text-anchor="middle" fill="rgba(244,241,235,0.07)" font-family="Barlow, sans-serif" font-size="10">Київська обл. — об'єкт 3</text></svg>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(transparent,rgba(10,9,8,0.85));"><div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;color:#f4f1eb;letter-spacing:0.02em;">Котедж 320 м²</div><div style="font-family:'Barlow',sans-serif;font-size:12px;color:rgba(244,241,235,0.45);margin-top:2px;">Цегла · Вишгород, 2024</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + FORM -->
+<section id="contacts" style="background:#c8773a; padding:100px 40px;">
+  <div style="max-width:1400px; margin:0 auto;">
+    <div class="cta-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
+      <div>
+        <h2 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(36px,5vw,68px); text-transform:uppercase; line-height:0.92; color:#fff; margin-bottom:20px;">Готові<br>розпочати<br>будівництво?</h2>
+        <p style="font-family:'Barlow',sans-serif; font-size:15px; line-height:1.75; color:rgba(255,255,255,0.7); max-width:380px; text-wrap:pretty; margin-bottom:40px;">Залиште заявку — ми перетелефонуємо протягом 30 хвилин, відповімо на всі питання та організуємо безкоштовний виїзд на ділянку.</p>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div><div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:3px;">Телефон</div><a href="tel:+380931234567" style="font-family:'Barlow Condensed',sans-serif; font-size:24px; font-weight:700; color:#fff; text-decoration:none; letter-spacing:0.01em; display:block;">+38 (093) 123-45-67</a><a href="tel:+380671234567" style="font-family:'Barlow Condensed',sans-serif; font-size:24px; font-weight:700; color:#fff; text-decoration:none; letter-spacing:0.01em; display:block; margin-top:4px;">+38 (067) 123-45-67</a></div>
+          <div><div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:3px;">Email</div><a href="/cdn-cgi/l/email-protection#4d24232b220d263d3b603e393f2234632e222063382c" style="font-family:'Barlow',sans-serif; font-size:16px; color:#fff; text-decoration:none;"><span class="__cf_email__" data-cfemail="a9c0c7cfc6e9c2d9df84dadddbc6d087cac6c487dcc8">[email&#160;protected]</span></a></div>
+          <div><div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:3px;">Географія</div><span style="font-family:'Barlow',sans-serif; font-size:16px; color:#fff;">Київ та Київська область</span></div>
+        </div>
+      </div>
+      <div style="background:#fff; padding:44px 40px;">
+        <h3 style="font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; text-transform:uppercase; color:#0f0e0c; margin-bottom:6px; letter-spacing:0.03em;">Безкоштовна консультація</h3>
+        <p style="font-family:'Barlow',sans-serif; font-size:13px; color:#aaa; margin-bottom:28px;">Перетелефонуємо протягом 30 хвилин</p>
+        <form style="display:flex; flex-direction:column; gap:14px;" onsubmit="return false;">
+          <div style="display:flex; flex-direction:column; gap:5px;"><label class="form-label">Ваше ім'я</label><input type="text" class="form-input" placeholder="Іван Петренко"></div>
+          <div style="display:flex; flex-direction:column; gap:5px;"><label class="form-label">Номер телефону</label><input type="tel" class="form-input" placeholder="+38 (0__) ___-__-__"></div>
+          <div style="display:flex; flex-direction:column; gap:5px;"><label class="form-label">Що вас цікавить?</label>
+            <select class="form-input" style="cursor:pointer; appearance:none;">
+              <option>Будівництво під ключ</option>
+              <option>Фундаментні роботи</option>
+              <option>Покрівельні роботи</option>
+              <option>Оздоблювальні роботи</option>
+              <option>Ландшафтні роботи</option>
+              <option>Інше</option>
+            </select>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px;"><label class="form-label">Коментар (необов'язково)</label><textarea class="form-input" rows="3" placeholder="Площа будинку, матеріал, побажання..." style="resize:vertical;"></textarea></div>
+          <button type="submit" class="form-submit">Відправити заявку →</button>
+          <p style="font-family:'Barlow',sans-serif; font-size:11px; color:#bbb; text-align:center; line-height:1.5;">Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0f0e0c; padding:64px 40px 36px;">
+  <div style="max-width:1400px; margin:0 auto;">
+    <div class="footer-grid" style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px;">
+      <div>
+        <div style="display:flex; align-items:baseline; gap:5px; margin-bottom:16px;">
+          <span style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:20px; letter-spacing:0.1em; text-transform:uppercase; color:#f4f1eb;">КПВ</span>
+          <span style="width:5px; height:5px; background:#c8773a; display:inline-block; border-radius:50%; position:relative; top:-2px; flex-shrink:0;"></span>
+          <span style="font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:16px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(244,241,235,0.3);">СТРОЙ</span>
+        </div>
+        <p style="font-family:'Barlow',sans-serif; font-size:13px; line-height:1.75; color:rgba(244,241,235,0.35); max-width:260px; text-wrap:pretty;">Будівництво будинків та котеджів під ключ у Києві та Київській області.</p>
+      </div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(244,241,235,0.2); margin-bottom:20px;">Послуги</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="#services" class="footer-link">Будівництво під ключ</a>
+          <a href="#services" class="footer-link">Фундаментні роботи</a>
+          <a href="#services" class="footer-link">Покрівельні роботи</a>
+          <a href="#services" class="footer-link">Оздоблення</a>
+          <a href="#services" class="footer-link">Ландшафт</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(244,241,235,0.2); margin-bottom:20px;">Компанія</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="#about" class="footer-link">Про нас</a>
+          <a href="#prices" class="footer-link">Ціни 2026</a>
+          <a href="#process" class="footer-link">Процес роботи</a>
+          <a href="#contacts" class="footer-link">Контакти</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(244,241,235,0.2); margin-bottom:20px;">Контакти</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="tel:+380931234567" class="footer-link">+38 (093) 123-45-67</a>
+          <a href="tel:+380671234567" class="footer-link">+38 (067) 123-45-67</a>
+          <a href="/cdn-cgi/l/email-protection#afc6c1c9c0efc4dfd982dcdbddc0d681ccc0c281dace" class="footer-link"><span class="__cf_email__" data-cfemail="3a53545c557a514a4c17494e48554314595557144f5b">[email&#160;protected]</span></a>
+          <span style="font-family:'Barlow',sans-serif; font-size:14px; color:rgba(244,241,235,0.35);">Київ та область</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.05); padding-top:28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <span style="font-family:'Barlow',sans-serif; font-size:12px; color:rgba(244,241,235,0.2);">© 2026 КПВ-СТРОЙ. Всі права захищені.</span>
+      <span style="font-family:'Barlow',sans-serif; font-size:12px; color:rgba(244,241,235,0.2);">Будівництво будинків під ключ · Київ та Київська область</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const closeBtn  = document.getElementById('mobileNavClose');
+
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  closeBtn.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  // Nav shadow on scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20 ? '0 2px 24px rgba(0,0,0,0.1)' : 'none';
+  }, { passive: true });
+</script>
+</body>
+</html>
