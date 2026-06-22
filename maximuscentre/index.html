@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Максимус Центр — Будівельні матеріали у Львові</title>
+  <meta name="description" content="Газоблоки у Львові · YTONG · Стоунлайт · Мінеральна вата · Гіпсокартон · Фасадні системи. Максимус Центр — доставка по Львову та Україні.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: #f4f0e8; color: #1b1916; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; }
+
+    /* ── Animations ── */
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── Topbar ── */
+    .topbar {
+      background: #111110;
+      padding: 7px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+    .topbar a { color: #f0ece4; font-weight: 600; }
+    .topbar .sep { color: #3a3834; }
+    .topbar .dim { color: #6a6560; }
+    .topbar .dim-link { color: #6a6560; }
+    .topbar .dim-link:hover { color: #f0ece4; }
+
+    /* ── Header ── */
+    .site-header {
+      background: #191714;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      border-bottom: 2px solid #cc5a1f;
+    }
+    .header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .site-logo img { height: 30px; object-fit: contain; filter: brightness(0) invert(1); }
+    .site-nav { flex: 1; display: flex; align-items: center; gap: 2px; }
+    .site-nav a { color: #7a7570; font-size: 14px; padding: 8px 12px; transition: color .15s; }
+    .site-nav a:hover { color: #f0ece4; }
+    .site-nav .nav-main { color: #f0ece4; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: .6px; }
+    .site-nav .nav-main:hover { color: #cc5a1f; }
+    .header-right { display: flex; align-items: center; gap: 20px; margin-left: auto; }
+    .header-phone { color: #cc5a1f; font-weight: 700; font-size: 15px; white-space: nowrap; }
+    .header-phone:hover { color: #e0703a; }
+    .cart-btn { color: #f0ece4; display: flex; align-items: center; gap: 6px; font-size: 14px; transition: color .15s; }
+    .cart-btn:hover { color: #cc5a1f; }
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #f0ece4;
+      padding: 4px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Mobile Menu ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: #191714;
+      overflow-y: auto;
+      padding: 20px 24px;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    .mobile-menu-top img { height: 26px; object-fit: contain; filter: brightness(0) invert(1); }
+    .close-btn { background: none; border: none; cursor: pointer; color: #f0ece4; font-size: 32px; line-height: 1; padding: 0; }
+    .mobile-nav { display: flex; flex-direction: column; }
+    .mobile-nav .mn-heading {
+      color: #f0ece4;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 26px;
+      padding: 14px 0;
+      border-bottom: 1px solid #2a2724;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .mobile-nav .mn-sub { color: #7a7570; font-size: 16px; padding: 10px 16px; display: block; }
+    .mobile-nav .mn-sub:hover { color: #f0ece4; }
+    .mobile-nav .mn-link {
+      color: #f0ece4;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid #2a2724;
+      text-transform: uppercase;
+      display: block;
+    }
+    .mobile-nav .mn-link:hover { color: #cc5a1f; }
+    .mobile-contact { margin-top: 36px; }
+    .mobile-contact .mc-phone { color: #cc5a1f; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; display: block; }
+    .mobile-contact .mc-hours { color: #6a6560; margin-top: 6px; font-size: 14px; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      background: #111110;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.maximuscentr.com.ua/wp-content/uploads/2021/12/IMG_2753-1024x768.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: .25;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.015) 39px, rgba(255,255,255,.015) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,.015) 79px, rgba(255,255,255,.015) 80px);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      width: 100%;
+    }
+    .hero-inner { max-width: 760px; }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow .line { width: 32px; height: 2px; background: #cc5a1f; flex-shrink: 0; }
+    .hero-eyebrow span { font-size: 13px; letter-spacing: 2px; color: #7a7570; text-transform: uppercase; }
+    .hero-h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(56px, 9vw, 124px);
+      color: #f4f0e8;
+      line-height: .88;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .hero-h1 span { color: #cc5a1f; }
+    .hero-lead {
+      color: #9a9590;
+      font-size: 17px;
+      line-height: 1.65;
+      max-width: 460px;
+      margin-bottom: 40px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: #cc5a1f;
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: .8px;
+      padding: 15px 36px;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: background .15s;
+    }
+    .btn-primary:hover { background: #b84e18; }
+    .btn-outline {
+      border: 2px solid rgba(240,236,228,.25);
+      color: #f0ece4;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 28px;
+      display: inline-block;
+      transition: border-color .15s, color .15s;
+    }
+    .btn-outline:hover { border-color: #cc5a1f; color: #cc5a1f; }
+    .hero-tags { margin-top: 60px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-tag {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: #d8d4cc;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      padding: 9px 18px;
+      white-space: nowrap;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .hero-tag:hover { border-color: #cc5a1f; color: #fff; background: rgba(204,90,31,.15); }
+
+    /* ── Section shell ── */
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: 1320px; margin: 0 auto; }
+    .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 36px; gap: 16px; flex-wrap: wrap; }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(30px,5vw,48px); text-transform: uppercase; letter-spacing: -.5px; line-height: 1; }
+    .section-link { color: #cc5a1f; font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: .5px; white-space: nowrap; }
+    .section-link:hover { color: #b84e18; }
+
+    /* ── Categories ── */
+    .cats-bg { background: #f4f0e8; }
+    .cats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+    .cat-card {
+      padding: 28px 24px;
+      display: block;
+      position: relative;
+      min-height: 154px;
+      transition: background .15s;
+    }
+    .cat-card--dark { background: #1b1916; color: #f4f0e8; }
+    .cat-card--dark:hover { background: #2a2724; }
+    .cat-card--light { background: #ede9e0; color: #1b1916; }
+    .cat-card--light:hover { background: #e2ddd5; }
+    .cat-card--accent { background: #cc5a1f; color: #fff; }
+    .cat-card--accent:hover { background: #b84e18; }
+    .cat-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 26px; text-transform: uppercase; line-height: 1.05; margin-bottom: 6px; }
+    .cat-sub { font-size: 12px; font-family: 'Barlow', sans-serif; line-height: 1.5; }
+    .cat-card--dark  .cat-sub  { color: #6a6560; }
+    .cat-card--light .cat-sub  { color: #7a7570; }
+    .cat-card--accent .cat-sub { color: rgba(255,255,255,.65); }
+    .cat-arrow { position: absolute; bottom: 20px; right: 20px; font-size: 20px; line-height: 1; }
+    .cat-card--dark  .cat-arrow { color: #cc5a1f; }
+    .cat-card--light .cat-arrow { color: #cc5a1f; }
+    .cat-card--accent .cat-arrow { color: rgba(255,255,255,.5); }
+
+    /* ── Products ── */
+    .prods-bg { background: #fff; }
+    .prods-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .prod-card { display: flex; flex-direction: column; color: #1b1916; transition: opacity .15s; }
+    .prod-card:hover { opacity: .85; }
+    .prod-img-wrap { background: #f4f0e8; aspect-ratio: 1/1; overflow: hidden; margin-bottom: 14px; position: relative; }
+    .prod-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .prod-badge {
+      position: absolute; top: 10px; left: 0;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 1px;
+      padding: 4px 10px; color: #fff;
+    }
+    .prod-badge--sale { background: #cc5a1f; }
+    .prod-badge--new  { background: #1b1916; }
+    .prod-cat { font-size: 11px; color: #9a9590; letter-spacing: .8px; text-transform: uppercase; margin-bottom: 5px; }
+    .prod-name { font-size: 14px; font-weight: 500; line-height: 1.4; flex: 1; margin-bottom: 10px; }
+    .prod-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 22px; color: #cc5a1f; }
+    .prod-price .unit { font-family: 'Barlow', sans-serif; font-size: 14px; color: #9a9590; font-weight: 400; }
+    .prod-old { font-size: 13px; color: #c0bcb8; text-decoration: line-through; margin-left: 10px; font-family: 'Barlow', sans-serif; }
+    .prod-price-row { display: flex; align-items: baseline; }
+
+    /* ── Trust ── */
+    .trust-bg { background: #1b1916; }
+    .trust-bg .section-title { color: #f4f0e8; }
+    .trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px 40px; }
+    .trust-item { border-top: 2px solid #cc5a1f; padding-top: 18px; }
+    .trust-item--dim { border-top-color: #2a2724; }
+    .trust-item-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 18px; color: #f4f0e8; text-transform: uppercase; margin-bottom: 8px; line-height: 1.1; }
+    .trust-item-body  { font-size: 14px; color: #6a6560; line-height: 1.6; }
+
+    /* ── Partners ── */
+    .partners-bg { background: #f4f0e8; padding: 48px 0; overflow: hidden; border-top: 1px solid #e2ddd5; border-bottom: 1px solid #e2ddd5; }
+    .partners-label { max-width: 1320px; margin: 0 auto 28px; padding: 0 24px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase; color: #9a9590; }
+    .marquee-wrap { position: relative; overflow: hidden; }
+    .marquee-fade-l { position: absolute; left: 0; top: 0; bottom: 0; width: 80px; background: linear-gradient(to right, #f4f0e8, transparent); z-index: 2; pointer-events: none; }
+    .marquee-fade-r { position: absolute; right: 0; top: 0; bottom: 0; width: 80px; background: linear-gradient(to left, #f4f0e8, transparent); z-index: 2; pointer-events: none; }
+    .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+    .marquee-set { display: flex; align-items: center; flex: none; }
+    .brand-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: 1.5px; color: #2a2724; padding: 0 36px; border-right: 1px solid #d8d4ca; }
+    .brand-name:last-child { border-right: none; }
+
+    /* ── Blog ── */
+    .blog-bg { background: #ede9e0; }
+    .blog-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 3px; }
+    .blog-card { background: #fff; display: flex; min-height: 140px; transition: background .15s; }
+    .blog-card:hover { background: #f9f7f3; }
+    .blog-thumb {
+      flex: none; width: 100px;
+      background: #d4cfcb;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 6px; padding: 16px;
+    }
+    .blog-thumb-label { font-size: 10px; color: #7a7570; letter-spacing: .5px; text-align: center; line-height: 1.3; }
+    .blog-body { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+    .blog-cat { font-size: 11px; color: #9a9590; letter-spacing: .8px; text-transform: uppercase; }
+    .blog-title { font-weight: 600; font-size: 15px; line-height: 1.45; color: #1b1916; }
+
+    /* ── Footer ── */
+    .footer-bg { background: #111110; padding: 64px 24px 28px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 48px; margin-bottom: 52px; }
+    .footer-logo img { height: 26px; object-fit: contain; filter: brightness(0) invert(1); margin-bottom: 18px; }
+    .footer-about { font-size: 14px; color: #5a5550; line-height: 1.75; max-width: 280px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { color: #5a5550; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .5px; }
+    .footer-social a:hover { color: #f0ece4; }
+    .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 1.5px; color: #f0ece4; text-transform: uppercase; margin-bottom: 18px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: #5a5550; font-size: 14px; }
+    .footer-links a:hover { color: #f0ece4; }
+    .footer-contacts { display: flex; flex-direction: column; gap: 14px; font-size: 14px; }
+    .fc-label { color: #4a4540; font-size: 11px; letter-spacing: .5px; text-transform: uppercase; margin-bottom: 3px; }
+    .fc-value { color: #9a9590; line-height: 1.5; }
+    .fc-phone { color: #cc5a1f; font-weight: 600; font-size: 16px; display: block; }
+    .fc-phone:hover { color: #e0703a; }
+    .fc-email { color: #9a9590; }
+    .fc-email:hover { color: #f0ece4; }
+    .footer-bottom { border-top: 1px solid #242220; padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 13px; color: #3a3834; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .cats-grid  { grid-template-columns: 1fr 1fr; }
+      .prods-grid { grid-template-columns: 1fr 1fr; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .blog-grid  { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .cats-grid  { grid-template-columns: 1fr; }
+      .prods-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .site-nav   { display: none; }
+      .header-phone { display: none; }
+      .hamburger-btn { display: flex; }
+      .cart-label { display: none; }
+    }
+    @media (max-width: 420px) {
+      .prods-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="tel:+380672080803">+38 067 208 08 03</a>
+  <span class="sep">·</span>
+  <span class="dim">пн–пт &nbsp;9:00–18:00</span>
+  <span class="sep">·</span>
+  <a href="/cdn-cgi/l/email-protection#422f232b2e022f233a2b2f373121272c36306c3723" class="dim-link"><span class="__cf_email__" data-cfemail="b1dcd0d8ddf1dcd0c9d8dcc4c2d2d4dfc5c39fc4d0">[email&#160;protected]</span></a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="https://www.maximuscentr.com.ua/" class="site-logo">
+      <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2025/11/maximuslogo260.png" alt="Максимус Центр">
+    </a>
+
+    <nav class="site-nav">
+      <a href="https://www.maximuscentr.com.ua/ua/" class="nav-main">КАТАЛОГ</a>
+      <a href="https://www.maximuscentr.com.ua/articles/">Блог</a>
+      <a href="https://www.maximuscentr.com.ua/payments-and-deliveries/">Доставка та оплата</a>
+      <a href="https://www.maximuscentr.com.ua/contact/">Контакти</a>
+      <a href="https://www.maximuscentr.com.ua/about/">Про нас</a>
+    </nav>
+
+    <div class="header-right">
+      <a href="tel:+380672080803" class="header-phone">+38 067 208 08 03</a>
+      <a href="https://www.maximuscentr.com.ua/cart/" class="cart-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-label">Кошик</span>
+      </a>
+      <button class="hamburger-btn" onclick="toggleMenu()" aria-label="Меню">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu" class="mobile-menu">
+  <div class="mobile-menu-top">
+    <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2025/11/maximuslogo260.png" alt="Максимус Центр">
+    <button class="close-btn" onclick="toggleMenu()">×</button>
+  </div>
+  <nav class="mobile-nav">
+    <span class="mn-heading">Каталог</span>
+    <a href="https://www.maximuscentr.com.ua/ua/hazobloky-hazobeton/"     class="mn-sub">→ Газоблоки</a>
+    <a href="https://www.maximuscentr.com.ua/ua/keramichni-bloky/"          class="mn-sub">→ Керамічні блоки та цегла</a>
+    <a href="https://www.maximuscentr.com.ua/ua/mineralnavata/"             class="mn-sub">→ Мінеральна вата</a>
+    <a href="https://www.maximuscentr.com.ua/ua/teploizolyatsiya/"          class="mn-sub">→ Пінополістирол</a>
+    <a href="https://www.maximuscentr.com.ua/ua/fasadni-systemy/"           class="mn-sub">→ Фасадні системи</a>
+    <a href="https://www.maximuscentr.com.ua/ua/dakhovi-vikna-ta-skhody/"  class="mn-sub">→ Дахові вікна та сходи</a>
+    <a href="https://www.maximuscentr.com.ua/ua/hidroizoliatsiia/"          class="mn-sub">→ Гідроізоляція та руберойд</a>
+    <a href="https://www.maximuscentr.com.ua/ua/hipsokarton/"               class="mn-sub" style="margin-bottom:8px;">→ Гіпсові плити та OSB</a>
+    <a href="https://www.maximuscentr.com.ua/articles/"                     class="mn-link">Блог</a>
+    <a href="https://www.maximuscentr.com.ua/payments-and-deliveries/"      class="mn-link">Доставка та оплата</a>
+    <a href="https://www.maximuscentr.com.ua/contact/"                      class="mn-link">Контакти</a>
+    <a href="https://www.maximuscentr.com.ua/about/"                        class="mn-link">Про нас</a>
+  </nav>
+  <div class="mobile-contact">
+    <a href="tel:+380672080803" class="mc-phone">+38 067 208 08 03</a>
+    <div class="mc-hours">пн–пт 9:00–18:00</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <div class="line"></div>
+        <span>Будівельні матеріали · Львів · від 2010</span>
+      </div>
+      <h1 class="hero-h1">Будуй<br><span>надійно</span></h1>
+      <p class="hero-lead">Газоблоки, утеплення, гідроізоляція, фасадні системи та дахові вікна — повний асортимент для будівництва вашого дому.</p>
+      <div class="hero-btns">
+        <a href="https://www.maximuscentr.com.ua/ua/" class="btn-primary">Переглянути каталог</a>
+        <a href="tel:+380672080803" class="btn-outline">Замовити дзвінок</a>
+      </div>
+    </div>
+    <div class="hero-tags">
+      <a href="https://www.maximuscentr.com.ua/ua/hazobloky-hazobeton/"    class="hero-tag">Газоблоки</a>
+      <a href="https://www.maximuscentr.com.ua/ua/mineralnavata/"           class="hero-tag">Мінеральна вата</a>
+      <a href="https://www.maximuscentr.com.ua/ua/hipsokarton/"             class="hero-tag">Гіпсокартон та OSB</a>
+      <a href="https://www.maximuscentr.com.ua/ua/teploizolyatsiya/"        class="hero-tag">Пінополістирол</a>
+      <a href="https://www.maximuscentr.com.ua/ua/hidroizoliatsiia/"        class="hero-tag">Гідроізоляція та руберойд</a>
+      <a href="https://www.maximuscentr.com.ua/ua/fasadni-systemy/"         class="hero-tag">Фасадні системи</a>
+      <a href="https://www.maximuscentr.com.ua/ua/dakhovi-vikna-ta-skhody/" class="hero-tag">Дахові вікна та сходи</a>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section cats-bg">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title">Категорії</h2>
+      <a href="https://www.maximuscentr.com.ua/ua/" class="section-link">Весь каталог →</a>
+    </div>
+    <div class="cats-grid">
+      <a href="https://www.maximuscentr.com.ua/ua/hazobloky-hazobeton/"    class="cat-card cat-card--dark">
+        <div class="cat-title">Газоблоки</div>
+        <div class="cat-sub">YTONG · Стоунлайт<br>Ковальська</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="https://www.maximuscentr.com.ua/ua/keramichni-bloky/"        class="cat-card cat-card--light">
+        <div class="cat-title">Керамічні блоки та цегла</div>
+        <div class="cat-sub">Ceramika Podkarpacka<br>Русинія · Снятин</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="https://www.maximuscentr.com.ua/ua/mineralnavata/"           class="cat-card cat-card--accent">
+        <div class="cat-title">Мінеральна вата</div>
+        <div class="cat-sub">Rockwool · Knauf<br>Izovat</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="https://www.maximuscentr.com.ua/ua/teploizolyatsiya/"        class="cat-card cat-card--light">
+        <div class="cat-title">Пінополістирол</div>
+        <div class="cat-sub">Пінопласт<br>Екструдований · Сітки</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="https://www.maximuscentr.com.ua/ua/fasadni-systemy/"         class="cat-card cat-card--light">
+        <div class="cat-title">Фасадні системи</div>
+        <div class="cat-sub">James Hardie®<br>MF Panel</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="https://www.maximuscentr.com.ua/ua/dakhovi-vikna-ta-skhody/" class="cat-card cat-card--dark">
+        <div class="cat-title">Дахові вікна та сходи</div>
+        <div class="cat-sub">FAKRO · VELUX<br>Сходи на горище</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="https://www.maximuscentr.com.ua/ua/hidroizoliatsiia/"        class="cat-card cat-card--light">
+        <div class="cat-title">Гідроізоляція та руберойд</div>
+        <div class="cat-sub">Dachowa · Marma TPO<br>Nexler · Єврорубероїд</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="https://www.maximuscentr.com.ua/ua/hipsokarton/"             class="cat-card cat-card--light">
+        <div class="cat-title">Гіпсові плити та OSB</div>
+        <div class="cat-sub">Knauf · Rigips · Norgips<br>Kronospan OSB</div>
+        <span class="cat-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BEST OFFERS -->
+<section class="section prods-bg">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title">Кращі пропозиції</h2>
+      <a href="https://www.maximuscentr.com.ua/ua/" class="section-link">Всі товари →</a>
+    </div>
+    <div class="prods-grid">
+
+      <a href="https://www.maximuscentr.com.ua/product/bazaltova-vata-izovat-ls-1000-600-100/" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2021/09/843-2-400x400.jpg" alt="IZOVAT LS" loading="lazy">
+        </div>
+        <div class="prod-cat">Izovat</div>
+        <div class="prod-name">Базальтова вата IZOVAT LS 1000×600×100</div>
+        <div class="prod-price">160 <span class="unit">грн/м²</span></div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/product/gazoblok-dlya-perehorodok-stonelight-100-200-600/" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2015/01/stonelight-120x200x600-300x300.jpg" alt="Стоунлайт 100" loading="lazy">
+          <span class="prod-badge prod-badge--sale">ЗНИЖКА</span>
+        </div>
+        <div class="prod-cat">Перегородки Стоунлайт</div>
+        <div class="prod-name">Газоблок для перегородок СТОУНЛАЙТ 600×200×100</div>
+        <div class="prod-price-row">
+          <span class="prod-price">3 890 <span class="unit">грн/м³</span></span>
+          <span class="prod-old">4 190</span>
+        </div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/product/volohostiika-derevna-plyta-kronospan-osb-3-2500-1250-10-mm/" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2023/11/OSB-1-400x400.jpg" alt="OSB-3 Kronospan" loading="lazy">
+          <span class="prod-badge prod-badge--new">НОВИНКА</span>
+        </div>
+        <div class="prod-cat">Деревні плити OSB</div>
+        <div class="prod-name">Вологостійка плита Kronospan OSB-3, 2500×1250×10 мм</div>
+        <div class="prod-price">655 <span class="unit">грн/шт.</span></div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/product/ekstrudovanyi-pinopolistyrol-polyboard-1200-600-50/" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2018/09/ekstrydovanij-pinoplast.jpg" alt="POLYBOARD" loading="lazy">
+        </div>
+        <div class="prod-cat">Екструдований пінополістирол</div>
+        <div class="prod-name">Екструдований пінополістирол POLYBOARD 1200×600×50</div>
+        <div class="prod-price">176,50 <span class="unit">грн/шт.</span></div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/product/bitumna-cherepytsia-nexler-bitumen-shingles-trapetsiia-800-320-285-mm-korychnevyi/" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2023/06/braz_trapez_brown-400x400.jpg" alt="Черепиця Nexler" loading="lazy">
+        </div>
+        <div class="prod-cat">Бітумна черепиця</div>
+        <div class="prod-name">Бітумна черепиця Nexler Bitumen Shingles, трапеція, коричневий</div>
+        <div class="prod-price">300 <span class="unit">грн/м²</span></div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/product/keramichnyi-blok-rusinia-k-38cm/" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2018/03/keramichnyj-blok-zbk-rusyniya-38-300x300.jpg" alt="Русинія K-38" loading="lazy">
+        </div>
+        <div class="prod-cat">Керамічні блоки та цегла</div>
+        <div class="prod-name">Керамічний блок Русинія K-38 380×250×238</div>
+        <div class="prod-price">131 <span class="unit">грн/шт.</span></div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/product/hazobeton-stounlajt-stinovyy-600x200x300/" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2021/11/Stonelight-400x400.jpg" alt="Стоунлайт стіновий" loading="lazy">
+          <span class="prod-badge prod-badge--sale">ЗНИЖКА</span>
+        </div>
+        <div class="prod-cat">Стінові блоки Стоунлайт</div>
+        <div class="prod-name">Газоблок стіновий СТОУНЛАЙТ 600×200×300</div>
+        <div class="prod-price-row">
+          <span class="prod-price">3 690 <span class="unit">грн/м³</span></span>
+          <span class="prod-old">3 990</span>
+        </div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/product/hazoblok-ytong-forte-40cm/" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2019/11/Ytong-Energo-48-cm-542-e1528105199823-1.jpg" alt="YTONG FORTE D400" loading="lazy">
+        </div>
+        <div class="prod-cat">Стінові блоки YTONG</div>
+        <div class="prod-name">Газоблок YTONG FORTE D400 PP2,5/0,4 S+GT 599×199×400</div>
+        <div class="prod-price">6 051 <span class="unit">грн/м³</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section trust-bg">
+  <div class="section-inner">
+    <h2 class="section-title" style="margin-bottom:52px;">Чому нам довіряють</h2>
+    <div class="trust-grid">
+      <div class="trust-item"><div class="trust-item-title">Актуальні ціни</div><div class="trust-item-body">Ціни оновлюються постійно. Конкурентні пропозиції на всі позиції.</div></div>
+      <div class="trust-item"><div class="trust-item-title">Комплексні рішення</div><div class="trust-item-body">Все для будівництва — від фундаменту до даху в одному місці.</div></div>
+      <div class="trust-item"><div class="trust-item-title">Профес. консультація</div><div class="trust-item-body">Наші фахівці допоможуть підібрати правильний матеріал для вашого проєкту.</div></div>
+      <div class="trust-item"><div class="trust-item-title">Будь-яка форма оплати</div><div class="trust-item-body">Готівка, картка, LiqPay та безготівковий розрахунок для юросіб.</div></div>
+      <div class="trust-item trust-item--dim"><div class="trust-item-title">Знижки постійним клієнтам</div><div class="trust-item-body">Програма лояльності та спеціальні умови для підрядників.</div></div>
+      <div class="trust-item trust-item--dim"><div class="trust-item-title">Великий вибір товарів</div><div class="trust-item-body">Понад 500 позицій від перевірених виробників і брендів.</div></div>
+      <div class="trust-item trust-item--dim"><div class="trust-item-title">Своєчасна доставка</div><div class="trust-item-body">Доставка по Львову та Україні у зручний для вас час.</div></div>
+      <div class="trust-item trust-item--dim"><div class="trust-item-title">Наявність зразків</div><div class="trust-item-body">Можна оглянути і відчути матеріал особисто перед замовленням.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners-bg">
+  <div class="partners-label">Наші партнери</div>
+  <div class="marquee-wrap">
+    <div class="marquee-fade-l"></div>
+    <div class="marquee-fade-r"></div>
+    <div class="marquee-track">
+      <div class="marquee-set">
+        <span class="brand-name">YTONG</span><span class="brand-name">STONELIGHT</span><span class="brand-name">ROCKWOOL</span><span class="brand-name">KNAUF INSULATION</span><span class="brand-name">JAMES HARDIE</span><span class="brand-name">FAKRO</span><span class="brand-name">VELUX</span><span class="brand-name">IZOVAT</span><span class="brand-name">NEXLER</span><span class="brand-name">DACHOWA</span><span class="brand-name">MF PANEL</span><span class="brand-name">RIGIPS</span><span class="brand-name">KRONOSPAN</span><span class="brand-name">MARMA</span><span class="brand-name">CALMIT</span><span class="brand-name">IZOHAN</span>
+      </div>
+      <div class="marquee-set">
+        <span class="brand-name">YTONG</span><span class="brand-name">STONELIGHT</span><span class="brand-name">ROCKWOOL</span><span class="brand-name">KNAUF INSULATION</span><span class="brand-name">JAMES HARDIE</span><span class="brand-name">FAKRO</span><span class="brand-name">VELUX</span><span class="brand-name">IZOVAT</span><span class="brand-name">NEXLER</span><span class="brand-name">DACHOWA</span><span class="brand-name">MF PANEL</span><span class="brand-name">RIGIPS</span><span class="brand-name">KRONOSPAN</span><span class="brand-name">MARMA</span><span class="brand-name">CALMIT</span><span class="brand-name">IZOHAN</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG -->
+<section class="section blog-bg">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title">Корисно знати</h2>
+      <a href="https://www.maximuscentr.com.ua/articles/" class="section-link">Всі статті →</a>
+    </div>
+    <div class="blog-grid">
+
+      <a href="https://www.maximuscentr.com.ua/vstanovlennia-saidynhu-hardie-vl-plank/" class="blog-card">
+        <div class="blog-thumb">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a7570" stroke-width="1.5" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <span class="blog-thumb-label">ВІДЕО</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Фасадні системи</div>
+          <div class="blog-title">Встановлення фіброцементного сайдингу Hardie® VL Plank. Відеоінструкція з монтажу</div>
+        </div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/montazh-hardie-plank-ua/" class="blog-card">
+        <div class="blog-thumb">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a7570" stroke-width="1.5" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <span class="blog-thumb-label">ВІДЕО</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Фасадні системи</div>
+          <div class="blog-title">Відеоінструкція: монтаж фіброцементного сайдингу Hardie® Plank</div>
+        </div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/plyty-fermacell-alternatyva-blokam/" class="blog-card">
+        <div class="blog-thumb">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a7570" stroke-width="1.5" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <span class="blog-thumb-label">ВІДЕО</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Гіпсові плити</div>
+          <div class="blog-title">Гіпсоволокнисті плити fermacell® – чудова альтернатива будівельним блокам</div>
+        </div>
+      </a>
+
+      <a href="https://www.maximuscentr.com.ua/saidynh-hardie-vl-plank-shyp-paz/" class="blog-card">
+        <div class="blog-thumb">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a7570" stroke-width="1.5" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <span class="blog-thumb-label">ВІДЕО</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Фасадні системи</div>
+          <div class="blog-title">Сайдинг Hardie® VL Plank з системою монтажу нового покоління «шип-паз»</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-bg">
+  <div class="section-inner">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">
+          <img src="https://www.maximuscentr.com.ua/wp-content/uploads/2025/11/maximuslogo260.png" alt="Максимус Центр">
+        </div>
+        <p class="footer-about">Інтернет-магазин будівельних матеріалів з доставкою по Львову та Україні. Працюємо з 2010 року.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/maximuscentr/">Facebook</a>
+          <a href="https://www.instagram.com/maximuscentr/">Instagram</a>
+          <a href="https://www.youtube.com/@maximuscentr">YouTube</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Каталог</div>
+        <div class="footer-links">
+          <a href="https://www.maximuscentr.com.ua/ua/hazobloky-hazobeton/">Газоблоки</a>
+          <a href="https://www.maximuscentr.com.ua/ua/keramichni-bloky/">Керамічні блоки</a>
+          <a href="https://www.maximuscentr.com.ua/ua/mineralnavata/">Мінеральна вата</a>
+          <a href="https://www.maximuscentr.com.ua/ua/teploizolyatsiya/">Пінополістирол</a>
+          <a href="https://www.maximuscentr.com.ua/ua/fasadni-systemy/">Фасадні системи</a>
+          <a href="https://www.maximuscentr.com.ua/ua/hidroizoliatsiia/">Гідроізоляція</a>
+          <a href="https://www.maximuscentr.com.ua/ua/hipsokarton/">Гіпсові плити та OSB</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Інформація</div>
+        <div class="footer-links">
+          <a href="https://www.maximuscentr.com.ua/payments-and-deliveries/">Доставка та оплата</a>
+          <a href="https://www.maximuscentr.com.ua/returnpolicy/">Повернення товару</a>
+          <a href="https://www.maximuscentr.com.ua/dohovir-publichnoi-oferty/">Публічна оферта</a>
+          <a href="https://www.maximuscentr.com.ua/about/">Про компанію</a>
+          <a href="https://www.maximuscentr.com.ua/articles/">Блог</a>
+          <a href="https://www.maximuscentr.com.ua/gazobeton-calc/">Калькулятор газобетону</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Контакти</div>
+        <div class="footer-contacts">
+          <div>
+            <div class="fc-label">Адреса</div>
+            <div class="fc-value">Львів, с. Підрясне,<br>вул. В. Стуса, 11</div>
+          </div>
+          <div>
+            <div class="fc-label">Телефони</div>
+            <a href="tel:+380672080803" class="fc-phone">+38 067 208 08 03</a>
+            <a href="tel:+380673059626" class="fc-phone" style="margin-top:4px;">+38 067 305 96 26</a>
+          </div>
+          <div>
+            <div class="fc-label">Email</div>
+            <a href="/cdn-cgi/l/email-protection#aac7cbc3c6eac7cbd2c3c7dfd9c9cfc4ded884dfcb" class="fc-email"><span class="__cf_email__" data-cfemail="d8b5b9b1b498b5b9a0b1b5adabbbbdb6acaaf6adb9">[email&#160;protected]</span></a>
+          </div>
+          <div>
+            <div class="fc-label">Графік роботи</div>
+            <div class="fc-value">пн–пт 9:00–18:00</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">©2026 Максимус Центр. Всі права захищені.</div>
+      <div class="footer-copy">Visa · Mastercard · LiqPay</div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    m.classList.toggle('open');
+    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+  }
+</script>
+</body>
+</html>
