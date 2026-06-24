@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gloris Group — Металопластикові вікна у Харкові</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; background: #fff; color: #0b1e3c; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* ── HEADER ── */
+    .header {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e8edf6;
+    }
+    .header-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 clamp(16px,4vw,48px);
+      height: 68px;
+      display: flex; align-items: center; gap: 32px;
+    }
+    .logo img { height: 40px; width: auto; }
+    .nav-desktop { display: flex; align-items: center; gap: 28px; flex: 1; }
+    .nav-desktop a {
+      font-size: 14px; font-weight: 600; color: #3a4a66; white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .nav-desktop a:hover { color: #1150cc; }
+    .header-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .header-phone { font-size: 15px; font-weight: 800; color: #0b1e3c; white-space: nowrap; }
+    .btn-order-header {
+      display: inline-flex; align-items: center;
+      background: #e84e0f; color: #fff;
+      font-size: 13px; font-weight: 700;
+      padding: 10px 22px; border-radius: 6px; white-space: nowrap;
+      transition: background 0.18s;
+    }
+    .btn-order-header:hover { background: #d13d00; }
+    .hamburger {
+      display: none; flex-direction: column; align-items: center;
+      justify-content: center; gap: 5px;
+      width: 40px; height: 40px;
+      background: none; border: none; cursor: pointer; padding: 0; flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #0b1e3c; border-radius: 1px;
+      transition: all 0.25s;
+    }
+    .mobile-menu {
+      display: none; background: #fff;
+      border-top: 1px solid #e8edf6;
+      padding: 20px clamp(16px,4vw,48px) 28px;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block; padding: 13px 0; font-size: 16px; font-weight: 600;
+      color: #0b1e3c; border-bottom: 1px solid #f0f4fb;
+    }
+    .mobile-menu .btn-mobile-cta {
+      display: block; margin-top: 20px;
+      background: #e84e0f; color: #fff;
+      font-size: 15px; font-weight: 700;
+      padding: 15px; border-radius: 8px; text-align: center;
+    }
+
+    /* ── SECTION WRAPPERS ── */
+    .section { padding: clamp(56px,7vw,96px) clamp(20px,5vw,80px); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.12em; color: #1150cc;
+    }
+    .section-title {
+      font-size: clamp(26px,3.5vw,38px); font-weight: 800;
+      color: #0b1e3c; margin-top: 8px; letter-spacing: -0.025em;
+    }
+    .section-title-white { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: #0b1e3c; min-height: 88vh;
+      display: flex; align-items: center; position: relative; overflow: hidden;
+      padding: clamp(60px,8vw,100px) clamp(20px,5vw,80px);
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 72px 72px; pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute; right: 0; top: 0; width: 60%; height: 100%;
+      background: radial-gradient(ellipse at 80% 40%, rgba(17,80,204,0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: flex; flex-wrap: wrap; gap: clamp(40px,6vw,80px);
+      align-items: center; position: relative; z-index: 1;
+    }
+    .hero-left { flex: 1 1 420px; min-width: 0; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 100px; padding: 7px 18px; margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; background: #4cafff; border-radius: 50%; flex-shrink: 0;
+    }
+    .hero-badge span {
+      font-size: 11px; font-weight: 800; color: #4cafff;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .hero-h1 {
+      font-size: clamp(36px,5.5vw,68px); font-weight: 900; color: #fff;
+      line-height: 1.05; margin-bottom: 22px; letter-spacing: -0.035em;
+    }
+    .hero-sub {
+      font-size: clamp(15px,1.8vw,18px); color: rgba(255,255,255,0.58);
+      max-width: 460px; line-height: 1.75; margin-bottom: 38px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
+    .btn-hero-primary {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: #e84e0f; color: #fff;
+      font-size: 15px; font-weight: 700;
+      padding: 15px 30px; border-radius: 8px; transition: background 0.18s;
+    }
+    .btn-hero-primary:hover { background: #d13d00; }
+    .btn-hero-secondary {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255,255,255,0.08); color: #fff;
+      font-size: 15px; font-weight: 600;
+      padding: 15px 30px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.18); transition: background 0.18s;
+    }
+    .btn-hero-secondary:hover { background: rgba(255,255,255,0.14); }
+    .hero-trust { display: flex; flex-wrap: wrap; gap: 28px; }
+    .trust-item { display: flex; align-items: center; gap: 12px; }
+    .trust-icon {
+      width: 46px; height: 46px; flex-shrink: 0;
+      background: rgba(255,255,255,0.07); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .trust-label { font-size: 15px; font-weight: 700; color: #fff; }
+    .trust-sub { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .hero-right {
+      flex: 1 1 320px; min-width: 0;
+      display: flex; justify-content: center; align-items: center;
+      position: relative;
+    }
+    .hero-glow-circle {
+      position: absolute; width: 420px; height: 420px;
+      border-radius: 50%; background: rgba(17,80,204,0.18); filter: blur(40px);
+    }
+    .hero-img-wrap { position: relative; width: 100%; max-width: 460px; }
+    .hero-img-wrap img {
+      width: 100%; border-radius: 16px; box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    }
+    .hero-price-badge {
+      position: absolute; bottom: -16px; left: -16px;
+      background: #1150cc; border-radius: 12px; padding: 14px 20px;
+      box-shadow: 0 8px 24px rgba(17,80,204,0.5);
+    }
+    .hero-price-badge .price { font-size: 22px; font-weight: 900; color: #fff; line-height: 1; }
+    .hero-price-badge .price-sub { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 3px; }
+
+    /* ── CATEGORIES ── */
+    .categories { background: #f5f8fe; }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(250px,100%), 1fr));
+      gap: 16px;
+    }
+    .cat-card {
+      display: flex; flex-direction: column; gap: 18px;
+      padding: 28px; background: #fff; border-radius: 12px;
+      border: 1px solid #e4ecf7;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cat-card:hover { box-shadow: 0 12px 32px rgba(11,30,60,0.1); transform: translateY(-3px); }
+    .cat-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .cat-name { font-size: 17px; font-weight: 700; color: #0b1e3c; margin-bottom: 6px; }
+    .cat-desc { font-size: 13px; color: #7080a0; line-height: 1.55; }
+    .cat-link {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 700; margin-top: auto;
+      transition: opacity 0.15s;
+    }
+    .cat-link:hover { opacity: 0.75; }
+
+    /* ── WINDOW MODELS ── */
+    .windows-section { background: #fff; }
+    .windows-header {
+      display: flex; flex-wrap: wrap; align-items: flex-end;
+      justify-content: space-between; gap: 20px; margin-bottom: 44px;
+    }
+    .windows-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(260px,100%), 1fr));
+      gap: 20px;
+    }
+    .win-card {
+      background: #f5f8fe; border-radius: 14px; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .win-card:hover { box-shadow: 0 16px 40px rgba(11,30,60,0.12); transform: translateY(-4px); }
+    .win-card-img { aspect-ratio: 4/3; overflow: hidden; background: #e8eef7; }
+    .win-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .win-card:hover .win-card-img img { transform: scale(1.05); }
+    .win-card-body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .win-badge {
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.12em; color: #1150cc; background: #edf2ff;
+      display: inline-block; padding: 4px 10px; border-radius: 4px; align-self: flex-start;
+    }
+    .win-name { font-size: 20px; font-weight: 800; color: #0b1e3c; letter-spacing: -0.02em; }
+    .win-spec { font-size: 13px; color: #7080a0; line-height: 1.6; }
+    .win-cta {
+      margin-top: auto; display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; color: #1150cc;
+      padding-top: 12px; border-top: 1px solid #e4ecf7; transition: opacity 0.15s;
+    }
+    .win-cta:hover { opacity: 0.75; }
+
+    /* ── PRICES ── */
+    .prices-section {
+      background: #0b1e3c; position: relative; overflow: hidden;
+    }
+    .prices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(300px,100%), 1fr));
+      gap: 20px;
+    }
+    .price-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 32px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+      text-align: center;
+    }
+    .price-card.featured {
+      background: #1150cc; border-color: transparent;
+      box-shadow: 0 24px 56px rgba(17,80,204,0.5);
+      position: relative;
+    }
+    .price-card-top {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: #e84e0f; color: #fff;
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 5px 14px; border-radius: 100px; white-space: nowrap;
+    }
+    .price-icon-wrap {
+      width: 100px; height: 100px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .price-icon-wrap img {
+      max-width: 100%; max-height: 100%; object-fit: contain;
+      filter: brightness(0) invert(1) opacity(0.8);
+    }
+    .price-name { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .price-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+    .price-card.featured .price-desc { color: rgba(255,255,255,0.6); }
+    .price-amount { font-size: 34px; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
+    .price-amount span { color: #4cafff; }
+    .price-card.featured .price-amount span { color: #7ab3ff; }
+    .btn-price {
+      width: 100%; display: block;
+      background: #1150cc; color: #fff;
+      font-size: 14px; font-weight: 700;
+      padding: 13px; border-radius: 8px; text-align: center;
+      transition: background 0.18s;
+    }
+    .btn-price:hover { background: #0e3fa8; }
+    .btn-price.white {
+      background: #fff; color: #1150cc;
+    }
+    .btn-price.white:hover { background: #e8f0ff; }
+
+    /* ── STEPS ── */
+    .steps-section { background: #fff; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(180px,100%), 1fr));
+      gap: 0;
+    }
+    .step-item {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 24px 16px; position: relative;
+    }
+    .step-connector {
+      position: absolute; top: 45px; left: calc(50% + 28px); right: 0;
+      height: 2px; background: #e4ecf7;
+    }
+    .step-num-circle {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #edf2ff; border: 2px solid #d0deff;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative; z-index: 1; margin-bottom: 16px;
+    }
+    .step-num-circle span { font-size: 16px; font-weight: 900; color: #1150cc; }
+    .step-img-wrap {
+      width: 56px; height: 56px; margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .step-title { font-size: 15px; font-weight: 700; color: #0b1e3c; margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: #7080a0; line-height: 1.55; }
+
+    /* ── WHY US ── */
+    .why-section { background: #f5f8fe; }
+    .why-inner {
+      display: flex; flex-wrap: wrap; gap: clamp(40px,6vw,80px); align-items: flex-start;
+    }
+    .why-left { flex: 1 1 320px; min-width: 0; }
+    .why-sub { font-size: 15px; color: #7080a0; line-height: 1.7; margin-top: 18px; }
+    .why-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 28px; font-size: 14px; font-weight: 700; color: #1150cc;
+      transition: opacity 0.15s;
+    }
+    .why-link:hover { opacity: 0.75; }
+    .why-right { flex: 1 1 400px; min-width: 0; }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(220px,100%), 1fr));
+      gap: 16px;
+    }
+    .benefit-card {
+      background: #fff; border-radius: 12px; padding: 22px;
+      border: 1px solid #e4ecf7;
+    }
+    .benefit-emoji { font-size: 26px; margin-bottom: 12px; display: block; }
+    .benefit-title { font-size: 15px; font-weight: 700; color: #0b1e3c; margin-bottom: 6px; }
+    .benefit-desc { font-size: 13px; color: #7080a0; line-height: 1.55; }
+
+    /* ── TABLE ── */
+    .table-section { background: #fff; }
+    .systems-table { border-radius: 14px; overflow: hidden; border: 1px solid #e4ecf7; }
+    .table-head {
+      display: grid; grid-template-columns: 1fr 1fr 1.5fr 1.5fr;
+      background: #0b1e3c; padding: 14px 20px; gap: 12px;
+    }
+    .table-head span {
+      font-size: 11px; font-weight: 800;
+      color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .table-row {
+      display: grid; grid-template-columns: 1fr 1fr 1.5fr 1.5fr;
+      padding: 16px 20px; gap: 12px;
+      border-top: 1px solid #e4ecf7; align-items: center;
+    }
+    .table-row:nth-child(even) { background: #f9fbff; }
+    .table-row-name { font-size: 14px; font-weight: 700; color: #0b1e3c; }
+    .table-row-cell { font-size: 13px; color: #7080a0; }
+
+    /* ── CREDIT ── */
+    .credit-section {
+      background: linear-gradient(135deg, #1150cc 0%, #0b35a0 100%);
+      padding: clamp(40px,5vw,64px) clamp(20px,5vw,80px);
+    }
+    .credit-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 28px;
+    }
+    .credit-title {
+      font-size: clamp(22px,3vw,32px); font-weight: 900;
+      color: #fff; line-height: 1.2; letter-spacing: -0.02em;
+    }
+    .credit-sub { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 10px; }
+    .btn-credit {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: #fff; color: #1150cc;
+      font-size: 15px; font-weight: 800;
+      padding: 16px 32px; border-radius: 8px; white-space: nowrap;
+      transition: background 0.18s;
+    }
+    .btn-credit:hover { background: #e8f0ff; }
+
+    /* ── FORM ── */
+    .form-section { background: #f5f8fe; }
+    .form-wrap {
+      max-width: 640px; margin: 0 auto; text-align: center;
+    }
+    .form-sub { font-size: 15px; color: #7080a0; line-height: 1.7; margin-top: 12px; margin-bottom: 40px; }
+    .form-card {
+      background: #fff; border-radius: 16px;
+      padding: clamp(24px,4vw,40px);
+      border: 1px solid #e4ecf7;
+      box-shadow: 0 4px 24px rgba(11,30,60,0.06);
+    }
+    .form-fields { display: flex; flex-direction: column; gap: 16px; }
+    .form-input, .form-textarea {
+      width: 100%; padding: 14px 18px;
+      font-size: 15px; font-family: 'Manrope', sans-serif; color: #0b1e3c;
+      background: #f5f8fe; border: 1px solid #e4ecf7;
+      border-radius: 8px; outline: none; transition: border-color 0.15s, background 0.15s;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: #1150cc; background: #fff;
+    }
+    .form-textarea { resize: vertical; line-height: 1.5; min-height: 90px; }
+    .btn-submit {
+      width: 100%; background: #e84e0f; color: #fff;
+      font-size: 16px; font-weight: 800; font-family: 'Manrope', sans-serif;
+      padding: 16px; border-radius: 8px; border: none; cursor: pointer;
+      transition: background 0.18s; letter-spacing: -0.01em;
+    }
+    .btn-submit:hover { background: #d13d00; }
+    .form-note { font-size: 12px; color: #a0aec0; text-align: center; line-height: 1.5; }
+    .form-note a { color: #1150cc; }
+    .form-success {
+      background: #fff; border-radius: 16px; padding: 48px 32px;
+      border: 1px solid #c6e9d0; display: none; animation: fadeUp 0.4s ease both;
+    }
+    .form-success.show { display: block; }
+    .form-success-icon {
+      width: 64px; height: 64px; background: #dcfce7; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+    }
+    .form-success-title { font-size: 22px; font-weight: 800; color: #0b1e3c; margin-bottom: 10px; }
+    .form-success-sub { font-size: 15px; color: #7080a0; }
+
+    /* ── FOOTER ── */
+    .footer { background: #060f1e; padding: clamp(48px,6vw,72px) clamp(20px,5vw,80px) 0; }
+    .footer-grid {
+      display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,64px); margin-bottom: 48px;
+    }
+    .footer-col { flex: 1 1 160px; min-width: 0; }
+    .footer-col.brand { flex: 1 1 240px; }
+    .footer-logo { height: 38px; width: auto; filter: brightness(0) invert(1) opacity(0.9); margin-bottom: 18px; }
+    .footer-desc { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 280px; }
+    .footer-phone {
+      display: block; margin-top: 20px;
+      font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -0.02em;
+      transition: color 0.15s;
+    }
+    .footer-phone:hover { color: #4cafff; }
+    .footer-email { display: block; margin-top: 6px; font-size: 13px; color: rgba(255,255,255,0.4); transition: color 0.15s; }
+    .footer-email:hover { color: rgba(255,255,255,0.7); }
+    .footer-col-title {
+      font-size: 11px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.12em; color: rgba(255,255,255,0.3); margin-bottom: 18px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color 0.15s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-address { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 16px; }
+    .footer-maps {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: #4cafff; transition: color 0.15s;
+    }
+    .footer-maps:hover { color: #7ab3ff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.25); }
+    .footer-policy { font-size: 13px; color: rgba(255,255,255,0.25); transition: color 0.15s; }
+    .footer-policy:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── LINK ARROW ── */
+    .link-arrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 14px; font-weight: 700; color: #1150cc; transition: opacity 0.15s;
+    }
+    .link-arrow:hover { opacity: 0.75; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-desktop { display: none !important; }
+      .btn-order-header { display: none !important; }
+      .hamburger { display: flex !important; }
+      .hero-price-badge { left: 0; bottom: -8px; }
+      .table-head, .table-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .table-head span:nth-child(3),
+      .table-head span:nth-child(4),
+      .table-row-cell:nth-child(3),
+      .table-row-cell:nth-child(4) { display: none; }
+      .steps-grid { grid-template-columns: repeat(auto-fill, minmax(min(200px,100%),1fr)); }
+      .step-connector { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="https://gloris-group.com/" class="logo">
+      <img src="https://gloris-group.com/wp-content/uploads/2020/08/logo.png" alt="Gloris Group">
+    </a>
+    <nav class="nav-desktop">
+      <a href="https://gloris-group.com/product-category/vikna-rehau/">Вікна REHAU</a>
+      <a href="https://gloris-group.com/sklopakety/">Склопакети</a>
+      <a href="https://gloris-group.com/product-category/pidvikonnya/">Підвіконня</a>
+      <a href="https://gloris-group.com/rolety-zhalyuzi/">Ролети</a>
+      <a href="https://gloris-group.com/product-category/vkhidni-dveri/">Двері</a>
+      <a href="https://gloris-group.com/alyuminievi-konstrukczii/">Алюміній</a>
+    </nav>
+    <div class="header-right">
+      <a href="tel:+380636328555" class="header-phone">+38 063 63 28 555</a>
+      <a href="#zammer" class="btn-order-header">Замовити замір</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="https://gloris-group.com/product-category/vikna-rehau/">Вікна REHAU</a>
+    <a href="https://gloris-group.com/sklopakety/">Склопакети</a>
+    <a href="https://gloris-group.com/product-category/pidvikonnya/">Підвіконня</a>
+    <a href="https://gloris-group.com/rolety-zhalyuzi/">Ролети / жалюзі</a>
+    <a href="https://gloris-group.com/product-category/vkhidni-dveri/">Вхідні двері</a>
+    <a href="https://gloris-group.com/product-category/mizhkimnatni-dveri/">Міжкімнатні двері</a>
+    <a href="https://gloris-group.com/alyuminievi-konstrukczii/">Алюмінієві конструкції</a>
+    <a href="tel:+380636328555" style="color:#1150cc; font-weight:800;">+38 063 63 28 555</a>
+    <a href="#zammer" class="btn-mobile-cta" onclick="document.getElementById('mobileMenu').classList.remove('open')">Замовити безкоштовний замір</a>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Виробник · Харків · з 2012 року</span>
+      </div>
+      <h1 class="hero-h1">Металопластикові<br>вікна в Харкові</h1>
+      <p class="hero-sub">Вікна REHAU від виробника. Безкоштовний замір на дому, монтаж за ДБН. Гарантія до 10 років на всі конструкції.</p>
+      <div class="hero-ctas">
+        <a href="#zammer" class="btn-hero-primary">
+          <svg width="17" height="17" fill="none" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
+          Безкоштовний замір
+        </a>
+        <a href="https://gloris-group.com/product-category/vikna-rehau/" class="btn-hero-secondary">
+          Каталог вікон
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M12 2l2.5 4h4.5l-3.5 3 1.5 4.5L12 11l-5 2.5 1.5-4.5L5 6h4.5L12 2z" stroke="rgba(255,255,255,0.65)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <div><div class="trust-label">5–10 років</div><div class="trust-sub">гарантія</div></div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.65)" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="rgba(255,255,255,0.65)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div><div class="trust-label">Безкоштовно</div><div class="trust-sub">замір та консультація</div></div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" stroke="rgba(255,255,255,0.65)" stroke-width="1.5"/><path d="M2 10h20" stroke="rgba(255,255,255,0.65)" stroke-width="1.5"/></svg>
+          </div>
+          <div><div class="trust-label">Розстрочка</div><div class="trust-sub">4–24 місяці</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-glow-circle"></div>
+      <div class="hero-img-wrap">
+        <img src="https://gloris-group.com/wp-content/uploads/2020/07/design-60.jpg" alt="Вікна REHAU EURO 60">
+        <div class="hero-price-badge">
+          <div class="price">від 2785 грн</div>
+          <div class="price-sub">двостулкове вікно</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CATEGORIES ═══════════════════ -->
+<section class="section categories">
+  <div class="container">
+    <div style="margin-bottom:44px">
+      <div class="section-label">Повний асортимент</div>
+      <h2 class="section-title">Наші послуги та продукція</h2>
+    </div>
+    <div class="categories-grid">
+
+      <a href="https://gloris-group.com/product-category/vikna-rehau/" class="cat-card">
+        <div class="cat-icon" style="background:#edf2ff;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="2" stroke="#1150cc" stroke-width="2"/><line x1="14" y1="2" x2="14" y2="26" stroke="#1150cc" stroke-width="1.5"/><line x1="2" y1="14" x2="26" y2="14" stroke="#1150cc" stroke-width="1.5"/></svg>
+        </div>
+        <div><div class="cat-name">Вікна REHAU</div><div class="cat-desc">Металопластикові вікна польського та німецького виробництва</div></div>
+        <div class="cat-link" style="color:#1150cc;">Переглянути <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <a href="https://gloris-group.com/sklopakety/" class="cat-card">
+        <div class="cat-icon" style="background:#edf9ff;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="8" width="18" height="14" rx="2" stroke="#0ea5d9" stroke-width="2"/><rect x="8" y="4" width="18" height="14" rx="2" stroke="#0ea5d9" stroke-width="2" stroke-dasharray="3 2"/></svg>
+        </div>
+        <div><div class="cat-name">Склопакети</div><div class="cat-desc">Тонований, енергозберігаючий, триплекс, мультифункціональний</div></div>
+        <div class="cat-link" style="color:#0ea5d9;">Переглянути <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <a href="https://gloris-group.com/product-category/pidvikonnya/" class="cat-card">
+        <div class="cat-icon" style="background:#fff7ed;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="16" width="24" height="5" rx="2" stroke="#f97316" stroke-width="2"/><rect x="6" y="9" width="16" height="8" rx="1.5" stroke="#f97316" stroke-width="1.5"/></svg>
+        </div>
+        <div><div class="cat-name">Підвіконня</div><div class="cat-desc">DANKE преміум, стандарт та комфорт — білий та кольоровий декор</div></div>
+        <div class="cat-link" style="color:#f97316;">Переглянути <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <a href="https://gloris-group.com/rolety-zhalyuzi/" class="cat-card">
+        <div class="cat-icon" style="background:#f3f0ff;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="3" width="24" height="3" rx="1.5" stroke="#8b5cf6" stroke-width="1.5"/><rect x="2" y="10" width="24" height="2" rx="1" fill="#8b5cf6" opacity="0.5"/><rect x="2" y="16" width="24" height="2" rx="1" fill="#8b5cf6" opacity="0.5"/><rect x="2" y="22" width="24" height="2" rx="1" fill="#8b5cf6" opacity="0.35"/></svg>
+        </div>
+        <div><div class="cat-name">Ролети / жалюзі</div><div class="cat-desc">Тканинні, рулонні, римські, плісе, день-ніч</div></div>
+        <div class="cat-link" style="color:#8b5cf6;">Переглянути <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <a href="https://gloris-group.com/product-category/vkhidni-dveri/" class="cat-card">
+        <div class="cat-icon" style="background:#fef2f2;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="2" width="18" height="24" rx="2" stroke="#ef4444" stroke-width="2"/><circle cx="19" cy="14" r="1.8" fill="#ef4444"/></svg>
+        </div>
+        <div><div class="cat-name">Вхідні двері</div><div class="cat-desc">Металеві та металопластикові, серія «Ведмідь» з МДФ накладками</div></div>
+        <div class="cat-link" style="color:#ef4444;">Переглянути <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+      <a href="https://gloris-group.com/product-category/mizhkimnatni-dveri/" class="cat-card">
+        <div class="cat-icon" style="background:#f0fdf4;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="2" width="18" height="24" rx="2" stroke="#22c55e" stroke-width="2"/><rect x="8" y="6" width="6" height="9" rx="1" stroke="#22c55e" stroke-width="1.5"/><circle cx="19" cy="14" r="1.8" fill="#22c55e"/></svg>
+        </div>
+        <div><div class="cat-name">Міжкімнатні двері</div><div class="cat-desc">ART DECO, CLASSIC, COSMOPOLITAN, ELEGANCE та інші колекції</div></div>
+        <div class="cat-link" style="color:#22c55e;">Переглянути <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WINDOW MODELS ═══════════════════ -->
+<section class="section windows-section">
+  <div class="container">
+    <div class="windows-header">
+      <div>
+        <div class="section-label">Сертифікований партнер</div>
+        <h2 class="section-title">Металопластикові вікна REHAU</h2>
+      </div>
+      <a href="https://gloris-group.com/product-category/vikna-rehau/" class="link-arrow">
+        Весь каталог <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="windows-grid">
+
+      <div class="win-card">
+        <div class="win-card-img"><img src="https://gloris-group.com/wp-content/uploads/2020/07/design-60.jpg" alt="EURO 60"></div>
+        <div class="win-card-body">
+          <span class="win-badge">REHAU</span>
+          <div class="win-name">EURO 60</div>
+          <div class="win-spec">3-камерний · 60 мм · 1 контур ущільнення · Польща</div>
+          <a href="https://gloris-group.com/product-category/vikna-rehau/?filter_rehau=euro-60" class="win-cta">Дивитись ціни <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-card-img"><img src="https://gloris-group.com/wp-content/uploads/2020/07/design-70.jpg" alt="EURO 70"></div>
+        <div class="win-card-body">
+          <span class="win-badge">REHAU</span>
+          <div class="win-name">EURO 70</div>
+          <div class="win-spec">5-камерний · 70 мм · 2 контури ущільнення · Польща</div>
+          <a href="https://gloris-group.com/product-category/vikna-rehau/?filter_rehau=euro-70" class="win-cta">Дивитись ціни <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-card-img"><img src="https://gloris-group.com/wp-content/uploads/2020/07/brilliant-.jpg" alt="BRILLIANT 70"></div>
+        <div class="win-card-body">
+          <span class="win-badge">REHAU</span>
+          <div class="win-name">BRILLIANT 70</div>
+          <div class="win-spec">5-камерний · 70 мм · 2 контури ущільнення · Німеччина</div>
+          <a href="https://gloris-group.com/product-category/vikna-rehau/?filter_rehau=brilliant-70" class="win-cta">Дивитись ціни <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-card-img"><img src="https://gloris-group.com/wp-content/uploads/2020/07/synego.jpg" alt="SYNEGO 80 MD"></div>
+        <div class="win-card-body">
+          <span class="win-badge">REHAU</span>
+          <div class="win-name">SYNEGO 80 MD</div>
+          <div class="win-spec">6-камерний · 80 мм · 3 контури ущільнення · Німеччина</div>
+          <a href="https://gloris-group.com/product-category/vikna-rehau/?filter_rehau=synego-80-md" class="win-cta">Дивитись ціни <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PRICES ═══════════════════ -->
+<section class="section prices-section">
+  <div class="hero-grid-bg"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div style="text-align:center;margin-bottom:52px;">
+      <div class="section-label" style="color:#4cafff;">Базові ціни</div>
+      <h2 class="section-title section-title-white">Ціни на вікна від виробника</h2>
+      <p style="font-size:15px;color:rgba(255,255,255,0.45);margin-top:12px;">Точна ціна розраховується після безкоштовного заміру</p>
+    </div>
+    <div class="prices-grid">
+
+      <div class="price-card">
+        <div class="price-icon-wrap"><img src="https://gloris-group.com/wp-content/uploads/2020/06/w1.png" alt="Двостулкове вікно"></div>
+        <div><div class="price-name">Двостулкове вікно</div><div class="price-desc">REHAU EURO 60, 1160×1400 мм, однокамерний склопакет</div></div>
+        <div class="price-amount">від <span>2785</span> грн</div>
+        <a href="#zammer" class="btn-price">Замовити замір</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-card-top">Найпопулярніше</div>
+        <div class="price-icon-wrap"><img src="https://gloris-group.com/wp-content/uploads/2020/06/w2.png" alt="Балконний блок"></div>
+        <div><div class="price-name">Балконний блок</div><div class="price-desc">Вікно + балконні двері, монтаж та підвіконня включено</div></div>
+        <div class="price-amount">від <span>6163</span> грн</div>
+        <a href="#zammer" class="btn-price white">Замовити замір</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-icon-wrap"><img src="https://gloris-group.com/wp-content/uploads/2020/06/w4.png" alt="П-образний балкон"></div>
+        <div><div class="price-name">П-образний балкон</div><div class="price-desc">Виносний балкон П-подібної конфігурації під ключ</div></div>
+        <div class="price-amount">від <span>8988</span> грн</div>
+        <a href="#zammer" class="btn-price">Замовити замір</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 5 STEPS ═══════════════════ -->
+<section class="section steps-section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="section-label">Просто та швидко</div>
+      <h2 class="section-title">5 простих кроків для замовлення</h2>
+    </div>
+    <div class="steps-grid">
+
+      <div class="step-item">
+        <div class="step-connector"></div>
+        <div class="step-num-circle"><span>01</span></div>
+        <div class="step-img-wrap"><img src="https://gloris-group.com/wp-content/uploads/2020/07/pic1.png" alt="Крок 1"></div>
+        <div class="step-title">Зателефонуйте</div>
+        <div class="step-desc">Зателефонуйте або залиште заявку на сайті</div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-connector"></div>
+        <div class="step-num-circle"><span>02</span></div>
+        <div class="step-img-wrap"><img src="https://gloris-group.com/wp-content/uploads/2020/07/pic2.png" alt="Крок 2"></div>
+        <div class="step-title">Консультація</div>
+        <div class="step-desc">Спеціаліст підбере продукт та розрахує вартість</div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-connector"></div>
+        <div class="step-num-circle"><span>03</span></div>
+        <div class="step-img-wrap"><img src="https://gloris-group.com/wp-content/uploads/2020/07/pic3.png" alt="Крок 3"></div>
+        <div class="step-title">Замір</div>
+        <div class="step-desc">Майстер виїде на замір та укладе договір</div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-connector"></div>
+        <div class="step-num-circle"><span>04</span></div>
+        <div class="step-img-wrap"><img src="https://gloris-group.com/wp-content/uploads/2020/07/pic4.png" alt="Крок 4"></div>
+        <div class="step-title">Доставка</div>
+        <div class="step-desc">Доставимо вироби до вашого будинку</div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num-circle"><span>05</span></div>
+        <div class="step-img-wrap"><img src="https://gloris-group.com/wp-content/uploads/2020/07/pic5.png" alt="Крок 5"></div>
+        <div class="step-title">Монтаж</div>
+        <div class="step-desc">Демонтаж старих та установка нових вікон</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WHY US ═══════════════════ -->
+<section class="section why-section">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-left">
+        <div class="section-label">Наші переваги</div>
+        <h2 class="section-title">Чому обирають<br>Gloris Group?</h2>
+        <p class="why-sub">За більш ніж 10 років роботи ми допомогли тисячам клієнтів у Харкові та регіоні. Власне виробництво, без посередників.</p>
+        <a href="https://gloris-group.com/pro-kompaniyu/" class="why-link">
+          Про компанію <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="why-right">
+        <div class="benefits-grid">
+          <div class="benefit-card"><span class="benefit-emoji">🏭</span><div class="benefit-title">Власне виробництво</div><div class="benefit-desc">Виготовляємо самостійно — ціна без посередників</div></div>
+          <div class="benefit-card"><span class="benefit-emoji">💰</span><div class="benefit-title">Ціна виробника</div><div class="benefit-desc">Відсутні зайві націнки. Вигідні умови для оптовиків</div></div>
+          <div class="benefit-card"><span class="benefit-emoji">⚡</span><div class="benefit-title">Швидке виготовлення</div><div class="benefit-desc">Виготовлення, доставка та монтаж у стислі терміни</div></div>
+          <div class="benefit-card"><span class="benefit-emoji">🔑</span><div class="benefit-title">Монтаж під ключ</div><div class="benefit-desc">Від заміру до обробки укосів включно</div></div>
+          <div class="benefit-card"><span class="benefit-emoji">🛡️</span><div class="benefit-title">Гарантія до 10 років</div><div class="benefit-desc">На вікна та балкони від провідних марок REHAU</div></div>
+          <div class="benefit-card"><span class="benefit-emoji">📋</span><div class="benefit-title">Офіційний договір</div><div class="benefit-desc">Всі роботи з документальним підтвердженням</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ OPENING SYSTEMS TABLE ═══════════════════ -->
+<section class="section table-section">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div style="margin-bottom:40px;">
+      <div class="section-label">Довідник покупця</div>
+      <h2 class="section-title">Системи відкривання вікон</h2>
+    </div>
+    <div class="systems-table">
+      <div class="table-head">
+        <span>Система</span>
+        <span>Відкривання</span>
+        <span>Де застосовують</span>
+        <span>Особливості</span>
+      </div>
+      <div class="table-row"><span class="table-row-name">Глухе</span><span class="table-row-cell">Не відкривається</span><span class="table-row-cell">Під'їзди, панорамне скління</span><span class="table-row-cell">Максимум світла, дешевше</span></div>
+      <div class="table-row"><span class="table-row-name">Поворотне</span><span class="table-row-cell">Убік</span><span class="table-row-cell">Кімнати, кухні</span><span class="table-row-cell">Зручне миття, класика</span></div>
+      <div class="table-row"><span class="table-row-name">Відкидне</span><span class="table-row-cell">Вгору/вниз</span><span class="table-row-cell">Санвузли, підсобні</span><span class="table-row-cell">Провітрювання без протягів</span></div>
+      <div class="table-row"><span class="table-row-name">Поворотно-відкидне</span><span class="table-row-cell">Два режими</span><span class="table-row-cell">Житлові кімнати</span><span class="table-row-cell">Універсальне рішення</span></div>
+      <div class="table-row"><span class="table-row-name">Розсувне</span><span class="table-row-cell">У сторони</span><span class="table-row-cell">Балкони, лоджії</span><span class="table-row-cell">Економія простору</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CREDIT BANNER ═══════════════════ -->
+<section class="credit-section">
+  <div class="credit-inner">
+    <div>
+      <div class="credit-title">Оформи кредит та придбай<br>вікна вже зараз</div>
+      <div class="credit-sub">Розстрочка 4–24 місяці без переплат та довідок</div>
+    </div>
+    <a href="https://gloris-group.com/kredit/" class="btn-credit">
+      Отримати кредит
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════ FORM ═══════════════════ -->
+<section class="section form-section" id="zammer">
+  <div class="form-wrap">
+    <div class="section-label">Безкоштовно</div>
+    <h2 class="section-title" style="margin-top:8px;">Викликати замірника</h2>
+    <p class="form-sub">Залиште заявку — наш спеціаліст зв'яжеться з вами для узгодження зручного часу</p>
+
+    <div class="form-success" id="formSuccess">
+      <div class="form-success-icon">
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="form-success-title">Заявку прийнято!</div>
+      <div class="form-success-sub">Ми зателефонуємо вам найближчим часом</div>
+    </div>
+
+    <div class="form-card" id="formCard">
+      <div class="form-fields">
+        <input type="text" class="form-input" placeholder="Ваше ім'я" id="fname">
+        <input type="tel" class="form-input" placeholder="Номер телефону *" id="fphone">
+        <textarea class="form-textarea" placeholder="Додаткова інформація (адреса, тип вікна тощо)" rows="3" id="fmessage"></textarea>
+        <button class="btn-submit" id="submitBtn" onclick="submitForm()">Залишити заявку</button>
+        <p class="form-note">Натискаючи кнопку, ви погоджуєтеся з <a href="https://gloris-group.com/polityka-konfidentsiynosti/">політикою конфіденційності</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col brand">
+        <img src="https://gloris-group.com/wp-content/uploads/2020/08/logo.png" alt="Gloris Group" class="footer-logo">
+        <p class="footer-desc">Виробник металопластикових вікон та дверей у Харкові. Доставка по Україні.</p>
+        <a href="tel:+380636328555" class="footer-phone">+38 063 63 28 555</a>
+        <a href="/cdn-cgi/l/email-protection#bcdbd0d3ced5cfdbced3c9cc8e8c8d8efcdbd1ddd5d092dfd3d1" class="footer-email"><span class="__cf_email__" data-cfemail="8ee9e2e1fce7fde9fce1fbfebcbebfbccee9e3efe7e2a0ede1e3">[email&#160;protected]</span></a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Каталог</div>
+        <div class="footer-links">
+          <a href="https://gloris-group.com/product-category/vikna-rehau/">Вікна REHAU</a>
+          <a href="https://gloris-group.com/sklopakety/">Склопакети</a>
+          <a href="https://gloris-group.com/product-category/pidvikonnya/">Підвіконня</a>
+          <a href="https://gloris-group.com/rolety-zhalyuzi/">Ролети / жалюзі</a>
+          <a href="https://gloris-group.com/product-category/vkhidni-dveri/">Вхідні двері</a>
+          <a href="https://gloris-group.com/product-category/mizhkimnatni-dveri/">Міжкімнатні двері</a>
+          <a href="https://gloris-group.com/alyuminievi-konstrukczii/">Алюмінієві конструкції</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Компанія</div>
+        <div class="footer-links">
+          <a href="https://gloris-group.com/pro-kompaniyu/">Про нас</a>
+          <a href="https://gloris-group.com/nashi-roboty/">Наші роботи</a>
+          <a href="https://gloris-group.com/vidguky/">Відгуки</a>
+          <a href="https://gloris-group.com/blog/">Блог</a>
+          <a href="https://gloris-group.com/kompleksnyy-remont-plastykovykh-vikon/">Ремонт вікон</a>
+          <a href="https://gloris-group.com/kredit/">Кредит</a>
+          <a href="https://gloris-group.com/kontakti/">Контакти</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Адреса</div>
+        <p class="footer-address">Україна, м. Харків,<br>вул. 23 серпня, 48</p>
+        <a href="https://goo.gl/maps/YBDeA3rPPchNCY5n9" class="footer-maps" target="_blank">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          На Google Maps
+        </a>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Gloris Group. Всі права захищені.</span>
+      <a href="https://gloris-group.com/polityka-konfidentsiynosti/" class="footer-policy">Політика конфіденційності</a>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Form submit
+  function submitForm() {
+    const phone = document.getElementById('fphone').value.trim();
+    if (!phone) {
+      document.getElementById('fphone').style.borderColor = '#ef4444';
+      document.getElementById('fphone').focus();
+      return;
+    }
+    document.getElementById('formCard').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+</script>
+
+</body>
+</html>
