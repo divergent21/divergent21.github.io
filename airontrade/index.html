@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Айронтрейд — Світлопрозорі рішення для покрівлі та фасадів</title>
+<meta name="description" content="Провідний постачальник полікарбонату та панельних систем в Україні з 2012 року. Стільниковий, монолітний, профільований полікарбонат. Доставка по Україні.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #0b1929;
+  --navy2:  #122034;
+  --blue:   #1557d4;
+  --blue2:  #1e6bff;
+  --sky:    #ddeeff;
+  --bg:     #f6f4f0;
+  --bg2:    #eeebe5;
+  --white:  #ffffff;
+  --text:   #141c28;
+  --mid:    #556070;
+  --muted:  #8a96a4;
+  --border: #ddd9d3;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── UTILS ──────────────────────── */
+.container { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+.section-eyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* ─── NAV ────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+.nav .container {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  margin-right: 48px;
+}
+.nav-logo strong { color: var(--blue2); font-weight: 400; }
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0;
+  flex: 1;
+}
+.nav-links a {
+  display: block;
+  padding: 6px 14px;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: color .18s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: #fff; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+}
+.nav-phone {
+  color: rgba(255,255,255,.88);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  border-radius: 3px;
+  transition: background .18s, border-color .18s, color .18s;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+}
+.btn-blue  { background: var(--blue); color: #fff; padding: 9px 20px; font-size: 13.5px; }
+.btn-blue:hover  { background: var(--blue2); }
+.btn-dark  { background: rgba(255,255,255,.1); color: #fff; padding: 9px 20px; font-size: 13.5px; border: 1px solid rgba(255,255,255,.18); }
+.btn-dark:hover  { background: rgba(255,255,255,.18); }
+.btn-lg    { padding: 14px 32px; font-size: 15px; }
+.btn-outline-dark { border: 1.5px solid rgba(255,255,255,.3); color: #fff; padding: 14px 32px; font-size: 15px; }
+.btn-outline-dark:hover { border-color: #fff; }
+.btn-white { background: #fff; color: var(--blue); padding: 14px 32px; font-size: 15px; }
+.btn-white:hover { background: #edf4ff; }
+.btn-outline-white { border: 1.5px solid rgba(255,255,255,.45); color: #fff; padding: 14px 32px; font-size: 15px; }
+.btn-outline-white:hover { border-color: #fff; }
+
+/* hamburger */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 8px;
+}
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+  transition: transform .26s ease, opacity .2s ease;
+  transform-origin: center;
+}
+.nav-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── MOBILE MENU ────────────────── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--navy);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease, visibility 0s linear .28s;
+}
+.mobile-menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.022) 0, rgba(255,255,255,.022) 1px, transparent 1px, transparent 44px),
+    repeating-linear-gradient(0deg,  rgba(255,255,255,.022) 0, rgba(255,255,255,.022) 1px, transparent 1px, transparent 44px);
+  pointer-events: none;
+  z-index: 0;
+}
+.mobile-menu.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity .28s ease, visibility 0s linear 0s;
+}
+
+/* header strip — mirrors the nav bar */
+.mm-header {
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.mm-close {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 3px;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background .18s;
+}
+.mm-close:hover { background: rgba(255,255,255,.14); }
+
+/* nav links */
+.mm-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+.mm-link {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 18px 0;
+  text-decoration: none;
+  color: rgba(255,255,255,.82);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  position: relative;
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: opacity .24s ease, transform .24s ease, color .18s;
+}
+.mm-link:last-child { border-bottom: none; }
+.mm-link:hover { color: #fff; }
+.mm-link::after {
+  content: '→';
+  margin-left: auto;
+  font-size: 16px;
+  color: rgba(255,255,255,.25);
+  transition: color .18s, transform .2s ease;
+}
+.mm-link:hover::after { color: var(--blue2); transform: translateX(5px); }
+.mobile-menu.is-open .mm-link { opacity: 1; transform: translateX(0); }
+.mobile-menu.is-open .mm-link:nth-child(1) { transition-delay: .07s; }
+.mobile-menu.is-open .mm-link:nth-child(2) { transition-delay: .12s; }
+.mobile-menu.is-open .mm-link:nth-child(3) { transition-delay: .17s; }
+.mobile-menu.is-open .mm-link:nth-child(4) { transition-delay: .22s; }
+
+.mm-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--blue2);
+  opacity: .65;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+.mm-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 27px;
+  line-height: 1;
+}
+
+/* footer — phone + CTA */
+.mm-footer {
+  padding: 22px 24px 36px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+.mm-phones { display: flex; flex-direction: column; gap: 3px; }
+.mm-phone-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-bottom: 10px;
+}
+.mm-phone-link {
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color .18s;
+}
+.mm-phone-link:hover { color: #fff; }
+
+/* ─── HERO ───────────────────────── */
+.hero {
+  background: var(--navy);
+  overflow: hidden;
+  position: relative;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  min-height: calc(100svh - 62px);
+  max-height: 880px;
+}
+.hero-content {
+  padding: 80px 0 80px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+}
+.hero-content .container { padding-right: 60px; }
+.hero h1 {
+  font-size: clamp(38px, 4.8vw, 70px);
+  color: #fff;
+  max-width: 640px;
+}
+.hero h1 em { font-style: italic; color: #6aabff; }
+.hero-sub {
+  color: rgba(255,255,255,.6);
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 480px;
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue2);
+}
+.hero-badge::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--blue2);
+}
+
+/* right panel — abstract polycarbonate cells */
+.hero-panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy2);
+}
+.hero-panel-grid {
+  position: absolute;
+  inset: -20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 4px;
+  transform: skewX(-5deg) translateX(30px);
+}
+.hero-panel-cell {
+  border-radius: 0;
+}
+.hpc-1  { background: rgba(21,87,212,.28); }
+.hpc-2  { background: rgba(21,87,212,.12); }
+.hpc-3  { background: rgba(21,87,212,.4);  }
+.hpc-4  { background: rgba(255,255,255,.04); }
+.hpc-5  { background: rgba(255,255,255,.07); }
+.hpc-6  { background: rgba(106,171,255,.15); }
+.hpc-7  { background: rgba(21,87,212,.06); }
+/* light beam */
+.hero-panel::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: 20%;
+  width: 160px;
+  height: 160%;
+  background: linear-gradient(180deg, rgba(100,160,255,.18) 0%, transparent 70%);
+  transform: rotate(-18deg);
+  pointer-events: none;
+}
+/* grid overlay */
+.hero-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0, rgba(255,255,255,.025) 1px, transparent 1px, transparent 44px),
+    repeating-linear-gradient(0deg,  rgba(255,255,255,.025) 0, rgba(255,255,255,.025) 1px, transparent 1px, transparent 44px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ─── CATEGORIES ─────────────────── */
+.categories {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.categories .container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+.cat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 32px 24px;
+  text-decoration: none;
+  color: var(--text);
+  border-right: 1px solid var(--border);
+  transition: background .18s;
+  position: relative;
+}
+.cat-item:last-child { border-right: none; }
+.cat-item:hover { background: #f0f4ff; }
+.cat-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 6px;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+.cat-name {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+}
+.cat-arrow {
+  font-size: 16px;
+  color: var(--blue);
+  margin-top: auto;
+}
+
+/* ─── PRODUCTS ───────────────────── */
+.products { padding: 96px 0; background: var(--bg); }
+.products .container {}
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 52px;
+  gap: 24px;
+}
+.products-header h2 {
+  font-size: clamp(30px, 3.5vw, 48px);
+  max-width: 440px;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+.prod-card {
+  background: var(--white);
+  padding: 36px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+  transition: background .2s;
+  position: relative;
+  overflow: hidden;
+}
+.prod-card:hover { background: #f5f9ff; }
+.prod-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s ease;
+}
+.prod-card:hover::after { transform: scaleX(1); }
+.prod-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.prod-icon {
+  width: 44px;
+  height: 44px;
+  margin: 8px 0;
+  color: var(--blue);
+}
+.prod-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--text);
+}
+.prod-desc {
+  font-size: 13.5px;
+  color: var(--mid);
+  line-height: 1.65;
+  flex: 1;
+}
+.prod-more {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ─── ABOUT ──────────────────────── */
+.about { background: var(--navy); padding: 96px 0; }
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-text h2 {
+  font-size: clamp(28px, 3vw, 44px);
+  color: #fff;
+  margin: 20px 0 28px;
+  max-width: 440px;
+}
+.about-text p {
+  color: rgba(255,255,255,.58);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.about-text p:last-child { margin-bottom: 0; }
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.1);
+  align-self: center;
+}
+.stat {
+  background: rgba(255,255,255,.04);
+  padding: 36px 32px;
+}
+.stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-val sup {
+  font-size: 28px;
+  vertical-align: top;
+  margin-top: 6px;
+}
+.stat-lbl {
+  font-size: 12.5px;
+  color: rgba(255,255,255,.45);
+  line-height: 1.5;
+}
+
+/* ─── PROJECTS ───────────────────── */
+.projects { padding: 96px 0; background: var(--bg2); }
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  gap: 24px;
+}
+.projects-header h2 {
+  font-size: clamp(30px, 3.5vw, 48px);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.proj-card {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--text);
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.proj-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.1);
+}
+.proj-img {
+  height: 188px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 10.5px;
+  color: rgba(0,0,0,.3);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+/* Striped placeholder aesthetic */
+.proj-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,.07) 0px,
+    rgba(255,255,255,.07) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}
+.proj-info { padding: 22px 24px 28px; }
+.proj-cat {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.proj-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+.proj-desc {
+  font-size: 13.5px;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+/* ─── BRANDS ─────────────────────── */
+.brands {
+  background: var(--white);
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.brands-title {
+  text-align: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+.brands-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.brand-item {
+  padding: 16px 40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-right: 1px solid var(--border);
+  transition: color .18s;
+  cursor: default;
+  text-align: center;
+}
+.brand-item:last-child { border-right: none; }
+.brand-item:hover { color: var(--text); }
+
+/* ─── CTA ────────────────────────── */
+.cta-section {
+  background: var(--blue);
+  padding: 100px 0;
+}
+.cta-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: center;
+}
+.cta-text h2 {
+  font-size: clamp(28px, 3.5vw, 50px);
+  color: #fff;
+  margin-bottom: 12px;
+}
+.cta-text p {
+  color: rgba(255,255,255,.75);
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 500px;
+}
+.cta-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.cta-phone-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: opacity .18s;
+}
+.cta-phone-link:hover { opacity: .78; }
+.cta-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,.55);
+  margin-top: 4px;
+}
+.cta-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+/* ─── FOOTER ─────────────────────── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.55);
+  padding: 72px 0 40px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr 220px;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  margin-bottom: 36px;
+}
+.footer-brand .f-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 14px;
+}
+.footer-brand p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.footer-col h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.88);
+  margin-bottom: 20px;
+}
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-col ul li a {
+  color: rgba(255,255,255,.5);
+  text-decoration: none;
+  font-size: 13.5px;
+  transition: color .18s;
+}
+.footer-col ul li a:hover { color: #fff; }
+.footer-contacts a {
+  display: block;
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  transition: color .18s;
+}
+.footer-contacts a:hover { color: #fff; }
+.footer-addr {
+  font-size: 12.5px;
+  margin-top: 14px;
+  line-height: 1.7;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ─── RESPONSIVE ─────────────────── */
+@media (max-width: 1100px) {
+  .container { padding: 0 32px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-phone { display: none; }
+  .nav-burger { display: flex; }
+
+  .hero-inner { grid-template-columns: 1fr; min-height: auto; max-height: none; }
+  .hero-panel { display: none; }
+  .hero-content { padding: 64px 0; }
+  .hero-content .container { padding-right: 32px; }
+
+  .categories .container { grid-template-columns: repeat(3, 1fr); }
+  .cat-item:nth-child(3) { border-right: none; }
+  .cat-item:nth-child(4), .cat-item:nth-child(5), .cat-item:nth-child(6) {
+    border-top: 1px solid var(--border);
+  }
+
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .about-inner { grid-template-columns: 1fr; gap: 52px; }
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+  .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+  .brand-item { padding: 14px 24px; font-size: 17px; }
+
+  .cat-arrow,
+  .prod-num {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .products { padding: 64px 0; }
+  .about { padding: 64px 0; }
+  .projects { padding: 64px 0; }
+  .cta-section { padding: 72px 0; }
+
+  .categories .container { grid-template-columns: 1fr 1fr; }
+  .cat-item:nth-child(2) { border-right: none; }
+  .cat-item:nth-child(3) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
+  .cat-item:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
+  .cat-item:nth-child(5) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
+  .cat-item:nth-child(6) { border-right: none; border-top: 1px solid var(--border); }
+
+  .products-header { flex-direction: column; align-items: flex-start; margin-bottom: 36px; }
+  .products-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+  .stat-val { font-size: 40px; }
+  .projects-header { flex-direction: column; align-items: flex-start; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .brands-row { flex-direction: column; align-items: center; }
+  .brand-item { border-right: none; border-bottom: 1px solid var(--border); width: 100%; padding: 12px 20px; }
+  .brand-item:last-child { border-bottom: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+
+  .cta-phones { width: 100%; }
+  .cta-phone-link { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-header">
+    <a href="#" class="nav-logo">AIR<strong>ON</strong>TRADE</a>
+    <button class="mm-close" onclick="closeMobileMenu()">&times;</button>
+  </div>
+  <nav class="mm-nav">
+    <a href="#catalog" class="mm-link" onclick="closeMobileMenu()">
+      <span class="mm-num">01</span><span class="mm-title">Каталог</span>
+    </a>
+    <a href="#projects" class="mm-link" onclick="closeMobileMenu()">
+      <span class="mm-num">02</span><span class="mm-title">Проекти</span>
+    </a>
+    <a href="#about" class="mm-link" onclick="closeMobileMenu()">
+      <span class="mm-num">03</span><span class="mm-title">Про компанію</span>
+    </a>
+    <a href="#contact" class="mm-link" onclick="closeMobileMenu()">
+      <span class="mm-num">04</span><span class="mm-title">Контакти</span>
+    </a>
+  </nav>
+  <div class="mm-footer">
+    <div class="mm-phones">
+      <div class="mm-phone-label">Телефони</div>
+      <a href="tel:+380675070300" class="mm-phone-link">067 507 03 00</a>
+      <a href="tel:+380935070300" class="mm-phone-link">093 507 03 00</a>
+    </div>
+    <a href="#contact" class="btn btn-blue" onclick="closeMobileMenu()">Замовити</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">AIR<strong>ON</strong>TRADE</a>
+    <ul class="nav-links">
+      <li><a href="#catalog">Каталог</a></li>
+      <li><a href="#projects">Проекти</a></li>
+      <li><a href="#about">Про компанію</a></li>
+      <li><a href="#contact">Контакти</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+380675070300" class="nav-phone">067 507 03 00</a>
+      <a href="#contact" class="btn btn-blue">Замовити</a>
+      <div class="nav-burger" id="navBurger" onclick="openMobileMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-badge">Провідний постачальник з 2012 року</div>
+        <h1 style="margin-top: 24px;">Світлопрозорі рішення для <em>покрівлі</em> та фасадів</h1>
+        <p class="hero-sub" style="margin-top: 20px;">Полікарбонат та панельні системи від провідних виробників Ізраїлю, Італії, Німеччини та Англії. Доставка по всій Україні.</p>
+        <div class="hero-actions">
+          <a href="#catalog" class="btn btn-blue btn-lg">Переглянути каталог</a>
+          <a href="#contact" class="btn btn-outline-dark btn-lg">Розрахувати проект</a>
+        </div>
+      </div>
+    </div>
+    <!-- Decorative polycarbonate panel visualization -->
+    <div class="hero-panel">
+      <div class="hero-panel-grid">
+        <div class="hero-panel-cell hpc-3"></div><div class="hero-panel-cell hpc-1"></div><div class="hero-panel-cell hpc-5"></div><div class="hero-panel-cell hpc-2"></div><div class="hero-panel-cell hpc-6"></div>
+        <div class="hero-panel-cell hpc-2"></div><div class="hero-panel-cell hpc-6"></div><div class="hero-panel-cell hpc-3"></div><div class="hero-panel-cell hpc-4"></div><div class="hero-panel-cell hpc-1"></div>
+        <div class="hero-panel-cell hpc-5"></div><div class="hero-panel-cell hpc-3"></div><div class="hero-panel-cell hpc-1"></div><div class="hero-panel-cell hpc-7"></div><div class="hero-panel-cell hpc-3"></div>
+        <div class="hero-panel-cell hpc-1"></div><div class="hero-panel-cell hpc-4"></div><div class="hero-panel-cell hpc-6"></div><div class="hero-panel-cell hpc-3"></div><div class="hero-panel-cell hpc-2"></div>
+        <div class="hero-panel-cell hpc-6"></div><div class="hero-panel-cell hpc-2"></div><div class="hero-panel-cell hpc-4"></div><div class="hero-panel-cell hpc-1"></div><div class="hero-panel-cell hpc-5"></div>
+        <div class="hero-panel-cell hpc-3"></div><div class="hero-panel-cell hpc-5"></div><div class="hero-panel-cell hpc-2"></div><div class="hero-panel-cell hpc-6"></div><div class="hero-panel-cell hpc-4"></div>
+        <div class="hero-panel-cell hpc-4"></div><div class="hero-panel-cell hpc-1"></div><div class="hero-panel-cell hpc-5"></div><div class="hero-panel-cell hpc-3"></div><div class="hero-panel-cell hpc-6"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY STRIP -->
+<nav class="categories">
+  <div class="container">
+    <a href="#" class="cat-item">
+      <svg class="cat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="4" y="10" width="36" height="24" rx="1"/>
+        <line x1="4" y1="18" x2="40" y2="18" stroke-dasharray="2 2"/>
+        <line x1="4" y1="26" x2="40" y2="26" stroke-dasharray="2 2"/>
+        <line x1="17" y1="10" x2="17" y2="34" stroke-dasharray="2 2"/>
+        <line x1="30" y1="10" x2="30" y2="34" stroke-dasharray="2 2"/>
+      </svg>
+      <div class="cat-name">Стільниковий полікарбонат</div>
+      <div class="cat-arrow">→</div>
+    </a>
+    <a href="#" class="cat-item">
+      <svg class="cat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="4" y="10" width="36" height="24" rx="1" fill="currentColor" fill-opacity=".07"/>
+      </svg>
+      <div class="cat-name">Монолітний полікарбонат</div>
+      <div class="cat-arrow">→</div>
+    </a>
+    <a href="#" class="cat-item">
+      <svg class="cat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 28 Q11 16 18 28 Q25 40 32 28 Q36 22 40 28"/>
+        <path d="M4 20 Q11 8 18 20 Q25 32 32 20 Q36 14 40 20"/>
+      </svg>
+      <div class="cat-name">Профільований полікарбонат</div>
+      <div class="cat-arrow">→</div>
+    </a>
+    <a href="#" class="cat-item">
+      <svg class="cat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="13" y="16" width="18" height="22" rx="1"/>
+        <path d="M7 16 L22 6 L37 16"/>
+        <line x1="22" y1="6" x2="22" y2="38" stroke-dasharray="2 2"/>
+      </svg>
+      <div class="cat-name">Зенітні ліхтарі</div>
+      <div class="cat-arrow">→</div>
+    </a>
+    <a href="#" class="cat-item">
+      <svg class="cat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="4" y="6" width="16" height="32" rx="1"/>
+        <rect x="24" y="6" width="16" height="32" rx="1"/>
+        <line x1="4" y1="22" x2="20" y2="22"/>
+        <line x1="24" y1="22" x2="40" y2="22"/>
+      </svg>
+      <div class="cat-name">Панельні системи Danpal</div>
+      <div class="cat-arrow">→</div>
+    </a>
+    <a href="#" class="cat-item" style="border-right: none;">
+      <svg class="cat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="14" cy="14" r="5"/>
+        <line x1="19" y1="14" x2="40" y2="14"/>
+        <circle cx="14" cy="30" r="5"/>
+        <line x1="19" y1="30" x2="40" y2="30"/>
+      </svg>
+      <div class="cat-name">Аксесуари та кріплення</div>
+      <div class="cat-arrow">→</div>
+    </a>
+  </div>
+</nav>
+
+<!-- PRODUCTS -->
+<section class="products" id="catalog">
+  <div class="container">
+    <div class="products-header">
+      <div>
+        <div class="section-eyebrow">Асортимент</div>
+        <h2 style="margin-top: 14px;">Каталог продукції</h2>
+      </div>
+    </div>
+    <div class="products-grid">
+      <!-- 1 -->
+      <a href="#" class="prod-card">
+        <div class="prod-num">01</div>
+        <svg class="prod-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="4" y="10" width="36" height="24" rx="1"/>
+          <line x1="4" y1="18" x2="40" y2="18" stroke-dasharray="2 2"/>
+          <line x1="4" y1="26" x2="40" y2="26" stroke-dasharray="2 2"/>
+          <line x1="17" y1="10" x2="17" y2="34" stroke-dasharray="2 2"/>
+          <line x1="30" y1="10" x2="30" y2="34" stroke-dasharray="2 2"/>
+        </svg>
+        <div class="prod-name">Стільниковий полікарбонат</div>
+        <div class="prod-desc">Легкий матеріал із повітряним прошарком для теплиць, навісів та покрівлі. Відмінна теплоізоляція та захист від УФ.</div>
+        <div class="prod-more">Детальніше <span>→</span></div>
+      </a>
+      <!-- 2 -->
+      <a href="#" class="prod-card">
+        <div class="prod-num">02</div>
+        <svg class="prod-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="4" y="10" width="36" height="24" rx="1" fill="currentColor" fill-opacity=".08"/>
+        </svg>
+        <div class="prod-name">Монолітний полікарбонат</div>
+        <div class="prod-desc">Найміцніший варіант із рівною гладкою поверхнею. Ударостійкий, для захисних конструкцій, вітрин, антивандальних застосувань.</div>
+        <div class="prod-more">Детальніше <span>→</span></div>
+      </a>
+      <!-- 3 -->
+      <a href="#" class="prod-card">
+        <div class="prod-num">03</div>
+        <svg class="prod-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M4 28 Q11 16 18 28 Q25 40 32 28 Q36 22 40 28"/>
+          <path d="M4 21 Q11 9 18 21 Q25 33 32 21 Q36 15 40 21"/>
+        </svg>
+        <div class="prod-name">Профільований полікарбонат</div>
+        <div class="prod-desc">Хвилястий профіль для покрівлі навісів та малих архітектурних форм. Легше за метал і шифер, пропускає до 85% світла.</div>
+        <div class="prod-more">Детальніше <span>→</span></div>
+      </a>
+      <!-- 4 -->
+      <a href="#" class="prod-card">
+        <div class="prod-num">04</div>
+        <svg class="prod-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="12" y="16" width="20" height="22" rx="1"/>
+          <path d="M6 16 L22 6 L38 16"/>
+          <line x1="22" y1="6" x2="22" y2="38" stroke-dasharray="2 2"/>
+        </svg>
+        <div class="prod-name">Зенітні ліхтарі</div>
+        <div class="prod-desc">Покрівельні конструкції з металевого каркасу та полікарбонатного заповнення для природного освітлення приміщень.</div>
+        <div class="prod-more">Детальніше <span>→</span></div>
+      </a>
+      <!-- 5 -->
+      <a href="#" class="prod-card">
+        <div class="prod-num">05</div>
+        <svg class="prod-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="3" y="6" width="17" height="32" rx="1"/>
+          <rect x="24" y="6" width="17" height="32" rx="1"/>
+          <line x1="3" y1="22" x2="20" y2="22"/>
+          <line x1="24" y1="22" x2="41" y2="22"/>
+        </svg>
+        <div class="prod-name">Панельні системи Danpal</div>
+        <div class="prod-desc">Модульні легкоскидні фасадні та покрівельні системи. Ефективне засклення великих площ із мінімальним навантаженням на конструкцію.</div>
+        <div class="prod-more">Детальніше <span>→</span></div>
+      </a>
+      <!-- 6 -->
+      <a href="#" class="prod-card">
+        <div class="prod-num">06</div>
+        <svg class="prod-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4">
+          <circle cx="13" cy="14" r="5"/>
+          <line x1="18" y1="14" x2="41" y2="14"/>
+          <circle cx="13" cy="30" r="5"/>
+          <line x1="18" y1="30" x2="41" y2="30"/>
+          <line x1="8" y1="14" x2="8" y2="30"/>
+        </svg>
+        <div class="prod-name">Аксесуари та кріплення</div>
+        <div class="prod-desc">Профілі, саморізи, торцеві стрічки, з'єднувальні планки та усі комплектуючі для якісного монтажу полікарбонату.</div>
+        <div class="prod-more">Детальніше <span>→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-text">
+        <div class="section-eyebrow" style="color: rgba(106,171,255,.8);">
+          <span style="background: rgba(106,171,255,.8);"></span>Про компанію
+        </div>
+        <h2>Провідний постачальник світлопрозорих рішень з 2012 року</h2>
+        <p>Компанія «Айронтрейд» імпортує в Україну продукцію провідних світових виробників листів з екструдованого термопластика та панельних систем — з Ізраїлю, Італії, Німеччини, Англії та інших країн.</p>
+        <p>Ми безпосередньо співпрацюємо з проектними відділами заводів-виробників. Кожен проект розраховується та проектується індивідуально, залежно від запитів клієнта, кліматичних зон та вимог законодавства.</p>
+        <p>Активні споживачі наших товарів — проектні організації, будівельні компанії, виробники металоконструкцій, заводи та промислові підприємства.</p>
+        <a href="#contact" class="btn btn-blue" style="margin-top: 16px; display: inline-block;">Отримати консультацію</a>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">2012</div>
+          <div class="stat-lbl">Рік заснування компанії</div>
+        </div>
+        <div class="stat" style="border-left: 1px solid rgba(255,255,255,.1);">
+          <div class="stat-val">5<sup>+</sup></div>
+          <div class="stat-lbl">Країн-виробників: Ізраїль, Італія, Німеччина, Англія</div>
+        </div>
+        <div class="stat" style="border-top: 1px solid rgba(255,255,255,.1);">
+          <div class="stat-val" style="font-size: 36px; margin-top: 6px; line-height: 1.2;">Уся<br>Україна</div>
+          <div class="stat-lbl">Доставка у будь-яке місто</div>
+        </div>
+        <div class="stat" style="border-top: 1px solid rgba(255,255,255,.1); border-left: 1px solid rgba(255,255,255,.1);">
+          <div class="stat-val">B2B</div>
+          <div class="stat-lbl">Робота з проектними організаціями та будівельними компаніями</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <div>
+        <div class="section-eyebrow">Портфоліо</div>
+        <h2 style="margin-top: 14px;">Реалізовані проекти</h2>
+      </div>
+    </div>
+    <div class="projects-grid">
+      <!-- p1 -->
+      <a href="#" class="proj-card">
+        <div class="proj-img" style="background: #c8ddf0;">
+          <div style="position: relative; z-index: 1;">фото&nbsp;/&nbsp;засклення котельень</div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Промислове будівництво</div>
+          <div class="proj-name">Засклення котелень</div>
+          <div class="proj-desc">Модульні легкоскидні енергоефективні конструкції Airontrade для безпечного та ефективного засклення котельних приміщень.</div>
+        </div>
+      </a>
+      <!-- p2 -->
+      <a href="#" class="proj-card">
+        <div class="proj-img" style="background: #c0d8c4;">
+          <div style="position: relative; z-index: 1;">фото&nbsp;/&nbsp;цех рослинної олії</div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Переробна промисловість</div>
+          <div class="proj-name">Цех виробництва рослинної олії</div>
+          <div class="proj-desc">Модульне легкоскидне скління цеху. Природне освітлення та безпека при надзвичайних ситуаціях.</div>
+        </div>
+      </a>
+      <!-- p3 -->
+      <a href="#" class="proj-card">
+        <div class="proj-img" style="background: #e8d8b8;">
+          <div style="position: relative; z-index: 1;">фото&nbsp;/&nbsp;арена Лівий Берег</div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Спортивні споруди</div>
+          <div class="proj-name">Арена «Лівий Берег»</div>
+          <div class="proj-desc">Прозоре накриття Suntuf Stadia для ідеального газону та максимального доступу природного освітлення.</div>
+        </div>
+      </a>
+      <!-- p4 -->
+      <a href="#" class="proj-card">
+        <div class="proj-img" style="background: #d4c4e0;">
+          <div style="position: relative; z-index: 1;">фото&nbsp;/&nbsp;вибухонебезпечний цех</div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Безпека виробництва</div>
+          <div class="proj-name">Скління воріт вибухонебезпечного цеху</div>
+          <div class="proj-desc">Легкоскидне світлопрозоре скління для зон із підвищеними вимогами до пожежної безпеки.</div>
+        </div>
+      </a>
+      <!-- p5 -->
+      <a href="#" class="proj-card">
+        <div class="proj-img" style="background: #b8ccdc;">
+          <div style="position: relative; z-index: 1;">фото&nbsp;/&nbsp;зенітний ліхтар</div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Комерційне будівництво</div>
+          <div class="proj-name">Скління зенітного ліхтаря</div>
+          <div class="proj-desc">Посилений полікарбонат Reinforced для зенітного ліхтаря — максимальна міцність при мінімальній вазі.</div>
+        </div>
+      </a>
+      <!-- p6 -->
+      <a href="#" class="proj-card">
+        <div class="proj-img" style="background: #c4d8b8;">
+          <div style="position: relative; z-index: 1;">фото&nbsp;/&nbsp;цех екстракції</div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-cat">Переробна промисловість</div>
+          <div class="proj-name">Цех екстракції — безпечне скління</div>
+          <div class="proj-desc">Легкоскидні конструкції для безпеки та енергоефективності переробних підприємств.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<div class="brands">
+  <div class="container">
+    <div class="brands-title">Бренди, з якими ми працюємо</div>
+    <div class="brands-row">
+      <div class="brand-item">Suntuf</div>
+      <div class="brand-item">Polyplast</div>
+      <div class="brand-item">Palsun</div>
+      <div class="brand-item">Danpal</div>
+      <div class="brand-item">Makrolon</div>
+      <div class="brand-item">Toplight</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <div class="section-eyebrow" style="color: rgba(255,255,255,.6);">
+          <span style="background: rgba(255,255,255,.6);"></span>Зв'яжіться з нами
+        </div>
+        <h2 style="margin-top: 16px;">Маєте проект?<br>Розрахуємо безкоштовно</h2>
+        <p style="margin-top: 12px;">Наші фахівці підберуть оптимальне рішення та прорахують кошторис під ваш об'єкт. Працюємо з проектними організаціями, будівельниками та індивідуальними замовниками.</p>
+        <div class="cta-btns">
+          <a href="mailto:info@airontrade.ua" class="btn btn-white btn-lg">Написати листа</a>
+          <a href="viber://chat?number=380935334782" class="btn btn-outline-white btn-lg">Viber / Telegram</a>
+        </div>
+      </div>
+      <div class="cta-phones">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 16px;">Телефони</div>
+        <a href="tel:+380675070300" class="cta-phone-link">067 507 03 00</a>
+        <a href="tel:+380935070300" class="cta-phone-link">093 507 03 00</a>
+        <a href="tel:+380735070300" class="cta-phone-link">073 507 03 00</a>
+        <div class="cta-sub">Пн–Пт: 9:00 – 18:00<br>Сб: 9:00 – 14:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="f-logo">AIRONTRADE</a>
+        <p>Світлопрозорі рішення для покрівлі та фасадів. Постачальник полікарбонату та панельних систем з 2012 року.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Каталог</h4>
+        <ul>
+          <li><a href="#">Стільниковий полікарбонат</a></li>
+          <li><a href="#">Монолітний полікарбонат</a></li>
+          <li><a href="#">Профільований полікарбонат</a></li>
+          <li><a href="#">Зенітні ліхтарі</a></li>
+          <li><a href="#">Панельні системи Danpal</a></li>
+          <li><a href="#">Аксесуари та кріплення</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Компанія</h4>
+        <ul>
+          <li><a href="#">Про нас</a></li>
+          <li><a href="#">Реалізовані проекти</a></li>
+          <li><a href="#">Виробники</a></li>
+          <li><a href="#">Доставка та оплата</a></li>
+          <li><a href="#">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contacts">
+        <h4>Контакти</h4>
+        <a href="tel:+380675070300">067 507 03 00</a>
+        <a href="tel:+380935070300">093 507 03 00</a>
+        <a href="tel:+380735070300">073 507 03 00</a>
+        <div class="footer-addr">м. Київ, вул. Бориспільська, 7<br><br>Працюємо в умовах воєнного стану</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024 Айронтрейд. Усі права захищені</div>
+      <div>airontrade.ua</div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+function openMobileMenu() {
+  document.getElementById('mobileMenu').classList.add('is-open');
+  document.getElementById('navBurger').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('is-open');
+  document.getElementById('navBurger').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>
