@@ -1,0 +1,18 @@
+// =============================================================
+// Main SCSS entry point
+// СпецБудПостачання — Homepage
+// =============================================================
+
+@use 'variables';
+@use 'mixins';
+@use 'base';
+@use 'announcement';
+@use 'header';
+@use 'hero';
+@use 'services';
+@use 'brands';
+@use 'catalog';
+@use 'consultation';
+@use 'about';
+@use 'advantages';
+@use 'footer';

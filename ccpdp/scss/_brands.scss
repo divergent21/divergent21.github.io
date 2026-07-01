@@ -1,0 +1,27 @@
+// =============================================================
+// Brands marquee
+// =============================================================
+@use 'variables' as *;
+
+.brands {
+  background: $color-bg;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+  padding: 28px 0;
+  overflow: hidden;
+
+  &__track { display: flex; animation: marquee 55s linear infinite; will-change: transform; }
+
+  &__list { display: flex; align-items: center; gap: 48px; flex-shrink: 0; padding: 0 24px; }
+
+  &__logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.45;
+    transition: filter 0.3s, opacity 0.3s;
+
+    &:hover { filter: grayscale(0%); opacity: 1; }
+  }
+}

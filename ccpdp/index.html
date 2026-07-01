@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Магазин будматеріалів у Дніпрі — СпецБудПостачання. Понад 5000 найменувань. Опт та роздріб. Доставка по Україні.">
+  <title>Магазин будматеріалів у Дніпрі — СпецБудПостачання</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Mobile nav checkbox toggle (CSS-only) -->
+  <input type="checkbox" id="nav-toggle" class="nav__toggle">
+
+  <!-- Announcement -->
+  <div class="announcement">
+    <div class="announcement__container">
+      <a href="https://ccp.dp.ua/uk/nasha-pidtrimka-zsu/" class="announcement__link">
+        Підтримуємо Збройні Сили України
+        <span class="announcement__cta">Детальніше &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="main-header">
+    <div class="header__container">
+      <a href="https://ccp.dp.ua/uk/" class="header__logo">
+        <img src="https://ccp.dp.ua/wp-content/uploads/2025/08/logo_pr_25-1.svg" alt="СпецБудПостачання" class="header__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="header__logo-fallback">СпецБудПостачання</span>
+      </a>
+      <nav class="header__nav" aria-label="Головна навігація">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="https://ccp.dp.ua/uk/magazin/" class="header__nav-link">Каталог</a></li>
+          <li class="header__nav-item"><a href="https://ccp.dp.ua/uk/?s=%D1%80%D0%BE%D0%B7%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6&post_type=product" class="header__nav-link">Акції</a></li>
+          <li class="header__nav-item"><a href="https://ccp.dp.ua/uk/orenda-budivelnogo-obladnannya/" class="header__nav-link">Обладнання</a></li>
+          <li class="header__nav-item"><a href="https://ccp.dp.ua/uk/pro-kompaniyu/" class="header__nav-link">Компанія</a></li>
+          <li class="header__nav-item"><a href="https://ccp.dp.ua/uk/inzhiniring-2/" class="header__nav-link">Послуги</a></li>
+          <li class="header__nav-item"><a href="https://ccp.dp.ua/uk/pidryadniki/" class="header__nav-link">Підрядники</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="tel:+380675451595" class="header__phone">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57-.11.34-.03.74.23 1.01l-.7-.28z"/></svg>
+          (067) 545-15-95
+        </a>
+        <a href="https://ccp.dp.ua/uk/koshik/" class="header__cart" aria-label="Кошик">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        </a>
+        <label for="nav-toggle" class="header__burger" aria-label="Відкрити меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" role="dialog" aria-label="Мобільне меню">
+    <div class="mobile-nav__header">
+      <span class="mobile-nav__title">СпецБудПостачання</span>
+      <label for="nav-toggle" class="mobile-nav__close" aria-label="Закрити меню">&#x2715;</label>
+    </div>
+    <nav class="mobile-nav__nav">
+      <a href="https://ccp.dp.ua/uk/magazin/" class="mobile-nav__link">Каталог</a>
+      <a href="https://ccp.dp.ua/uk/?s=%D1%80%D0%BE%D0%B7%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6&post_type=product" class="mobile-nav__link">Акції</a>
+      <a href="https://ccp.dp.ua/uk/orenda-budivelnogo-obladnannya/" class="mobile-nav__link">Обладнання</a>
+      <a href="https://ccp.dp.ua/uk/pro-kompaniyu/" class="mobile-nav__link">Компанія</a>
+      <a href="https://ccp.dp.ua/uk/inzhiniring-2/" class="mobile-nav__link">Послуги</a>
+      <a href="https://ccp.dp.ua/uk/pidryadniki/" class="mobile-nav__link">Підрядники</a>
+    </nav>
+    <a href="tel:+380675451595" class="mobile-nav__phone">(067) 545-15-95</a>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__bg-image"></div>
+      <div class="hero__overlay"></div>
+      <div class="hero__container">
+        <div class="hero__content">
+          <div class="hero__badge">Будівельні матеріали &middot; Дніпро</div>
+          <h1 class="hero__title">Спецбуд<br><span class="hero__title-accent">Постачання</span></h1>
+          <p class="hero__subtitle">Понад <strong>5&thinsp;000 найменувань</strong> будматеріалів для будь-яких задач. Опт та роздріб. Доставка по Україні.</p>
+          <div class="hero__actions">
+            <a href="https://ccp.dp.ua/uk/magazin/" class="hero__btn hero__btn--primary">
+              До каталогу
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="tel:+380675451595" class="hero__btn hero__btn--outline">Зателефонувати</a>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <div class="hero__stat-number">10+</div>
+              <div class="hero__stat-label">Років досвіду</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-number">5&thinsp;000+</div>
+              <div class="hero__stat-label">Найменувань</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-number">2005</div>
+              <div class="hero__stat-label">Рік заснування</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+      <div class="services__container">
+        <div class="services__eyebrow">
+          <span class="services__eyebrow-line"></span>
+          <span class="services__eyebrow-text">Наші послуги</span>
+        </div>
+        <div class="services__grid">
+          <a href="https://ccp.dp.ua/uk/magazin/" class="services__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/oblozhka-ccp.dp_.ua-1740h660-1-1024x388.jpg" alt="Інтернет-магазин" class="services__card-img">
+            <div class="services__card-overlay"></div>
+            <div class="services__card-body">
+              <span class="services__card-tag">Онлайн замовлення</span>
+              <h3 class="services__card-title">Інтернет-магазин</h3>
+              <p class="services__card-desc">Замовляй онлайн просто та швидко</p>
+              <span class="services__card-link">Перейти &rarr;</span>
+            </div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/orenda-budivelnogo-obladnannya/" class="services__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/oborud-banner-1024x388.jpg" alt="Оренда обладнання" class="services__card-img">
+            <div class="services__card-overlay"></div>
+            <div class="services__card-body">
+              <span class="services__card-tag">Сервіс</span>
+              <h3 class="services__card-title">Оренда обладнання</h3>
+              <p class="services__card-desc">Люльки та будівельні риштування</p>
+              <span class="services__card-link">Перейти &rarr;</span>
+            </div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/inzhiniring-2/" class="services__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/engee-banner-1024x388.jpg" alt="Інжиніринг" class="services__card-img">
+            <div class="services__card-overlay"></div>
+            <div class="services__card-body">
+              <span class="services__card-tag">Безкоштовно</span>
+              <h3 class="services__card-title">Інжиніринг</h3>
+              <p class="services__card-desc">Оптимальні рішення для будівництва</p>
+              <span class="services__card-link">Перейти &rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands marquee -->
+    <div class="brands">
+      <div class="brands__track">
+        <div class="brands__list">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand1.jpg" alt="Бренд" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand2.jpg" alt="Бренд" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand-4.jpg" alt="Бренд" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/bran3.jpg" alt="Бренд" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/penoboard.jpg" alt="Penoboard" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/galich.jpg" alt="Galich" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/siniat.jpg" alt="Siniat" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/metalvis.jpg" alt="Metalvis" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/goldentile.jpg" alt="Golden Tile" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/latymer.jpg" alt="Latymer" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/atem.jpg" alt="Atem" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/fastfix.jpg" alt="Fastfix" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/masterplast.jpg" alt="Masterplast" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/ecobord.jpg" alt="Ecobord" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand-5.jpg" alt="Бренд" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand6.jpg" alt="Бренд" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand7.jpg" alt="Бренд" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand8.jpg" alt="Бренд" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/izovatt.jpg" alt="Izovatt" class="brands__logo">
+        </div>
+        <div class="brands__list" aria-hidden="true">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand1.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand2.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand-4.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/bran3.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/penoboard.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/galich.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/siniat.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/metalvis.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/goldentile.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/latymer.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/atem.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/fastfix.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/masterplast.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/ecobord.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand-5.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand6.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand7.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2020/03/brand8.jpg" alt="" class="brands__logo">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/izovatt.jpg" alt="" class="brands__logo">
+        </div>
+      </div>
+    </div>
+
+    <!-- Catalog -->
+    <section class="catalog">
+      <div class="catalog__container">
+        <div class="catalog__header">
+          <div>
+            <div class="catalog__eyebrow">
+              <span class="catalog__eyebrow-line"></span>
+              <span class="catalog__eyebrow-text">Асортимент</span>
+            </div>
+            <h2 class="catalog__title">Каталог</h2>
+          </div>
+          <a href="https://ccp.dp.ua/uk/magazin/" class="catalog__all-link">Весь каталог &rarr;</a>
+        </div>
+        <div class="catalog__grid">
+          <a href="https://ccp.dp.ua/uk/category/zvedennya-karkasu-ta-blagoustrij-teritoriyi/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2023/12/000003027-230x194.jpg" alt="Зведення каркасу" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Зведення каркасу та благоустрій</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/gidroizolyatsiya-gidrofobizatsiya-ta-germetizatsiya/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2024/01/000001212-230x148.jpg" alt="Гідроізоляція" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Гідроізоляція та герметизація</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/teplo-ta-zvukoizolyatsiya/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2024/01/000001164-230x225.jpg" alt="Тепло та звукоізоляція" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Тепло та звукоізоляція</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/pokrivelni-materiali/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2023/12/000001442-230x230.jpg" alt="Покрівельні матеріали" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Покрівельні матеріали</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/skriplena-teploizolyatsiya-fasadiv-mokrij-fasad/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2023/12/000001297-230x137.jpg" alt="Скріплена теплоізоляція" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Скріплена теплоізоляція фасадів</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/pidgotovka-pid-ozdoblennya/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2023/12/000001195-230x230.jpg" alt="Підготовка під оздоблення" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Підготовка під оздоблення</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/gipsokartonni-sistemi-gks/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2023/12/000001529-230x230.jpg" alt="Гіпсокартонні системи" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Гіпсокартонні системи (ГКС)</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/stelovi-sistemi/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2023/12/000001577-230x230.jpg" alt="Стельові системи" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Стельові системи</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/dekorativno-ozdoblyuvalni-materiali/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2023/12/000001255-230x225.jpg" alt="Декоративні матеріали" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Декоративно-оздоблювальні матеріали</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/budivelni-instrumenti-ta-vitratni-materiali/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2024/06/000003733-230x230.jpg" alt="Будівельні інструменти" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Будівельні інструменти</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/prodazh-budivelnogo-obladnannya-uk/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2025/04/000004250-1-230x230.jpg" alt="Продаж обладнання" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Продаж будівельного обладнання</h3></div>
+          </a>
+          <a href="https://ccp.dp.ua/uk/category/orenda-budivelnogo-obladnannya/" class="catalog__card">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2025/04/000004251-1-230x230.jpg" alt="Оренда обладнання" class="catalog__card-img">
+            <div class="catalog__card-overlay"></div>
+            <div class="catalog__card-body"><h3 class="catalog__card-name">Оренда будівельного обладнання</h3></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="cta__container">
+        <div class="cta__text">
+          <h2 class="cta__title">Отримайте безкоштовну консультацію</h2>
+          <p class="cta__subtitle">Підберемо матеріали під ваш проєкт та бюджет</p>
+        </div>
+        <a href="tel:+380675451595" class="cta__btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57-.11.34-.03.74.23 1.01l-.7-.28z"/></svg>
+          (067) 545-15-95
+        </a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+      <div class="about__container">
+        <div class="about__grid">
+          <div class="about__content">
+            <div class="about__eyebrow">
+              <span class="about__eyebrow-line"></span>
+              <span class="about__eyebrow-text">Про нас</span>
+            </div>
+            <h2 class="about__title">Спецбудпостачання &mdash;<br>ваш надійний партнер</h2>
+            <p class="about__text">Компанія займається оптовим продажем будматеріалів з 2005 року. Пропонуємо комплексну комплектацію на основі інжинірингу, спрямованого на пошук оптимальних рішень при новому будівництві та реконструкціях.</p>
+            <p class="about__text">ТОВ «А.Б.А. ТРЕЙД» пропонує широкий вибір будівельних матеріалів для приватного та комерційного будівництва. Наша оптова база на вул. Академіка Белелюбського 56 завжди забезпечена широким асортиментом товарів.</p>
+            <div class="about__energy">
+              <div class="about__energy-number">70%</div>
+              <div class="about__energy-text">Компенсація витрат у рамках державної програми підвищення енергоефективності. Допомагаємо отримати кошти на роботи та матеріали.</div>
+            </div>
+            <a href="https://ccp.dp.ua/uk/pro-kompaniyu/" class="about__btn">Детальніше про компанію &rarr;</a>
+          </div>
+          <div class="about__image-col">
+            <img src="https://ccp.dp.ua/wp-content/uploads/2021/03/Snimok-ekrana-2021-03-10-v-16.12.35.png" alt="СпецБудПостачання" class="about__image">
+            <div class="about__info-cards">
+              <div class="about__info-card">
+                <div class="about__info-card-label">Режим роботи</div>
+                <div class="about__info-card-value">Пн&ndash;Пт</div>
+                <div class="about__info-card-sub">8:00 &mdash; 18:00</div>
+              </div>
+              <div class="about__info-card">
+                <div class="about__info-card-label">Доставка</div>
+                <div class="about__info-card-value">По Дніпру</div>
+                <div class="about__info-card-sub">та по Україні</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="advantages">
+      <div class="advantages__container">
+        <div class="advantages__header">
+          <div class="advantages__eyebrow">
+            <span class="advantages__eyebrow-line"></span>
+            <span class="advantages__eyebrow-text">Чому ми</span>
+          </div>
+          <h2 class="advantages__title">10 причин обрати нас</h2>
+        </div>
+        <div class="advantages__grid">
+          <div class="advantages__item"><span class="advantages__item-number">01</span><div class="advantages__item-content"><h3 class="advantages__item-title">Широкий асортимент</h3><p class="advantages__item-text">Понад 5&thinsp;000 найменувань у каталозі від провідних брендів</p></div></div>
+          <div class="advantages__item"><span class="advantages__item-number">02</span><div class="advantages__item-content"><h3 class="advantages__item-title">Конкурентні ціни</h3><p class="advantages__item-text">Прямі поставки та власний склад забезпечують лояльні розцінки</p></div></div>
+          <div class="advantages__item"><span class="advantages__item-number">03</span><div class="advantages__item-content"><h3 class="advantages__item-title">Акції та знижки</h3><p class="advantages__item-text">Регулярні розпродажі та вигідна система знижок для оптовиків</p></div></div>
+          <div class="advantages__item"><span class="advantages__item-number">04</span><div class="advantages__item-content"><h3 class="advantages__item-title">Зручне розташування</h3><p class="advantages__item-text">Велика оптова база в районі Річпорту, зручний під'їзд</p></div></div>
+          <div class="advantages__item"><span class="advantages__item-number">05</span><div class="advantages__item-content"><h3 class="advantages__item-title">Власна кур'єрська служба</h3><p class="advantages__item-text">Оперативна доставка по Дніпру в зручний для вас час</p></div></div>
+          <div class="advantages__item"><span class="advantages__item-number">06</span><div class="advantages__item-content"><h3 class="advantages__item-title">Безкоштовний інжиніринг</h3><p class="advantages__item-text">Розробка технічних рішень та рекомендацій з мінімізацією витрат</p></div></div>
+          <div class="advantages__item"><span class="advantages__item-number">07</span><div class="advantages__item-content"><h3 class="advantages__item-title">Енергоаудит</h3><p class="advantages__item-text">Сертифікація та рекомендації щодо підвищення енергоефективності</p></div></div>
+          <div class="advantages__item"><span class="advantages__item-number">08</span><div class="advantages__item-content"><h3 class="advantages__item-title">Мережа підрядників</h3><p class="advantages__item-text">Рекомендуємо надійних виконавців для будь-якого проєкту</p></div></div>
+          <div class="advantages__item"><span class="advantages__item-number">09</span><div class="advantages__item-content"><h3 class="advantages__item-title">Оренда обладнання</h3><p class="advantages__item-text">Люльки та риштування в оренду на вигідних умовах</p></div></div>
+          <div class="advantages__item"><span class="advantages__item-number">10</span><div class="advantages__item-content"><h3 class="advantages__item-title">20 років досвіду</h3><p class="advantages__item-text">Займаємось оптовим продажем будматеріалів з 2005 року</p></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="https://ccp.dp.ua/wp-content/uploads/2025/08/logo_pr_25-1-1.svg" alt="СпецБудПостачання" class="footer__logo" onerror="this.style.display='none'">
+          <p class="footer__tagline">Великий будівельний магазин у Дніпрі. Комплектація на основі інжинірингу для нового будівництва та реконструкцій.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/ccp.dp.ua" class="footer__social-link" aria-label="Facebook">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/ccp.dp.ua/" class="footer__social-link" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__nav-col">
+          <h4 class="footer__col-title">Навігація</h4>
+          <ul class="footer__nav-list">
+            <li><a href="https://ccp.dp.ua/uk/magazin/" class="footer__nav-link">Каталог</a></li>
+            <li><a href="https://ccp.dp.ua/uk/orenda-budivelnogo-obladnannya/" class="footer__nav-link">Обладнання</a></li>
+            <li><a href="https://ccp.dp.ua/uk/inzhiniring-2/" class="footer__nav-link">Інжиніринг</a></li>
+            <li><a href="https://ccp.dp.ua/uk/energoaudit-2/" class="footer__nav-link">Енергоаудит</a></li>
+            <li><a href="https://ccp.dp.ua/uk/pidryadniki/" class="footer__nav-link">Підрядники</a></li>
+            <li><a href="https://ccp.dp.ua/uk/pro-kompaniyu/" class="footer__nav-link">Про нас</a></li>
+            <li><a href="https://ccp.dp.ua/uk/kontakti/" class="footer__nav-link">Контакти</a></li>
+            <li><a href="https://ccp.dp.ua/uk/dostavka-ta-oplata/" class="footer__nav-link">Доставка та оплата</a></li>
+          </ul>
+        </div>
+        <div class="footer__contacts-col">
+          <h4 class="footer__col-title">Контакти</h4>
+          <div class="footer__contacts">
+            <div class="footer__contact">
+              <svg class="footer__contact-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="footer__contact-text">вул. Академіка Белелюбського 56<br>вул. Набережна Заводська 7 оф. 609<br>49038, м. Дніпро, Україна</div>
+            </div>
+            <div class="footer__contact">
+              <svg class="footer__contact-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57-.11.34-.03.74.23 1.01l-.7-.28z"/></svg>
+              <a href="tel:+380675451595" class="footer__contact-phone">(067) 545-15-95</a>
+            </div>
+            <div class="footer__contact">
+              <svg class="footer__contact-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:info@ccp.dp.ua" class="footer__contact-email">info@ccp.dp.ua</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-container">
+        <span class="footer__copyright">ТОВ "А.Б.А. ТРЕЙД" &middot; СпецБудПостачання &copy; 2005&ndash;2026. Всі права захищені.</span>
+        <div class="footer__bottom-links">
+          <a href="https://ccp.dp.ua/uk/povernennya-ta-obmin/" class="footer__bottom-link">Повернення та обмін</a>
+          <a href="https://ccp.dp.ua/uk/politika-konfidentsijnosti/" class="footer__bottom-link">Конфіденційність</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

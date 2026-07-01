@@ -1,0 +1,51 @@
+// =============================================================
+// Advantages section (10 items)
+// =============================================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.advantages {
+  padding: 88px 0;
+  background: $color-bg;
+
+  &__container { @include container; }
+  &__header { margin-bottom: 52px; }
+
+  &__eyebrow { @include eyebrow-row; margin-bottom: 14px; }
+  &__eyebrow-line { @include eyebrow-line; }
+  &__eyebrow-text { @include eyebrow-text; }
+
+  &__title { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -0.025em; color: $color-text; line-height: 1; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: $bp-mobile) { grid-template-columns: 1fr; }
+  }
+
+  &__item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 28px 32px;
+    border-bottom: 1px solid $color-border;
+    transition: background 0.2s;
+
+    &:hover { background: rgba($color-orange, 0.03); }
+  }
+
+  .advantages__grid &__item:nth-child(odd) { border-right: 1px solid $color-border; }
+  .advantages__grid &__item:nth-last-child(-n+2) { border-bottom: none; }
+
+  @media (max-width: $bp-mobile) {
+    .advantages__grid &__item:nth-child(odd) { border-right: none; }
+    .advantages__grid &__item:nth-last-child(-n+2) { border-bottom: 1px solid $color-border; }
+    .advantages__grid &__item:last-child { border-bottom: none; }
+  }
+
+  &__item-number { font-size: 38px; font-weight: 900; color: $color-orange; line-height: 1; opacity: 0.22; flex-shrink: 0; min-width: 54px; text-align: right; }
+  &__item-content { flex: 1; }
+  &__item-title { font-size: 15px; font-weight: 700; color: $color-text; margin-bottom: 5px; }
+  &__item-text { font-size: 13px; color: $color-muted; line-height: 1.6; }
+}

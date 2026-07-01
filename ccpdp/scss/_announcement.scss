@@ -1,0 +1,35 @@
+// =============================================================
+// Announcement bar
+// =============================================================
+@use 'variables' as *;
+
+.announcement {
+  background: $color-dark;
+  border-bottom: 2px solid $color-orange;
+  padding: 8px 32px;
+  text-align: center;
+
+  &__container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &__link {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    &:hover { color: #fff; }
+  }
+
+  &__cta {
+    color: $color-orange;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+}

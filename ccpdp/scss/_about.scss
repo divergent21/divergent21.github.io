@@ -1,0 +1,73 @@
+// =============================================================
+// About section
+// =============================================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.about {
+  padding: 88px 0;
+  background: $color-dark;
+
+  &__container { @include container; }
+
+  &__grid {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+
+    @media (max-width: $bp-mobile) { flex-direction: column; }
+  }
+
+  &__content { flex: 1; max-width: 580px; }
+
+  &__eyebrow { @include eyebrow-row; margin-bottom: 16px; }
+  &__eyebrow-line { @include eyebrow-line; }
+  &__eyebrow-text { @include eyebrow-text; color: $color-orange; }
+
+  &__title { font-size: clamp(28px, 3.5vw, 44px); font-weight: 900; color: #fff; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 28px; }
+  &__text { font-size: 15px; color: rgba(255, 255, 255, 0.6); line-height: 1.75; margin-bottom: 18px; }
+
+  &__energy {
+    background: rgba($color-orange, 0.1);
+    border: 1px solid rgba($color-orange, 0.28);
+    padding: 22px 24px;
+    margin-bottom: 36px;
+  }
+
+  &__energy-number { font-size: 36px; font-weight: 900; color: $color-orange; line-height: 1; margin-bottom: 6px; }
+  &__energy-text { font-size: 13px; color: rgba(255, 255, 255, 0.65); line-height: 1.55; }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: transparent;
+    color: #fff;
+    font-family: $font-base;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    transition: background 0.2s, border-color 0.2s;
+    text-decoration: none;
+
+    &:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.6); }
+  }
+
+  &__image-col { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+  &__image { width: 100%; object-fit: cover; display: block; }
+
+  &__info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  &__info-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    padding: 22px;
+  }
+
+  &__info-card-label { font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.35); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 8px; }
+  &__info-card-value { font-size: 16px; font-weight: 700; color: #fff; }
+  &__info-card-sub { font-size: 13px; color: rgba(255, 255, 255, 0.5); }
+}

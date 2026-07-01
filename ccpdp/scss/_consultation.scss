@@ -1,0 +1,42 @@
+// =============================================================
+// Consultation CTA section
+// =============================================================
+@use 'variables' as *;
+
+.cta {
+  background: $color-orange;
+  padding: 72px 32px;
+
+  &__container {
+    max-width: $max-width;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    @media (max-width: $bp-mobile) { flex-direction: column; align-items: flex-start; }
+  }
+
+  &__title { font-size: clamp(22px, 3.5vw, 40px); font-weight: 900; color: #fff; letter-spacing: -0.015em; margin-bottom: 10px; }
+  &__subtitle { font-size: 16px; color: rgba(255, 255, 255, 0.75); }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: #fff;
+    color: $color-orange;
+    font-family: $font-base;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    transition: background 0.2s;
+    text-decoration: none;
+
+    &:hover { background: rgba(255, 255, 255, 0.9); }
+  }
+}

@@ -1,0 +1,79 @@
+// =============================================================
+// Mixins
+// =============================================================
+@use 'variables' as *;
+
+@mixin container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $gutter;
+
+  @media (max-width: $bp-mobile) {
+    padding: 0 $gutter-mobile;
+  }
+}
+
+@mixin eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@mixin eyebrow-line {
+  width: 40px;
+  height: 3px;
+  background: $color-orange;
+  flex-shrink: 0;
+  display: block;
+}
+
+@mixin eyebrow-text {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-muted;
+}
+
+@mixin btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: $color-orange;
+  color: $color-white;
+  font-family: $font-base;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover { background: $color-orange-hover; }
+}
+
+@mixin btn-outline($color: $color-white) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: transparent;
+  color: $color;
+  font-family: $font-base;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.65);
+  }
+}

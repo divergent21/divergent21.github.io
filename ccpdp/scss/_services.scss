@@ -1,0 +1,76 @@
+// =============================================================
+// Services section (3 image cards)
+// =============================================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.services {
+  background: $color-white;
+  padding: 80px 0;
+
+  &__container { @include container; }
+
+  &__eyebrow { @include eyebrow-row; margin-bottom: 48px; }
+  &__eyebrow-line { @include eyebrow-line; }
+  &__eyebrow-text { @include eyebrow-text; }
+
+  &__grid {
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: $bp-mobile) { flex-direction: column; }
+  }
+
+  &__card {
+    flex: 1;
+    min-height: 340px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    transition: transform 0.3s;
+
+    &:hover { transform: translateY(-5px); }
+    &:hover &-img { transform: scale(1.06); }
+  }
+
+  &__card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    transition: transform 0.45s;
+  }
+
+  &__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(27,40,57,.94) 0%, rgba(27,40,57,.25) 55%);
+  }
+
+  &__card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 32px; }
+
+  &__card-tag {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: $color-orange;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+  }
+
+  &__card-title { font-size: 22px; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 10px; }
+  &__card-desc { font-size: 13px; color: rgba(255,255,255,.6); margin-bottom: 20px; }
+
+  &__card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-orange;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+}

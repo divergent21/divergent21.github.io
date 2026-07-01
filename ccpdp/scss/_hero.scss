@@ -1,0 +1,141 @@
+// =============================================================
+// Hero section
+// =============================================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: $color-dark;
+  overflow: hidden;
+
+  &__bg-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 48%;
+    height: 100%;
+    background: url('https://ccp.dp.ua/wp-content/uploads/2021/03/oblozhka-ccp.dp_.ua-1740h660-1-1024x388.jpg') center / cover no-repeat;
+
+    @media (max-width: $bp-mobile) { display: none; }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #{$color-dark} 45%, rgba(27, 40, 57, 0.65) 68%, rgba(27, 40, 57, 0.1) 100%);
+
+    @media (max-width: $bp-mobile) { background: rgba(27, 40, 57, 0.8); }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 80px $gutter;
+    width: 100%;
+
+    @media (max-width: $bp-mobile) { padding: 80px $gutter-mobile; }
+  }
+
+  &__content { max-width: 600px; }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba($color-orange, 0.14);
+    border: 1px solid rgba($color-orange, 0.35);
+    color: $color-orange;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-size: clamp(56px, 7.5vw, 92px);
+    font-weight: 900;
+    line-height: 0.95;
+    color: #fff;
+    letter-spacing: -0.025em;
+    margin-bottom: 28px;
+  }
+
+  &__title-accent { color: $color-orange; }
+
+  &__subtitle {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.65;
+    max-width: 440px;
+    margin-bottom: 44px;
+
+    strong { color: rgba(255, 255, 255, 0.88); font-weight: 700; }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 72px;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-family: $font-base;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+
+    @media (max-width: $bp-mobile) { padding: 14px 24px; font-size: 12px; }
+
+    &--primary {
+      background: $color-orange;
+      color: #fff;
+      border: none;
+
+      &:hover { background: $color-orange-hover; }
+    }
+
+    &--outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+
+      &:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.65); }
+    }
+  }
+
+  &__stats {
+    display: flex;
+    gap: 52px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
+
+    @media (max-width: $bp-mobile) { flex-wrap: wrap; gap: 20px 36px; }
+  }
+
+  &__stat-number { font-size: 42px; font-weight: 900; color: $color-orange; line-height: 1; }
+
+  &__stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 5px;
+  }
+}
