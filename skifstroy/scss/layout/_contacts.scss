@@ -1,0 +1,45 @@
+@import '../abstracts/variables';
+
+.contacts {
+  max-width: $container;
+  margin: 0 auto;
+  padding: 100px clamp(20px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+
+  &__lead { font-size: 16px; color: $color-ink-soft; margin: 18px 0 32px; max-width: 44ch; line-height: 1.55; }
+  &__list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 40px; }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    font-size: 15px;
+    border-bottom: 1px solid $color-line;
+    padding-bottom: 14px;
+
+    dt { color: $color-ink-faint; font-weight: 600; }
+    dd { font-weight: 600; line-height: 1.5; }
+    a:hover { color: $color-accent; }
+  }
+
+  &__map img { border: 1px solid $color-line; }
+}
+
+.contact-form {
+  &__label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 10px; color: $color-ink-soft; }
+  &__row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  &__input {
+    flex: 1;
+    min-width: 200px;
+    background: $color-cream;
+    border: 1.5px solid $color-line;
+    padding: 14px 16px;
+    font-size: 15px;
+
+    &:focus { outline: none; border-color: $color-accent; }
+  }
+}

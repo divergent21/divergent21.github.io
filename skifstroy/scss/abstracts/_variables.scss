@@ -1,0 +1,34 @@
+// ---------- Palette ----------
+$color-bg: #FAF7F2;
+$color-bg-alt: #F1ECE2;
+$color-ink: #1D1B18;
+$color-ink-soft: #5B564D;
+$color-ink-faint: #8A8377;
+$color-accent: #D9622B;
+$color-accent-dark: #B84E1E;
+$color-dark: #20242A;
+$color-dark-soft: #2C3138;
+$color-steel: #5C7285;
+$color-line: #E3DCD0;
+$color-line-dark: #3A3F46;
+$color-cream: #FFFDF9;
+
+// ---------- Type ----------
+$font-body: 'Manrope', Arial, sans-serif;
+$font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+// ---------- Layout ----------
+$container: 1240px;
+$gap: 24px;
+
+// ---------- Breakpoints ----------
+$bp-tablet: 1080px;
+$bp-nav: 1180px;
+$bp-nav-narrow: 900px;
+$bp-mobile: 640px;
+
+@mixin container {
+  max-width: $container;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}

@@ -1,0 +1,33 @@
+@import '../abstracts/variables';
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: $color-accent;
+    color: #fff;
+    font-family: $font-mono;
+    font-weight: 600;
+    font-size: 15px;
+    flex: none;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  }
+
+  &__text {
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 1.05;
+    color: $color-ink;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+  }
+
+  &--light .logo__text { color: $color-cream; }
+}

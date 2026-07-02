@@ -1,0 +1,23 @@
+// ==========================================================================
+// Skif Stroy — SCSS entry point
+// Compile: sass main.scss ../css/style.css  (or via your build pipeline)
+// ==========================================================================
+
+@import 'abstracts/variables';
+@import 'base/reset';
+@import 'base/typography';
+@import 'components/button';
+@import 'components/logo';
+@import 'layout/header';
+@import 'layout/mobile-nav';
+@import 'layout/hero';
+@import 'layout/catalog';
+@import 'layout/service';
+@import 'layout/about';
+@import 'layout/reviews';
+@import 'layout/steps';
+@import 'layout/delivery';
+@import 'layout/gallery';
+@import 'layout/contacts';
+@import 'layout/footer';
+@import 'layout/responsive';

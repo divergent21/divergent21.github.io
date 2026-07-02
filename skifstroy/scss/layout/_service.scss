@@ -1,0 +1,22 @@
+@import '../abstracts/variables';
+
+.service {
+  padding: 90px 0 100px;
+  background: $color-dark;
+
+  &__grid {
+    @include container;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $gap;
+  }
+}
+
+.service-card {
+  border-top: 2px solid $color-accent;
+  padding-top: 22px;
+
+  &__num { font-family: $font-mono; font-weight: 700; font-size: 13px; color: $color-accent; }
+  &__title { display: block; margin: 14px 0 10px; font-size: 19px; font-weight: 700; color: $color-cream; line-height: 1.25; }
+  &__text { font-size: 14.5px; line-height: 1.55; color: #A9B1B9; }
+}

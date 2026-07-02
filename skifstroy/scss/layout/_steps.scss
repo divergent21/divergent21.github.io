@@ -1,0 +1,38 @@
+@import '../abstracts/variables';
+
+.steps {
+  padding: 90px 0 100px;
+  background: $color-dark;
+
+  &__list {
+    @include container;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $gap;
+    counter-reset: step;
+    margin-bottom: 56px;
+  }
+
+  &__cta {
+    @include container;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-top: 1px solid $color-line-dark;
+    padding-top: 40px;
+  }
+
+  &__cta-text { color: $color-cream; font-size: 17px; max-width: 46ch; line-height: 1.5; }
+}
+
+.step {
+  position: relative;
+  padding: 26px 20px 0;
+  border-top: 1px solid $color-line-dark;
+
+  &__num { display: block; font-family: $font-mono; font-size: 34px; font-weight: 700; color: $color-accent; margin-bottom: 14px; opacity: .9; }
+  &__title { font-size: 18px; font-weight: 700; color: $color-cream; margin-bottom: 8px; }
+  &__text { font-size: 14px; line-height: 1.55; color: #A9B1B9; }
+}

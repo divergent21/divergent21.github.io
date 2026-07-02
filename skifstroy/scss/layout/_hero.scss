@@ -1,0 +1,65 @@
+@import '../abstracts/variables';
+
+.hero {
+  padding: 56px clamp(20px, 5vw, 64px) 90px;
+  background: $color-bg;
+
+  &__frame {
+    max-width: $container;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  &__eyebrow { margin-bottom: 22px; }
+
+  &__title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    line-height: .98;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+  }
+
+  &__lead {
+    font-size: 18px;
+    line-height: 1.55;
+    color: $color-ink-soft;
+    max-width: 46ch;
+    margin-bottom: 36px;
+  }
+
+  &__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-bottom: 44px; }
+  &__phones { display: flex; flex-direction: column; gap: 4px; }
+  &__phone { font-weight: 700; font-size: 15px; }
+
+  &__badges {
+    display: flex; flex-wrap: wrap; gap: 28px 40px;
+    border-top: 1px solid $color-line;
+    padding-top: 28px;
+  }
+  &__badge { display: flex; flex-direction: column; gap: 4px; }
+  &__badge-num { font-family: $font-mono; font-weight: 700; font-size: 22px; color: $color-accent; }
+  &__badge-label { font-size: 13px; color: $color-ink-soft; max-width: 16ch; line-height: 1.35; }
+
+  &__media { position: relative; }
+
+  &__img {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
+    border: 1px solid $color-line;
+  }
+
+  &__media-tag {
+    position: absolute; left: -18px; bottom: 28px;
+    background: $color-dark;
+    color: $color-cream;
+    font-family: $font-mono;
+    font-size: 12.5px; font-weight: 600;
+    padding: 12px 18px;
+    max-width: 220px;
+    line-height: 1.4;
+    box-shadow: 0 16px 32px rgba(29,27,24,.18);
+  }
+}

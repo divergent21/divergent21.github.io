@@ -1,0 +1,26 @@
+@import '../abstracts/variables';
+
+.reviews {
+  padding: 90px 0 60px;
+  background: $color-bg;
+
+  &__grid {
+    @include container;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $gap;
+  }
+}
+
+.review-card {
+  margin: 0;
+  background: $color-cream;
+  border: 1px solid $color-line;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__text { font-size: 15px; line-height: 1.6; color: $color-ink; }
+  &__footer { font-family: $font-mono; font-size: 12.5px; font-weight: 600; color: $color-accent; font-style: normal; }
+}

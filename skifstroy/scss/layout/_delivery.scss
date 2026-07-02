@@ -1,0 +1,36 @@
+@import '../abstracts/variables';
+
+.delivery {
+  padding: 90px 0 100px;
+  background: $color-bg;
+
+  &__grid {
+    @include container;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $gap;
+    margin-bottom: 64px;
+  }
+}
+
+.delivery-card {
+  border-left: 2px solid $color-accent;
+  padding-left: 16px;
+
+  &__idx { font-family: $font-mono; color: $color-accent; font-weight: 700; font-size: 15px; }
+  &__text { font-size: 14px; line-height: 1.55; color: $color-ink-soft; margin-top: 8px; }
+}
+
+.certs {
+  @include container;
+  padding-top: 44px;
+  border-top: 1px solid $color-line;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $gap;
+}
+
+.cert {
+  &__title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  &__text { font-size: 14px; line-height: 1.5; color: $color-ink-soft; }
+}
