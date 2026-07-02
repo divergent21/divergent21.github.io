@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@use '../abstracts/variables' as *;
 
 .reviews {
   padding: 90px 0 60px;

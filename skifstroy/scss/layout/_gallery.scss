@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@use '../abstracts/variables' as *;
 
 .gallery {
   padding: 90px 0 100px;

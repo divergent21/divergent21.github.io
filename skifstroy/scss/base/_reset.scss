@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@use '../abstracts/variables' as *;
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }

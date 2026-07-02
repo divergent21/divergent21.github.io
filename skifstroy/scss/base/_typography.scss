@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@use '../abstracts/variables' as *;
 
 .eyebrow {
   font-family: $font-mono;
@@ -33,7 +33,7 @@
 
 .link-arrow {
   display: inline-block;
-  margin: 40px clamp(20px, 5vw, 64px) 0;
+  margin: 40px 0 0;
   font-weight: 700;
   font-size: 15px;
   border-bottom: 2px solid $color-accent;

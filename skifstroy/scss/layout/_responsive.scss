@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@use '../abstracts/variables' as *;
 
 @media (max-width: $bp-tablet) {
   .catalog__grid { grid-template-columns: repeat(3, 1fr); }

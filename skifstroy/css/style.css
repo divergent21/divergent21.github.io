@@ -101,7 +101,7 @@ input {
 
 .link-arrow {
   display: inline-block;
-  margin: 40px clamp(20px, 5vw, 64px) 0;
+  margin: 40px 0 0;
   font-weight: 700;
   font-size: 15px;
   border-bottom: 2px solid #D9622B;
@@ -1133,3 +1133,5 @@ body[data-mobile-open] .mobile-nav__backdrop {
     font-size: 26px;
   }
 }
+
+/*# sourceMappingURL=style.css.map */

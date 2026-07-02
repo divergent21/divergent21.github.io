@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@use '../abstracts/variables' as *;
 
 .hero {
   padding: 56px clamp(20px, 5vw, 64px) 90px;
