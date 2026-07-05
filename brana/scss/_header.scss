@@ -1,0 +1,110 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  position: relative;
+  z-index: 50;
+  background: $color-bg-white;
+
+  &__topbar { background: $color-bg-dark; color: $color-text-light; }
+
+  &__topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    font-size: 13px;
+  }
+
+  &__contacts { display: flex; gap: 20px; }
+  &__contact { color: $color-text-light-soft; transition: color .15s; &:hover { color: $color-text-light; } }
+  &__meta { display: flex; align-items: center; gap: 20px; }
+  &__badge { font-size: 12px; font-weight: 600; color: $color-accent-blue-light; letter-spacing: 0.01em; }
+  &__socials { display: flex; gap: 10px; }
+  &__social { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: $color-text-light-soft; }
+  &__social-dot { width: 6px; height: 6px; background: $color-accent-blue-light; border-radius: 50%; }
+
+  &__main-inner { display: flex; align-items: center; gap: 32px; height: 84px; }
+  &__nav { flex: 1; }
+  &__actions { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+  &__icon-btn { position: relative; color: $color-text-dark; display: inline-flex; padding: 6px; }
+  &__cart-count {
+    position: absolute; top: -2px; right: -2px;
+    background: $color-warm; color: $color-text-light;
+    font-size: 10px; font-weight: 800; width: 16px; height: 16px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  }
+  &__cta { display: inline-flex; }
+
+  @include mobile-l {
+    &__topbar-inner { font-size: 12px; }
+    &__contacts { gap: 14px; }
+    &__nav, &__cta { display: none; }
+    &__main-inner { height: 68px; }
+  }
+
+  @include mobile {
+    &__topbar &__contacts a:nth-child(2) { display: none; }
+    &__badge { display: none; }
+  }
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  &__mark {
+    width: 40px; height: 40px;
+    background: $color-bg-dark; color: $color-text-light;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 18px; flex-shrink: 0;
+  }
+  &__text { font-weight: 800; font-size: 21px; letter-spacing: 0.01em; color: $color-text-dark; }
+}
+
+.nav {
+  &__list { display: flex; align-items: center; gap: 28px; }
+  &__item { position: relative; }
+  &__link {
+    font-weight: 600; font-size: 15px; color: $color-text-dark;
+    padding: 8px 0; display: inline-flex; align-items: center; gap: 5px; position: relative;
+
+    &::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+      height: 2px; background: $color-warm;
+      transform: scaleX(0); transform-origin: left; transition: transform .15s ease;
+    }
+    &:hover::after, &--active::after { transform: scaleX(1); }
+  }
+  &__caret { width: 6px; height: 6px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg); margin-top: -3px; }
+
+  &__dropdown {
+    position: absolute; top: calc(100% + 14px); left: -16px; min-width: 240px;
+    background: $color-bg-white; border: 1px solid $color-border;
+    @include hard-shadow($color-bg-dark, 6px, 6px);
+    padding: 10px; display: none; flex-direction: column;
+  }
+  &__item--has-dropdown:hover &__dropdown { display: flex; }
+  &__dropdown-link {
+    padding: 9px 12px; font-size: 14px; font-weight: 500; color: $color-text-dark;
+    &:hover { background: $color-bg-light; }
+    &--all { color: $color-accent-blue; font-weight: 700; }
+  }
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 1px solid $color-border;
+  padding: 0;
+
+  &__line { width: 18px; height: 2px; background: $color-text-dark; margin: 0 auto; transition: transform .2s ease, opacity .2s ease; }
+
+  @include mobile-l { display: flex; }
+}

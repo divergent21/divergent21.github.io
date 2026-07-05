@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRANA — ПВХ та ТПО мембрани, офіційний дилер Sika</title>
+<meta name="description" content="BRANA — генеральний дилер Sika Ukraine. ПВХ, ТПО мембрани, гідроізоляція та покрівельні матеріали з доставкою по всій Україні.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="header__topbar">
+      <div class="header__topbar-inner container">
+        <div class="header__contacts">
+          <a class="header__contact" href="tel:+380668511619">+38 (066) 851 16 19</a>
+          <a class="header__contact" href="tel:+380678511619">+38 (067) 851 16 19</a>
+          <a class="header__contact" href="mailto:branamem@gmail.com">branamem@gmail.com</a>
+        </div>
+        <div class="header__meta">
+          <span class="header__badge">Генеральний дилер Sika Ukraine</span>
+          <div class="header__socials">
+            <a class="header__social" href="https://www.facebook.com/profile.php?id=100051804635893" aria-label="Facebook">
+              <span class="header__social-dot"></span>FB
+            </a>
+            <a class="header__social" href="https://www.instagram.com/" aria-label="Instagram">
+              <span class="header__social-dot"></span>IG
+            </a>
+            <a class="header__social" href="viber://chat" aria-label="Viber">
+              <span class="header__social-dot"></span>VB
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header__main">
+      <div class="header__main-inner container">
+        <a href="/" class="logo header__logo">
+          <span class="logo__mark">B</span>
+          <span class="logo__text">BRANA</span>
+        </a>
+
+        <nav class="nav header__nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link nav__link--active" href="#">Головна</a></li>
+            <li class="nav__item nav__item--has-dropdown">
+              <a class="nav__link" href="#catalog">Каталог<span class="nav__caret"></span></a>
+              <div class="nav__dropdown">
+                <a class="nav__dropdown-link" href="#">ПВХ мембрани</a>
+                <a class="nav__dropdown-link" href="#">ТПО, FPO мембрани</a>
+                <a class="nav__dropdown-link" href="#">EPDM мембрани</a>
+                <a class="nav__dropdown-link" href="#">Бітумна мембрана</a>
+                <a class="nav__dropdown-link" href="#">Товари Sika</a>
+                <a class="nav__dropdown-link" href="#">Гідроізоляція</a>
+                <a class="nav__dropdown-link nav__dropdown-link--all" href="#">Усі категорії →</a>
+              </div>
+            </li>
+            <li class="nav__item"><a class="nav__link" href="#">Проєкти</a></li>
+            <li class="nav__item"><a class="nav__link" href="#">Співробітництво</a></li>
+            <li class="nav__item"><a class="nav__link" href="#">Статті</a></li>
+            <li class="nav__item"><a class="nav__link" href="#">Контакти</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <a class="header__icon-btn" href="#" aria-label="Акаунт">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c1.6-3.6 4.8-5.6 8-5.6s6.4 2 8 5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </a>
+          <a class="header__icon-btn header__icon-btn--cart" href="#" aria-label="Кошик">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h2l1.6 10.2a2 2 0 0 0 2 1.7h7.4a2 2 0 0 0 2-1.6L20.5 9H6.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.3" fill="currentColor"/><circle cx="17" cy="21" r="1.3" fill="currentColor"/></svg>
+            <span class="header__cart-count">0</span>
+          </a>
+          <a class="btn btn--primary header__cta" href="#contacts">Замовити дзвінок</a>
+
+          <button class="burger header__burger" id="burgerBtn" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobileMenu">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE MENU ===================== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu__panel">
+      <div class="mobile-menu__head">
+        <a href="/" class="logo mobile-menu__logo">
+          <span class="logo__mark">B</span>
+          <span class="logo__text">BRANA</span>
+        </a>
+        <button class="mobile-menu__close" id="mobileMenuClose" type="button" aria-label="Закрити меню">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <div class="mobile-menu__body">
+        <nav class="mobile-nav">
+          <ul class="mobile-nav__list">
+            <li class="mobile-nav__item mobile-nav__item--active"><a class="mobile-nav__link" href="#">Головна</a></li>
+
+            <li class="mobile-nav__item mobile-nav__item--accordion">
+              <button class="mobile-nav__accordion-btn" type="button" aria-expanded="false" aria-controls="mmCatalog">
+                Каталог товарів
+                <span class="mobile-nav__accordion-icon"></span>
+              </button>
+              <ul class="mobile-nav__sublist" id="mmCatalog">
+                <li><a class="mobile-nav__sublink" href="#">ПВХ мембрани</a></li>
+                <li><a class="mobile-nav__sublink" href="#">ТПО, FPO мембрани</a></li>
+                <li><a class="mobile-nav__sublink" href="#">EPDM мембрани</a></li>
+                <li><a class="mobile-nav__sublink" href="#">Бітумна мембрана</a></li>
+                <li><a class="mobile-nav__sublink" href="#">Товари Sika</a></li>
+                <li><a class="mobile-nav__sublink" href="#">Гідроізоляція</a></li>
+                <li><a class="mobile-nav__sublink" href="#">Дренажні, геомембрани</a></li>
+                <li><a class="mobile-nav__sublink" href="#">Комплектуючі</a></li>
+                <li><a class="mobile-nav__sublink mobile-nav__sublink--all" href="#">Усі категорії →</a></li>
+              </ul>
+            </li>
+
+            <li class="mobile-nav__item"><a class="mobile-nav__link" href="#">Проєкти</a></li>
+            <li class="mobile-nav__item"><a class="mobile-nav__link" href="#">Співробітництво</a></li>
+            <li class="mobile-nav__item"><a class="mobile-nav__link" href="#">Статті</a></li>
+            <li class="mobile-nav__item"><a class="mobile-nav__link" href="#">Галерея</a></li>
+            <li class="mobile-nav__item"><a class="mobile-nav__link" href="#">Сертифікати</a></li>
+            <li class="mobile-nav__item"><a class="mobile-nav__link" href="#">Контакти</a></li>
+          </ul>
+        </nav>
+
+        <div class="mobile-menu__contacts">
+          <a class="mobile-menu__phone" href="tel:+380668511619">+38 (066) 851 16 19</a>
+          <a class="mobile-menu__phone" href="tel:+380678511619">+38 (067) 851 16 19</a>
+          <a class="mobile-menu__mail" href="mailto:branamem@gmail.com">branamem@gmail.com</a>
+        </div>
+
+        <div class="mobile-menu__socials">
+          <a class="mobile-menu__social" href="#">FB</a>
+          <a class="mobile-menu__social" href="#">IG</a>
+          <a class="mobile-menu__social" href="#">VB</a>
+        </div>
+
+        <a class="btn btn--primary mobile-menu__cta" href="#contacts">Замовити дзвінок</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Офіційний дилер SIKA Ukraine у 7 областях</p>
+          <h1 class="hero__title">Мембрани для даху,<br>яким довіряють&nbsp;профі</h1>
+          <p class="hero__text">ПВХ та ТПО мембрани, гідроізоляція та покрівельні матеріали. Власний склад, сертифіковані матеріали, доставка по всій Україні.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#catalog">Перейти в каталог</a>
+            <a class="btn btn--ghost btn--lg" href="#contacts">Зв'язатися з нами</a>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <span class="hero__stat-value">7</span>
+              <span class="hero__stat-label">областей<br>дилерства Sika</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-value">95%</span>
+              <span class="hero__stat-label">товарів завжди<br>у наявності</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-value">24</span>
+              <span class="hero__stat-label">категорії<br>матеріалів</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <div class="hero__image placeholder">
+            <span class="placeholder__label">фото — монтаж покрівлі</span>
+          </div>
+          <div class="hero__badge">
+            <span class="hero__badge-title">SIKA</span>
+            <span class="hero__badge-text">офіційний дилер в Україні</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ADVANTAGES ===================== -->
+    <section class="advantages">
+      <div class="advantages__inner container">
+        <article class="advantage">
+          <span class="advantage__index">01</span>
+          <h3 class="advantage__title">Доставка по всій Україні</h3>
+          <p class="advantage__text">Продумуємо логістику та відправляємо матеріал транспортною компанією — оперативно та за вигідним тарифом.</p>
+        </article>
+        <article class="advantage">
+          <span class="advantage__index">02</span>
+          <h3 class="advantage__title">Сертифіковані матеріали</h3>
+          <p class="advantage__text">Весь геоматеріал має сертифікати відповідності від виробника та висновок про безпеку СЕС.</p>
+        </article>
+        <article class="advantage">
+          <span class="advantage__index">03</span>
+          <h3 class="advantage__title">Все є на власному складі</h3>
+          <p class="advantage__text">95% заявлених на сайті геосинтетиків завжди в наявності. Оперативно оформимо та привеземо.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== CATALOG ===================== -->
+    <section class="catalog" id="catalog">
+      <div class="catalog__inner container">
+        <div class="section-head">
+          <h2 class="section-head__title">Каталог товарів</h2>
+          <a class="section-head__link" href="#">Усі категорії →</a>
+        </div>
+
+        <div class="catalog__grid">
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--sq"></span>
+            <span class="catalog-card__name">ПВХ мембрани</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--tri"></span>
+            <span class="catalog-card__name">ТПО, FPO мембрани</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--circ"></span>
+            <span class="catalog-card__name">EPDM мембрани</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--sq"></span>
+            <span class="catalog-card__name">Бітумна мембрана</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--tri"></span>
+            <span class="catalog-card__name">Товари Sika</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--circ"></span>
+            <span class="catalog-card__name">Гідроізоляція</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--sq"></span>
+            <span class="catalog-card__name">Дренажні, геомембрани</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--tri"></span>
+            <span class="catalog-card__name">Тепло-звукоізоляція</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--circ"></span>
+            <span class="catalog-card__name">Водостічні системи</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--sq"></span>
+            <span class="catalog-card__name">Геотекстиль</span>
+          </a>
+          <a class="catalog-card" href="#">
+            <span class="catalog-card__icon catalog-card__icon--tri"></span>
+            <span class="catalog-card__name">Комплектуючі</span>
+          </a>
+          <a class="catalog-card catalog-card--more" href="#">
+            <span class="catalog-card__name">Ще 13 категорій →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== POPULAR PRODUCTS ===================== -->
+    <section class="products">
+      <div class="products__inner container">
+        <div class="section-head">
+          <h2 class="section-head__title">Популярні товари</h2>
+          <a class="section-head__link" href="#">В магазин →</a>
+        </div>
+
+        <div class="products__grid">
+          <article class="product-card">
+            <div class="product-card__image placeholder">
+              <span class="placeholder__label">фото — мембрана</span>
+            </div>
+            <span class="product-card__tag">ШМБ</span>
+            <h3 class="product-card__title">ПВХ мембрана Sikaplan®-15 G</h3>
+            <div class="product-card__bottom">
+              <span class="product-card__price">495&nbsp;₴</span>
+              <button class="btn btn--sm btn--primary product-card__btn" type="button">У кошик</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image placeholder">
+              <span class="placeholder__label">фото — мембрана</span>
+            </div>
+            <span class="product-card__tag">Tetto</span>
+            <h3 class="product-card__title">Мембрана Rooftop IQ 2,70</h3>
+            <div class="product-card__bottom">
+              <span class="product-card__price">369&nbsp;₴</span>
+              <button class="btn btn--sm btn--primary product-card__btn" type="button">У кошик</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image placeholder">
+              <span class="placeholder__label">фото — мембрана</span>
+            </div>
+            <span class="product-card__tag">Tetto</span>
+            <h3 class="product-card__title">Мембрана Rooftop 1,5 UP</h3>
+            <div class="product-card__bottom">
+              <span class="product-card__price">369&nbsp;₴</span>
+              <button class="btn btn--sm btn--primary product-card__btn" type="button">У кошик</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__image placeholder">
+              <span class="placeholder__label">фото — мембрана</span>
+            </div>
+            <span class="product-card__tag">Tetto</span>
+            <h3 class="product-card__title">Мембрана Rooftop st 1,2 мм</h3>
+            <div class="product-card__bottom">
+              <span class="product-card__price">339&nbsp;₴</span>
+              <button class="btn btn--sm btn--primary product-card__btn" type="button">У кошик</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NEWS ===================== -->
+    <section class="news">
+      <div class="news__inner container">
+        <div class="section-head">
+          <h2 class="section-head__title">Новини та статті</h2>
+          <a class="section-head__link" href="#">Всі статті →</a>
+        </div>
+
+        <div class="news__grid">
+          <article class="news-card news-card--featured">
+            <div class="news-card__image placeholder">
+              <span class="placeholder__label">фото — до статті</span>
+            </div>
+            <div class="news-card__body">
+              <span class="news-card__date">05.07.2026</span>
+              <h3 class="news-card__title">Купити ПВХ-мембрану в умовах дефіциту</h3>
+              <p class="news-card__text">Ситуація на будівництві залежить не тільки від логістики, а й від великої геополітики та цін на сировину.</p>
+              <a class="news-card__link" href="#">Читати далі →</a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-card__image placeholder">
+              <span class="placeholder__label">фото — до статті</span>
+            </div>
+            <div class="news-card__body">
+              <span class="news-card__date">02.07.2026</span>
+              <h3 class="news-card__title">Парапетні ПВХ-воронки Sika для плоских покрівель</h3>
+              <a class="news-card__link" href="#">Читати далі →</a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-card__image placeholder">
+              <span class="placeholder__label">фото — до статті</span>
+            </div>
+            <div class="news-card__body">
+              <span class="news-card__date">28.06.2026</span>
+              <h3 class="news-card__title">Покрівельні воронки Sika S-Gully PVC</h3>
+              <a class="news-card__link" href="#">Читати далі →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="about">
+      <div class="about__inner container">
+        <div class="about__text-block">
+          <p class="about__eyebrow">Про нас</p>
+          <h2 class="about__title">Максимальний вибір покрівельних та будівельних матеріалів</h2>
+          <p class="about__text">Ми намагаємось надавати нашим клієнтам максимальний вибір покрівельних, будівельних матеріалів з високою якістю та прийнятними цінами. ТОВ «Брана» — офіційний генеральний дилер Sika Ukraine.</p>
+        </div>
+        <div class="about__stats">
+          <div class="about__stat">
+            <span class="about__stat-value">15+</span>
+            <span class="about__stat-label">років на ринку</span>
+          </div>
+          <div class="about__stat">
+            <span class="about__stat-value">7</span>
+            <span class="about__stat-label">областей дилерства</span>
+          </div>
+          <div class="about__stat">
+            <span class="about__stat-value">24</span>
+            <span class="about__stat-label">категорії товарів</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACTS / CTA ===================== -->
+    <section class="cta" id="contacts">
+      <div class="cta__inner container">
+        <div class="cta__text">
+          <h2 class="cta__title">Є питання? Зателефонуйте нам</h2>
+          <p class="cta__subtitle">Наші менеджери дадуть відповідь на будь-яке ваше запитання</p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn btn--primary btn--lg" href="tel:+380678511619">+38 (067) 851 16 19</a>
+          <a class="btn btn--outline-light btn--lg" href="tel:+380668511619">+38 (066) 851 16 19</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__col footer__col--about">
+        <a href="/" class="logo footer__logo">
+          <span class="logo__mark">B</span>
+          <span class="logo__text">BRANA</span>
+        </a>
+        <p class="footer__about-text">Максимальний вибір покрівельних, будівельних матеріалів з високою якістю та прийнятними цінами.</p>
+        <div class="footer__socials">
+          <a class="footer__social" href="#">FB</a>
+          <a class="footer__social" href="#">IG</a>
+          <a class="footer__social" href="#">VB</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Навігація</h4>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#">Головна</a></li>
+          <li><a class="footer__link" href="#">Статті</a></li>
+          <li><a class="footer__link" href="#">Проєкти</a></li>
+          <li><a class="footer__link" href="#">Співробітництво</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Кабінет</h4>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#">Мій акаунт</a></li>
+          <li><a class="footer__link" href="#">Оформлення замовлення</a></li>
+          <li><a class="footer__link" href="#">Кошик</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Контакти</h4>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="mailto:branamem@gmail.com">branamem@gmail.com</a></li>
+          <li><a class="footer__link" href="tel:+380668511619">+38 (066) 851 16 19</a></li>
+          <li><a class="footer__link" href="tel:+380678511619">+38 (067) 851 16 19</a></li>
+          <li class="footer__link footer__link--muted">м. Київ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__bottom-inner container">
+        <span>© 2026 Brana. Всі права захищені.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== MOBILE STICKY BAR ===================== -->
+  <div class="sticky-bar">
+    <a class="sticky-bar__item" href="tel:+380678511619">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 4h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2 2C10.7 20 4 13.3 4 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      Подзвонити
+    </a>
+    <a class="sticky-bar__item" href="#catalog">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="4" width="7" height="7" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="13" width="7" height="7" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13" width="7" height="7" stroke="currentColor" stroke-width="1.6"/></svg>
+      Каталог
+    </a>
+    <a class="sticky-bar__item sticky-bar__item--accent" href="#contacts">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      Замовити
+    </a>
+  </div>
+
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

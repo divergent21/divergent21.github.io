@@ -1,0 +1,32 @@
+// BRANA — main stylesheet entry point
+// Compile with: sass scss/style.scss css/style.css
+// (a pre-compiled css/style.css is already included in this build)
+
+@use 'variables' as *;
+@use 'base';
+@use 'header';
+@use 'mobile-menu';
+@use 'hero';
+@use 'catalog-products';
+@use 'about-cta';
+@use 'footer';
+
+:root {
+  --color-bg-dark: #{$color-bg-dark};
+  --color-bg-dark-alt: #{$color-bg-dark-alt};
+  --color-bg-dark-soft: #{$color-bg-dark-soft};
+  --color-accent-blue: #{$color-accent-blue};
+  --color-accent-blue-light: #{$color-accent-blue-light};
+  --color-bg-light: #{$color-bg-light};
+  --color-bg-white: #{$color-bg-white};
+  --color-warm: #{$color-warm};
+  --color-warm-dark: #{$color-warm-dark};
+  --color-text-dark: #{$color-text-dark};
+  --color-text-soft: #{$color-text-soft};
+  --color-text-light: #{$color-text-light};
+  --color-text-light-soft: #{$color-text-light-soft};
+  --color-border: #{$color-border};
+  --color-border-dark: #{$color-border-dark};
+  --font-main: #{$font-main};
+  --container-width: #{$container-width};
+}
