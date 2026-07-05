@@ -1,0 +1,156 @@
+// ============================================================
+// m2 — base layer: reset, container, type utilities, buttons
+// ============================================================
+
+* { box-sizing: border-box; }
+*::before { box-sizing: border-box; }
+*::after { box-sizing: border-box; }
+
+.m2-page {
+  margin: 0;
+  padding: 0;
+  background: $color-paper;
+  color: $color-ink;
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.m2-container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+@media (min-width: 1024px) {
+  .m2-container { padding: 0 32px; }
+}
+
+.m2-visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);
+}
+
+// ---------- Section header: numbered, technical ----------
+.m2-section {
+  padding: 36px 0;
+  border-bottom: 1px solid $color-line;
+}
+@media (min-width: 1024px) {
+  .m2-section { padding: 56px 0; }
+}
+.m2-section--tight { padding-bottom: 28px; }
+.m2-section--ink { background: $color-ink; border-bottom-color: $color-line-on-ink; color: $color-white; }
+.m2-section--dim { background: $color-paper-dim; }
+
+.m2-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid $color-ink;
+}
+.m2-section--ink .m2-section-head { border-bottom-color: $color-green; }
+
+.m2-section-head__group { display: flex; align-items: baseline; gap: 12px; }
+
+.m2-section-title {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: $color-ink;
+  margin: 0;
+  text-transform: uppercase;
+}
+.m2-section--ink .m2-section-title { color: $color-white; }
+@media (min-width: 1024px) {
+  .m2-section-title { font-size: 30px; }
+}
+
+.m2-section-head__link {
+  flex-shrink: 0;
+  font-family: $font-mono;
+  font-weight: 500;
+  font-size: 12.5px;
+  color: $color-ink;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid $color-ink;
+  padding-bottom: 2px;
+}
+.m2-section-head__link:hover { color: $color-green; border-color: $color-green; }
+.m2-section--ink .m2-section-head__link { color: $color-white; border-color: $color-white; }
+.m2-section--ink .m2-section-head__link:hover { color: $color-green; border-color: $color-green; }
+
+// ---------- Buttons: sharp, cut-corner ----------
+.m2-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: 14.5px;
+  border: none;
+  cursor: pointer;
+  padding: 13px 22px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{$notch}), calc(100% - #{$notch}) 100%, 0 100%);
+  transition: transform 0.12s ease, background 0.12s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.m2-btn--primary { background: $color-green; color: $color-white; }
+.m2-btn--primary:hover { background: $color-green-dark; }
+.m2-btn--ghost { background: transparent; color: $color-ink; border: 1.5px solid $color-ink; clip-path: none; padding: 11.5px 20px; }
+.m2-btn--ghost:hover { background: $color-ink; color: $color-white; }
+.m2-btn--dark { background: $color-ink; color: $color-white; }
+.m2-btn--dark:hover { background: $color-ink-3; }
+.m2-btn--on-ink { background: $color-white; color: $color-ink; }
+.m2-btn--on-ink:hover { background: $color-green; color: $color-white; }
+.m2-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+// ---------- Placeholder imagery ----------
+.m2-placeholder-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(135deg, rgba(20, 23, 26, 0.06) 0px, rgba(20, 23, 26, 0.06) 1px, transparent 1px, transparent 12px),
+    $color-paper-dim;
+  color: $color-text-muted;
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.4;
+  padding: 6px;
+  border: 1px solid $color-line-strong;
+}
+.m2-placeholder-img--ink {
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 12px),
+    $color-ink-2;
+  color: $color-text-on-ink-muted;
+  border-color: $color-line-on-ink;
+}
+
+// ---------- Corner ticks (technical framing detail) ----------
+.m2-tick-frame { position: relative; }
+.m2-tick-frame::before,
+.m2-tick-frame::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  z-index: 3;
+  pointer-events: none;
+}
+.m2-tick-frame::before { top: 8px; left: 8px; border-top: 2px solid $color-green; border-left: 2px solid $color-green; }
+.m2-tick-frame::after { bottom: 8px; right: 8px; border-bottom: 2px solid $color-green; border-right: 2px solid $color-green; }

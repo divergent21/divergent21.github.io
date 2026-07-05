@@ -1,0 +1,23 @@
+// ============================================================
+// m2 — desktop catalog mega-menu
+// ============================================================
+
+.m2-catalog-menu { display: none; position: absolute; left: 0; right: 0; top: 100%; z-index: 55; background: $color-paper; border: 2px solid $color-ink; border-top: none; }
+.m2-catalog-menu.is-open { display: block; }
+.m2-catalog-menu__inner { display: grid; grid-template-columns: 300px 1fr; max-height: 72vh; }
+.m2-catalog-menu__list { list-style: none; margin: 0; padding: 10px 0; border-right: 1px solid $color-line; overflow-y: auto; background: $color-white; }
+.m2-catalog-menu__item.is-active > .m2-catalog-menu__link { background: $color-ink; color: $color-white; }
+.m2-catalog-menu__item.is-active > .m2-catalog-menu__link .m2-catalog-menu__link-icon { background: $color-green; color: $color-white; }
+.m2-catalog-menu__link { display: flex; align-items: center; gap: 12px; padding: 9px 18px; font-size: 13.5px; font-weight: 600; color: $color-ink; text-decoration: none; cursor: pointer; }
+.m2-catalog-menu__link:hover { background: $color-paper-dim; }
+.m2-catalog-menu__link-icon { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: $color-paper-dim; flex-shrink: 0; font-family: $font-mono; font-size: 9.5px; color: $color-text-muted; }
+.m2-catalog-menu__panel { display: none; padding: 22px 30px; overflow-y: auto; }
+.m2-catalog-menu__panel.is-active { display: block; }
+.m2-catalog-menu__panel-title { font-family: $font-mono; font-weight: 500; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.04em; color: $color-green; margin: 0 0 16px; padding-bottom: 10px; border-bottom: 1px solid $color-line; }
+.m2-catalog-menu__panel-grid { columns: 3; column-gap: 30px; }
+.m2-catalog-menu__panel-group { break-inside: avoid; margin-bottom: 16px; }
+.m2-catalog-menu__panel-heading { font-weight: 700; font-size: 13.5px; margin: 0 0 8px; }
+.m2-catalog-menu__panel-sub { list-style: none; margin: 0; padding: 0; }
+.m2-catalog-menu__panel-sub li { margin-bottom: 6px; }
+.m2-catalog-menu__panel-link { font-size: 13px; color: $color-text-muted; text-decoration: none; }
+.m2-catalog-menu__panel-link:hover { color: $color-green-dark; }

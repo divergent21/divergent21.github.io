@@ -1,0 +1,18 @@
+// ============================================================
+// m2 — contacts: spec-sheet layout
+// ============================================================
+
+.m2-contacts__grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: $color-line; border: 1px solid $color-line; }
+@media (min-width: 1024px) { .m2-contacts__grid { grid-template-columns: 1fr 1.4fr; } }
+.m2-contacts__info { display: flex; flex-direction: column; background: $color-white; }
+.m2-contacts__row { display: flex; gap: 14px; align-items: flex-start; padding: 16px 20px; border-bottom: 1px solid $color-line; }
+.m2-contacts__row-index { flex-shrink: 0; font-family: $font-mono; font-size: 12px; color: $color-green; padding-top: 2px; }
+.m2-contacts__row-label { font-family: $font-mono; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.03em; color: $color-text-muted; margin: 0 0 3px; }
+.m2-contacts__row-value { font-size: 15px; font-weight: 700; color: $color-ink; margin: 0; }
+.m2-contacts__row-value a { color: inherit; text-decoration: none; }
+.m2-contacts__row-value a:hover { color: $color-green-dark; }
+.m2-contacts__hours { list-style: none; margin: 0; padding: 0; font-size: 13px; color: $color-text-muted; font-family: $font-mono; }
+.m2-contacts__hours li { display: flex; justify-content: space-between; padding: 3px 0; gap: 20px; }
+.m2-contacts__cta { padding: 18px 20px; }
+.m2-contacts__map { background: $color-white; min-height: 260px; }
+@media (min-width: 1024px) { .m2-contacts__map { min-height: 100%; } }

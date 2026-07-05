@@ -1,0 +1,17 @@
+// ============================================================
+// m2 — main stylesheet entry (industrial / technical direction)
+// Compile order matters: variables first, then base, then components.
+// ============================================================
+
+@import 'variables';
+@import 'base';
+@import 'header';
+@import 'catalog-menu';
+@import 'mobile-menu';
+@import 'hero';
+@import 'categories';
+@import 'products';
+@import 'news';
+@import 'about';
+@import 'contacts';
+@import 'footer';

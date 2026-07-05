@@ -1,0 +1,49 @@
+// ============================================================
+// m2 — design tokens v2 (industrial / technical direction)
+// ============================================================
+
+// Ink / structure — dense graphite replaces soft white-first UI
+$color-ink: #24282d;
+$color-ink-2: #323740;
+$color-ink-3: #454a52;
+
+// Paper — warm off-white, not clinical white
+$color-paper: #f8f6f0;
+$color-paper-dim: #efece3;
+$color-white: #ffffff;
+
+// Lines
+$color-line: #ddd9cb;
+$color-line-strong: #c2bda8;
+$color-line-on-ink: rgba(255, 255, 255, 0.14);
+$color-line-on-ink-soft: rgba(255, 255, 255, 0.08);
+
+// Text
+$color-text-muted: #6b6a5f;
+$color-text-on-ink-muted: rgba(255, 255, 255, 0.56);
+
+// Brand green — used as a precision accent, not a background
+$color-green: #1faa59;
+$color-green-dark: #158244;
+$color-green-dim: rgba(31, 170, 89, 0.14);
+
+// Secondary accent (kept from source palette)
+$color-amber: #d98c2b;
+
+// Typography
+$font-display: 'Manrope', 'Golos Text', sans-serif;
+$font-body: 'Golos Text', 'Manrope', sans-serif;
+$font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+// Shape — sharp, technical. No pill buttons, no soft rounding.
+$radius-xs: 2px;
+$radius-sm: 3px;
+$notch: 14px; // clipped-corner size used on cut-corner panels/buttons
+
+// Layout
+$container-max: 1400px;
+$header-h-mobile: 60px;
+$header-h-desktop: 76px;
+
+// Breakpoints (manual @media, reference only):
+// mobile: 0-767, tablet: 768-1023, desktop: 1024-1279, wide: 1280+

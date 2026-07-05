@@ -1,0 +1,44 @@
+// ============================================================
+// m2 — deal timer, product cards/grid/scroller, mid banner
+// ============================================================
+
+.m2-deal-timer { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-family: $font-mono; }
+.m2-deal-timer__label { font-size: 12.5px; font-weight: 500; color: $color-text-muted; text-transform: uppercase; letter-spacing: 0.03em; }
+.m2-deal-timer__units { display: flex; gap: 1px; background: $color-ink; }
+.m2-deal-timer__unit { display: flex; flex-direction: column; align-items: center; min-width: 46px; padding: 6px 8px; background: $color-ink; color: $color-white; }
+.m2-deal-timer__unit-value { font-family: $font-mono; font-weight: 700; font-size: 16px; line-height: 1; }
+.m2-deal-timer__unit-label { font-size: 8.5px; text-transform: uppercase; color: $color-text-on-ink-muted; margin-top: 3px; }
+
+.m2-product-scroller { display: grid; grid-auto-flow: column; grid-auto-columns: 64%; gap: 1px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; background: $color-line; border: 1px solid $color-line; }
+.m2-product-scroller::-webkit-scrollbar { display: none; }
+@media (min-width: 640px) { .m2-product-scroller { grid-auto-columns: 40%; } }
+@media (min-width: 1024px) { .m2-product-scroller { grid-auto-flow: initial; grid-template-columns: repeat(6, 1fr); overflow-x: visible; } }
+
+.m2-product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: $color-line; border: 1px solid $color-line; }
+@media (min-width: 640px) { .m2-product-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) { .m2-product-grid { grid-template-columns: repeat(5, 1fr); } }
+
+.m2-product-card { scroll-snap-align: start; display: flex; flex-direction: column; background: $color-white; text-decoration: none; color: $color-ink; transition: background 0.12s ease; }
+.m2-product-card:hover { background: $color-paper-dim; }
+.m2-product-card__media { position: relative; aspect-ratio: 1 / 1; }
+.m2-product-card__badge { position: absolute; top: 0; left: 0; z-index: 2; font-family: $font-mono; font-size: 9.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.03em; padding: 5px 9px; color: $color-white; }
+.m2-product-card__badge--new { background: $color-green; }
+.m2-product-card__badge--hit { background: $color-amber; }
+.m2-product-card__badge--popular { background: $color-ink; }
+.m2-product-card__body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.m2-product-card__title { font-size: 13px; font-weight: 600; line-height: 1.35; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+@media (min-width: 1024px) { .m2-product-card__title { font-size: 13.5px; } }
+.m2-product-card__meta { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.m2-product-card__price { font-family: $font-mono; font-weight: 700; font-size: 15px; color: $color-ink; }
+@media (min-width: 1024px) { .m2-product-card__price { font-size: 16px; } }
+.m2-product-card__cart-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: $color-paper-dim; border: 1px solid $color-line; color: $color-ink; cursor: pointer; flex-shrink: 0; }
+.m2-product-card__cart-btn:hover { background: $color-green; border-color: $color-green; color: $color-white; }
+.m2-product-card__cart-btn svg { width: 15px; height: 15px; }
+.m2-product-card__stock { font-family: $font-mono; font-size: 10.5px; color: $color-green-dark; font-weight: 500; text-transform: uppercase; letter-spacing: 0.02em; }
+.m2-products__more { display: flex; justify-content: center; margin-top: 26px; }
+
+.m2-mid-banner { background: $color-ink; display: grid; grid-template-columns: 1fr; align-items: center; padding: 24px; gap: 16px; color: $color-white; border: 1px solid $color-ink; position: relative; }
+@media (min-width: 768px) { .m2-mid-banner { grid-template-columns: 1fr auto auto; padding: 30px 38px; } }
+.m2-mid-banner__eyebrow { font-family: $font-mono; font-size: 11.5px; color: $color-green; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 6px; }
+.m2-mid-banner__title { font-family: $font-display; font-weight: 800; font-size: 22px; margin: 0 0 4px; text-transform: uppercase; }
+.m2-mid-banner__text { font-size: 13.5px; color: rgba(255, 255, 255, 0.6); margin: 0; }

@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Будівельний магазин m2 — будматеріали оптом у Києві</title>
+<meta name="description" content="Будівельний магазин m2: понад 10 000 товарів, оптові ціни, доставка по Києву, області та Україні.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@700;800&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body class="m2-page">
+
+<!-- ================= TOP BAR ================= -->
+<div class="m2-topbar">
+  <div class="m2-container m2-topbar__inner">
+    <div class="m2-topbar__left">
+      <span class="m2-topbar__city">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Київ
+      </span>
+      <a class="m2-topbar__link" href="#">Доставка</a>
+      <a class="m2-topbar__link" href="#">Оплата</a>
+      <a class="m2-topbar__link" href="#">Контакти</a>
+      <a class="m2-topbar__link" href="#">Виробники</a>
+    </div>
+    <div class="m2-topbar__right">
+      <div class="m2-topbar__socials">
+        <a class="m2-topbar__social" href="viber://chat?number=380500163055" aria-label="Viber">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2h-1l-3 3v-3H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v9z"/></svg>
+        </a>
+        <a class="m2-topbar__social" href="https://t.me/m2_org_ua" aria-label="Telegram">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3 2 11l6 2m14-10-4 17-8-6m12-11L8 13"/></svg>
+        </a>
+      </div>
+      <a class="m2-topbar__phone" href="tel:0674102025">(067) 410-20-25</a>
+      <a class="m2-topbar__link" href="#">Особистий кабінет</a>
+      <a class="m2-topbar__link" href="#">ua</a>
+      <a class="m2-topbar__link" href="#">ru</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROMO STRIP ================= -->
+<div class="m2-promo-strip" id="promoStrip">
+  <div class="m2-promo-strip__inner">
+    &gt; Літні знижки на товари при оплаті з ПДВ від 30%
+    <button class="m2-promo-strip__close" id="promoClose" aria-label="Закрити">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="m2-header" id="siteHeader">
+  <div class="m2-container m2-header__inner" style="position:relative;">
+    <button class="m2-header__burger" id="burgerBtn" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a class="m2-header__logo" href="#" data-comment-anchor="logo">
+      <span class="m2-header__logo-mark">m2</span>
+      <span class="m2-header__logo-word">Будівельний магазин<small>будматеріали оптом</small></span>
+    </a>
+
+    <button class="m2-header__catalog-btn" id="catalogBtn">
+      <svg class="m2-header__catalog-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      Каталог товарів
+    </button>
+
+    <div class="m2-header__search">
+      <input class="m2-header__search-input" type="text" placeholder="Що шукаємо? Наприклад, гіпсокартон">
+      <button class="m2-header__search-btn" aria-label="Пошук">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+    </div>
+
+    <div class="m2-header__actions">
+      <div class="m2-header__phone-block">
+        <a class="m2-header__phone" href="tel:0674102025">(067) 410-20-25</a>
+        <span class="m2-header__phone-caption">Пн-Пт 8:00–18:00</span>
+      </div>
+      <button class="m2-header__icon-btn" aria-label="Особистий кабінет">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c1.6-3.6 5-5.5 7.5-5.5s5.9 1.9 7.5 5.5"/></svg>
+      </button>
+      <button class="m2-header__cart">
+        <span class="m2-header__cart-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+          <span class="m2-header__cart-count"></span>
+        </span>
+        <span class="m2-header__cart-sum">Кошик</span>
+      </button>
+    </div>
+
+    <!-- Catalog mega menu -->
+    <nav class="m2-catalog-menu" id="catalogMenu">
+      <div class="m2-catalog-menu__inner">
+        <ul class="m2-catalog-menu__list" id="catalogList">
+          <li class="m2-catalog-menu__item is-active" data-panel="0"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">01</span>Гіпсокартонні системи</a></li>
+          <li class="m2-catalog-menu__item" data-panel="1"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">02</span>Утеплювач</a></li>
+          <li class="m2-catalog-menu__item" data-panel="2"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">03</span>Будівельні суміші</a></li>
+          <li class="m2-catalog-menu__item" data-panel="3"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">04</span>Клейові суміші</a></li>
+          <li class="m2-catalog-menu__item" data-panel="4"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">05</span>Будівельна хімія</a></li>
+          <li class="m2-catalog-menu__item" data-panel="5"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">06</span>Пиломатеріали</a></li>
+          <li class="m2-catalog-menu__item" data-panel="6"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">07</span>Листові матеріали</a></li>
+          <li class="m2-catalog-menu__item" data-panel="7"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">08</span>Підвісна стеля</a></li>
+          <li class="m2-catalog-menu__item" data-panel="8"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">09</span>Покрівельні матеріали</a></li>
+          <li class="m2-catalog-menu__item" data-panel="9"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">10</span>Кладочні матеріали</a></li>
+          <li class="m2-catalog-menu__item" data-panel="10"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">11</span>Сипучі матеріали</a></li>
+          <li class="m2-catalog-menu__item" data-panel="11"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">12</span>Лакофарбові матеріали</a></li>
+          <li class="m2-catalog-menu__item" data-panel="12"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">13</span>Металеві сітки</a></li>
+          <li class="m2-catalog-menu__item" data-panel="13"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">14</span>Електрика</a></li>
+          <li class="m2-catalog-menu__item" data-panel="14"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">15</span>Кутники, маяки, сітка</a></li>
+          <li class="m2-catalog-menu__item" data-panel="15"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">16</span>Металопрокат</a></li>
+          <li class="m2-catalog-menu__item" data-panel="16"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">17</span>Обладнання та інструмент</a></li>
+          <li class="m2-catalog-menu__item" data-panel="17"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">18</span>Кріплення</a></li>
+          <li class="m2-catalog-menu__item" data-panel="18"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">19</span>Будівельний інвентар</a></li>
+          <li class="m2-catalog-menu__item" data-panel="19"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">20</span>Опалення та каналізація</a></li>
+          <li class="m2-catalog-menu__item" data-panel="20"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">21</span>Підлогові покриття</a></li>
+          <li class="m2-catalog-menu__item" data-panel="21"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">22</span>Шпалери та склополотно</a></li>
+          <li class="m2-catalog-menu__item" data-panel="22"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">23</span>Двері міжкімнатні</a></li>
+          <li class="m2-catalog-menu__item" data-panel="23"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">24</span>Фасадні матеріали</a></li>
+          <li class="m2-catalog-menu__item" data-panel="24"><a class="m2-catalog-menu__link"><span class="m2-catalog-menu__link-icon">25</span>Двір і город</a></li>
+        </ul>
+
+        <div class="m2-catalog-menu__panel is-active" data-panel="0">
+          <h3 class="m2-catalog-menu__panel-title">01 / Гіпсокартонні системи</h3>
+          <div class="m2-catalog-menu__panel-grid">
+            <div class="m2-catalog-menu__panel-group">
+              <p class="m2-catalog-menu__panel-heading">Гіпсокартон</p>
+              <ul class="m2-catalog-menu__panel-sub">
+                <li><a class="m2-catalog-menu__panel-link" href="#">Стельовий гіпсокартон</a></li>
+                <li><a class="m2-catalog-menu__panel-link" href="#">Стіновий гіпсокартон</a></li>
+                <li><a class="m2-catalog-menu__panel-link" href="#">Вологостійкий гіпсокартон</a></li>
+                <li><a class="m2-catalog-menu__panel-link" href="#">Вогнестійкий гіпсокартон</a></li>
+              </ul>
+            </div>
+            <div class="m2-catalog-menu__panel-group">
+              <p class="m2-catalog-menu__panel-heading">Профіль для гіпсокартону</p>
+              <ul class="m2-catalog-menu__panel-sub">
+                <li><a class="m2-catalog-menu__panel-link" href="#">Профіль UD</a></li>
+                <li><a class="m2-catalog-menu__panel-link" href="#">Профіль CD</a></li>
+                <li><a class="m2-catalog-menu__panel-link" href="#">Профіль UW</a></li>
+                <li><a class="m2-catalog-menu__panel-link" href="#">Профіль CW</a></li>
+              </ul>
+            </div>
+            <div class="m2-catalog-menu__panel-group">
+              <p class="m2-catalog-menu__panel-heading">Інше</p>
+              <ul class="m2-catalog-menu__panel-sub">
+                <li><a class="m2-catalog-menu__panel-link" href="#">Кріплення для профілів</a></li>
+                <li><a class="m2-catalog-menu__panel-link" href="#">Магнезитова плита</a></li>
+                <li><a class="m2-catalog-menu__panel-link" href="#">Плита гіпсоволокниста</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="m2-catalog-menu__panel" data-panel="1">
+          <h3 class="m2-catalog-menu__panel-title">02 / Утеплювач</h3>
+          <div class="m2-catalog-menu__panel-grid">
+            <div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub">
+              <li><a class="m2-catalog-menu__panel-link" href="#">Пінопласт</a></li>
+              <li><a class="m2-catalog-menu__panel-link" href="#">Пінополістирол</a></li>
+              <li><a class="m2-catalog-menu__panel-link" href="#">Мінеральна вата</a></li>
+            </ul></div>
+            <div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub">
+              <li><a class="m2-catalog-menu__panel-link" href="#">Сітка фасадна</a></li>
+              <li><a class="m2-catalog-menu__panel-link" href="#">Гідробар'єр</a></li>
+              <li><a class="m2-catalog-menu__panel-link" href="#">Вітробар'єр</a></li>
+            </ul></div>
+            <div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub">
+              <li><a class="m2-catalog-menu__panel-link" href="#">Підкладка</a></li>
+              <li><a class="m2-catalog-menu__panel-link" href="#">Паробар'єр</a></li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="m2-catalog-menu__panel" data-panel="2">
+          <h3 class="m2-catalog-menu__panel-title">03 / Будівельні суміші</h3>
+          <div class="m2-catalog-menu__panel-grid">
+            <div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub">
+              <li><a class="m2-catalog-menu__panel-link" href="#">Шпаклівка</a></li>
+              <li><a class="m2-catalog-menu__panel-link" href="#">Штукатурка</a></li>
+              <li><a class="m2-catalog-menu__panel-link" href="#">Наливні підлоги</a></li>
+            </ul></div>
+            <div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub">
+              <li><a class="m2-catalog-menu__panel-link" href="#">Стяжка підлоги</a></li>
+              <li><a class="m2-catalog-menu__panel-link" href="#">Гідроізоляційні суміші</a></li>
+            </ul></div>
+            <div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub">
+              <li><a class="m2-catalog-menu__panel-link" href="#">Цемент</a></li>
+              <li><a class="m2-catalog-menu__panel-link" href="#">Ремонтні суміші</a></li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="m2-catalog-menu__panel" data-panel="3"><h3 class="m2-catalog-menu__panel-title">04 / Клейові суміші</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Клей для плитки</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Клей для газоблоку</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Клей ПВА</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="4"><h3 class="m2-catalog-menu__panel-title">05 / Будівельна хімія</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Грунтовка</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Монтажна піна</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Герметик</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="5"><h3 class="m2-catalog-menu__panel-title">06 / Пиломатеріали</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">OSB</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Брус</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Фанера</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="6"><h3 class="m2-catalog-menu__panel-title">07 / Листові матеріали</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Фіброцементна плита</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="7"><h3 class="m2-catalog-menu__panel-title">08 / Підвісна стеля</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Профіль для стелі</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Плити для стелі</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="8"><h3 class="m2-catalog-menu__panel-title">09 / Покрівельні матеріали</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Бітумна черепиця</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Шифер</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Профнастил</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="9"><h3 class="m2-catalog-menu__panel-title">10 / Кладочні матеріали</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Газоблок</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Цегла</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Шлакоблок</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="10"><h3 class="m2-catalog-menu__panel-title">11 / Сипучі матеріали</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Пісок</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Щебінь</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Керамзит</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="11"><h3 class="m2-catalog-menu__panel-title">12 / Лакофарбові матеріали</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Фасадна фарба</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Інтер'єрна фарба</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Емалі</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="12"><h3 class="m2-catalog-menu__panel-title">13 / Металеві сітки</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Сітка зварна</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Сітка кладочна</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="13"><h3 class="m2-catalog-menu__panel-title">14 / Електрика</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Провід та кабель</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Вимикачі</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Розетки</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="14"><h3 class="m2-catalog-menu__panel-title">15 / Кутники, маяки, сітка</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Кутники</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Маяки</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="15"><h3 class="m2-catalog-menu__panel-title">16 / Металопрокат</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Арматура</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Оцинкований лист</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="16"><h3 class="m2-catalog-menu__panel-title">17 / Обладнання та інструмент</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Дивитись усі товари категорії</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="17"><h3 class="m2-catalog-menu__panel-title">18 / Кріплення</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Саморізи</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Дюбеля</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Анкери</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="18"><h3 class="m2-catalog-menu__panel-title">19 / Будівельний інвентар</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Малярний інструмент</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Драбина</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="19"><h3 class="m2-catalog-menu__panel-title">20 / Опалення та каналізація</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Радіатори</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Каналізаційні труби</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="20"><h3 class="m2-catalog-menu__panel-title">21 / Підлогові покриття</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Лінолеум</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Ламінат</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="21"><h3 class="m2-catalog-menu__panel-title">22 / Шпалери та склополотно</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Шпалери</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Склополотно</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="22"><h3 class="m2-catalog-menu__panel-title">23 / Двері міжкімнатні</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Дверні коробки</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Лиштва</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="23"><h3 class="m2-catalog-menu__panel-title">24 / Фасадні матеріали</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Сайдинг</a></li></ul></div></div>
+        </div>
+        <div class="m2-catalog-menu__panel" data-panel="24"><h3 class="m2-catalog-menu__panel-title">25 / Двір і город</h3>
+          <div class="m2-catalog-menu__panel-grid"><div class="m2-catalog-menu__panel-group"><ul class="m2-catalog-menu__panel-sub"><li><a class="m2-catalog-menu__panel-link" href="#">Геотекстиль</a></li><li><a class="m2-catalog-menu__panel-link" href="#">Тенти будівельні</a></li></ul></div></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= MOBILE FULL-SCREEN MENU ================= -->
+<div class="m2-mobile-menu" id="mobileMenu">
+  <div class="m2-mobile-menu__top">
+    <div class="m2-mobile-menu__logo">
+      <span class="m2-mobile-menu__logo-mark">m2</span>
+    </div>
+    <button class="m2-mobile-menu__close" id="mobileMenuClose" aria-label="Закрити меню">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="m2-mobile-menu__body">
+    <div class="m2-mobile-menu__search">
+      <input class="m2-mobile-menu__search-input" type="text" placeholder="Пошук товарів">
+      <button class="m2-mobile-menu__search-btn" aria-label="Пошук">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+    </div>
+    <button class="m2-mobile-menu__catalog-toggle" id="mobileCatalogOpen">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      Каталог товарів
+    </button>
+
+    <p class="m2-mobile-menu__section-label">Розділи</p>
+    <ul class="m2-mobile-menu__links">
+      <li><a class="m2-mobile-menu__link" href="#">Доставка <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
+      <li><a class="m2-mobile-menu__link" href="#">Оплата <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
+      <li><a class="m2-mobile-menu__link" href="#">Контакти <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
+      <li><a class="m2-mobile-menu__link" href="#">Виробники <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
+      <li><a class="m2-mobile-menu__link" href="#">Блог <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
+      <li><a class="m2-mobile-menu__link" href="#">Особистий кабінет <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></a></li>
+    </ul>
+
+    <div class="m2-mobile-menu__contact-row">
+      <div class="m2-mobile-menu__phones">
+        <a class="m2-mobile-menu__phone" href="tel:0674102025">(067) 410-20-25</a>
+        <a class="m2-mobile-menu__phone" href="tel:0500163055">(050) 016-30-55</a>
+      </div>
+      <div class="m2-mobile-menu__socials">
+        <a class="m2-mobile-menu__social" href="viber://chat?number=380500163055" aria-label="Viber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2h-1l-3 3v-3H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v9z"/></svg>
+        </a>
+        <a class="m2-mobile-menu__social" href="https://t.me/m2_org_ua" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3 2 11l6 2m14-10-4 17-8-6m12-11L8 13"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="m2-mobile-menu__bottom">
+    <span class="m2-mobile-menu__city">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      Київ
+    </span>
+    <span class="m2-mobile-menu__langs">
+      <a class="m2-mobile-menu__lang is-active" href="#">UA</a>
+      <a class="m2-mobile-menu__lang" href="#">RU</a>
+    </span>
+  </div>
+</div>
+
+<!-- ================= MOBILE CATALOG DRILL-DOWN ================= -->
+<div class="m2-mobile-catalog" id="mobileCatalog">
+  <div class="m2-mobile-catalog__top">
+    <button class="m2-mobile-catalog__back" id="mobileCatalogClose" aria-label="Назад">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <span class="m2-mobile-catalog__title">Каталог товарів</span>
+  </div>
+  <div class="m2-mobile-catalog__body" id="mobileCatalogBody">
+    <div class="m2-mobile-catalog__item">
+      <button class="m2-mobile-catalog__row"><span class="m2-mobile-catalog__row-icon">01</span>Гіпсокартонні системи<svg class="m2-mobile-catalog__row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="m2-mobile-catalog__sub">
+        <a class="m2-mobile-catalog__sub-link" href="#">Гіпсокартон</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Профіль для гіпсокартону</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Кріплення для профілів</a>
+      </div>
+    </div>
+    <div class="m2-mobile-catalog__item">
+      <button class="m2-mobile-catalog__row"><span class="m2-mobile-catalog__row-icon">02</span>Утеплювач<svg class="m2-mobile-catalog__row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="m2-mobile-catalog__sub">
+        <a class="m2-mobile-catalog__sub-link" href="#">Пінопласт</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Мінеральна вата</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Гідробар'єр</a>
+      </div>
+    </div>
+    <div class="m2-mobile-catalog__item">
+      <button class="m2-mobile-catalog__row"><span class="m2-mobile-catalog__row-icon">03</span>Будівельні суміші<svg class="m2-mobile-catalog__row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="m2-mobile-catalog__sub">
+        <a class="m2-mobile-catalog__sub-link" href="#">Шпаклівка</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Штукатурка</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Цемент</a>
+      </div>
+    </div>
+    <div class="m2-mobile-catalog__item">
+      <button class="m2-mobile-catalog__row"><span class="m2-mobile-catalog__row-icon">04</span>Клейові суміші<svg class="m2-mobile-catalog__row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="m2-mobile-catalog__sub">
+        <a class="m2-mobile-catalog__sub-link" href="#">Клей для плитки</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Клей для газоблоку</a>
+      </div>
+    </div>
+    <div class="m2-mobile-catalog__item">
+      <button class="m2-mobile-catalog__row"><span class="m2-mobile-catalog__row-icon">05</span>Будівельна хімія<svg class="m2-mobile-catalog__row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="m2-mobile-catalog__sub">
+        <a class="m2-mobile-catalog__sub-link" href="#">Грунтовка</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Монтажна піна</a>
+      </div>
+    </div>
+    <div class="m2-mobile-catalog__item">
+      <button class="m2-mobile-catalog__row"><span class="m2-mobile-catalog__row-icon">06</span>Пиломатеріали<svg class="m2-mobile-catalog__row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="m2-mobile-catalog__sub">
+        <a class="m2-mobile-catalog__sub-link" href="#">OSB</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Брус</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Фанера</a>
+      </div>
+    </div>
+    <div class="m2-mobile-catalog__item">
+      <button class="m2-mobile-catalog__row"><span class="m2-mobile-catalog__row-icon">09</span>Покрівельні матеріали<svg class="m2-mobile-catalog__row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="m2-mobile-catalog__sub">
+        <a class="m2-mobile-catalog__sub-link" href="#">Бітумна черепиця</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Шифер</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Профнастил</a>
+      </div>
+    </div>
+    <div class="m2-mobile-catalog__item">
+      <button class="m2-mobile-catalog__row"><span class="m2-mobile-catalog__row-icon">18</span>Кріплення<svg class="m2-mobile-catalog__row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="m2-mobile-catalog__sub">
+        <a class="m2-mobile-catalog__sub-link" href="#">Саморізи</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Дюбеля</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Анкери</a>
+      </div>
+    </div>
+    <div class="m2-mobile-catalog__item">
+      <button class="m2-mobile-catalog__row"><span class="m2-mobile-catalog__row-icon">25</span>Двір і город<svg class="m2-mobile-catalog__row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="m2-mobile-catalog__sub">
+        <a class="m2-mobile-catalog__sub-link" href="#">Геотекстиль</a>
+        <a class="m2-mobile-catalog__sub-link" href="#">Тенти будівельні</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="m2-hero">
+  <div class="m2-container m2-hero__top">
+    <p class="m2-hero__eyebrow">m2 · Будівельний магазин · Київ</p>
+    <div class="m2-hero__headline-row">
+      <h1 class="m2-hero__headline">Будматеріали <em>оптом</em>.<br>Точно в строк.</h1>
+      <p class="m2-hero__sub">Понад 10 000 позицій на складі, прямі поставки від виробників і доставка день у день по Києву, області та Україні.</p>
+    </div>
+  </div>
+
+  <div class="m2-container m2-hero__grid">
+    <div class="m2-hero__slider" id="heroSlider">
+      <div class="m2-hero__slide is-active">
+        <div class="m2-hero__slide-content">
+          <span class="m2-hero__slide-eyebrow">Доставка</span>
+          <h2 class="m2-hero__slide-title">Нова Пошта по всій Україні</h2>
+          <p class="m2-hero__slide-text">Відправляємо замовлення день в день. Оплата при отриманні або онлайн.</p>
+          <a class="m2-btn m2-btn--primary" href="#">Детальніше</a>
+        </div>
+        <div class="m2-hero__slide-media"><div class="m2-hero__slide-media-inner"><div class="m2-placeholder-img m2-placeholder-img--ink">Фото:<br>кур'єр /<br>відділення НП<br>300×300</div></div></div>
+      </div>
+      <div class="m2-hero__slide">
+        <div class="m2-hero__slide-content">
+          <span class="m2-hero__slide-eyebrow">Утеплення</span>
+          <h2 class="m2-hero__slide-title">Мінеральна вата</h2>
+          <p class="m2-hero__slide-text">Недорогий і простий у застосуванні теплоізоляційний матеріал для житлових і комерційних приміщень.</p>
+          <a class="m2-btn m2-btn--dark" href="#">Детальніше</a>
+        </div>
+        <div class="m2-hero__slide-media"><div class="m2-hero__slide-media-inner"><div class="m2-placeholder-img m2-placeholder-img--ink">Фото:<br>мінеральна вата<br>300×300</div></div></div>
+      </div>
+      <div class="m2-hero__slide">
+        <div class="m2-hero__slide-content">
+          <span class="m2-hero__slide-eyebrow">Оздоблення</span>
+          <h2 class="m2-hero__slide-title">Шпаклівка</h2>
+          <p class="m2-hero__slide-text">Ідеальний спосіб вирівняти будь-яку поверхню під фарбування чи шпалери.</p>
+          <a class="m2-btn m2-btn--primary" href="#">Купити</a>
+        </div>
+        <div class="m2-hero__slide-media"><div class="m2-hero__slide-media-inner"><div class="m2-placeholder-img m2-placeholder-img--ink">Фото:<br>шпаклівка<br>300×300</div></div></div>
+      </div>
+      <button class="m2-hero__arrow m2-hero__arrow--prev" id="heroPrev" aria-label="Попередній">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button class="m2-hero__arrow m2-hero__arrow--next" id="heroNext" aria-label="Наступний">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+      <div class="m2-hero__counter" id="heroCounter"><b>01</b> / 03</div>
+      <div class="m2-hero__dots" id="heroDots">
+        <button class="m2-hero__dot is-active" data-slide="0" aria-label="Слайд 1"></button>
+        <button class="m2-hero__dot" data-slide="1" aria-label="Слайд 2"></button>
+        <button class="m2-hero__dot" data-slide="2" aria-label="Слайд 3"></button>
+      </div>
+    </div>
+
+    <div class="m2-hero__cards">
+      <a class="m2-hero__card m2-hero__card--a" href="#">
+        <span class="m2-hero__card-tag">Акція</span>
+        <span class="m2-hero__card-title">Інтер'єрна фарба</span>
+        <span class="m2-hero__card-cta">Купити →</span>
+      </a>
+      <a class="m2-hero__card m2-hero__card--b" href="#">
+        <span class="m2-hero__card-tag">Хіт</span>
+        <span class="m2-hero__card-title">OSB від 335 грн</span>
+        <span class="m2-hero__card-cta">Купити →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPEC STRIP (was: advantages) ================= -->
+<section class="m2-spec-strip">
+  <div class="m2-container m2-spec-strip__grid">
+    <div class="m2-spec-strip__item">
+      <span class="m2-spec-strip__index">01</span>
+      <p class="m2-spec-strip__title">Швидка доставка</p>
+      <p class="m2-spec-strip__text">24 години по країні</p>
+    </div>
+    <div class="m2-spec-strip__item">
+      <span class="m2-spec-strip__index">02</span>
+      <p class="m2-spec-strip__title">Сервіс 24/7</p>
+      <p class="m2-spec-strip__text">Підтримка по телефону</p>
+    </div>
+    <div class="m2-spec-strip__item">
+      <span class="m2-spec-strip__index">03</span>
+      <p class="m2-spec-strip__title">Бонуси</p>
+      <p class="m2-spec-strip__text">Бали за кожне замовлення</p>
+    </div>
+    <div class="m2-spec-strip__item">
+      <span class="m2-spec-strip__index">04</span>
+      <p class="m2-spec-strip__title">Гарантія якості</p>
+      <p class="m2-spec-strip__text">Тільки оригінал від виробників</p>
+    </div>
+    <div class="m2-spec-strip__item">
+      <span class="m2-spec-strip__index">05</span>
+      <p class="m2-spec-strip__title">Доступні ціни</p>
+      <p class="m2-spec-strip__text">Прямі поставки від виробників</p>
+    </div>
+    <div class="m2-spec-strip__item">
+      <span class="m2-spec-strip__index">06</span>
+      <p class="m2-spec-strip__title">Зручна оплата</p>
+      <p class="m2-spec-strip__text">При отриманні або онлайн</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POPULAR CATEGORIES ================= -->
+<section class="m2-section m2-categories">
+  <div class="m2-container">
+    <div class="m2-section-head">
+      <div class="m2-section-head__group">
+        <h2 class="m2-section-title">Популярні категорії</h2>
+      </div>
+    </div>
+    <div class="m2-categories__grid">
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">01</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="4"/><rect x="3" y="10" width="18" height="4"/><rect x="3" y="16" width="18" height="4"/></svg></div><span class="m2-categories__name">Гіпсокартонні системи</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">02</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 13c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></div><span class="m2-categories__name">Утеплювач</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">03</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3h8l2 5-3 13H9L6 8z"/><path d="M8 3c0 3 8 3 8 0"/></svg></div><span class="m2-categories__name">Будівельні суміші</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">04</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2s6 7 6 12a6 6 0 0 1-12 0c0-5 6-12 6-12z"/></svg></div><span class="m2-categories__name">Будівельна хімія</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">05</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20 15 9l3 3-11 11H4v-3z"/><path d="M13 6l5 5"/></svg></div><span class="m2-categories__name">Клейові суміші</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">06</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M3 9V6h4v3M17 9V6h4v3"/></svg></div><span class="m2-categories__name">Пиломатеріали</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">07</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12 12 4l9 8"/><path d="M6 11v9h12v-9"/></svg></div><span class="m2-categories__name">Покрівельні матеріали</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">08</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="7" height="4"/><rect x="14" y="4" width="7" height="4"/><rect x="7" y="10" width="7" height="4"/><rect x="3" y="16" width="7" height="4"/><rect x="14" y="16" width="7" height="4"/></svg></div><span class="m2-categories__name">Кладочні матеріали</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">09</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 19h18"/><path d="M6 19c0-6 3-9 6-9s6 3 6 9"/><circle cx="8" cy="14.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="16" cy="14.5" r="0.6" fill="currentColor" stroke="none"/></svg></div><span class="m2-categories__name">Сипучі матеріали</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">10</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="12" height="5" rx="1"/><path d="M13 8.5h4a2 2 0 0 1 2 2V13"/><rect x="17" y="13" width="4" height="7" rx="1"/></svg></div><span class="m2-categories__name">Лакофарбові матеріали</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">11</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18M9 3v18M15 3v18M21 3v18M3 3h18M3 9h18M3 15h18M3 21h18"/></svg></div><span class="m2-categories__name">Металеві сітки</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">12</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div><span class="m2-categories__name">Електрика</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">13</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16M4 20h16M12 4v16M8 4v4M16 4v4M8 16v4M16 16v4"/></svg></div><span class="m2-categories__name">Металопрокат</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">14</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h18M3 8l3-5h12l3 5M3 8v3h18V8"/><path d="M3 15h18"/></svg></div><span class="m2-categories__name">Підвісна стеля</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">15</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8l6-3 6 3-6 3z"/><path d="M8 8l6-3 6 3-6 3z"/><path d="M2 14l6-3 6 3-6 3z"/><path d="M8 14l6-3 6 3-6 3z"/></svg></div><span class="m2-categories__name">Підлогові покриття</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">16</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h9a4 4 0 0 1 4 4v8"/><circle cx="17" cy="18" r="1.4" fill="currentColor" stroke="none"/><path d="M4 6v0"/><rect x="2" y="4" width="4" height="4"/></svg></div><span class="m2-categories__name">Каналізація</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">17</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M8 5v14M12 5v14M16 5v14"/></svg></div><span class="m2-categories__name">Радіатори</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">18</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M12 21v-6M9 8l3-1 3 1-1 3h-4z"/><path d="M9.5 10.5l-4 8M14.5 10.5l4 8"/></svg></div><span class="m2-categories__name">Кріплення</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">19</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 21 12 3l6 18"/><path d="M8 15h8M9.3 11h5.4"/></svg></div><span class="m2-categories__name">Будівельний інвентар</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">20</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="13"/><path d="M4 8l8-5 8 5"/><rect x="10" y="14" width="4" height="7"/><path d="M8 12h1M15 12h1"/></svg></div><span class="m2-categories__name">Фасадні матеріали</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">21</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="6" height="18" rx="1"/><path d="M10 5c3 1 5 3 5 6s-2 5-5 6"/></svg></div><span class="m2-categories__name">Шпалери та склополотно</span></a>
+      <a class="m2-categories__item" href="#"><span class="m2-categories__code">22</span><div class="m2-categories__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 17l3-5 3 2 4-7 6 10z"/><circle cx="6" cy="9" r="1.5"/></svg></div><span class="m2-categories__name">Щебінь</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS OF THE DAY ================= -->
+<section class="m2-section m2-products m2-section--dim">
+  <div class="m2-container">
+    <div class="m2-section-head">
+      <div class="m2-section-head__group">
+        <h2 class="m2-section-title">Товари дня</h2>
+      </div>
+    </div>
+    <div class="m2-deal-timer">
+      <span class="m2-deal-timer__label">Залишилось:</span>
+      <div class="m2-deal-timer__units">
+        <div class="m2-deal-timer__unit"><span class="m2-deal-timer__unit-value" id="tHours">08</span><span class="m2-deal-timer__unit-label">год</span></div>
+        <div class="m2-deal-timer__unit"><span class="m2-deal-timer__unit-value" id="tMinutes">42</span><span class="m2-deal-timer__unit-label">хв</span></div>
+        <div class="m2-deal-timer__unit"><span class="m2-deal-timer__unit-value" id="tSeconds">17</span><span class="m2-deal-timer__unit-label">сек</span></div>
+      </div>
+    </div>
+    <div class="m2-product-scroller">
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media"><div class="m2-placeholder-img">Фото товару<br>255×190</div></div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">Ніж прорізний посилений 18 мм</p>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">149.02 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media"><div class="m2-placeholder-img">Фото товару<br>255×190</div></div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">Пінопласт EPS-90 0,5×1 м (100 мм)</p>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">154.86 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media"><div class="m2-placeholder-img">Фото товару<br>255×190</div></div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">Front Гідростоп Мастика гідроізоляційна біла (2,5 кг)</p>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">464.50 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media"><div class="m2-placeholder-img">Фото товару<br>255×190</div></div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">CERESIT CT-35 Штукатурка декоративна короїд 2,5 мм (25 кг)</p>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">811.29 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media"><div class="m2-placeholder-img">Фото товару<br>255×190</div></div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">Сітка зварна 1,4×50×50 мм 1×30 м оцинкована (кв. м)</p>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">45.93 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media"><div class="m2-placeholder-img">Фото товару<br>255×190</div></div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">Мінеральна вата ISOVER Т-П (100 мм)</p>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">от 115 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MID BANNER ================= -->
+<section class="m2-section m2-section--tight m2-products">
+  <div class="m2-container">
+    <div class="m2-mid-banner">
+      <div>
+        <p class="m2-mid-banner__eyebrow">Пропозиція тижня</p>
+        <p class="m2-mid-banner__title">OSB від 335 грн</p>
+        <p class="m2-mid-banner__text">Широкий вибір плит для будівництва та обшивки</p>
+      </div>
+      <a class="m2-btn m2-btn--primary" href="#">Купити</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEW ARRIVALS ================= -->
+<section class="m2-section m2-products">
+  <div class="m2-container">
+    <div class="m2-section-head">
+      <div class="m2-section-head__group">
+        <h2 class="m2-section-title">Новинки</h2>
+      </div>
+    </div>
+    <div class="m2-product-grid">
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media">
+          <span class="m2-product-card__badge m2-product-card__badge--new">Новинка</span>
+          <div class="m2-placeholder-img">Фото товару<br>200×200</div>
+        </div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">KRUMIX KM Filler Plus шпаклівка гіпсова для швів (25 кг)</p>
+          <span class="m2-product-card__stock">В наявності</span>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">897.01 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media">
+          <span class="m2-product-card__badge m2-product-card__badge--popular">Популярний</span>
+          <div class="m2-placeholder-img">Фото товару<br>200×200</div>
+        </div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">VIPGIPS Makina Штукатурка гіпсова машинного нанесення (30 кг)</p>
+          <span class="m2-product-card__stock">В наявності</span>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">357.91 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media">
+          <span class="m2-product-card__badge m2-product-card__badge--popular">Популярний</span>
+          <div class="m2-placeholder-img">Фото товару<br>200×200</div>
+        </div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">Фінішна гіпсова шпаклівка SEMIN CE-86, 10 кг</p>
+          <span class="m2-product-card__stock">В наявності</span>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">1 660.06 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media">
+          <span class="m2-product-card__badge m2-product-card__badge--hit">Хіт продажів</span>
+          <div class="m2-placeholder-img">Фото товару<br>200×200</div>
+        </div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">CERESIT CT-126 гіпсова шпаклівка фінішна (25 кг)</p>
+          <span class="m2-product-card__stock">В наявності</span>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">943.09 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+      <a class="m2-product-card" href="#">
+        <div class="m2-product-card__media">
+          <span class="m2-product-card__badge m2-product-card__badge--popular">Популярний</span>
+          <div class="m2-placeholder-img">Фото товару<br>200×200</div>
+        </div>
+        <div class="m2-product-card__body">
+          <p class="m2-product-card__title">Полімін КГ-25 Клей для гіпсокартону «Монтаж-гіпс» (25 кг)</p>
+          <span class="m2-product-card__stock">В наявності</span>
+          <div class="m2-product-card__meta"><span class="m2-product-card__price">369.53 грн</span>
+            <button class="m2-product-card__cart-btn" aria-label="До кошика"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></button>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="m2-products__more">
+      <button class="m2-btn m2-btn--ghost">Показати ще</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section class="m2-section m2-news m2-section--dim">
+  <div class="m2-container">
+    <div class="m2-section-head">
+      <div class="m2-section-head__group">
+        <h2 class="m2-section-title">Новини</h2>
+      </div>
+      <a class="m2-section-head__link" href="#">Усі статті</a>
+    </div>
+    <div class="m2-news__grid">
+      <a class="m2-news__card" href="#">
+        <div class="m2-news__media"><div class="m2-placeholder-img">Фото статті<br>400×300</div></div>
+        <div class="m2-news__body">
+          <span class="m2-news__date">30.06.2026</span>
+          <p class="m2-news__title">Як доглядати за руберойдом з посипкою, щоб продовжити термін служби покрівлі</p>
+        </div>
+      </a>
+      <a class="m2-news__card" href="#">
+        <div class="m2-news__media"><div class="m2-placeholder-img">Фото статті<br>400×300</div></div>
+        <div class="m2-news__body">
+          <span class="m2-news__date">29.06.2026</span>
+          <p class="m2-news__title">Як вибрати емаль для фарбування дому: корисні поради</p>
+        </div>
+      </a>
+      <a class="m2-news__card" href="#">
+        <div class="m2-news__media"><div class="m2-placeholder-img">Фото статті<br>400×300</div></div>
+        <div class="m2-news__body">
+          <span class="m2-news__date">28.06.2026</span>
+          <p class="m2-news__title">Як фарба з кварцовим піском покращує захист стін: поради експертів</p>
+        </div>
+      </a>
+      <a class="m2-news__card" href="#">
+        <div class="m2-news__media"><div class="m2-placeholder-img">Фото статті<br>400×300</div></div>
+        <div class="m2-news__body">
+          <span class="m2-news__date">28.06.2026</span>
+          <p class="m2-news__title">Інструкція: як правильно вибрати та наносити лак Polifarb для дерев'яних поверхонь</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT (SEO text, collapsible) ================= -->
+<section class="m2-section m2-about">
+  <div class="m2-container">
+    <div class="m2-section-head">
+      <div class="m2-section-head__group">
+        <h2 class="m2-section-title">Про магазин</h2>
+      </div>
+    </div>
+    <p class="m2-about__lead">
+      У планах ремонт чи повноцінне будівництво? Магазин m2 допоможе підібрати всі необхідні будматеріали — від блоків
+      гіпсокартону до оздоблювальних матеріалів. Складіть кошик у нашому каталозі, а ми проконсультуємо і доставимо
+      покупку до будь-якої точки Києва та області.
+    </p>
+
+    <div class="m2-about__grid">
+      <details class="m2-about__item" open>
+        <summary class="m2-about__summary"><span class="m2-about__summary-index">01</span>Переваги нашого інтернет-магазину
+          <svg class="m2-about__summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="m2-about__content">
+          <ul>
+            <li>Товар виключно високої якості — працюємо лише з перевіреними виробниками.</li>
+            <li>Доставка у будь-яку точку міста та області власним транспортом.</li>
+            <li>Вигідні комерційні пропозиції оптовим і постійним покупцям, регулярні акції.</li>
+            <li>Консультації кваліфікованих менеджерів на всіх етапах купівлі.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="m2-about__item">
+        <summary class="m2-about__summary"><span class="m2-about__summary-index">02</span>Оплата та доставка
+          <svg class="m2-about__summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="m2-about__content">
+          <p>Оплата готівкою при отриманні, безготівковий розрахунок або переказ на картку — обираєте зручний варіант.</p>
+          <p>Самовивіз або доставка вантажним транспортом магазину, залежно від обсягу замовлення. Підняття матеріалів
+            на поверх — за попередньою домовленістю.</p>
+        </div>
+      </details>
+
+      <details class="m2-about__item">
+        <summary class="m2-about__summary"><span class="m2-about__summary-index">03</span>Гарантії та повернення
+          <svg class="m2-about__summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="m2-about__content">
+          <p>Кожна партія товару перевіряється на механічні пошкодження та відповідність заявленим характеристикам.</p>
+          <p>Повернення — протягом 14 днів з моменту оплати за умови збереженого товарного вигляду та чека.</p>
+        </div>
+      </details>
+
+      <details class="m2-about__item">
+        <summary class="m2-about__summary"><span class="m2-about__summary-index">04</span>Асортимент будбази m2
+          <svg class="m2-about__summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="m2-about__content">
+          <p>Системи з гіпсокартону, будівельний інвентар, лакофарбові покриття, клейові й мурувальні суміші,
+            будівельна хімія, утеплювачі, фасадні й покрівельні матеріали, підлогові покриття, сантехніка, вікна,
+            двері, пиломатеріали та багато іншого.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTS ================= -->
+<section class="m2-section m2-contacts m2-section--dim">
+  <div class="m2-container">
+    <div class="m2-section-head">
+      <div class="m2-section-head__group">
+        <h2 class="m2-section-title">Контакти</h2>
+      </div>
+    </div>
+    <div class="m2-contacts__grid">
+      <div class="m2-contacts__info">
+        <div class="m2-contacts__row">
+          <span class="m2-contacts__row-index">01</span>
+          <div><p class="m2-contacts__row-label">Адреса</p><p class="m2-contacts__row-value">м. Київ</p></div>
+        </div>
+        <div class="m2-contacts__row">
+          <span class="m2-contacts__row-index">02</span>
+          <div>
+            <p class="m2-contacts__row-label">Телефони</p>
+            <p class="m2-contacts__row-value"><a href="tel:0674102025">(067) 410-20-25</a></p>
+            <p class="m2-contacts__row-value"><a href="tel:0500163055">(050) 016-30-55</a></p>
+          </div>
+        </div>
+        <div class="m2-contacts__row">
+          <span class="m2-contacts__row-index">03</span>
+          <div>
+            <p class="m2-contacts__row-label">Час роботи</p>
+            <ul class="m2-contacts__hours">
+              <li><span>Пн–Пт</span><span>8:00–18:00</span></li>
+              <li><span>Сб</span><span>9:00–14:00</span></li>
+              <li><span>Нд</span><span>вихідний</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="m2-contacts__cta">
+          <a class="m2-btn m2-btn--primary" href="#">До контактів</a>
+        </div>
+      </div>
+      <div class="m2-placeholder-img m2-contacts__map">Карта:<br>м. Київ</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="m2-footer">
+  <div class="m2-container m2-footer__top">
+    <div class="m2-footer__brand">
+      <a class="m2-footer__logo" href="#">
+        <span class="m2-footer__logo-mark">m2</span>
+        <span class="m2-footer__logo-word">m2</span>
+      </a>
+      <p class="m2-footer__desc">Будівельний магазин з понад 10 000 товарів. Оптові ціни, доставка по Києву,
+        області та Україні.</p>
+      <div class="m2-footer__socials">
+        <a class="m2-footer__social" href="viber://chat?number=380500163055" aria-label="Viber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2h-1l-3 3v-3H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v9z"/></svg>
+        </a>
+        <a class="m2-footer__social" href="https://t.me/m2_org_ua" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3 2 11l6 2m14-10-4 17-8-6m12-11L8 13"/></svg>
+        </a>
+        <a class="m2-footer__social" href="#" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="m2-footer__col-title">Популярне</h3>
+      <ul class="m2-footer__links">
+        <li><a class="m2-footer__link" href="#">Гіпсокартон</a></li>
+        <li><a class="m2-footer__link" href="#">OSB</a></li>
+        <li><a class="m2-footer__link" href="#">Пінопласт</a></li>
+        <li><a class="m2-footer__link" href="#">Пінополістирол</a></li>
+        <li><a class="m2-footer__link" href="#">Мінеральна вата</a></li>
+        <li><a class="m2-footer__link" href="#">Клей для плитки</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="m2-footer__col-title">Інформація</h3>
+      <ul class="m2-footer__links">
+        <li><a class="m2-footer__link" href="#">Доставка</a></li>
+        <li><a class="m2-footer__link" href="#">Оплата</a></li>
+        <li><a class="m2-footer__link" href="#">Контакти</a></li>
+        <li><a class="m2-footer__link" href="#">Гарантія та повернення</a></li>
+        <li><a class="m2-footer__link" href="#">Про нас</a></li>
+        <li><a class="m2-footer__link" href="#">Блог</a></li>
+        <li><a class="m2-footer__link" href="#">Карта сайту</a></li>
+        <li><a class="m2-footer__link" href="#">Виробники</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="m2-footer__contact-title">Зв'язатися з нами</h3>
+      <a class="m2-footer__phone" href="tel:0674102025">(067) 410-20-25</a>
+      <a class="m2-footer__phone" href="tel:0500163055">(050) 016-30-55</a>
+      <a class="m2-footer__email" href="#">info@m2.org.ua</a>
+      <div class="m2-footer__cta">
+        <a class="m2-btn m2-btn--on-ink" href="#">Каталог товарів</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="m2-container m2-footer__bottom">
+    <span>m2 © 2026 — Будівельний магазин</span>
+    <div class="m2-footer__bottom-links">
+      <a class="m2-footer__bottom-link" href="#">Політика конфіденційності</a>
+      <a class="m2-footer__bottom-link" href="#">Карта сайту</a>
+    </div>
+  </div>
+</footer>
+
+<button class="m2-back-to-top" id="backToTop" aria-label="Нагору">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
