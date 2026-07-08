@@ -1,0 +1,184 @@
+// ==========================================================================
+// Product sections (top products / new arrivals)
+// ==========================================================================
+
+.section-products {
+  @include container;
+  padding-top: 40px;
+  padding-bottom: 8px;
+
+  @media (min-width: $bp-mobile) {
+    padding-top: 48px;
+  }
+
+  &__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 18px;
+
+    @media (min-width: $bp-mobile) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 800;
+    font-size: 21px;
+    color: $color-ink;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 26px;
+    }
+  }
+
+  &__all-link {
+    font-weight: 600;
+    font-size: 13.5px;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 14px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    @media (min-width: $bp-mobile) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (min-width: $bp-tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.product-card {
+  background: $color-card;
+  border: 1px solid $color-line-soft;
+  border-radius: $radius-lg;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+
+  @media (min-width: $bp-mobile) {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 8px;
+    z-index: 1;
+
+    &--discount { background: $color-accent; }
+    &--new { background: $color-panel; }
+
+    @media (min-width: $bp-mobile) {
+      top: 14px;
+      left: 14px;
+      font-size: 12px;
+      padding: 4px 9px;
+    }
+  }
+
+  &__image {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    background: repeating-linear-gradient(135deg, $color-placeholder-a, $color-placeholder-a 10px, $color-placeholder-b 10px, $color-placeholder-b 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image-label {
+    font: 600 9px monospace;
+    color: $color-muted-light;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 10px;
+    }
+  }
+
+  &__title {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: $color-ink-medium;
+    line-height: 1.35;
+    min-height: 34px;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 14px;
+      min-height: 38px;
+    }
+  }
+
+  &__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__price {
+    font-family: $font-heading;
+    font-weight: 800;
+    font-size: 15px;
+    color: $color-ink;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 17px;
+    }
+  }
+
+  &__old-price {
+    font-size: 12px;
+    color: $color-muted-light;
+    text-decoration: line-through;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 13px;
+    }
+  }
+
+  &__button {
+    margin-top: 4px;
+    border: none;
+    height: 38px;
+    border-radius: 11px;
+    font-weight: 600;
+    font-size: 13px;
+
+    @media (min-width: $bp-mobile) {
+      height: 42px;
+      font-size: 14px;
+    }
+
+    &--primary {
+      background: $color-panel;
+      color: #fff;
+
+      &:hover { background: lighten($color-panel, 6%); }
+    }
+
+    &--tint {
+      background: $color-accent-tint;
+      color: $color-accent-darker;
+
+      &:hover { background: darken($color-accent-tint, 4%); }
+    }
+  }
+}

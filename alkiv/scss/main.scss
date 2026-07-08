@@ -1,0 +1,14 @@
+// ==========================================================================
+// Alkiv — main stylesheet entry point
+// Compile with: sass main.scss ../css/style.css
+// ==========================================================================
+
+@import 'variables';
+@import 'base';
+@import 'header';
+@import 'mobile-menu';
+@import 'hero';
+@import 'products';
+@import 'portfolio';
+@import 'seo';
+@import 'footer';

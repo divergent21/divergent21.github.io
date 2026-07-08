@@ -1,0 +1,80 @@
+// ==========================================================================
+// Base / reset
+// ==========================================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: $color-bg;
+  color: $color-ink;
+  font-family: $font-body;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: $color-accent-dark;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-accent-darker;
+  }
+}
+
+button {
+  font-family: $font-body;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-heading;
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-line;
+  border-radius: 8px;
+}
+
+// visually hidden checkbox inputs used for pure-CSS toggles
+.visually-hidden-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.container {
+  @include container;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,58 @@
+// ==========================================================================
+// Alkiv — SCSS variables
+// ==========================================================================
+
+// Colors — warm neutral base + muted terracotta accent
+$color-bg:            #FAF8F5;
+$color-card:          #FFFFFF;
+$color-ink:           #21201D;
+$color-ink-soft:      #4A463F;
+$color-ink-medium:    #302E29;
+$color-muted:         #8A857C;
+$color-muted-light:   #B0AA9F;
+$color-line:          #E7E2DA;
+$color-line-soft:     #EFEBE3;
+$color-line-softer:   #F0ECE5;
+
+$color-accent:        #D96B3A;
+$color-accent-dark:   #B8552A;
+$color-accent-darker: #8F4120;
+$color-accent-tint:   #F2E4D8;
+$color-accent-tint-2: #EAD9C7;
+
+$color-panel:         #21201D;
+$color-panel-alt:     #2C2A25;
+$color-panel-border:  #3A3833;
+$color-panel-muted:   #B0AA9F;
+$color-panel-muted-2: #8A857C;
+
+$color-placeholder-a: #F5F2EC;
+$color-placeholder-b: #EDE9E0;
+
+// Type
+$font-heading: 'Manrope', 'Inter', sans-serif;
+$font-body:    'Inter', sans-serif;
+
+// Radii
+$radius-sm:  10px;
+$radius-md:  14px;
+$radius-lg:  18px;
+$radius-xl:  22px;
+
+// Layout
+$container-max: 1280px;
+$container-pad: 24px;
+
+// Breakpoints
+$bp-tablet:  1024px;
+$bp-mobile:  700px;
+
+@mixin container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $container-pad;
+
+  @media (max-width: $bp-mobile) {
+    padding: 0 16px;
+  }
+}

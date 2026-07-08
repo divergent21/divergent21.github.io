@@ -1,0 +1,115 @@
+// ==========================================================================
+// Portfolio / social proof ("Реалізовані об'єкти")
+// ==========================================================================
+
+.portfolio {
+  background: $color-panel;
+  margin-top: 44px;
+  padding: 40px 0;
+
+  @media (min-width: $bp-mobile) {
+    margin-top: 56px;
+    padding: 52px 0;
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+
+    @media (min-width: $bp-mobile) {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 800;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 6px;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 26px;
+    }
+  }
+
+  &__subtitle {
+    color: $color-panel-muted;
+    font-size: 13.5px;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 14.5px;
+    }
+  }
+
+  &__all-link {
+    font-weight: 600;
+    font-size: 14px;
+    color: $color-accent-tint;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    @media (min-width: $bp-mobile) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+  }
+}
+
+.portfolio-card {
+  background: $color-panel-alt;
+  border: 1px solid $color-panel-border;
+  border-radius: $radius-lg;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: $bp-mobile) {
+    padding: 18px;
+    gap: 34px;
+  }
+
+  &__tag {
+    font: 600 10px monospace;
+    color: $color-panel-muted-2;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 10.5px;
+    }
+  }
+
+  &__name {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 4px;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 15px;
+    }
+  }
+
+  &__desc {
+    font-size: 12px;
+    color: $color-panel-muted-2;
+
+    @media (min-width: $bp-mobile) {
+      font-size: 12.5px;
+    }
+  }
+}

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Будівельний магазин в Києві, інтернет-магазин будматеріалів в Україні | Alkiv</title>
+<meta name="description" content="Alkiv: інтернет-магазин будівельних матеріалів в Києві. Будівельний магазин з кращою ціною на будматеріали. Доставка по Києву і Україні.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- pure-CSS toggles: must live before the elements they control -->
+<input type="checkbox" id="mobile-menu-toggle" class="visually-hidden-toggle">
+<input type="checkbox" id="catalog-toggle" class="visually-hidden-toggle">
+<input type="checkbox" id="seo-toggle" class="visually-hidden-toggle">
+
+<div class="topbar">
+  <div class="topbar__inner">
+    <div>
+      <a class="topbar__phone" href="tel:+380502018092">050 201-80-92</a>
+      <span class="topbar__note">дзвінки безкоштовні</span>
+    </div>
+    <div class="topbar__right">
+      <a href="#" style="color:#D8D3CA">Увійти</a>
+      <span class="topbar__divider"></span>
+      <button class="topbar__lang topbar__lang--active" type="button">UA</button>
+      <span style="color:#5C574F">/</span>
+      <button class="topbar__lang" type="button">RU</button>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="site-header__row">
+    <label class="site-header__burger" for="mobile-menu-toggle" aria-label="Відкрити меню">
+      <span class="site-header__burger-bar"></span>
+      <span class="site-header__burger-bar"></span>
+      <span class="site-header__burger-bar site-header__burger-bar--short"></span>
+    </label>
+
+    <a class="site-header__logo" href="index.html">
+      <span class="site-header__logo-mark">A</span>
+      <span class="site-header__logo-word">alkiv</span>
+    </a>
+
+    <form class="site-header__search" role="search">
+      <svg class="site-header__search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input class="site-header__search-input" type="search" placeholder="Пошук будматеріалів">
+      <button class="site-header__search-btn" type="submit">Знайти</button>
+    </form>
+
+    <div class="site-header__spacer"></div>
+
+    <div class="site-header__actions">
+      <a class="site-header__icon-link" href="#">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23.5 8.5 21.5 12.5 19 16.65 12 21 12 21z" stroke="#21201D" stroke-width="1.7"/></svg>
+        <span class="site-header__icon-label">Обране</span>
+      </a>
+      <a class="site-header__icon-link" href="#">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6" stroke="#21201D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="#21201D"/><circle cx="17" cy="20" r="1.4" fill="#21201D"/></svg>
+        <span class="site-header__icon-label">Кошик</span>
+        <span class="site-header__badge">0</span>
+      </a>
+    </div>
+  </div>
+
+  <nav class="catalog-bar" aria-label="Каталог продукції">
+    <label class="catalog-bar__overlay" for="catalog-toggle"></label>
+    <div class="catalog-bar__inner">
+      <label class="catalog-bar__toggle-label" for="catalog-toggle">
+        <svg class="catalog-bar__toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Каталог продукції
+      </label>
+      <a class="catalog-bar__link" href="#">Про нас</a>
+      <a class="catalog-bar__link" href="#">Бренди</a>
+      <a class="catalog-bar__link" href="#">Калькулятори</a>
+      <a class="catalog-bar__link" href="#">Розпродаж</a>
+      <a class="catalog-bar__link" href="#">Новини</a>
+      <a class="catalog-bar__link" href="#">Контакти</a>
+    </div>
+
+    <div class="catalog-bar__panel">
+      <div class="catalog-bar__panel-inner">
+        <div class="catalog-bar__panel-head">
+          <span class="catalog-bar__panel-title">Каталог продукції</span>
+          <label class="catalog-bar__panel-close" for="catalog-toggle">✕</label>
+        </div>
+        <div class="catalog-bar__grid">
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Підвісні стелі</div>
+            <div class="catalog-bar__group-count">11 категорій</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Гіпсокартонні системи</div>
+            <div class="catalog-bar__group-count">7 категорій</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Утеплювачі</div>
+            <div class="catalog-bar__group-count">3 категорії</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Будівельні матеріали</div>
+            <div class="catalog-bar__group-count">4 категорії</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Будівельні суміші</div>
+            <div class="catalog-bar__group-count">12 категорій</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Пиломатеріали</div>
+            <div class="catalog-bar__group-count">4 категорії</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Будівельне кріплення</div>
+            <div class="catalog-bar__group-count">5 категорій</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Загальнобудівельні товари</div>
+            <div class="catalog-bar__group-count">6 категорій</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Лакофарбові матеріали</div>
+            <div class="catalog-bar__group-count">3 категорії</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Інструменти</div>
+            <div class="catalog-bar__group-count">3 категорії</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Покрівля та фасад</div>
+            <div class="catalog-bar__group-count">6 категорій</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Електрообладнання</div>
+            <div class="catalog-bar__group-count">6 категорій</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Світильники</div>
+            <div class="catalog-bar__group-count">8 категорій</div>
+          </a>
+          <a class="catalog-bar__group" href="#">
+            <div class="catalog-bar__group-name">Сад і город</div>
+            <div class="catalog-bar__group-count">3 категорії</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- MOBILE FULLSCREEN MENU -->
+<nav class="mobile-menu" aria-label="Мобільне меню">
+  <div class="mobile-menu__header">
+    <a class="mobile-menu__logo" href="index.html">
+      <span class="mobile-menu__logo-mark">A</span>
+      <span class="mobile-menu__logo-word">alkiv</span>
+    </a>
+    <label class="mobile-menu__close" for="mobile-menu-toggle" aria-label="Закрити меню">✕</label>
+  </div>
+  <div class="mobile-menu__body">
+    <form class="mobile-menu__search" role="search">
+      <svg class="mobile-menu__search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input class="mobile-menu__search-input" type="search" placeholder="Пошук будматеріалів">
+    </form>
+
+    <div class="mobile-menu__section-title">Каталог</div>
+    <a class="mobile-menu__link" href="#">Підвісні стелі <span class="mobile-menu__chevron">›</span></a>
+    <a class="mobile-menu__link" href="#">Гіпсокартонні системи <span class="mobile-menu__chevron">›</span></a>
+    <a class="mobile-menu__link" href="#">Утеплювачі <span class="mobile-menu__chevron">›</span></a>
+    <a class="mobile-menu__link" href="#">Будівельні матеріали <span class="mobile-menu__chevron">›</span></a>
+    <a class="mobile-menu__link" href="#">Будівельні суміші <span class="mobile-menu__chevron">›</span></a>
+    <a class="mobile-menu__link" href="#">Пиломатеріали <span class="mobile-menu__chevron">›</span></a>
+    <a class="mobile-menu__link" href="#">Будівельне кріплення <span class="mobile-menu__chevron">›</span></a>
+    <a class="mobile-menu__link" href="#">Загальнобудівельні товари <span class="mobile-menu__chevron">›</span></a>
+    <a class="mobile-menu__link" href="#">Електрообладнання <span class="mobile-menu__chevron">›</span></a>
+    <a class="mobile-menu__link" href="#">Світильники <span class="mobile-menu__chevron">›</span></a>
+
+    <div class="mobile-menu__section-title">Компанія</div>
+    <a class="mobile-menu__link mobile-menu__link--secondary" href="#">Про нас</a>
+    <a class="mobile-menu__link mobile-menu__link--secondary" href="#">Бренди</a>
+    <a class="mobile-menu__link mobile-menu__link--secondary" href="#">Калькулятори</a>
+    <a class="mobile-menu__link mobile-menu__link--secondary" href="#">Розпродаж</a>
+    <a class="mobile-menu__link mobile-menu__link--secondary" href="#">Новини</a>
+    <a class="mobile-menu__link mobile-menu__link--secondary" href="#">Контакти</a>
+
+    <a class="mobile-menu__call" href="tel:+380502018092">📞 050 201-80-92</a>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" aria-label="Банери та швидкі дії">
+    <div class="hero__grid">
+      <a class="hero__banner hero__banner--main" href="#">
+        <span class="hero__banner-tag">ГОЛОВНИЙ БАНЕР 1200×560</span>
+        <div class="hero__banner-content">
+          <div class="hero__banner-title">Ремонт покриття доріг та майданчиків</div>
+          <span class="hero__banner-cta">Дізнатись більше</span>
+        </div>
+      </a>
+      <div class="hero__secondary-col">
+        <a class="hero__banner hero__banner--secondary" href="#">
+          <span class="hero__banner-tag">БАНЕР 600×260</span>
+          <div class="hero__banner-title" style="font-size:18px;margin-bottom:0">SEMIN — саморізи та шпаклівка</div>
+        </a>
+        <a class="hero__banner hero__banner--dark" href="#">
+          <div class="hero__banner-title hero__banner-title--white">Замовити прорахунок</div>
+          <div class="hero__banner-sub">Розрахуємо кошторис за 1 день</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__service-grid">
+      <a class="hero__service-card" href="#">
+        <span class="hero__service-icon">📐</span>
+        <span class="hero__service-title">Калькулятор</span>
+        <span class="hero__service-desc">Розрахунок для підвісних стель</span>
+      </a>
+      <a class="hero__service-card" href="#">
+        <span class="hero__service-icon">🧾</span>
+        <span class="hero__service-title">Прорахунок</span>
+        <span class="hero__service-desc">Кошторис за 1 робочий день</span>
+      </a>
+      <a class="hero__service-card" href="#">
+        <span class="hero__service-icon">🚚</span>
+        <span class="hero__service-title">Доставка і оплата</span>
+        <span class="hero__service-desc">По Києву та всій Україні</span>
+      </a>
+      <a class="hero__service-card" href="#">
+        <span class="hero__service-icon">🏷️</span>
+        <span class="hero__service-title">Розпродаж</span>
+        <span class="hero__service-desc">Знижки на топові товари</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- TOP PRODUCTS -->
+  <section class="section-products" aria-label="Топові товари">
+    <div class="section-products__head">
+      <h2 class="section-products__title">Топові товари</h2>
+      <a class="section-products__all-link" href="#">Дивитись всі →</a>
+    </div>
+    <div class="section-products__grid">
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--discount">-19%</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Гіпсокартон Knauf 9,5x1200x2000мм</h3>
+        <div class="product-card__price-row">
+          <span class="product-card__price">252.90 грн</span>
+          <span class="product-card__old-price">312 грн</span>
+        </div>
+        <button class="product-card__button product-card__button--primary" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--discount">-14%</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Вологостійкий гіпсокартон Knauf 12,5x1200x2000мм</h3>
+        <div class="product-card__price-row">
+          <span class="product-card__price">322.92 грн</span>
+          <span class="product-card__old-price">375 грн</span>
+        </div>
+        <button class="product-card__button product-card__button--primary" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--discount">-11%</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Штукатурка цементна Siltek PM-11 стартова, 25 кг</h3>
+        <div class="product-card__price-row">
+          <span class="product-card__price">213.24 грн</span>
+          <span class="product-card__old-price">240 грн</span>
+        </div>
+        <button class="product-card__button product-card__button--primary" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Клей для шпалер Bostik Wall Standard 70, 15л</h3>
+        <div class="product-card__price-row">
+          <span class="product-card__price">1 290.24 грн</span>
+        </div>
+        <button class="product-card__button product-card__button--primary" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--discount">-14%</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Штукатурка гіпсова Siltek PМ-20 PRO, 25 кг</h3>
+        <div class="product-card__price-row">
+          <span class="product-card__price">311.94 грн</span>
+          <span class="product-card__old-price">363 грн</span>
+        </div>
+        <button class="product-card__button product-card__button--primary" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--discount">-27%</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Штукатурка гіпсова Knauf МП-75 машинна, 30 кг</h3>
+        <div class="product-card__price-row">
+          <span class="product-card__price">348 грн</span>
+          <span class="product-card__old-price">477 грн</span>
+        </div>
+        <button class="product-card__button product-card__button--primary" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--discount">-12%</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Плита OSB-3 Кроноспан 2500x1250x10мм</h3>
+        <div class="product-card__price-row">
+          <span class="product-card__price">615 грн</span>
+          <span class="product-card__old-price">699 грн</span>
+        </div>
+        <button class="product-card__button product-card__button--primary" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--discount">-30%</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Шпаклівка готова Semin Soft, 20кг</h3>
+        <div class="product-card__price-row">
+          <span class="product-card__price">549 грн</span>
+          <span class="product-card__old-price">784 грн</span>
+        </div>
+        <button class="product-card__button product-card__button--primary" type="button">У кошик</button>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- NEW PRODUCTS -->
+  <section class="section-products" aria-label="Новинки">
+    <div class="section-products__head">
+      <h2 class="section-products__title">Новинки</h2>
+      <a class="section-products__all-link" href="#">Дивитись всі →</a>
+    </div>
+    <div class="section-products__grid">
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--new">НОВИНКА</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Саморізи по металу на стрічці Semin 3,5x35 мм, 1000 шт.</h3>
+        <div class="product-card__price-row"><span class="product-card__price">780 грн</span></div>
+        <button class="product-card__button product-card__button--tint" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--new">НОВИНКА</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Підвісна стеля трикутна Алюбест Грильято 75х75 мм (м²)</h3>
+        <div class="product-card__price-row"><span class="product-card__price">1 320 грн</span></div>
+        <button class="product-card__button product-card__button--tint" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--new">НОВИНКА</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Плита підвісної стелі Industrial Black A 600х600х20 мм</h3>
+        <div class="product-card__price-row"><span class="product-card__price">313.62 грн</span></div>
+        <button class="product-card__button product-card__button--tint" type="button">У кошик</button>
+      </article>
+
+      <article class="product-card">
+        <span class="product-card__badge product-card__badge--new">НОВИНКА</span>
+        <div class="product-card__image"><span class="product-card__image-label">ФОТО ТОВАРУ</span></div>
+        <h3 class="product-card__title">Підвісна стеля Baffle Element Heradesign 2400x150x30 мм</h3>
+        <div class="product-card__price-row"><span class="product-card__price">4 000 грн</span></div>
+        <button class="product-card__button product-card__button--tint" type="button">У кошик</button>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF: РЕАЛІЗОВАНІ ОБ'ЄКТИ (піднято вище за пріоритетом) -->
+  <section class="portfolio" aria-label="Реалізовані об'єкти">
+    <div class="portfolio__inner">
+      <div class="portfolio__head">
+        <div>
+          <h2 class="portfolio__title">Реалізовані об'єкти</h2>
+          <p class="portfolio__subtitle">Нам довіряють провідні девелопери, мережі та бренди країни</p>
+        </div>
+        <a class="portfolio__all-link" href="#">Дивитись всі →</a>
+      </div>
+      <div class="portfolio__grid">
+
+        <a class="portfolio-card" href="#">
+          <span class="portfolio-card__tag">ЛОГО / ФОТО</span>
+          <span>
+            <span class="portfolio-card__name">Gravity Park</span>
+            <span class="portfolio-card__desc">Житловий комплекс, м. Київ</span>
+          </span>
+        </a>
+        <a class="portfolio-card" href="#">
+          <span class="portfolio-card__tag">ЛОГО / ФОТО</span>
+          <span>
+            <span class="portfolio-card__name">LuxDental</span>
+            <span class="portfolio-card__desc">Стоматологічна клініка</span>
+          </span>
+        </a>
+        <a class="portfolio-card" href="#">
+          <span class="portfolio-card__tag">ЛОГО / ФОТО</span>
+          <span>
+            <span class="portfolio-card__name">Sensory IQ</span>
+            <span class="portfolio-card__desc">Дитячий центр розвитку, м. Київ</span>
+          </span>
+        </a>
+        <a class="portfolio-card" href="#">
+          <span class="portfolio-card__tag">ЛОГО / ФОТО</span>
+          <span>
+            <span class="portfolio-card__name">Гімназія А+</span>
+            <span class="portfolio-card__desc">Приватний навчальний заклад</span>
+          </span>
+        </a>
+        <a class="portfolio-card" href="#">
+          <span class="portfolio-card__tag">ЛОГО / ФОТО</span>
+          <span>
+            <span class="portfolio-card__name">Anthill Space</span>
+            <span class="portfolio-card__desc">Коворкінг, м. Київ</span>
+          </span>
+        </a>
+        <a class="portfolio-card" href="#">
+          <span class="portfolio-card__tag">ЛОГО / ФОТО</span>
+          <span>
+            <span class="portfolio-card__name">Altbank</span>
+            <span class="portfolio-card__desc">АТ «Альтбанк», м. Київ</span>
+          </span>
+        </a>
+        <a class="portfolio-card" href="#">
+          <span class="portfolio-card__tag">ЛОГО / ФОТО</span>
+          <span>
+            <span class="portfolio-card__name">LAVINA Mall</span>
+            <span class="portfolio-card__desc">ТРЦ LAVINA Mall, м. Київ</span>
+          </span>
+        </a>
+        <a class="portfolio-card" href="#">
+          <span class="portfolio-card__tag">ЛОГО / ФОТО</span>
+          <span>
+            <span class="portfolio-card__name">Ocean Plaza</span>
+            <span class="portfolio-card__desc">ТРЦ Ocean Plaza, м. Київ</span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO TEXT -->
+  <section class="seo-text" aria-label="Про магазин">
+    <h1 class="seo-text__title">Будівельний магазин Alkiv</h1>
+    <div class="seo-text__clip">
+      <div class="seo-text__body">
+        <p>Створюючи новий інтер'єр чи роблячи свіжий ремонт, часто доводиться вирішувати делікатне питання — як знайти якісні матеріали, та ще й за приємними цінами. Надійний помічник у цьому — будівельний магазин у Києві Alkiv, де можна купити будівельні матеріали, незамінні для ремонту та будівництва.</p>
+
+        <h3 class="seo-text__subhead">Alkiv — інтернет-магазин будівельних матеріалів</h3>
+        <p>Значна кількість товарів, необхідних для створення унікальних інтер'єрів і побудови міцних стін, фундаментів і фасадів — все це зібрано в будівельному магазині Alkiv. Купуючи продукцію тут, ви отримуєте гарантію якості та довголіття матеріалів, перевірених багатьма фахівцями у сфері будівництва.</p>
+
+        <h3 class="seo-text__subhead">Що пропонує наш магазин будматеріалів</h3>
+        <p>Ремонт — справа трудомістка і витратна як за часом, так і за вартістю. Але завжди результат стає ковтком свіжого повітря для дому. Інтернет-магазин будматеріалів у Києві Alkiv пропонує:</p>
+        <div class="seo-text__chips">
+          <span class="seo-text__chip">Оздоблювальні товари</span>
+          <span class="seo-text__chip">Будівельні матеріали</span>
+          <span class="seo-text__chip">Підвісні стелі</span>
+          <span class="seo-text__chip">Сантехніку</span>
+          <span class="seo-text__chip">Товари для саду</span>
+          <span class="seo-text__chip">Бетон, цегла</span>
+          <span class="seo-text__chip">Покрівля та фасад</span>
+          <span class="seo-text__chip">Електрообладнання</span>
+        </div>
+        <p>Найкращі бренди і марки будівельних матеріалів представлені на нашому сайті: від товарів Німеччини і США до продукції Франції, Румунії та українських виробників.</p>
+
+        <h3 class="seo-text__subhead">Якість і доступна ціна — перш за все</h3>
+        <p>Наш інтернет-магазин надає сертифікати якості на кожен продукт. Багато популярних об'єктів у Києві побудовані за допомогою якісних товарів, представлених на нашому сайті — всі позиції відповідають всесвітнім стандартам. Доступність цін здивує як роздрібних, так і оптових покупців: пряма оптова закупівля дозволяє пропонувати демократичні ціни, акції та лояльні знижки.</p>
+
+        <h3 class="seo-text__subhead">Гідний сервіс і блискавична швидкість</h3>
+        <p>Чому саме інтернет-магазин? Це доступно в будь-який момент і в будь-якому місці. Зробити замовлення легко: знайти потрібний товар, вибрати кількість, оформити замовлення і дочекатися доставки до відділення або під двері. Ще простіше скористатися послугою «зателефонувати за 28 секунд» — наші консультанти самі зателефонують і допоможуть з вибором.</p>
+        <p>Магазин будівельних товарів Alkiv працює на ринку з 1995 року. Щодня ми вдосконалюємось, щоб бути ближчими до наших клієнтів. Ви можете купити будівельні матеріали в Києві та Київській області самовивозом зі складу або скориставшись послугами перевізників — також доставляємо по всій Україні власним автотранспортом.</p>
+      </div>
+    </div>
+    <label class="seo-text__toggle" for="seo-toggle">
+      <span class="seo-text__toggle-label--more">Читати повністю</span>
+      <span class="seo-text__toggle-label--less">Згорнути</span>
+    </label>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div class="site-footer__brand">
+      <div class="site-footer__logo">
+        <span class="site-footer__logo-mark">A</span>
+        <span class="site-footer__logo-word">alkiv</span>
+      </div>
+      <p class="site-footer__desc">Інтернет-магазин будівельних матеріалів. Гуртовий та роздрібний продаж з 1995 року.</p>
+      <div class="site-footer__socials">
+        <a class="site-footer__social-link" href="https://www.facebook.com/alkiv.ua/" aria-label="Facebook">f</a>
+        <a class="site-footer__social-link" href="https://www.instagram.com/alkiv.ua/" aria-label="Instagram">◎</a>
+      </div>
+    </div>
+    <div>
+      <div class="site-footer__col-title">Корисні посилання</div>
+      <div class="site-footer__links">
+        <a class="site-footer__link" href="#">Реалізовані об'єкти</a>
+        <a class="site-footer__link" href="#">Вакансії</a>
+        <a class="site-footer__link" href="#">Бренди</a>
+        <a class="site-footer__link" href="#">Гарантія та повернення</a>
+        <a class="site-footer__link" href="#">Політика конфіденційності</a>
+        <a class="site-footer__link" href="#">Партнерство</a>
+      </div>
+    </div>
+    <div>
+      <div class="site-footer__col-title">Контакти</div>
+      <div class="site-footer__links">
+        <a class="site-footer__link" href="tel:+380502018092">050 201-80-92 (безкоштовно)</a>
+        <a class="site-footer__link" href="mailto:emarket@alkiv.ua">emarket@alkiv.ua</a>
+        <a class="site-footer__link" href="#">Карта проїзду</a>
+      </div>
+    </div>
+    <div>
+      <div class="site-footer__col-title">Графік роботи</div>
+      <div class="site-footer__hours">
+        <span>Пн–Пт: 9:00–17:00</span>
+        <span>Сб, Нд: вихідний</span>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer__bottom">Інтернет-магазин будівельних матеріалів «Alkiv™» 2012–2026 рр.</div>
+</footer>
+
+</body>
+</html>
