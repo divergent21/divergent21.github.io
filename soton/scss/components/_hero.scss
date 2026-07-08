@@ -1,0 +1,117 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hero {
+  background: $color-navy;
+  color: $color-white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__grid {
+  @include container;
+  display: grid;
+  gap: $space-8;
+  padding-block: $space-8;
+
+  @include bp(laptop) {
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    padding-block: $space-9;
+    gap: $space-7;
+  }
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  font-family: $font-mono;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: $color-orange;
+  margin-bottom: $space-5;
+
+  &::before {
+    content: '';
+    width: 24px;
+    height: $border-w;
+    background: $color-orange;
+  }
+}
+
+.hero__title {
+  color: $color-white;
+  margin-bottom: $space-5;
+}
+
+.hero__lead {
+  color: rgba($color-white, .72);
+  max-width: 46ch;
+  margin-bottom: $space-7;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin-bottom: $space-7;
+}
+
+.hero__certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3 $space-6;
+  padding-top: $space-6;
+  border-top: $border-w solid rgba($color-white, .16);
+}
+
+.hero__cert {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero__cert-value {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: 15px;
+  color: $color-white;
+}
+
+.hero__cert-label {
+  font-size: 12px;
+  color: rgba($color-white, .55);
+}
+
+.hero__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%);
+
+  @include bp(laptop) {
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.hero__media-frame {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(135deg, rgba($color-white,.06) 0 2px, transparent 2px 14px),
+    linear-gradient(160deg, $color-blue-dark, $color-navy-2 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $space-5;
+}
+
+.hero__media-label {
+  font-family: $font-mono;
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: rgba($color-white, .55);
+  line-height: 1.7;
+}

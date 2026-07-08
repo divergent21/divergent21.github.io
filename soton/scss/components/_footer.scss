@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.site-footer {
+  background: $color-navy;
+  color: rgba($color-white, .7);
+}
+
+.site-footer__top {
+  display: grid;
+  gap: $space-7;
+  padding-block: $space-8;
+  border-bottom: $border-w solid rgba($color-white, .12);
+
+  @include bp(laptop) {
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: $space-6;
+  }
+}
+
+.site-footer__logo {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 24px;
+  color: $color-white;
+  margin-bottom: $space-4;
+}
+
+.site-footer__logo-mark {
+  color: $color-orange;
+}
+
+.site-footer__blurb {
+  font-size: 14px;
+  max-width: 32ch;
+  line-height: 1.6;
+}
+
+.site-footer__col-title {
+  @include eyebrow;
+  color: rgba($color-white, .5);
+  margin-bottom: $space-4;
+}
+
+.site-footer__link {
+  display: block;
+  padding-block: $space-2;
+  font-size: 14.5px;
+  transition: color $dur-fast $ease-out;
+
+  &:hover { color: $color-white; }
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  padding-block: $space-6;
+  font-size: 13px;
+
+  @include bp(tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.site-footer__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2 $space-5;
+}
+
+.site-footer__contact {
+  &:hover { color: $color-white; }
+}

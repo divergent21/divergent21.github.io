@@ -1,0 +1,40 @@
+@use 'variables' as *;
+
+// Responsive breakpoint mixin (mobile-first base, min-width overrides)
+@mixin bp($name) {
+  @if $name == tablet {
+    @media (min-width: $bp-tablet) { @content; }
+  } @else if $name == laptop {
+    @media (min-width: $bp-laptop) { @content; }
+  } @else if $name == desktop {
+    @media (min-width: $bp-desktop) { @content; }
+  } @else if $name == mobile-only {
+    @media (max-width: #{$bp-tablet - 1px}) { @content; }
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $container-pad;
+
+  @include bp(tablet) {
+    padding-inline: $space-7;
+  }
+}
+
+@mixin eyebrow {
+  font-family: $font-mono;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: $color-orange-dark;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-blue;
+    outline-offset: 3px;
+  }
+}

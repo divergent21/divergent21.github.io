@@ -1,0 +1,29 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  align-items: flex-start;
+  padding: $space-7 $container-pad;
+  background: $color-white;
+  border: $border-w solid $color-border;
+
+  @include bp(tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: $space-7;
+  }
+}
+
+.cta__title {
+  font-size: 24px;
+}
+
+.cta__text {
+  color: $color-gray-700;
+  font-size: 15px;
+  margin-top: $space-2;
+}

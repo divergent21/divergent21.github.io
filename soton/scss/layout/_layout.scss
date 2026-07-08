@@ -1,0 +1,39 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.container {
+  @include container;
+}
+
+.section {
+  padding-block: $space-8;
+
+  @include bp(laptop) {
+    padding-block: $space-9;
+  }
+
+  &--tight {
+    padding-block: $space-7;
+  }
+
+  &--navy {
+    background: $color-navy;
+    color: $color-white;
+  }
+
+  &--paper {
+    background: $color-paper;
+  }
+
+  &--white {
+    background: $color-white;
+  }
+}
+
+.section__head {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin-bottom: $space-7;
+  max-width: 640px;
+}

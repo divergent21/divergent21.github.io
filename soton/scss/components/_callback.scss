@@ -1,0 +1,77 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.callback {
+  background: $color-orange;
+  color: $color-white;
+}
+
+.callback__inner {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+
+  @include bp(laptop) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.callback__title {
+  color: $color-white;
+  max-width: 420px;
+}
+
+.callback__subtext {
+  color: rgba($color-white, .82);
+  margin-top: $space-3;
+  font-size: 15px;
+}
+
+.callback__form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  width: 100%;
+
+  @include bp(tablet) {
+    flex-direction: row;
+  }
+
+  @include bp(laptop) {
+    width: auto;
+    min-width: 420px;
+  }
+}
+
+.callback__input {
+  flex: 1;
+  height: 52px;
+  padding-inline: $space-5;
+  background: rgba($color-white, .12);
+  border: $border-w solid rgba($color-white, .4);
+  color: $color-white;
+  border-radius: $radius-sm;
+
+  &::placeholder { color: rgba($color-white, .65); }
+
+  &:focus-visible {
+    outline: 2px solid $color-white;
+    outline-offset: 2px;
+  }
+}
+
+.callback__submit {
+  height: 52px;
+  padding-inline: $space-6;
+  background: $color-navy;
+  color: $color-white;
+  border-radius: $radius-sm;
+  font-family: $font-display;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background $dur-fast $ease-out;
+
+  &:hover { background: $color-navy-2; }
+}
