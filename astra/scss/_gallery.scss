@@ -1,0 +1,31 @@
+.gallery {
+  &__inner {
+    @include container;
+    padding-bottom: 88px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 16px;
+    height: 340px;
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+      height: auto;
+    }
+  }
+
+  &__item {
+    @include tablet {
+      height: 140px;
+    }
+  }
+
+  &__item--wide {
+    @include tablet {
+      grid-column: span 2;
+      height: 200px;
+    }
+  }
+}

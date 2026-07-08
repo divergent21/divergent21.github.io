@@ -1,0 +1,145 @@
+.mobile-menu-backdrop {
+  display: none;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(400px, 88vw);
+  background: $color-dark;
+  z-index: $z-mobile-menu;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform .3s ease;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 22px;
+    border-bottom: 1px solid $color-line-dark;
+    flex: none;
+  }
+
+  &__close {
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    background: transparent;
+    color: $color-bg;
+    font-size: 20px;
+  }
+
+  &__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 22px 30px;
+  }
+
+  &__item {
+    border-bottom: 1px solid $color-line-dark;
+  }
+
+  &__link {
+    display: block;
+    padding: 20px 4px;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 24px;
+    color: $color-bg;
+  }
+
+  &__group-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 4px;
+    background: transparent;
+    border: none;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 24px;
+    color: $color-bg;
+    text-align: left;
+  }
+
+  &__chevron {
+    font-style: normal;
+    font-size: 14px;
+    color: $color-text-muted-dark;
+    transition: transform .2s ease;
+  }
+
+  &__sublist {
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 4px 18px;
+  }
+
+  &__sublink {
+    padding: 11px 10px 11px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(243, 240, 233, 0.75);
+    border-left: 2px solid rgba($color-accent, 0.5);
+  }
+
+  &__item--group.is-open {
+    .mobile-menu__sublist {
+      display: flex;
+    }
+
+    .mobile-menu__chevron {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__bottom {
+    padding: 20px 22px 28px;
+    border-top: 1px solid $color-line-dark;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: none;
+  }
+
+  &__phone {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 22px;
+    color: $color-bg;
+  }
+
+  &__cta {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+// backdrop + open state shown only when JS toggles is-open
+body.menu-open {
+  overflow: hidden;
+
+  .mobile-menu-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: $z-mobile-menu - 1;
+  }
+}
+
+@include tablet {
+  .mobile-menu {
+    display: flex;
+  }
+}

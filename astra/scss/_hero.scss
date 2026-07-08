@@ -1,0 +1,120 @@
+.hero {
+  position: relative;
+  background: $color-dark;
+  overflow: hidden;
+
+  &__pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.5;
+    background-image: repeating-linear-gradient(115deg, rgba($color-accent, 0.14) 0px, rgba($color-accent, 0.14) 2px, transparent 2px, transparent 34px);
+  }
+
+  &__inner {
+    @include container;
+    position: relative;
+    padding-top: 64px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
+    align-items: center;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__content {
+    padding-bottom: 70px;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba($color-accent, 0.16);
+    border: 1px solid rgba($color-accent, 0.4);
+    padding: 8px 16px 8px 12px;
+    margin-bottom: 28px;
+  }
+
+  &__badge-num {
+    font-family: $font-display;
+    font-weight: 800;
+    font-size: 15px;
+    color: $color-accent-light;
+  }
+
+  &__badge-text {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: $color-text-muted-dark;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-weight: 800;
+    font-size: clamp(38px, 4.6vw, 64px);
+    line-height: 0.98;
+    color: $color-bg;
+    margin: 0 0 24px;
+    letter-spacing: -0.5px;
+  }
+
+  &__title-accent {
+    color: $color-accent;
+  }
+
+  &__text {
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: $color-text-muted-dark;
+    max-width: 480px;
+    margin: 0 0 36px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  &__media {
+    position: relative;
+    height: 100%;
+    min-height: 340px;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__stat {
+    position: absolute;
+    left: -18px;
+    bottom: 34px;
+    background: $color-bg;
+    padding: 18px 22px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+      left: 12px;
+    }
+  }
+
+  &__stat-num {
+    font-family: $font-display;
+    font-weight: 800;
+    font-size: 30px;
+    color: $color-dark;
+  }
+
+  &__stat-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-text-muted;
+    max-width: 110px;
+  }
+}

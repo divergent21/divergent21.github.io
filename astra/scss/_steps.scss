@@ -1,0 +1,45 @@
+.steps {
+  &__inner {
+    @include container;
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding: 36px 26px 30px;
+    border: 1px solid $color-line;
+  }
+
+  &__num {
+    display: block;
+    font-family: $font-display;
+    font-weight: 800;
+    font-size: 52px;
+    color: rgba($color-accent, 0.22);
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+
+  &__desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: $color-text-muted;
+  }
+}

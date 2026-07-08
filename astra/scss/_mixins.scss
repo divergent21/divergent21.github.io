@@ -1,0 +1,26 @@
+@mixin tablet {
+  @media (max-width: #{$bp-tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$bp-mobile}) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $gutter;
+}
+
+@mixin striped-placeholder($bg, $stripe) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg;
+  background-image: repeating-linear-gradient(135deg, $stripe 0px, $stripe 2px, transparent 2px, transparent 22px);
+}

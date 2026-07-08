@@ -1,0 +1,186 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  background: $color-bg;
+  border-bottom: 1px solid transparent;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+
+  &.is-scrolled {
+    background: rgba(243, 240, 233, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom-color: $color-line;
+  }
+
+  &__inner {
+    @include container;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__logo {
+    flex: none;
+  }
+
+  &__nav {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: none;
+  }
+
+  &__phone {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.15;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__phone-number {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+  }
+
+  &__phone-label {
+    font-size: 11px;
+    color: $color-text-muted;
+    font-weight: 600;
+  }
+
+  &__cart {
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid $color-line;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    color: $color-fg;
+  }
+
+  &__burger {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+}
+
+// ---- desktop nav ----
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__item {
+    position: relative;
+    padding: 8px 0;
+
+    &--has-dropdown:hover .nav__dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 14px;
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  &__caret {
+    font-size: 10px;
+    opacity: 0.55;
+    font-style: normal;
+    transform: translateY(1px);
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $color-dark;
+    min-width: 240px;
+    padding: 10px;
+    box-shadow: 0 20px 40px rgba(20, 20, 15, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: all .18s ease;
+  }
+
+  &__dropdown-link {
+    display: block;
+    padding: 11px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-bg;
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+}
+
+// ---- burger icon button ----
+.burger {
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid $color-line;
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &__line {
+    position: absolute;
+    left: 50%;
+    width: 18px;
+    height: 2px;
+    background: $color-fg;
+    transition: all .2s ease;
+
+    &--top {
+      transform: translate(-50%, -4px);
+    }
+
+    &--bottom {
+      transform: translate(-50%, 4px);
+    }
+  }
+
+  &.is-active {
+    .burger__line--top {
+      transform: translate(-50%, 0) rotate(45deg);
+    }
+
+    .burger__line--bottom {
+      transform: translate(-50%, 0) rotate(-45deg);
+    }
+  }
+}

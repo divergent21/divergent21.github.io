@@ -1,0 +1,32 @@
+// ==========================================================================
+// Astra Company — design tokens
+// ==========================================================================
+
+// Colors
+$color-bg:          #f3f0e9; // warm off-white
+$color-fg:           #1c1b17; // near-black warm text
+$color-dark:         #1c222b; // graphite / header dark panels
+$color-dark-2:       #15191f; // footer, darkest panel
+$color-accent:       #c1552e; // rust / terracotta (roof-tile inspired)
+$color-accent-light: #e58a5f;
+$color-line:         rgba(28, 27, 23, 0.1);
+$color-line-dark:    rgba(255, 255, 255, 0.1);
+
+$color-text-muted:      rgba(28, 27, 23, 0.6);
+$color-text-muted-dark: rgba(243, 240, 233, 0.6);
+
+// Typography
+$font-display: 'Big Shoulders Display', sans-serif;
+$font-body: 'Manrope', sans-serif;
+
+// Layout
+$container-max: 1360px;
+$gutter: 24px;
+
+// Breakpoints
+$bp-tablet: 980px;
+$bp-mobile: 560px;
+
+// Z-index
+$z-header: 100;
+$z-mobile-menu: 200;
