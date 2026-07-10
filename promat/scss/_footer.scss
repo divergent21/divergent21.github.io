@@ -1,0 +1,109 @@
+@use "variables" as *;
+@use "sass:color";
+
+.site-footer {
+  position: relative;
+  background: $c-ink;
+  color: $c-on-ink;
+  overflow: hidden;
+  padding-top: 72px;
+
+  &__watermark {
+    font-family: $f-display;
+    font-weight: 900;
+    font-size: clamp(80px, 18vw, 260px);
+    line-height: 1;
+    color: color.change(oklch(46% 0.15 250deg), $alpha: 0.12);
+    white-space: nowrap;
+    text-align: center;
+    margin: 0 0 -0.18em;
+    user-select: none;
+
+    @media (max-width: $bp-mobile) { font-size: clamp(48px, 22vw, 120px); }
+  }
+
+  &__inner {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px 40px;
+
+    @media (max-width: $bp-mobile) { padding: 0 20px 32px; }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid color.change(oklch(96% 0.012 80deg), $alpha: 0.16);
+
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  &__brand-name {
+    font-family: $f-display;
+    font-weight: 800;
+    font-size: 26px;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  &__brand-tagline {
+    color: $c-on-ink-dim;
+    max-width: 32ch;
+
+    strong { color: $c-accent; }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+
+    @media (max-width: $bp-tablet) { grid-template-columns: 1fr 1fr; }
+    @media (max-width: $bp-mobile) { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  &__heading {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $c-on-ink-dim;
+    margin-bottom: 18px;
+  }
+
+  &__list li { margin-bottom: 10px; }
+  &__list a:hover,
+  &__social a:hover { color: $c-accent; }
+
+  &__contact {
+    line-height: 1.8;
+    color: $c-on-ink-dim;
+
+    a:hover { color: $c-accent; }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 28px;
+    font-size: 13px;
+    color: $c-on-ink-dim;
+  }
+
+  &__legal {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    a:hover { color: $c-accent; }
+  }
+}

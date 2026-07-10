@@ -1,0 +1,106 @@
+@use "variables" as *;
+
+.features {
+  padding: 0 32px 120px;
+
+  @media (max-width: $bp-mobile) { padding: 0 20px 80px; }
+
+  &__head {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 32px;
+    border-bottom: 2px solid $c-ink;
+    margin-bottom: 56px;
+  }
+
+  &__heading {
+    font-family: $f-display;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  }
+
+  &__grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+
+    @media (max-width: $bp-tablet) { grid-template-columns: 1fr; }
+  }
+
+  &__card {
+    position: relative;
+    border: 2px solid $c-ink;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-number {
+    position: absolute;
+    top: -18px;
+    left: 24px;
+    background: $c-paper;
+    border: 2px solid $c-ink;
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 10px;
+    z-index: 2;
+  }
+
+  &__card-media {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%, 0 88%);
+  }
+
+  &__card-body {
+    padding: 32px;
+
+    @media (max-width: $bp-mobile) { padding: 24px; }
+  }
+
+  &__card-title {
+    font-family: $f-display;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 12px;
+    overflow-wrap: break-word;
+  }
+
+  &__card-text {
+    color: $c-ink-soft;
+    margin-bottom: 24px;
+    overflow-wrap: break-word;
+  }
+
+  &__card-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    &::after {
+      content: "→";
+      transition: transform 0.2s ease;
+    }
+    &:hover::after { transform: translateX(4px); }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 2px;
+      width: 100%;
+      background: $c-accent;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    &:hover::before { transform: scaleX(1); }
+  }
+}

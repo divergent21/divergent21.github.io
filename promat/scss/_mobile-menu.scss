@@ -1,0 +1,123 @@
+@use "variables" as *;
+@use 'sass:color';
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: $c-ink;
+  color: $c-on-ink;
+  transform: translateY(-100%);
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  overflow-y: auto;
+
+  &--open { transform: translateY(0); }
+
+  &__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100%;
+    padding: 24px 32px 40px;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $bp-mobile) { padding: 20px 20px 32px; }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-h;
+    flex: none;
+  }
+
+  &__logo {
+    font-family: $f-display;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+  }
+
+  &__close {
+    width: 40px;
+    height: 40px;
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 2px;
+      background: $c-on-ink;
+
+      &:first-child { transform: translate(-50%, -50%) rotate(45deg); }
+      &:last-child { transform: translate(-50%, -50%) rotate(-45deg); }
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+  }
+
+  &__list { width: 100%; }
+
+  &__item {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    border-top: 1px solid color.change(oklch(96% 0.012 80deg), $alpha: 0.18);
+    padding: 14px 0;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    min-width: 0;
+
+    &:last-child { border-bottom: 1px solid color.change(oklch(96% 0.012 80deg), $alpha: 0.18); }
+
+    @media (max-width: 340px) {
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start;
+    }
+  }
+
+  &--open &__item {
+    opacity: 1;
+    transform: translateY(0);
+
+    // staggered reveal
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) { transition-delay: #{0.02 + $i * 0.06}s; }
+    }
+  }
+
+  &__link {
+    font-family: $f-display;
+    font-weight: 700;
+    font-size: clamp(24px, 7.5vw, 44px);
+    letter-spacing: -0.01em;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    &:hover { color: $c-accent; }
+
+    @media (max-width: $bp-mobile) { font-size: clamp(22px, 9vw, 34px); }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: none;
+    font-size: 14px;
+    color: $c-on-ink-dim;
+  }
+
+  &__contact:hover { color: $c-paper; }
+}

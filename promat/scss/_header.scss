@@ -1,0 +1,124 @@
+@use "variables" as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: $c-paper;
+  border-bottom: 2px solid $c-ink;
+
+  &__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    height: $header-h;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    @media (max-width: $bp-mobile) { padding: 0 20px; }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: none;
+
+    &:hover .site-header__logo-text { color: $c-ink; }
+  }
+
+  &__logo-mark {
+    width: 14px;
+    height: 26px;
+    background: $c-accent;
+    clip-path: polygon(35% 0, 100% 0, 65% 100%, 0 100%);
+    flex: none;
+  }
+
+  &__logo-text {
+    font-family: $f-display;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+
+    @media (max-width: $bp-tablet) { display: none; }
+  }
+
+  &__nav-link {
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 6px 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background: $c-accent;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    &:hover::after { transform: scaleX(1); }
+  }
+
+  &__tools {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: none;
+  }
+
+  &__lang {
+    border: 2px solid $c-ink;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+
+    &:hover { background: $c-ink; color: $c-paper; }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+
+    @media (max-width: $bp-tablet) { display: flex; }
+
+    &[aria-expanded="true"] {
+      .site-header__burger-line {
+        &:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        &:nth-child(2) { opacity: 0; }
+        &:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      }
+    }
+  }
+
+  &__burger-line {
+    width: 24px;
+    height: 2px;
+    background: $c-ink;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+}

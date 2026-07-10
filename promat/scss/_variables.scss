@@ -1,0 +1,20 @@
+// Promat UA — design tokens
+
+$c-ink: oklch(16% 0.014 55);
+$c-ink-soft: oklch(26% 0.016 55);
+$c-paper: oklch(97% 0.012 80);
+$c-paper-dim: oklch(93% 0.014 78);
+$c-paper-line: oklch(83% 0.014 75);
+$c-accent: oklch(46% 0.15 250);
+$c-accent-dark: oklch(32% 0.13 254);
+$c-accent-soft: oklch(93% 0.03 250);
+$c-on-ink: oklch(96% 0.012 80);
+$c-on-ink-dim: oklch(96% 0.012 80 / 0.6);
+
+$f-display: "Archivo", sans-serif;
+$f-body: "IBM Plex Sans", sans-serif;
+
+$header-h: 84px;
+
+$bp-tablet: 980px;
+$bp-mobile: 560px;
