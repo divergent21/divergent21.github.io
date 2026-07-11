@@ -1,0 +1,60 @@
+// ==========================================================================
+// Solutions list
+// ==========================================================================
+
+.solutions {
+  background: $color-graphite;
+  border-radius: $radius-lg;
+  max-width: $container-max;
+  margin: 0 auto;
+
+  .section__title,
+  .section__lead {
+    color: $color-white;
+  }
+
+  .section__lead {
+    color: rgba(255, 255, 255, .7);
+  }
+}
+
+.solution-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, .12);
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.solution-card {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 26px 24px;
+  background: $color-graphite;
+
+  &:hover {
+    background: #3a342d;
+  }
+}
+
+.solution-card__num {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 15px;
+  color: $color-terracotta-light;
+  flex: none;
+}
+
+.solution-card__title {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 18px;
+  color: $color-white;
+  line-height: 1.3;
+}

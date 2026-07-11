@@ -1,0 +1,230 @@
+// ==========================================================================
+// Header + desktop nav
+// ==========================================================================
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: $color-cream;
+  border-bottom: 1px solid $color-graphite-line;
+}
+
+.header__inner {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  @media (max-width: $bp-mobile) {
+    padding: 14px 20px;
+  }
+}
+
+.header__logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  color: $color-graphite;
+  margin-right: auto;
+
+  &:hover {
+    color: $color-graphite;
+  }
+}
+
+.header__logo-mark {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  color: $color-terracotta;
+}
+
+.header__logo-sub {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+}
+
+// Desktop nav
+.nav {
+  @media (max-width: $bp-tablet) {
+    display: none;
+  }
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav__item {
+  position: relative;
+}
+
+.nav__link {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  color: $color-graphite;
+
+  &:hover {
+    background: $color-cream-deep;
+    color: $color-graphite;
+  }
+}
+
+.nav__item--has-sub {
+  &:hover .nav__sub,
+  &:focus-within .nav__sub {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.nav__sub {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 280px;
+  background: $color-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  padding: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity .15s ease, transform .15s ease, visibility .15s ease;
+}
+
+.nav__sub-list {
+  display: grid;
+  gap: 2px;
+}
+
+.nav__sub-link {
+  display: block;
+  padding: 9px 12px;
+  border-radius: $radius-sm;
+  font-size: 14.5px;
+  color: $color-graphite;
+
+  &:hover {
+    background: $color-cream;
+    color: $color-terracotta-dark;
+  }
+}
+
+.nav__sub-all {
+  display: block;
+  margin-top: 6px;
+  padding: 9px 12px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $color-terracotta-dark;
+
+  &:hover {
+    color: $color-terracotta;
+  }
+}
+
+// Header tools (lang switch, CTA, burger)
+.header__tools {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 2px;
+
+  @media (max-width: $bp-tablet) {
+    display: none;
+  }
+}
+
+.lang-switch__link {
+  display: block;
+  padding: 6px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: $radius-sm;
+  color: $color-text-muted;
+
+  &--active {
+    color: $color-graphite;
+    background: $color-cream-deep;
+  }
+
+  &:hover {
+    color: $color-graphite;
+  }
+}
+
+.header__cta {
+  display: inline-flex;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: $color-graphite;
+  color: $color-white;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+
+  &:hover {
+    background: $color-terracotta;
+    color: $color-white;
+  }
+
+  @media (max-width: $bp-tablet) {
+    display: none;
+  }
+}
+
+// Burger button
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-sm;
+
+  @media (max-width: $bp-tablet) {
+    display: flex;
+  }
+
+  &:hover .burger__line {
+    background: $color-terracotta;
+  }
+}
+
+.burger__box {
+  width: 22px;
+  height: 16px;
+  position: relative;
+}
+
+.burger__line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: $color-graphite;
+  transition: transform .2s ease, opacity .2s ease, background .2s ease;
+
+  &:nth-child(1) { top: 0; }
+  &:nth-child(2) { top: 7px; }
+  &:nth-child(3) { top: 14px; }
+}

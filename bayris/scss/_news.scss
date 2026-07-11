@@ -1,0 +1,49 @@
+// ==========================================================================
+// News grid
+// ==========================================================================
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  transition: transform .18s ease, box-shadow .18s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px rgba(42, 38, 33, .28);
+  }
+}
+
+.news-card__photo {
+  @include photo-placeholder;
+  aspect-ratio: 16 / 10;
+}
+
+.news-card__date {
+  margin: 18px 20px 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: $color-terracotta-dark;
+}
+
+.news-card__title {
+  padding: 8px 20px 22px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: $color-graphite;
+}

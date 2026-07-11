@@ -1,0 +1,41 @@
+// ==========================================================================
+// About / long copy block
+// ==========================================================================
+
+.about__inner {
+  max-width: 800px;
+}
+
+.about__body {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $color-text-muted;
+
+  strong {
+    color: $color-graphite;
+  }
+}
+
+.about__body-extra {
+  display: none;
+}
+
+.about__body.is-expanded .about__body-extra {
+  display: block;
+}
+
+.about__toggle {
+  margin-top: 18px;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 15px;
+  color: $color-terracotta-dark;
+
+  &:hover {
+    color: $color-terracotta;
+  }
+}

@@ -1,0 +1,35 @@
+// ==========================================================================
+// Bayris — design tokens
+// ==========================================================================
+
+// Color — терракота/графіт, теплий "людяний" настрій
+$color-terracotta:       #cf5c2e;
+$color-terracotta-dark:  #a8431c;
+$color-terracotta-light: #f2895a;
+
+$color-graphite:      #2a2621;
+$color-graphite-soft: #59504a;
+$color-graphite-line: rgba(42, 38, 33, .12);
+
+$color-cream:      #f7f2ec;
+$color-cream-deep: #efe4d6;
+$color-white:      #ffffff;
+
+$color-text:       $color-graphite;
+$color-text-muted: $color-graphite-soft;
+
+// Type
+$font-display: "Manrope", "Segoe UI", Arial, sans-serif;
+$font-body:    "Inter", "Segoe UI", Arial, sans-serif;
+
+// Layout
+$container-max: 1240px;
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-lg: 24px;
+
+$shadow-card: 0 1px 2px rgba(42, 38, 33, .04), 0 12px 28px -16px rgba(42, 38, 33, .18);
+
+// Breakpoints
+$bp-tablet: 960px;
+$bp-mobile: 640px;
