@@ -1,0 +1,180 @@
+// About
+.about {
+  @include container;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include tablet {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__label {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 13px;
+    color: $color-accent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 34px;
+    color: $color-primary;
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+
+    @include mobile {
+      font-size: 26px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: $color-text-secondary;
+    margin-bottom: 16px;
+
+    &:last-of-type {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__features {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__feature-icon {
+    width: 40px;
+    height: 40px;
+    background: $color-bg-warm;
+    border-radius: $radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__feature-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-primary;
+  }
+
+  &__visual {
+    background: $color-bg-warm;
+    border-radius: $radius-2xl;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include mobile {
+      padding: 24px;
+    }
+  }
+
+  &__visual-row {
+    display: flex;
+    gap: 16px;
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__visual-card {
+    flex: 1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+
+    &--dark {
+      height: 160px;
+      background: linear-gradient(145deg, $color-primary, #2c3e50);
+    }
+
+    &--accent {
+      height: 160px;
+      background: $color-accent;
+    }
+  }
+
+  &__visual-number {
+    font-family: $font-heading;
+    font-weight: 800;
+    font-size: 28px;
+
+    &--light { color: $color-accent-light; }
+    &--white { color: $color-white; }
+  }
+
+  &__visual-desc {
+    font-size: 12px;
+    margin-top: 4px;
+
+    &--dim { color: rgba(255, 255, 255, 0.5); }
+    &--light { color: rgba(255, 255, 255, 0.7); }
+  }
+
+  &__brands-bar {
+    height: 120px;
+    background: linear-gradient(135deg, #2c3e50, #3a5a6b);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+
+    @include mobile {
+      gap: 20px;
+      height: auto;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__brand-name {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1px;
+  }
+
+  &__brand-sep {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.15);
+
+    @include mobile {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+// MultyDecor Brand Variables
+$color-primary: #1e2a38;
+$color-accent: #c4572a;
+$color-accent-hover: #b04d25;
+$color-accent-light: #e8a07a;
+$color-bg: #faf9f7;
+$color-bg-warm: #f5f0ea;
+$color-white: #fff;
+$color-text: #1a1a1a;
+$color-text-secondary: #555;
+$color-text-muted: #777;
+$color-text-light: #999;
+$color-border: rgba(0, 0, 0, 0.06);
+$color-border-light: rgba(0, 0, 0, 0.1);
+
+$font-heading: 'Montserrat', sans-serif;
+$font-body: 'Source Sans 3', sans-serif;
+
+$max-width: 1240px;
+$radius-sm: 8px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$radius-xl: 16px;
+$radius-2xl: 20px;
+
+$breakpoint-tablet: 900px;
+$breakpoint-mobile: 600px;
+
+@mixin container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@mixin tablet {
+  @media (max-width: $breakpoint-tablet) { @content; }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) { @content; }
+}

@@ -1,0 +1,82 @@
+// Advantages
+.advantages {
+  background: $color-primary;
+  padding: 80px 0;
+
+  @include tablet {
+    padding: 56px 0;
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+
+  &__label {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 13px;
+    color: $color-accent-light;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 34px;
+    color: $color-white;
+    letter-spacing: -0.3px;
+
+    @include mobile {
+      font-size: 26px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    padding: 32px 28px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: $radius-xl;
+  }
+
+  &__card-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba($color-accent, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  &__card-title {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 18px;
+    color: $color-white;
+    margin-bottom: 10px;
+  }
+
+  &__card-text {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+  }
+}

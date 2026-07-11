@@ -1,0 +1,72 @@
+// CTA Section
+.cta {
+  background: $color-accent;
+  padding: 64px 0;
+
+  &__inner {
+    @include container;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 30px;
+    color: $color-white;
+    margin-bottom: 16px;
+
+    @include mobile {
+      font-size: 24px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: $radius-md;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+
+    &--white {
+      background: $color-white;
+      color: $color-accent;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.9);
+        color: $color-accent;
+      }
+    }
+
+    &--ghost {
+      background: rgba(255, 255, 255, 0.15);
+      color: $color-white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: $color-white;
+      }
+    }
+  }
+}

@@ -1,0 +1,212 @@
+// Header
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+
+  &__top-bar {
+    background: $color-primary;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    padding: 6px 0;
+  }
+
+  &__top-inner {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    @include tablet {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &__top-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  &__top-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  &__top-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__fund-text {
+    opacity: 0.7;
+    font-size: 12px;
+  }
+
+  &__fund-star {
+    color: #f0c040;
+  }
+
+  &__main {
+    @include container;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  &__logo-icon {
+    width: 44px;
+    height: 44px;
+    background: $color-accent;
+    border-radius: $radius-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    font-family: $font-heading;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -1px;
+  }
+
+  &__logo-name {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 18px;
+    color: $color-primary;
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+  }
+
+  &__logo-sub {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__nav-link {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: $color-primary;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover,
+    &--active {
+      color: $color-accent;
+    }
+
+    &--active {
+      font-weight: 600;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  &__phone {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    font-size: 15px;
+    color: $color-primary;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-accent;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__cart {
+    position: relative;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background: #f5f3ef;
+    border-radius: $radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+
+  &__cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 16px;
+    height: 16px;
+    background: $color-accent;
+    border-radius: 50%;
+    font-size: 10px;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+
+  &__burger {
+    display: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background: #f5f3ef;
+    border-radius: $radius-md;
+    align-items: center;
+    justify-content: center;
+    border: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+}

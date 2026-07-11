@@ -1,0 +1,149 @@
+// Contacts
+.contacts {
+  @include container;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include tablet {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__label {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 13px;
+    color: $color-accent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 34px;
+    color: $color-primary;
+    margin-bottom: 32px;
+    letter-spacing: -0.3px;
+
+    @include mobile {
+      font-size: 26px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  &__item-icon {
+    width: 44px;
+    height: 44px;
+    background: $color-bg-warm;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__item-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: $color-primary;
+    margin-bottom: 2px;
+  }
+
+  &__item-text {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  &__item-note {
+    font-size: 12px;
+    color: $color-text-light;
+  }
+
+  &__form {
+    background: $color-bg-warm;
+    border-radius: $radius-2xl;
+    padding: 36px;
+
+    @include mobile {
+      padding: 24px;
+    }
+  }
+
+  &__form-title {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 18px;
+    color: $color-primary;
+    margin-bottom: 24px;
+  }
+
+  &__form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-md;
+    font-size: 14px;
+    font-family: inherit;
+    background: $color-white;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: $color-accent;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+  }
+
+  &__submit {
+    padding: 14px 24px;
+    background: $color-accent;
+    color: $color-white;
+    border: none;
+    border-radius: $radius-md;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: $color-accent-hover;
+    }
+  }
+}
